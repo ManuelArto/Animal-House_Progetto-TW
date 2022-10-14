@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/Home.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,16 +7,63 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
+      path: '/my_pets',
+      name: 'my_pets',
+      component: () => import('../views/MyPetsView.vue')
+    },
+    {
+      path: '/curiosita',
+      name: 'curiosita',
+      component: () => import('../views/CuriositaView.vue')
+    },
+    {
+      path: '/informazioni',
+      name: 'informazioni',
+      component: () => import('../views/InformazioniView.vue')
+    },
+    {
+      path: '/videos',
+      name: 'videos',
+      component: () => import('../views/VideosView.vue')
+    },
+    {
+      path: '/servizi',
+      name: 'servizi',
+      component: () => import('../views/ServiziView.vue')
+    },
+    {
+      path: '/prodotti',
+      name: 'prodotti',
+      component: () => import('../views/ProdottiView.vue')
+    },
+    {
+      path: '/games/',
+      name: 'GamesHome',
+      component: () => import('../views/games/GamesHomeView.vue')
+    },
+    {
+      path: '/games/quiz',
+      name: 'quiz',
+      component: () => import('../views/games/QuizView.vue')
+    },
+    {
+      path: '/games/memory',
+      name: 'memory',
+      component: () => import('../views/games/MemoryView.vue')
+    },
+    {
+      path: '/games/impiccato',
+      name: 'impiccato',
+      component: () => import('../views/games/ImpiccatoView.vue')
+    },
+    {
+      path: '/games/scova_le_differenze',
+      name: 'scova le differenze',
+      component: () => import('../views/games/ScovaDifferenzeView.vue')
+    },
   ]
 })
 
