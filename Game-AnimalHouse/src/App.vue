@@ -11,7 +11,6 @@ const routes = [
 	{ path: "/servizi", text: "Servizi" },
 	{ path: "/prodotti", text: "Prodotti" },
 	{ text: "Games ", nested: true, routes: [
-		{ path: "/games", text: "All Games" },
 		{ path: "/games/quiz", text: "Quiz" },
 		{ path: "/games/memory", text: "Memory" },
 		{ path: "/games/impiccato", text: "Impiccato" },

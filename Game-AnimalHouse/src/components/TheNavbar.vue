@@ -11,9 +11,9 @@ defineProps<{
 			AnimalHouse - Game
 		</b-navbar-brand>
 
-		<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+		<b-navbar-toggle v-b-toggle.nav-sidebar></b-navbar-toggle>
 
-		<b-collapse id="nav-collapse" is-nav>
+		<b-offcanvas id="nav-sidebar" title="Menu" right shadow>
 			<b-navbar-nav right>
 				<v-for v-for="route in routes">
 					<b-nav-item v-if="!route.nested" :to="route.path" :key="route.path">
@@ -26,6 +26,6 @@ defineProps<{
 					</b-nav-item-dropdown>
 				</v-for>
 			</b-navbar-nav>
-		</b-collapse>
+		</b-offcanvas>
 	</b-navbar>
 </template>

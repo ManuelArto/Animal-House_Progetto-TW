@@ -40,11 +40,6 @@ const router = createRouter({
       component: () => import('../views/ProdottiView.vue')
     },
     {
-      path: '/games/',
-      name: 'GamesHome',
-      component: () => import('../views/games/GamesHomeView.vue')
-    },
-    {
       path: '/games/quiz',
       name: 'quiz',
       component: () => import('../views/games/QuizView.vue')

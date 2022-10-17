@@ -8,7 +8,7 @@ import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
 import './assets/main.css'
 
-// TODO: mount different apps
+// TODO: mount different apps ?
 const app = createApp(App)
 
 app.use(router)
