@@ -1,5 +1,11 @@
 <template>
-
+  <div id="animals">
+    <div class = "container">
+      <h1 style="color:black; font-weight: bold; font-family: Georgia">Ecco i miei animali:</h1>
+        
+    </div>
+  </div>
+  <!------- ------------------- FATTO DA MANUEL -----------------------------------------------------
   <b-card bg-variant="light">
     <b-form-group label-cols-lg="3" label="Shipping Address" label-size="lg" label-class="fw-bold pt-0" class="mb-0">
       <b-form-group label="Street:" label-for="nested-street" label-cols-sm="3" label-align-sm="end">
@@ -20,7 +26,7 @@
       </b-form-group>
     </b-form-group>
   </b-card>
-
+-->
 </template>
 
 <script setup lang="ts">
