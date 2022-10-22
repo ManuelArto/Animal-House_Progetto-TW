@@ -1,7 +1,8 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import "./base.css";
 
 #app {
-  max-width: 1580px;
   font-weight: normal;
 }
 
@@ -12,20 +13,6 @@ a,
   transition: 0.4s;
 }
 
-.btn {
-  padding: .45rem 1.5rem .35rem;
-}
-
-.gradient-custom {
-  /* fallback for old browsers */
-  background: #c471f5;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(196, 113, 245, 1), rgba(250, 113, 205, 1));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(203, 245, 113), rgb(250, 216, 113))
-}
 @media (hover: hover) { 
   a:hover {
     background-color: hsla(162, 100%, 37%, 0.958);
@@ -33,20 +20,6 @@ a,
   }
 }
 
-.fa {
-  font-size: 35px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.fa:hover {
-  color: darkblue;
-}
-
-#video{
-  background-image: url("sfondo_video.jpg");
-}
-
-#animals{
-  background-image: url("sfondo_animali.jpg");
+.btn {
+  padding: .45rem 1.5rem .35rem;
 }

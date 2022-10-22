@@ -34,5 +34,7 @@
 </script>
 
 <style scoped>
-
+#animals{
+  background-image: url("@/assets/sfondo_animali.jpg");
+}
 </style>
