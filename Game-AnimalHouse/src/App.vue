@@ -2,18 +2,18 @@
 import Navbar from './components/TheNavbar.vue'
 
 const routes = [
-	{ path: "/", text: "Home" },
-	{ path: "/my_pets", text: "I miei animali" },
-	{ path: "/curiosita", text: "Curiosita" },
-	{ path: "/informazioni", text: "Informazioni utili sanitarie e legali" },
-	{ path: "/videos", text: "Video divertenti" },
-	{ path: "/servizi", text: "Servizi" },
-	{ path: "/prodotti", text: "Prodotti" },
-	{ text: "Games ", nested: true, routes: [
-		{ path: "/games/quiz", text: "Quiz" },
-		{ path: "/games/memory", text: "Memory" },
-		{ path: "/games/impiccato", text: "Impiccato" },
-		{ path: "/games/scova_le_differenze", text: "Scova le differenze" },
+	{ path: "/", text: "Home", icon: "bi-house-door-fill"},
+	{ path: "/curiosita", text: "Curiosita", icon: "bi-patch-question"},
+	{ path: "/informazioni", text: "Informazioni utili sanitarie e legali", icon: "bi-info-circle"},
+	{ path: "/my_pets", text: "I miei animali", icon: "bi-house-heart-fill"},
+	{ path: "/videos", text: "Video divertenti", icon: "bi-collection-play"},
+	{ path: "/negozio", text: "Prodotti", icon: "bi-shop"},
+	{ path: "/servizi", text: "Servizi", icon: "bi-gear"},
+	{ text: "Games ", nested: true, icon: "bi-controller", routes: [
+		{ path: "/games/quiz", text: "Quiz", icon: "s"},
+		{ path: "/games/memory", text: "Memory", icon: "s"},
+		{ path: "/games/impiccato", text: "Impiccato", icon: "s"},
+		{ path: "/games/scova_le_differenze", text: "Scova le differenze", icon: "s"},
 	]}
 ];
 
