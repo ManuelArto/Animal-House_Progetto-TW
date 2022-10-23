@@ -16,18 +16,16 @@ defineProps<{
 
 		<!-- Collapsible sidebar -->
 		<b-offcanvas id="nav-sidebar" title="Menu" shadow backdrop>
-			<b-navbar-nav >
+			<b-navbar-nav>
 				<span v-for="route in routes">
 					<b-nav-item v-if="!route.nested" :to="route.path" :key="route.path"
-						class="text-center mx-2 mx-lg-1">
+						class="mx-2 mx-lg-1">
 						<i :class="route.icon" />
-						<br>
 						{{ route.text }}
 					</b-nav-item>
-					<b-nav-item-dropdown v-else class="text-center mx-2 mx-lg-1">
+					<b-nav-item-dropdown v-else class="mx-2 mx-lg-1">
 						<template #button-content>
 							<i :class="route.icon" />
-							<br>
 							{{ route.text }}
 						</template>
 						<b-dropdown-item v-for="sub_route in route.routes" :to="sub_route.path" :key="sub_route.path">
