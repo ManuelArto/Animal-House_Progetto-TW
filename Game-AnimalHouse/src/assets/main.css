@@ -5,21 +5,3 @@
 #app {
   font-weight: normal;
 }
-
-a,
-.green {
-  text-decoration: line-through;
-  color: rgb(189, 104, 0);
-  transition: 0.4s;
-}
-
-@media (hover: hover) { 
-  a:hover {
-    background-color: hsla(177, 100%, 37%, 0.958);
-    border-radius: 30%;
-  }
-}
-
-.btn {
-  padding: .45rem 1.5rem .35rem;
-}
