@@ -1,99 +1,90 @@
+<script setup>
+    let animals = [{
+      specie: "Cane",
+      razza: "maltese",
+      compleanno: "10/10/2020",
+      condizioni: "Buone condizioni mediche",
+    }, 
+    {
+
+    }]
+  
+</script>
 <template>
   <div id="animals">
     <div class = "container">
       <h1 style="color:black; font-weight: bold; font-family: Georgia">Ecco i miei animali:</h1>
       <div id="accordion">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <a class="btn btn-link" data-bs-toggle="collapse" href="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne">
-                  Aggiungi un animale
-                </a>
-              </h5>
-            </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-
-                <div class='signup-container'>
-                      <div class='left-container'>
-                        <h1>
-                          <i class='fas fa-paw'></i>
-                          AnimalHouse
-                        </h1>
-                        <div class='puppy'>
-                          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png'>
-                        </div>
-                      </div>
-                      <div class='right-container'>
-                        <header>
-                          <h1>Yay, puppies! Ensure your pup gets the best care!</h1>
-                          <div class='set'>
-                            <div class='pets-name'>
-                              <label for='pets-name'>Name</label>
-                              <input id='pets-name' placeholder="Pet's name" type='text'>
-                            </div>
-                            <div class='pets-photo'>
-                              <button id='pets-upload'>
-                                <i class="bi bi-camera"></i>
-                              </button>
-                              <label for='pets-upload'>Upload a photo</label>
-                            </div>
-                          </div>
-                          <div class='set'>
-                            <div class='pets-breed'>
-                              <label for='pets-breed'>Breed</label>
-                              <input id='pets-breed' placeholder="Pet's breed" type='text'>
-                            </div>
-                            <div class='pets-birthday'>
-                              <label for='pets-birthday'>Birthday</label>
-                              <input id='pets-birthday' type='date'>
-                            </div>
-                          </div>
-                          <div class='set'>
-                            <div class='pets-gender'>
-                              <label for='pet-gender-female'>Gender</label>
-                              <div class='radio-container'>
-                                <input id='pet-gender-female' name='pet-gender' type='radio' value='female' checked>
-                                <label for='pet-gender-female'>Female</label>
-                                <input id='pet-gender-male' name='pet-gender' type='radio' value='male'>
-                                <label for='pet-gender-male'>Male</label>
-                              </div>
-                            </div>
-                            <div class='pets-spayed-neutered'>
-                              <label for='pet-spayed'>Spayed or Neutered</label>
-                              <div class='radio-container'>
-                                <input id='pet-spayed' name='spayed-neutered' type='radio' value='spayed' checked>
-                                <label for='pet-spayed'>Spayed</label>
-                                <input id='pet-neutered' name='spayed-neutered' type='radio' value='neutered'>
-                                <label for='pet-neutered'>Neutered</label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class='pets-weight'>
-                            <label for='pet-weight-0-25'>Weight</label>
-                            <div class='radio-container'>
-                              <input id='pet-weight-0-25' name='pet-weight' type='radio' value='0-25' checked>
-                              <label for='pet-weight-0-25'>0-10 kg</label>
-                              <input id='pet-weight-25-50' name='pet-weight' type='radio' value='25-50'>
-                              <label for='pet-weight-25-50'>10-25 kg</label>
-                              <input id='pet-weight-50-100' name='pet-weight' type='radio' value='50-100'>
-                              <label for='pet-weight-50-100'>25-50 kg</label>
-                              <input id='pet-weight-100-plus' name='pet-weight' type='radio' value='100+'>
-                              <label for='pet-weight-100-plus'>50+ kg</label>
-                            </div>
-                          </div>
-                        </header>
-                        <footer>
-                          <div class='set'>
-                            <button id='submit'>Submit</button>
-                          </div>
-                        </footer>
+        <div id="collapseOne" class="collapse" data-parent="#accordion">
+          <div class='signup-container'>
+            <div class='right-container'>
+              <header>
+                <h1>Inserisci le informazioni del tuo amico</h1>
+                <div class='set'>
+                  <div class='pets-name'>
+                    <label for='pets-name'>Name</label>
+                    <input id='pets-name' placeholder="Pet's name" type='text'>
+                  </div>
+                  <div class='pets-photo'>
+                    <label for='pets-upload'><i class="bi bi-camera"></i> Upload a photo</label><br>
+                    <input id='pets-breed' placeholder="URL of photo" type='text'>
                   </div>
                 </div>
-
-              </div>  
+                <div class='set'>
+                  <div class='pets-breed'>
+                    <label for='pets-breed'>Breed</label>
+                    <input id='pets-breed' placeholder="Pet's breed" type='text'>
+                  </div>
+                  <div class='pets-birthday'>
+                    <label for='pets-birthday'>Birthday</label>
+                    <input id='pets-birthday' type='date'>
+                  </div>
+                </div>
+                <div class='set'>
+                  <div class='pets-gender'>
+                    <label for='pet-gender-female'>Gender</label>
+                    <div class='radio-container'>
+                      <input id='pet-gender-female' name='pet-gender' type='radio' value='female' checked>
+                      <label for='pet-gender-female'>Female</label>
+                      <input id='pet-gender-male' name='pet-gender' type='radio' value='male'>
+                      <label for='pet-gender-male'>Male</label>
+                    </div>
+                  </div>
+                  <div class='pets-spayed-neutered'>
+                    <label for='pet-spayed'>Spayed or Neutered</label>
+                    <div class='radio-container'>
+                      <input id='pet-spayed' name='spayed-neutered' type='radio' value='spayed' checked>
+                      <label for='pet-spayed'>Spayed</label>
+                      <input id='pet-neutered' name='spayed-neutered' type='radio' value='neutered'>
+                      <label for='pet-neutered'>Neutered</label>
+                    </div>
+                  </div>
+                </div>
+                <div class='pets-weight'>
+                  <label for='pet-weight-0-25'>Weight</label>
+                  <div class='radio-container'>
+                    <input id='pet-weight-0-25' name='pet-weight' type='radio' value='0-10' checked>
+                    <label for='pet-weight-0-25'>0-10 kg</label>
+                    <input id='pet-weight-25-50' name='pet-weight' type='radio' value='10-25'>
+                    <label for='pet-weight-25-50'>10-25 kg</label>
+                    <input id='pet-weight-50-100' name='pet-weight' type='radio' value='25-50'>
+                    <label for='pet-weight-50-100'>25-50 kg</label>
+                    <input id='pet-weight-100-plus' name='pet-weight' type='radio' value='50+'>
+                    <label for='pet-weight-100-plus'>50+ kg</label>
+                  </div>
+                </div>
+              </header>
+              <footer>    
+                <div class='set'>
+                  <button id="submit">Submit</button>
+                </div>
+              </footer>
             </div>
           </div>
+        </div>
+        <button id="btn" data-bs-toggle="collapse" href="#collapseOne">
+            <img src="https://us.123rf.com/450wm/puruan/puruan1702/puruan170202010/71632149-icona-del-segno-pi%C3%B9-a-colori-il-simbolo-aggiunge-un-segnalibro.jpg?ver=6" width="100px">
+          </button>
       </div>
     </div>
   </div>
@@ -116,57 +107,24 @@
     width: 100vh;
   }
 
-  #animals{
-    background-image: url("@/assets/sfondo_animali.jpg");
+  #accordion {
+    width:50%;  
+  }
+
+  #btn {
+    border-style: none;
+    background-color: white;
+    position: absolute;
+    left: 1000px;
+    border-radius: 100%;
   }
 
   .signup-container {
     display: grid;
     grid-template-areas: "left right";
     max-width: 900px;
-  }
-
-  .left-container {
-    background: #807182;
-    overflow: hidden;
-    padding: 40px 0 0 0;
     position: relative;
-    text-align: center;
-    width: 300px;
-    height: 457px;
-  }
-  .left-container h1 {
-    color: rgba(0, 0, 0, 0.8);
-    display: inline-block;
-    font-size: 24px;
-  }
-  .left-container h1 i {
-    background: #f7b1ab;
-    border-radius: 50%;
-    color: #807182;
-    font-size: 24px;
-    margin-right: 5px;
-    padding: 10px;
-    transform: rotate(-45deg);
-  }
-  .left-container .puppy {
-    bottom: -5px;
-    position: absolute;
-    text-align: center;
-  }
-  .left-container .puppy:before {
-    background: #807182;
-    content: "";
-    height: 100%;
-    left: 0;
-    opacity: 0.4;
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-  }
-  .left-container img {
-    filter: sepia(100%);
-    width: 70%;
+   
   }
 
   .right-container {
@@ -287,9 +245,6 @@
   .radio-container input[type=radio] {
     display: none;
   }
-#animals{
-  background-image: url("@/assets/sfondo_animali.jpg");
-}
   .radio-container input[type=radio]:checked + label {
     background: #f7b1ab;
     border: 1px solid rgba(0, 0, 0, 0.1);
