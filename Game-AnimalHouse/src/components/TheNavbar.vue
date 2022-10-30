@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-
+	
 	<nav class="navbar navbar-expand-lg navbar-light gradient-custom p-1">
 		<!-- Navbar brand -->
 		<b-navbar-brand class="navbar-brand" to="/"><img src="@/assets/logo.png" alt="logo" height="70">
