@@ -10,7 +10,7 @@ const routes: Array<Route> = [
 	{ path: "/videos", text: "Video divertenti", icon: "bi-collection-play"},
 	{ path: "/negozio", text: "Prodotti", icon: "bi-shop"},
 	{ path: "/servizi", text: "Servizi", icon: "bi-gear"},
-	{ text: "Games ", nested: true, icon: "bi-controller", routes: [
+	{ path: "", text: "Games ", nested: true, icon: "bi-controller", routes: [
 		{ path: "/games/quiz", text: "Quiz", icon: "s"},
 		{ path: "/games/memory", text: "Memory", icon: "s"},
 		{ path: "/games/impiccato", text: "Impiccato", icon: "s"},

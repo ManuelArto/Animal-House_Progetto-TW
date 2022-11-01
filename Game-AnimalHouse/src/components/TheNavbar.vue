@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
+import Router from '@/router/index'
 import type { Route } from "@/model/index"
 
 defineProps<{
 	routes: Array<Route>
 }>()
 
-var show_collapse = ref(false)
-var toogle_collapse = () => show_collapse.value = !show_collapse.value
+var isCollapseVisible = ref(false)
+function change_page(path: string) {
+	Router.push(path)
+	isCollapseVisible.value = false
+}
 
 </script>
 
 <template>
 
-	<nav class="navbar navbar-expand-lg navbar-light p-1 shadow fixed-top">
+	<nav class="navbar navbar-expand-lg bg-light p-1 shadow fixed-top">
 		<!-- Navbar brand -->
 		<b-navbar-brand class="navbar-brand" to="/"><img src="@/assets/logo3.png" alt="logo" height="70">
 		</b-navbar-brand>
@@ -22,19 +26,19 @@ var toogle_collapse = () => show_collapse.value = !show_collapse.value
 		<b-navbar-toggle v-b-toggle.nav-collapse></b-navbar-toggle>
 
 		<!-- Collapsible -->
-		<b-collapse id="nav-collapse" title="Menu" is-nav v-model="show_collapse">
+		<b-collapse id="nav-collapse" is-nav :visible="isCollapseVisible" @show="isCollapseVisible = true">
 			<b-navbar-nav>
 				<span v-for="route in routes">
-					<b-nav-item v-if="!route.nested" :to="route.path" :key="route.path" class="mx-2 mx-lg-1" @click="toogle_collapse()">
-						<i :class="route.icon" />
+					<b-nav-item v-if="!route.nested" class="mx-2 mx-lg-1" :key="route.path" @click="change_page(route.path)">
+						<i :class="route.icon"/>
 						{{ route.text }}
 					</b-nav-item>
-					<b-nav-item-dropdown v-else class="mx-2 mx-lg-1">
+					<b-nav-item-dropdown v-else class="mx-2 mx-lg-1" :key="route.text">
 						<template #button-content>
 							<i :class="route.icon" />
 							{{ route.text }}
 						</template>
-						<b-dropdown-item v-for="sub_route in route.routes" :to="sub_route.path" :key="sub_route.path" @click="toogle_collapse()">
+						<b-dropdown-item v-for="sub_route in route.routes" :key="sub_route.path" @click="change_page(sub_route.path)">
 							{{ sub_route.text }}
 						</b-dropdown-item>
 					</b-nav-item-dropdown>

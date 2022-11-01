@@ -1,3 +1,5 @@
+import type { RouteLocationRaw } from "vue-router";
+
 interface Animal {
 	specie: string;
 	nome: string;
@@ -8,7 +10,7 @@ interface Animal {
 interface Route {
 	text: string,
 	icon: string,
-	path?: string,
+	path: string,
 	nested?: boolean,
 	routes?: Array<Route>
 }
