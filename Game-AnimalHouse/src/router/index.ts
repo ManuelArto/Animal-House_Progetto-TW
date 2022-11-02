@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
+import store from '@/store'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -60,6 +61,11 @@ const router = createRouter({
       component: () => import('@/views/games/ScovaDifferenzeView.vue')
     },
   ]
+})
+
+router.beforeEach((to, from) => {
+  store.isCollapseVisible = false
+  return true
 })
 
 export default router

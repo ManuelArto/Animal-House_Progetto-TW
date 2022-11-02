@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Router from '@/router/index'
 import type { Route } from "@/model/index"
+import store from '@/store'
 
 defineProps<{
 	routes: Array<Route>
 }>()
-
-var isCollapseVisible = ref(false)
-function change_page(path: string) {
-	Router.push(path)
-	isCollapseVisible.value = false
-}
 
 </script>
 
@@ -26,10 +19,10 @@ function change_page(path: string) {
 		<b-navbar-toggle v-b-toggle.nav-collapse></b-navbar-toggle>
 
 		<!-- Collapsible -->
-		<b-collapse id="nav-collapse" is-nav :visible="isCollapseVisible" @show="isCollapseVisible = true">
+		<b-collapse id="nav-collapse" is-nav :visible="store.isCollapseVisible" @shown="store.isCollapseVisible = true" @hidden="store.isCollapseVisible = false">
 			<b-navbar-nav>
 				<span v-for="route in routes">
-					<b-nav-item v-if="!route.nested" class="mx-2 mx-lg-1" :key="route.path" @click="change_page(route.path)">
+					<b-nav-item v-if="!route.nested" class="mx-2 mx-lg-1" :key="route.path" :to="route.path">
 						<i :class="route.icon"/>
 						{{ route.text }}
 					</b-nav-item>
@@ -38,7 +31,7 @@ function change_page(path: string) {
 							<i :class="route.icon" />
 							{{ route.text }}
 						</template>
-						<b-dropdown-item v-for="sub_route in route.routes" :key="sub_route.path" @click="change_page(sub_route.path)">
+						<b-dropdown-item v-for="sub_route in route.routes" :key="sub_route.path" :to="sub_route.path">
 							{{ sub_route.text }}
 						</b-dropdown-item>
 					</b-nav-item-dropdown>
