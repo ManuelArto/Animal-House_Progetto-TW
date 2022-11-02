@@ -12,7 +12,7 @@ defineProps<{
 
 	<nav class="navbar navbar-expand-lg bg-light p-1 shadow fixed-top">
 		<!-- Navbar brand -->
-		<b-navbar-brand class="navbar-brand" to="/"><img src="@/assets/logo3.png" alt="logo" height="70">
+		<b-navbar-brand class="navbar-brand" to="/"><img src="@/assets/logo.png" alt="logo" height="70">
 		</b-navbar-brand>
 
 		<!-- Toggle button -->
