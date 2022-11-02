@@ -6,9 +6,9 @@ defineProps<{
 
 <template>
 	
-	<nav class="navbar navbar-expand-lg navbar-light gradient-custom p-1">
+	<nav class="navbar navbar-expand-lg navbar-primary gradient-custom p-1">
 		<!-- Navbar brand -->
-		<b-navbar-brand class="navbar-brand" to="/"><img src="@/assets/logo.png" alt="logo" height="70">
+		<b-navbar-brand class="navbar-brand" to="/"><img src="@/assets/logo3.png" alt="logo" height="70">
 		</b-navbar-brand>
 
 		<!-- Toggle button -->
@@ -48,7 +48,7 @@ defineProps<{
 	background: -webkit-linear-gradient(to right, rgba(196, 113, 245, 1), rgba(250, 113, 205, 1));
 
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	background: linear-gradient(to right, rgb(203, 245, 113), rgb(250, 216, 113))
+	background: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255))
 }
 
 i {
