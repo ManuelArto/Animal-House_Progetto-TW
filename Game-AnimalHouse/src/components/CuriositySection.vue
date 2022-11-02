@@ -1,76 +1,54 @@
 <template>
 	<br>
 	<b-container class="my-5">
-		<div v-for="animal in animals" class="row animal-card">
-			<div class="col-3 col-md-4 p-3">
-				<img width="370" height="220"
-					:src="animal.image_link"
-					class="rounded mob_d_none full-width object-cover h-100 wp-post-image" alt="">
-			</div>
-			<div class="col p-3">
-				<div class="">
-					<div class="col-12 p1">
-						<div class="animal-card-title mb-2"><strong> {{ animal.name }} </strong></div>
-					</div>
-					<div class="col-12 p1">
-						<p style="">Tartaruga semiacquatica caratteristica di tutta l’Africa
-							centro-meridionale, con insediamenti anche in Madagascar, Yemen e Arabia Saudita. Vive
-							in piccoli bacini d'acqua stagnante e nella stagione secca, quando gli stagni si
-							prosciugano, trova rifugio nel fango. </p>
-					</div>
-					<div class="ml-3 d-none d-md-block">
-						<b-button variant='primary' style="font-weight: bold;">Scopri di più
-						</b-button>
-					</div>
-				</div>
-			</div>
-		</div>
+		<AnimalCard v-for="animal in currentPageAnimals" :animal="animal" :isRandAnimal="true" />
+
+		<b-pagination v-show="animals.length" v-model="currentPage" :perPage="perPage" :total-rows="rows" :limit="3"
+			pills align="center" @page-click="changePage"></b-pagination>
 	</b-container>
 
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted, reactive, ref } from 'vue';
+import AnimalCard from '@/components/AnimalCard.vue'
+import AnimalModal from '@/components/AnimalModal.vue'
 import type { RandAnimal } from '@/model';
-import { onMounted, reactive} from 'vue';
+import type { BvEvent } from 'bootstrap-vue-3';
 
 defineProps<{
 	curiosity_type: string
 }>()
 
-var animals: RandAnimal[] = reactive([])
-
+var animals = reactive<RandAnimal[]>([])
 function getRandAnimals(number: number) {
 	fetch(`https://zoo-animal-api.herokuapp.com/animals/rand/${number}`)
-	.then((res) => res.json())
-	.then((results) => results.forEach((animal: RandAnimal) => animals.push(animal)))
+		.then((res) => res.json())
+		.then((results) => results.forEach((animal: RandAnimal) => animals.push(animal)))
 }
 
-onMounted(() => {
-	getRandAnimals(3)
-	console.log(animals)
+function changePage(bvEvent: BvEvent, page: number) {
+	console.log(bvEvent)
+	getRandAnimals(perPage.value)
+}
+
+var currentPage = ref(1)
+var perPage = ref(3)
+
+var rows = computed(() => {
+	return animals.length
+})
+var currentPageAnimals = computed(() => {
+	var index = perPage.value * (currentPage.value - 1)
+	return animals.slice(index, index + perPage.value)
 })
 
-defineExpose({getRandAnimals})
+onMounted(() => {
+	getRandAnimals(perPage.value * 3)
+})
 
 </script>
 
 <style scoped>
-/* img {
-	max-width: 50%;
-	height: auto;
-} */
-.animal-card {
-	background: #FFFFFF;
-	box-shadow: 2px 2px 20px rgb(0 0 0 / 10%);
-	border-radius: 4px;
-}
 
-.animal-card-title {
-	margin-right: 10px;
-	margin-bottom: 21px;
-	font-size: 18px;
-	color: #2140D8;
-	font-weight: bold;
-	font-size: 22px;
-}
 </style>
