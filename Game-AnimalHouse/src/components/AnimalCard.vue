@@ -4,7 +4,7 @@ import type { RandAnimal, Animal } from '@/model';
 
 defineProps<{
 	animal: RandAnimal | Animal,
-    isRandAnimal: Boolean
+    isRandAnimal: boolean
 }>()
 
 function getCustomText(animal: RandAnimal) {
