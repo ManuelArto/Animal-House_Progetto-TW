@@ -59,6 +59,7 @@
 </script>
 
 <template>
+  <img src="https://www.petme.it/wp-content/themes/petme/header_img/slide_razze.png" alt="animali" id="img_header">
   <div class="container">
     <h1 style="color:black; font-weight: bold; font-family: Georgia">Ecco i miei animali:</h1>
     <!-- Button trigger modal -->
@@ -269,6 +270,11 @@
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
 
+#img_header {
+    width: 100%;
+    margin-bottom: 33px;
+}
+
 body {
 align-items: center;
 background: #d8aa96;
@@ -285,8 +291,8 @@ width: 100vh;
 #btn {
   background-color: white;
   border: none;
-  width:60px;
-  height: 40px;
+  width:1px;
+  height:1px;
   position: relative;
   left: 1200px;
   top: -70px;
