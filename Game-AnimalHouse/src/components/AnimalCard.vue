@@ -24,11 +24,11 @@ function getCustomText(animal: RandAnimal) {
     <!-- RandAnimal card template -->
     <div class="animal-card p-3" v-if="isRandAnimal">
         <b-row :key="animal.id">
-            <div class="col-3">
+            <div class="col-5">
                 <img width="370" height="100" :src="animal.image_link" class="rounded object-cover h-100 w-100 "
                     :alt="`${animal.name} image`">
             </div>
-            <div class="col-md-8 col-7 px-1">
+            <div class="col-md-5 col-5 px-1">
                 <div class="row">
                     <div class="col-12">
                         <div class="animal-card-title mb-2"><strong> {{ animal.name }} </strong></div>
