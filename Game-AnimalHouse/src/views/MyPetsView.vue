@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import AnimalModal from '@/components/AnimalModal.vue'
 import AnimalCard from '@/components/AnimalCard.vue'
 import type { Animal } from '@/model/index'
 

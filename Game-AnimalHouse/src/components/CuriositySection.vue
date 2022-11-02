@@ -12,7 +12,6 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue';
 import AnimalCard from '@/components/AnimalCard.vue'
-import AnimalModal from '@/components/AnimalModal.vue'
 import type { RandAnimal } from '@/model';
 import type { BvEvent } from 'bootstrap-vue-3';
 
@@ -28,7 +27,6 @@ function getRandAnimals(number: number) {
 }
 
 function changePage(bvEvent: BvEvent, page: number) {
-	console.log(bvEvent)
 	getRandAnimals(perPage.value)
 }
 
