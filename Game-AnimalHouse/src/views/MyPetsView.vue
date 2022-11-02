@@ -1,61 +1,77 @@
-<script setup>
-    let animals = [{
-      name: "Lillo",
-      species: "Cane",
-      breed: "maltese",
-      url: "https://www.ciaogreen.it/wp-content/uploads/2021/03/cane-maltese.jpg",
-      birthday: "24/12/2021",
-      gender: "Male",
-      weight: "0-10 kg",
-      owner_name: "Andrea",
-      owner_surname: "Napoli",
-      owner_phone: "3402141216",
-      owner_email: "andreanapoli8801@gmail.com",
-      index: "1",
-    }, 
-    {
-      name: "Blu",
-      species: "Cane",
-      breed: "maltese",
-      url: "https://www.focusjunior.it/content/uploads/2019/01/Maltese-2.jpg",
-      birthday: "20/10/2018",
-      gender: "Male",
-      weight: "0-10 kg",
-      owner_name: "Alessia",
-      owner_surname: "Celentano",
-      owner_phone: "3497335785",
-      owner_email: "alessiaceleste.celentano@gmail.com",
-      index: "2",
-    },
-    { 
-      name: "Zacky",
-      species: "Cane",
-      breed: "labrador retriever",
-      url: "https://petadvisor.it/wp-content/uploads/2019/12/labrador-retriever-cop.jpg",
-      birthday: "21/10/2011",
-      gender: "Male",
-      weight: "40-60 kg",
-      owner_name: "Manuel",
-      owner_surname: "Arto",
-      owner_phone: "3331234567",
-      owner_email: "manuelartociao@gmail.com",
-      index: "3",
-    },
-    { 
-      name: "Zoe",
-      species: "Cane",
-      breed: "cavalier king",
-      url: "https://img2.storyblok.com/filters:format(webp)/f/83829/1200x628/9a2981fd1e/esperance-vie-cavalier-king-charles.jpg",
-      birthday: "07/11/2018",
-      gender: "Female",
-      weight: "0-10 kg",
-      owner_name: "Francesca",
-      owner_surname: "Venezian",
-      owner_phone: "3331234567",
-      owner_email: "francescavenezian@gmail.com",
-      index: "4",
-    }];
-  
+<script setup lang="ts">
+import { computed, ref } from 'vue';
+import AnimalModal from '@/components/AnimalModal.vue'
+import AnimalCard from '@/components/AnimalCard.vue'
+import type { Animal } from '@/model/index'
+
+var currentPage = ref(1)
+var perPage = ref(4)
+
+var rows = computed(() => {
+  return animals.length
+})
+var currentPageAnimals = computed(() => {
+  var index = perPage.value * (currentPage.value - 1)
+  return animals.slice(index, index + perPage.value)
+})
+
+let animals: Array<Animal> = [{
+  name: "Lillo",
+  specie: "Cane",
+  razza: "maltese",
+  image_link: "https://www.ciaogreen.it/wp-content/uploads/2021/03/cane-maltese.jpg",
+  birthday: "24/12/2021",
+  gender: "Male",
+  weight: "0-10 kg",
+  owner_name: "Andrea",
+  owner_surname: "Napoli",
+  owner_phone: "3402141216",
+  owner_email: "andreanapoli8801@gmail.com",
+  id: "1",
+},
+{
+  name: "Blu",
+  specie: "Cane",
+  razza: "maltese",
+  image_link: "https://www.focusjunior.it/content/uploads/2019/01/Maltese-2.jpg",
+  birthday: "20/10/2018",
+  gender: "Male",
+  weight: "0-10 kg",
+  owner_name: "Alessia",
+  owner_surname: "Celentano",
+  owner_phone: "3497335785",
+  owner_email: "alessiaceleste.celentano@gmail.com",
+  id: "2",
+},
+{
+  name: "Zaky",
+  specie: "Cane",
+  razza: "labrador retriever",
+  image_link: "https://petadvisor.it/wp-content/uploads/2019/12/labrador-retriever-cop.jpg",
+  birthday: "21/10/2011",
+  gender: "Male",
+  weight: "40-60 kg",
+  owner_name: "Manuel",
+  owner_surname: "Arto",
+  owner_phone: "3331234567",
+  owner_email: "manuelartociao@gmail.com",
+  id: "3",
+},
+{
+  name: "Zoe",
+  specie: "Cane",
+  razza: "cavalier king",
+  image_link: "https://img2.storyblok.com/filters:format(webp)/f/83829/1200x628/9a2981fd1e/esperance-vie-cavalier-king-charles.jpg",
+  birthday: "07/11/2018",
+  gender: "Female",
+  weight: "0-10 kg",
+  owner_name: "Francesca",
+  owner_surname: "Venezian",
+  owner_phone: "3331234567",
+  owner_email: "francescavenezian@gmail.com",
+  id: "4",
+}];
+
 </script>
 
 <template>
@@ -63,9 +79,9 @@
   <div class="container">
     <h1 style="color:black; font-weight: bold; font-family: Georgia">Ecco i miei animali:</h1>
     <!-- Button trigger modal -->
-    <button type="button" id="btn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#Register">
+    <b-button id="btn" class="position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#Register">
       <i class="bi bi-plus-circle-fill" id="plus"></i>
-    </button>
+    </b-button>
 
     <!-- Modal -->
     <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -73,7 +89,8 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title" id="myModalLabel">Register your animal</h4>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <b-button variant="danger" data-bs-dismiss="modal" aria-label="Close"> <i class="bi bi-x-circle-fill"></i>
+            </b-button>
           </div>
           <div class="modal-body">
             <div class='right-container'>
@@ -151,7 +168,7 @@
                   </div>
                   <div class="col-4">
                     <label for='email-owner'>Email</label>
-                    <input id='email-owner' placeholder="mariorossi@gmail.com" type='text'> 
+                    <input id='email-owner' placeholder="mariorossi@gmail.com" type='text'>
                   </div>
                 </div>
               </header>
@@ -165,205 +182,83 @@
       </div>
     </div>
 
-    <b-row>
-      <b-col v-for="animal in animals">
-        <b-card no-body class="overflow-hidden" style="width:37rem; height:15rem;">
-          <b-row no-gutters>
-            <b-col>
-              <b-card-img :src="animal.url" alt="Image" class="rounded-0" style="width: 350px; height:250px"></b-card-img>
-            </b-col>
-            <b-col>
-              <b-card-body :title="animal.name">
-                <b-card-text>
-                  {{ "Specie: " + animal.species }} <br>
-                  {{ "Razza: " + animal.breed }}<br>
-                  {{ "Nascita: " + animal.birthday }} <br>
-                  {{ "Sesso: " + animal.gender }}<br>
-                  {{ "Peso: " + animal.weight }}<br>
-                </b-card-text>
-                <button type="button" id="btn2" class="btn btn-primary btn-lg" data-bs-toggle="modal" :data-bs-target="'#myAnimal' + animal.index">
-                  Scopri di più
-                </button>
-              </b-card-body>
-            </b-col>
-          </b-row>
-        </b-card>
-        <br>
+    <b-row v-show="animals.length">
+      <b-col class="col-12 col-md-6" v-for="animal in currentPageAnimals">
+        <AnimalCard :animal="animal" :isRandAnimal="false" />
       </b-col>
+      <b-pagination v-model="currentPage" :perPage="perPage" :total-rows="rows" :limit="3" pills align="center">
+      </b-pagination>
     </b-row>
 
-    <span v-for="animal in animals">
-      <div class="modal fade" :id="'myAnimal' + animal.index" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">{{animal.name}}</h4>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-              <img :src="animal.url" :alt="animal.name + '_photo'" style="width:100%;">
-              <div class="col-12 py-2">
-                <div class="doggy_discription">
-                  <p><b>Origini</b></p>
-                  <p>
-                    Tartaruga semiacquatica caratteristica di tutta l’Africa centro-meridionale, con insediamenti anche in Madagascar, Yemen e Arabia Saudita. 
-                    Vive in piccoli bacini d’acqua stagnante e nella stagione secca, quando gli stagni si prosciugano, trova rifugio nel fango.
-                  </p>
-                </div>
-                <div class="doggy_discription">
-                  <p><b>Caratteristiche</b></p> 
-                  <p>
-                    Carapace di forma ovale e di colore da verde oliva a bruno uniforme; occhi rotondi e globosi; naso all’insù; collo lungo e sottile che la tartaruga 
-                    ritrae a “s” e in modo parziale. <br>
-                    -Dimorfismo sessuale: la coda dei maschi è più lunga e sottile di quella delle femmine. <br>
-                    -Taglia: 25-30 cm di lunghezza.<br>
-                    -Durata media della vita: 5-20 anni.
-                  </p>
-                </div>
-                <div class="doggy_discription">
-                  <p><b>Ambiente</b></p> 
-                  <p>
-                    Questa tartaruga non può essere tenuta in vasche esterne (tranne che in piena estate). Richiede un acquaterrario di una dimensione minima di 100x50x40 cm 
-                    con 2/3 della superficie coperti di acqua poco profonda (la tartaruga deve poter respirare appoggiandosi sulle zampe posteriori) e una zona asciutta di sabbia. 
-                    L’acqua sarà filtrata attraverso una pompa. Bisognerà, inoltre, inserire lampade al neon per la diffusione di raggi UVA e UVB (per la sintesi della vitamina D) 
-                    e un riscaldatore a termostato che permetta di mantenere la temperatura dell’acqua tra i 25 e i 31 °C. Di notte, la temperatura dovrà essere di qualche grado 
-                    (4 o 5) più bassa.
-                  </p>
-                </div>
-                <div class="doggy_discription">
-                  <p><b>Alimentazione</b></p> 
-                  <p>
-                    Regime essenzialmente carnivoro: insetti, vermi di fango, vermi di terra, vermi della farina, larve, pesciolini, granulare per tartarughe carnivore ecc. 
-                    Pochi complementi di vegetali: giacinto d’acqua, radicchio, sagittaria ecc. <br>
-                    Gli individui giovani devono mangiare tutti i giorni, mentre per gli adulti è sufficiente un pasto ogni tre giorni.
-                  </p>
-                </div>
-                <div class="doggy_discription">
-                  <p><b>Comportamento</b></p> 
-                  <p>
-                    Attività diurna. Se la tartaruga vive in gruppo, talvolta occorre separare i sessi perché i maschi possono tormentare le femmine e mostrarsi aggressivi.
-                  </p>
-                </div>
-                <div class="doggy_discription">
-                  <p><b>Riproduzione</b></p> 
-                  <p>
-                    Specie ovipara.<br>
-                    Maturità sessuale: 2-5 anni.<br>
-                    Stagione riproduttiva: da marzo a luglio.<br>
-                    Numero di uova: fino a 20 (interrate nella sabbia umida).<br>
-                    Durata dell’incubazione: 70-90 giorni.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </span>
   </div>
 </template>
 
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
-
 #img_header {
-    width: 100%;
-    margin-bottom: 33px;
-}
-
-body {
-align-items: center;
-background: #d8aa96;
-color: rgba(0, 0, 0, 0.8);
-display: grid;
-font-family: "Montserrat", sans-serif;
-font-size: 14px;
-font-weight: 400;
-height: 100vh;
-justify-items: center;
-width: 100vh;
+  width: 100%;
+  margin-bottom: 33px;
 }
 
 #btn {
   background-color: white;
   border: none;
-  width:1px;
-  height:1px;
-  position: relative;
-  left: 1200px;
-  top: -70px;
-}
-
-#btn2 {
-  width: 119px;
-  height: 49px;
-  font-size: 17px;
-  padding: 1px;
-  font-weight: bold;
-  margin: -5px;
-}
-
-.btn:hover{
-  background-color: #fff !important;
-    color: #2140D8;
-    transition: 500ms;
 }
 
 #plus {
-  font-size:40px;
+  font-size: 40px;
   color: blue;
 }
+
 .right-container {
-background: #c2edf9;
-width: 760px;
+  background: #c2edf9;
+  width: 760px;
 }
 
 .right-container input {
-border: 1px solid black;
-border-radius: 4px;
-height: 38px;
-line-height: 38px;
-padding-left: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 5px;
 }
+
 .right-container header {
-padding: 40px;
+  padding: 40px;
 }
+
 .right-container label,
-.right-container input,
-.right-container .pets-photo {
-width: 176px;
+.right-container input {
+  width: 176px;
 }
 
 .radio-container {
-background: #fff;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 4px;
-display: inline-block;
-padding: 5px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
 }
 
 .radio-container label {
-border: 1px solid transparent;
-border-radius: 2px;
-display: inline-block;
-height: 26px;
-line-height: 26px;
-margin: 0;
-padding: 0;
-text-align: center;
-transition: 0.2s all ease-in-out;
-width: 80px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+  width: 80px;
 }
 
 .radio-container input[type=radio] {
-display: none;
+  display: none;
 }
-.radio-container input[type=radio]:checked + label {
-background: #abd2f7;
-border: 1px solid rgba(0, 0, 0, 0.1);
+
+.radio-container input[type=radio]:checked+label {
+  background: #abd2f7;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 </style>
