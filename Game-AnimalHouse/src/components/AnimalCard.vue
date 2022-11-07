@@ -65,11 +65,11 @@ function getCustomText(animal: RandAnimal) {
                     </div>
                     <div class="col-12">
                         <p>
-                            {{ "Specie: " + (animal as Animal).specie }} <br>
-                            {{ "Razza: " + (animal as Animal).razza }}<br>
-                            {{ "Nascita: " + (animal as Animal).birthday }} <br>
-                            {{ "Sesso: " + (animal as Animal).gender }}<br>
-                            {{ "Peso: " + (animal as Animal).weight }}<br>
+                            <b>Specie: </b> {{ (animal as Animal).specie }} <br>
+                            <b>Razza: </b> {{ (animal as Animal).razza }}<br>
+                            <b>Nascita: </b> {{ (animal as Animal).birthday }} <br>
+                            <b>Sesso: </b> {{ (animal as Animal).gender }}<br>
+                            <b>Peso: </b> {{ (animal as Animal).weight }}<br>
                         </p>
                     </div>
                     <div class="d-none d-md-block">
