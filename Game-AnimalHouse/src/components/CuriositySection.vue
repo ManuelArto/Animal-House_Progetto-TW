@@ -23,11 +23,12 @@ var animals: RandAnimal[] = reactive([])
 function getRandAnimals(number: number) {
 	fetch(`https://zoo-animal-api.herokuapp.com/animals/rand/${number}`)
 		.then((res) => res.json())
-		.then((animals) => animals.push(...animals))
+		.then((data) => animals.push(...data))
 }
 
 function changePage(bvEvent: BvEvent, page: number) {
 	getRandAnimals(perPage.value)
+    window.scrollTo(0, 300);
 }
 
 var currentPage = ref(1)
@@ -38,6 +39,7 @@ var rows = computed(() => {
 })
 var currentPageAnimals = computed(() => {
 	var index = perPage.value * (currentPage.value - 1)
+	console.log(animals.slice(index, index + perPage.value))
 	return animals.slice(index, index + perPage.value)
 })
 

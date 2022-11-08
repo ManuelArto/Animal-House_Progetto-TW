@@ -25,7 +25,7 @@ function getCustomText(animal: RandAnimal) {
     <div class="animal-card p-3" v-if="isRandAnimal">
         <b-row :key="animal.id">
             <div class="col-5">
-                <img width="370" height="100" :src="animal.image_link" class="rounded object-cover h-100 w-100 "
+                <img :src="animal.image_link" class="rounded object-cover w-100 h-100"
                     :alt="`${animal.name} image`">
             </div>
             <div class="col-md-5 col-5 px-1">
@@ -55,7 +55,7 @@ function getCustomText(animal: RandAnimal) {
     <div class="animal-card p-3" v-else>
         <b-row :key="animal.id">
             <div class="col-5">
-                <img width="370" height="100" :src="animal.image_link" class="rounded object-cover h-100 w-100 "
+                <img :src="animal.image_link" class="rounded object-cover w-100 h-100"
                     :alt="`${animal.name} image`">
             </div>
             <div class="col-md-5 col-5 px-1">
@@ -109,6 +109,7 @@ function getCustomText(animal: RandAnimal) {
 
 .object-cover {
 	object-fit: cover !important;
+	/* object-fit: cover !important; */
 }
 
 @media screen and (max-width: 992px) {
@@ -122,6 +123,10 @@ function getCustomText(animal: RandAnimal) {
 		font-size: 16px !important;
 		font-weight: normal !important;
 	}
+}
+
+img {
+    max-height: 350px;
 }
 
 .text_18 {
