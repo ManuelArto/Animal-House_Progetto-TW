@@ -1,12 +1,10 @@
-import type { RouteLocationRaw } from "vue-router";
-
 interface Animal {
 	name: string,
 	specie: string,
 	razza: string,
 	image_link: string,
 	birthday: string,
-	condizioni?: string | 'Condizioni non specificate';
+	condizioni: string;
 	gender: string,
 	weight: string,
 	owner_name: string,

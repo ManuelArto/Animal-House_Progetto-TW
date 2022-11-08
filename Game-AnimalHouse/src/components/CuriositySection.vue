@@ -19,11 +19,11 @@ defineProps<{
 	curiosity_type: string
 }>()
 
-var animals = reactive<RandAnimal[]>([])
+var animals: RandAnimal[] = reactive([])
 function getRandAnimals(number: number) {
 	fetch(`https://zoo-animal-api.herokuapp.com/animals/rand/${number}`)
 		.then((res) => res.json())
-		.then((results) => results.forEach((animal: RandAnimal) => animals.push(animal)))
+		.then((animals) => animals.push(...animals))
 }
 
 function changePage(bvEvent: BvEvent, page: number) {

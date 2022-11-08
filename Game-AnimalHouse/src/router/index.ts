@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
-import store from '@/store'
+import { state } from '@/store'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -64,7 +64,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-  store.isCollapseVisible = false
+  state.isCollapseVisible = false
   return true
 })
 
