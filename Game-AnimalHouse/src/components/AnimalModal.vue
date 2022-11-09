@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import RandAnimalData from "@/components/RandAnimalData.vue"
 import type { RandAnimal, Animal } from '@/model';
 
 defineProps<{
@@ -94,16 +95,7 @@ defineProps<{
 						</div>
 					</div>
 					<div class="col-12 py-2" v-else>
-						<b>Informazioni</b>
-						<p>
-							{{ getCustomText(animal) }}
-						</p>
-						<b>Dati</b>
-						<p>
-							<span v-for="(value, key) in animal">
-								{{key}}:<i>{{value}}</i>,<br>
-							</span>
-						</p>
+						<RandAnimalData :animal="animal as RandAnimal" :getCustomText="getCustomText" />
 					</div>
 				</div>
 				<div class="modal-footer">
