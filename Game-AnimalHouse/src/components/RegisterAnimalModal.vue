@@ -41,11 +41,11 @@
 									<b-col>
 										<label for="pet-weight">Weight</label>
 										<select v-model="animal.weight" class="form-select" id="pet-weight">
-											<option value="0-10" checked>0-10 kg</option>
-											<option value="10-25">10-25 kg</option>
-											<option value="25-40">25-40 kg</option>
-											<option value="40-60">40-60 kg</option>
-											<option value="60+">60+ kg</option>
+											<option value="0-10kg" checked>0-10 kg</option>
+											<option value="10-25kg">10-25 kg</option>
+											<option value="25-40kg">25-40 kg</option>
+											<option value="40-60kg">40-60 kg</option>
+											<option value="60+kg">60+ kg</option>
 										</select>
 									</b-col>
 									<b-col class="mb-3">
@@ -122,7 +122,7 @@ function emptyData(): Animal {
 		birthday: "",
 		condizioni: "",
 		gender: "male",
-		weight: "0-10",
+		weight: "0-10kg",
 		owner_name: "",
 		owner_surname: "",
 		owner_phone: "",
