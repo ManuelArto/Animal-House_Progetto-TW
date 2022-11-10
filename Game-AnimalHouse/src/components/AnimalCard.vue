@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AnimalModal from '@/components/AnimalModal.vue'
+import { removeAnimal } from '@/store'
 import type { RandAnimal, Animal } from '@/model';
 
 defineProps<{
@@ -22,7 +23,7 @@ function getCustomText(animal: RandAnimal) {
     <AnimalModal :animal='animal' :isRandAnimal="isRandAnimal" :getCustomText='getCustomText'/>
 
     <div :class="`animal-card ${isRandAnimal ? 'flexible-card': ''} p-3 mx-auto`">
-        <b-row class="" :key="animal.id">
+        <b-row :key="animal.id">
             <b-col class="col-md-6 col-5">
                 <img :src="animal.image_link" class="rounded object-cover w-100 h-100"
                     :alt="`${animal.name} image`">
@@ -34,7 +35,7 @@ function getCustomText(animal: RandAnimal) {
                     </div>
                     <div class="col-12">
                         <p v-if="isRandAnimal" class="text_18">{{ getCustomText(animal as RandAnimal) }}</p>
-                        <p v-else class="">
+                        <p v-else>
                             <b>Specie: </b> {{ (animal as Animal).specie }} <br>
                             <b>Razza: </b> {{ (animal as Animal).razza }}<br>
                             <b>Nascita: </b> {{ (animal as Animal).birthday }} <br>
@@ -55,6 +56,9 @@ function getCustomText(animal: RandAnimal) {
                 </b-button>
             </div>
         </b-row>
+        <b-button v-if="!isRandAnimal" size="sm" variant="danger" class="rounded-pill position-absolute top-0 end-0 me-2 mt-2" @click="removeAnimal(animal.id as string)">
+            <i class="bi bi-x-lg"></i>
+        </b-button>
     </div>
 
 </template>

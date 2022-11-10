@@ -12,7 +12,7 @@ export function addAnimal(animal: Animal) {
 	localStorage.setItem('animals', JSON.stringify(state.animals))
 }
 export function removeAnimal(id: string) {
-	state.animals = state.animals.filter(animal => animal.id === id)
+	state.animals = state.animals.filter(animal => animal.id !== id)
 	localStorage.setItem('animals', JSON.stringify(state.animals))
 }
 
