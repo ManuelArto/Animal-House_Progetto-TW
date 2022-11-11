@@ -1,31 +1,37 @@
 <script setup>
 let services = [{
-  name : "Curiosità",
+  name: "Curiosità",
+  path: "/curiosita",
   icon: "bi bi-patch-question-fill",
-  description: "Vieni a conoscere un pò meglio il mondo animale. Qui troverai migliaia di curiosità interessanti riguardanti gli animali di ogni specie e habitat.", 
+  description: "Vieni a conoscere un pò meglio il mondo animale. Qui troverai migliaia di curiosità interessanti riguardanti gli animali di ogni specie e habitat.",
 },
-{ 
-  name : "Informazioni",
+{
+  name: "Informazioni",
+  path: "/informazioni",
   icon: "bi bi-info-circle-fill",
-  description: "Hai qualche dubbio? Puoi trovare la risposta in questa sezione specificando la razza a cui e l'animale a cui ti stai riferenedo.", 
+  description: "Hai qualche dubbio? Puoi trovare la risposta in questa sezione specificando la razza a cui e l'animale a cui ti stai riferenedo.",
 },
-{ 
+{
   name: "I miei animali",
+  path: "/my_pets",
   icon: "bi bi-house-heart-fill",
   description: "Compilando un semplice questionario puoi salvare i tuoi animali con la foto e tutte le sue caratteristiche.",
 },
-{ 
+{
   name: "Video",
+  path: "/videos",
   icon: "bi bi-collection-play-fill",
   description: "Vuoi farti due risate? Qui puoi trovare una serie di video in cui i nostri piccoli amici ci fanno divertire nelle loro azioni quotidiane.",
 },
-{ 
-name: "Prodotti", 
+{
+  name: "Prodotti",
+  path: "/negozio",
   icon: "bi bi-shop",
-  description: "Hai finito il cibo per il tuo amico? Nessun problema, visita il nostro store per trovare quello che desideri.", 
+  description: "Hai finito il cibo per il tuo amico? Nessun problema, visita il nostro store per trovare quello che desideri.",
 },
-{ 
-  name: "Servizi", 
+{
+  name: "Servizi",
+  path: "/servizi",
   icon: "bi bi-gear-fill",
   description: "Hotel, psicologo, pet sitter, centri benessere e tante altre cose. Vieni a scoprire tutti i servizi che abbiamo da offrirti.",
 }];
@@ -33,7 +39,6 @@ name: "Prodotti",
 </script>
 
 <template>
-  <main>
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -71,154 +76,140 @@ name: "Prodotti",
       </button>
     </div>
 
-    <div class="container">
-      <div class="common_heading text-center">
-        <h2><b>Tutti i servizi per te e il tuo pet</b></h2>
+    <div class="container px-3">
+      <div class="common_heading d-flex py-3">
+        <h2 class="fw-bold m-auto">Tutti i servizi per te e il tuo pet</h2>
       </div>
-      <b-row>
-        <div class="col-md-4 col-12 boxes_margin" v-for="service in services">
-          <div class="boxes_commn text-center h-100">
+      <b-row class="g-3 mb-5">
+        <div v-for="service in services" class="col-md-4 col-12">
+          <div class="boxes_margin p-4 h-100 d-flex flex-column text-center">
             <i :class="service.icon"></i>
-            <div class="common_heading text-center">
-              <h4>{{service.name}}</h4>
+            <div class="common_heading">
+              <h4>{{ service.name }}</h4>
             </div>
             <p>
-              {{service.description}}
+              {{ service.description }}
             </p>
-              <button class="btn btn-primary">Scopri di più</button>
+            <button class="btn btn-primary btn-lg mt-auto mx-auto" :to="service.path">Scopri di più</button>
           </div>
         </div>
       </b-row>
     </div>
-  </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 
 .container {
   width: 70%;
 }
-.boxes_margin {
-    margin: 0 0 24px 0;
-}
 
-.boxes_margin :hover{
-  box-shadow: 2px 2px 60px rgba(25, 66, 189, 0.862);
-}
-.btn{
+.boxes_margin{
+  box-shadow: 2px 2px 20px rgb(0 0 0 / 10%);
   border-radius: 10px;
-  padding: 12px 17px;
-  border: #2140D8 1px solid;
-  font-size: 18px;
-  font-weight: bold;
+  
+  &:hover {
+    box-shadow: 2px 2px 60px rgba(25, 66, 189, 0.862);
+  }
 }
-.text-center {
-    text-align: center!important;
+.btn {
+  box-shadow: 2px 2px 20px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  &:hover {
+    box-shadow: 2px 2px 60px rgba(25, 66, 189, 0.862);
+  }
 }
 
-.h-100 {
-    height: 100%!important;
-}
-
-.boxes_commn {
-    padding: 15px;
-    box-shadow: 2px 2px 20px rgb(0 0 0 / 10%);
-    border-radius: 10px;
-}
 .bi {
   font-size: 30px;
   color: rgb(55, 55, 231);
 }
+
 .common_heading {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 37px;
-    padding:10px;
-    color: #2f4eec;
+  color: #2f4eec;
 }
-  .carousel-inner{
-    width:100%;
-    height: 450px;
-  }
-          /*CSS assolutamente da cambiare, MOMENTANEOOOOO */
-  .overlay-1 {
-  position:absolute;
-  top:20%;
-  left:70%;
-  text-align:left;
+
+.carousel-inner {
+  width: 100%;
+  height: 450px;
+}
+
+/*CSS assolutamente da cambiare, MOMENTANEOOOOO */
+.overlay-1 {
+  position: absolute;
+  top: 20%;
+  left: 70%;
+  text-align: right;
 }
 
 .overlay-2 {
-  position:absolute;
-  top:25%;
-  left:10%;
-  text-align:left;
+  position: absolute;
+  top: 25%;
+  left: 10%;
 }
 
 .overlay-3 {
-  position:absolute;
-  top:10%;
-  left:10%;
-  text-align:left;
+  position: absolute;
+  top: 10%;
+  left: 10%;
 }
 
-  #hero-1{
-    position: relative;
-    height: 100vh;
-    background: url('../assets/home-1.jpg');
-    background-size:cover;
-    color: #ffffff;
+#hero-1 {
+  position: relative;
+  height: 100vh;
+  background: url('../assets/home-1.jpg');
+  background-size: cover;
+  color: #ffffff;
 
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+}
 
-  #hero-1::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.3);
-  } 
+#hero-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
 
 
-  #hero-2{
-    position: relative;
-    height: 100vh;
-    background: url('../assets/home-2.png');
-    color: #ffffff;
-    align-items: center;
-  }
+#hero-2 {
+  position: relative;
+  height: 100vh;
+  background: url('../assets/home-2.png');
+  color: #ffffff;
+  align-items: center;
+}
 
-  #hero-2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.3);
-  }
+#hero-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
 
-  #hero-3{
-    position: relative;
-    height: 100vh;
-    background: url('../assets/home-3.png');
-    background-size:cover;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-  }
+#hero-3 {
+  position: relative;
+  height: 100vh;
+  background: url('../assets/home-3.png');
+  background-size: cover;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
 
-  #hero-3::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.3);
-  }
+#hero-3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
 </style>
