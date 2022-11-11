@@ -5,7 +5,7 @@ import Footer from '@/components/Footer.vue'
 import type { Route } from '@/model';
 
 const routes: Array<Route> = [
-	{ path: "/curiosita", text: "Curiosita", icon: "bi-patch-question"},
+	{ path: "/curiosita", text: "Curiosità", icon: "bi-patch-question"},
 	{ path: "/informazioni", text: "Informazioni utili sanitarie e legali", icon: "bi-info-circle"},
 	{ path: "/my_pets", text: "I miei animali", icon: "bi-house-heart"},
 	{ path: "/videos", text: "Video divertenti", icon: "bi-collection-play"},

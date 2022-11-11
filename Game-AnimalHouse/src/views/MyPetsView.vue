@@ -18,7 +18,7 @@ var currentPageAnimals = computed(() => {
 </script>
 
 <template>
-  <img src="https://www.petme.it/wp-content/themes/petme/header_img/slide_razze.png" alt="animali" id="img_header">
+  <img src="@/assets/banner_mypets.png" alt="banner_mypets" id="img_header">
   <div class="container">
     <h1 style="color:black; font-weight: bold; font-family: Georgia">Ecco i miei animali:</h1>
     <!-- Button trigger modal -->

@@ -82,7 +82,7 @@ function getCustomText(animal: RandAnimal) {
 }
 
 .flexible-card {
-    max-width: 75%;
+    max-width: 60%;
 }
 
 @media screen and (max-width: 768px) {

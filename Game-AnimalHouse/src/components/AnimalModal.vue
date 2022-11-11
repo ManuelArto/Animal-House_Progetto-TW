@@ -19,7 +19,7 @@ defineProps<{
 					</b-button>
 				</div>
 				<div class="modal-body">
-					<img class="d-flex mx-auto" :src="animal.image_link" :alt="animal.name + '_photo'" style="width:75%;">
+					<img class="d-flex mx-auto img-thumbnail" :src="animal.image_link" :alt="animal.name + '_photo'" style="width:75%;">
 					<div class="col-12 py-2" v-if='!isRandAnimal'>
 						<div>
 							<p><b>Origini</b></p>
