@@ -1,12 +1,25 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+// @ts-ignore
+import { Modal } from 'bootstrap'
 import AnimalModal from '@/components/AnimalModal.vue'
 import { removeAnimal } from '@/store'
 import type { RandAnimal, Animal } from '@/model';
 
-defineProps<{
+const props = defineProps<{
 	animal: RandAnimal | Animal,
     isRandAnimal: boolean
 }>()
+
+var modal: Modal
+onMounted(() => {
+	modal = new Modal(document.getElementById(`confirmRemove${props.animal.name}`) as Element)
+})
+
+function confirmRemove(id: string) {
+    modal.hide()
+    removeAnimal(id)
+}
 
 function getCustomText(animal: RandAnimal) {
 	return `${animal.name} (in latino ${animal.latin_name}) è un ${animal.active_time} ${animal.animal_type} 
@@ -56,9 +69,28 @@ function getCustomText(animal: RandAnimal) {
                 </b-button>
             </div>
         </b-row>
-        <b-button v-if="!isRandAnimal" size="sm" variant="danger" class="rounded-pill position-absolute top-0 end-0 me-2 mt-2" @click="removeAnimal(animal.id as string)">
+        <b-button v-if="!isRandAnimal" size="sm" variant="danger" class="rounded-pill position-absolute top-0 end-0 me-2 mt-2" data-bs-toggle="modal" :data-bs-target="`#confirmRemove${animal.name}`">
             <i class="bi bi-x-lg"></i>
         </b-button>
+    </div>
+
+    <div ref="modal" :id="`confirmRemove${animal.name}`" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Confirm delete</h4>
+                    <b-button ref="closeButton" variant="danger" data-bs-dismiss="modal" aria-label="Close"> <i class="bi bi-x-circle-fill"></i>
+                    </b-button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete <b>{{ animal.name }}</b>?</p>
+                </div>
+                <div class="modal-footer">
+                    <b-button data-bs-dismiss="modal">Annulla</b-button>
+                    <b-button variant="danger" @click="confirmRemove(animal.id as string)">Delete</b-button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </template>
