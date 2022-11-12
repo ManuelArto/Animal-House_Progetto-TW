@@ -1,4 +1,6 @@
 <script setup>
+import HomeCarousel from "@/components/HomeCarousel.vue"
+
 let services = [{
   name: "Curiosità",
   path: "/curiosita",
@@ -35,59 +37,23 @@ let services = [{
   icon: "bi bi-gear-fill",
   description: "Hotel, psicologo, pet sitter, centri benessere e tante altre cose. Vieni a scoprire tutti i servizi che abbiamo da offrirti.",
 }];
-
 </script>
 
 <template>
-  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div id="hero-1">
-          <div class="overlay-1">
-            <h1><b>I migliori prodotti <br>li trovi da noi</b></h1>
-            <h6>Cerca nel nostro store i prodotti <br>più adatti al tuo amico</h6>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div id="hero-2">
-          <div class="overlay-2">
-            <h1><b>Scopri i nostri servizi</b></h1>
-            <h6>Villegiature, psicologi, pet sitter. <br>Tutti i servizi a portata di un click .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div id="hero-3">
-          <div class="overlay-3">
-            <h1><b>Le informazioni di <br>cui hai bisogno</b></h1>
-            <h6>Villegiature, psicologi, pet sitter. <br>Leggi tutte le informazioni</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+  <HomeCarousel />
 
   <div class="container px-3">
     <div class="common_heading d-flex py-3">
-      <h2 class="fw-bold m-auto">Tutti i servizi per te e il tuo pet</h2>
+      <h2 class="fw-bold m-auto text-center">Tutti i servizi per Te e il tuo Pet</h2>
     </div>
     <b-row class="g-3 mb-5">
-      <div v-for="service in services" class="col-md-4 col-12">
+      <div v-for="service in services" class="col-lg-4 col-sm-6 col-12">
         <div class="boxes_shadow p-4 h-100 d-flex flex-column text-center">
           <i :class="service.icon"></i>
           <div class="common_heading">
             <h4>{{ service.name }}</h4>
           </div>
-          <p>
+          <p class="text_18">
             {{ service.description }}
           </p>
           <router-link tag="button" class="btn btn-primary btn-lg boxes_shadow mt-auto mx-auto" :to="service.path">
@@ -100,7 +66,7 @@ let services = [{
 
 <style scoped lang="scss">
 .container {
-  width: 70%;
+  width: 75%;
 }
 
 .boxes_shadow {
@@ -121,90 +87,15 @@ let services = [{
   color: #2f4eec;
 }
 
-// CAROUSEL
-
-.carousel-inner {
-  width: 100%;
-  height: 450px;
+@media screen and (max-width: 992px) {
+	.text_18 {
+		display: -webkit-box;
+		line-clamp: 5;
+		font-size: 14px !important;
+		font-weight: normal !important;
+	}
 }
-
-/*CSS assolutamente da cambiare, MOMENTANEOOOOO */
-.overlay-1 {
-  position: absolute;
-  top: 20%;
-  left: 70%;
-  text-align: right;
-}
-
-.overlay-2 {
-  position: absolute;
-  top: 25%;
-  left: 10%;
-}
-
-.overlay-3 {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-}
-
-#hero-1 {
-  position: relative;
-  height: 100vh;
-  background: url('../assets/home-1.jpg');
-  background-size: cover;
-  color: #ffffff;
-
-  display: flex;
-  align-items: center;
-}
-
-#hero-1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-
-#hero-2 {
-  position: relative;
-  height: 100vh;
-  background: url('../assets/home-2.png');
-  color: #ffffff;
-  align-items: center;
-}
-
-#hero-2::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-#hero-3 {
-  position: relative;
-  height: 100vh;
-  background: url('../assets/home-3.png');
-  background-size: cover;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-}
-
-#hero-3::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+.text_18 {
+    font-size: 16px;
 }
 </style>
