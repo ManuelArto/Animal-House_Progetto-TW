@@ -39,9 +39,9 @@
 <style scoped lang="scss">
 
 img {
-  max-height: 500px;
+  min-height: 200px;
   object-fit: cover !important;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 992px) {
@@ -89,7 +89,7 @@ img {
 .overlay-3 {
   position: absolute;
   top: 10%;
-  right: 10%;
+  right: 12%;
   color: white;
 }
 </style>

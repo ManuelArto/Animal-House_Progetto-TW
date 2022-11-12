@@ -6,7 +6,7 @@
 
 	<img src="@/assets/banner_quiz.jpg" class="mb-3 border-bottom border-light w-100" alt="banner_quiz" style="object-fit: cover;">
 
-	<b-container class="d-flex mx-auto m-5">
+	<b-container class="d-flex mx-auto m-3">
 		<div class="card mx-auto w-100 shadow">
 			<div class="card-header d-flex justify-content-between align-items-center">
 				<h6 class="m-0"><i class="bi bi-patch-question-fill"></i> Animal Quiz</h6>

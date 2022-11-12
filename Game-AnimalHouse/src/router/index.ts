@@ -64,6 +64,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
+  window.scroll(0,0);
   state.isCollapseVisible = false
   return true
 })
