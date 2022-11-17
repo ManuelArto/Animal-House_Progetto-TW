@@ -92,9 +92,11 @@ let services = [{
 .boxes_shadow {
   box-shadow: 2px 2px 20px rgb(0 0 0 / 10%);
   border-radius: 10px;
+  transition: transform .2s;
 
   &:hover {
     box-shadow: 2px 2px 60px rgba(25, 66, 189, 0.862);
+    transform: scale(1.1); 
   }
 }
 
