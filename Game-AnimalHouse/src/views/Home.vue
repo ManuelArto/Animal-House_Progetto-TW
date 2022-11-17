@@ -40,33 +40,48 @@ let services = [{
 </script>
 
 <template>
-  <HomeCarousel />
+  <div id="animation_body">
+    <HomeCarousel />
 
-  <div class="container px-3" id="animation">
-    <div class="common_heading d-flex py-3">
-      <h2 class="fw-bold m-auto text-center">Tutti i servizi per Te e il tuo Pet</h2>
-    </div>
-    <b-row class="g-3 mb-5">
-      <div id="animation2" v-for="service in services" class="col-lg-4 col-sm-6 col-12">
-        <div class="boxes_shadow p-4 h-100 d-flex flex-column text-center">
-          <i :class="service.icon"></i>
-          <div class="common_heading">
-            <h4>{{ service.name }}</h4>
-          </div>
-          <p class="text_18">
-            {{ service.description }}
-          </p>
-          <router-link tag="button" class="btn btn-primary btn-lg boxes_shadow mt-auto mx-auto" :to="service.path">
-            Scopri di più</router-link>
-        </div>
+    <div class="container px-3" id="animation">
+      <div class="common_heading d-flex py-3">
+        <h2 class="fw-bold m-auto text-center">Tutti i servizi per Te e il tuo Pet</h2>
       </div>
-    </b-row>
+      <b-row class="g-3 mb-5">
+        <div id="animation2" v-for="service in services" class="col-lg-4 col-sm-6 col-12">
+          <div class="boxes_shadow p-4 h-100 d-flex flex-column text-center">
+            <i :class="service.icon"></i>
+            <div class="common_heading">
+              <h4>{{ service.name }}</h4>
+            </div>
+            <p class="text_18">
+              {{ service.description }}
+            </p>
+            <router-link tag="button" class="btn btn-primary btn-lg boxes_shadow mt-auto mx-auto" :to="service.path">
+              Scopri di più</router-link>
+          </div>
+        </div>
+      </b-row>
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .container {
   width: 75%;
+}
+
+#animation_body {
+  animation: ombra 0.5s ease-in both;
+}
+
+@keyframes ombra {
+	from {
+    opacity: 0;
+	}
+	to {
+    opacity:1;
+	}
 }
 
 #animation {
