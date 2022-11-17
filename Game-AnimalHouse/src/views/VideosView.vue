@@ -111,7 +111,7 @@ function share(x){
     </div>
 </template>
 
-<style>
+<style scoped>
 #title {
     color: #2f4eec;
     animation: zoom 0.5s ease-in both;
