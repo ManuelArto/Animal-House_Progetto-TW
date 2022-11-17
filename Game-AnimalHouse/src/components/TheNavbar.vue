@@ -22,7 +22,7 @@ defineProps<{
 		<b-collapse id="nav-collapse" is-nav :visible="state.isCollapseVisible" @shown="state.isCollapseVisible = true" @hidden="state.isCollapseVisible = false">
 			<b-navbar-nav>
 				<span v-for="route in routes">
-					<b-nav-item v-if="!route.nested" class="mx-2 mx-lg-1" :key="route.path" :to="route.path">
+					<b-nav-item v-if="!route.nested" class="mx-2 mx-lg-1" :key="route.path" :to="route.path" id="highlight">
 						<i :class="route.icon"/>
 						{{ route.text }}
 					</b-nav-item>
@@ -46,5 +46,13 @@ defineProps<{
 
 i {
 	font-size: 1rem;
+}
+
+#highlight :hover{
+	box-shadow: inset 300px 0 0 0 rgb(236, 236, 236);
+	border-radius: 25px;
+  	color: black;
+	transition: transform .2s;
+	transform: scale(1.1); 
 }
 </style>

@@ -14,18 +14,18 @@ const videos = [
     { src: "https://www.youtube.com/embed/Znd3AJI2kt0&controls=0", title: "Animali o calciatori", description: "Possiamo vedere alcune scene buffe in cui gli animali chiedono autografi ai calciatori", index: 10 },
     { src: "https://www.youtube.com/embed/JhaXTd8DKJk=cotrols=0", title: "I cani e l'acqua", description: "Sappiamo che ci sono molti cani che adorano l'acqua, ma anche tanti che la odiano. Osserviamone alcuni.", index: 11 },
     { src: "https://www.youtube.com/embed/YbAU0YI4kV4&controls=0", title: "Expo 2016", description: "Possiamo osservare i nostri amici a quattro zampe all'Expo che si è svolto a Milano nel 2016", index: 12 }
-]
+]   
 function myLike(x) {
     if (!changedLike && !changedDisLike) {
-        document.getElementById("like" + x).style.color = "red";
+        document.getElementById("like" + x).style.color = "green";
         changedLike = true;
     } else if (!changedLike && changedDisLike) {
-        document.getElementById("like" + x).style.color = "red";
-        document.getElementById("dislike" + x).style.color = "black";
+        document.getElementById("like" + x).style.color = "green";
+        document.getElementById("dislike" + x).style.color = "grey";
         changedLike = true;
         changedDisLike = false;
     } else {
-        document.getElementById("like" + x).style.color = "black";
+        document.getElementById("like" + x).style.color = "grey";
         changedLike = false;
     }
 }
@@ -35,20 +35,89 @@ function myDisLike(x) {
         changedDisLike = true;
     } else if (!changedDisLike && changedLike) {
         document.getElementById("dislike" + x).style.color = "red";
-        document.getElementById("like" + x).style.color = "black";
+        document.getElementById("like" + x).style.color = "grey";
         changedDisLike = true;
         changedLike = false;
     } else {
-        document.getElementById("dislike" + x).style.color = "black";
+        document.getElementById("dislike" + x).style.color = "grey";
         changedDisLike = false;
     }
+}
+
+function share(x){
+    let content = document.getElementById("link" + x);
+    navigator.clipboard.writeText(content.value);
+    alert("Link del video copiato negli appunti");
 }
 </script>
 
 <style scoped>
-#video {
-    background-image: url("@/assets/sfondo_video.jpg");
+
+.bi {
+    color: darkgrey;
+    font-size: 35px;
+    cursor: pointer;
+    user-select: none;
 }
+
+.bi:hover {
+    color: darkblue;
+}
+
+#btn {
+    background-color: white;
+    border: none;
+}
+</style>
+
+<template>
+    <b-container>
+        <h1 style="color:black; font-weight: bold; font-family: Georgia; padding:30px;">Video buffi</h1>
+        <b-row>
+            <b-col v-for="video in videos">
+                <div class="animal-video">
+                    <b-row>
+                        <div class="col-12">
+                            <div class="animal-video-title mb-2"><strong> {{ video.title }} </strong></div>
+                        </div>
+                    </b-row>
+                    <b-row>
+                        <div class="vid">
+                            <iframe :src="video.src" style="width:100%; height:250px;" allowfullscreen></iframe>
+                        </div>
+                    </b-row>
+                    <b-row>
+                        <b-col>
+                            <b-button id="btn" @click="myLike(video.index)">
+                                <i :id="'like' + video.index" class="bi bi-hand-thumbs-up-fill"></i>
+                            </b-button>
+                        </b-col>
+                        <b-col>
+                            <b-button id="btn" @click="myDisLike(video.index)">
+                                <i :id="'dislike' + video.index" class="bi bi-hand-thumbs-down-fill"></i>
+                            </b-button>
+                        </b-col>
+                        <b-col>
+                            <textarea :id="'link' + video.index" hidden>{{video.src}}</textarea>
+                            <b-button id="btn" @click="share(video.index)">
+                                <i id="share" class="bi bi-share-fill"></i>
+                            </b-button>
+                            
+                        </b-col>
+                    </b-row>
+                    <b-row>
+                        <div class="col-12">
+                            <div class="text_18"> {{ video.description }} </div>
+                        </div>
+                    </b-row>
+                </div>
+                <br>
+            </b-col>
+        </b-row>
+    </b-container>
+</template>
+
+<style>
 
 .bi {
     color: black;
@@ -64,29 +133,51 @@ function myDisLike(x) {
 #btn {
     background-color: #EFEFEF;
 }
-</style>
 
-<template>
-    <div id="video">
-        <b-container>
-            <h1>Video di animali</h1>
-            <b-row>
-                <b-col v-for="video in videos">
-                    <b-card :title="video.title" style="width: 19rem;">
-                        <iframe :src="video.src" style="width:100%; height:100%;" allowfullscreen></iframe>
-                        <b-card-text>
-                            {{ video.description }}
-                        </b-card-text>
-                        <b-button id="btn" @click="myLike(video.index)">
-                            <i :id="'like' + video.index" class="bi bi-hand-thumbs-up-fill"></i>
-                        </b-button>
-                        <b-button id="btn" @click="myDisLike(video.index)">
-                            <i :id="'dislike' + video.index" class="bi bi-hand-thumbs-down-fill"></i>
-                        </b-button>
-                    </b-card>
-                    <br>
-                </b-col>
-            </b-row>
-        </b-container>
-    </div>
-</template>
+.vid {
+    transition: transform .2s;
+}
+
+.vid :hover{
+    transform: scale(1.3); 
+}
+.animal-video{
+    background: white;
+	box-shadow: 2px 2px 20px rgb(0 0 0 / 10%);
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    width: 26rem;
+    height: 32rem;
+}
+
+.animal-video-title {
+    margin-bottom: 21px;
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 30px;
+    font-family:cursive;
+    text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+	.text_18 {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 5;
+		line-clamp: 5;
+		-webkit-box-orient: vertical;
+		font-size: 16px !important;
+		font-weight: normal !important;
+	}
+}
+
+.text_18 {
+    margin-left:20px;
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+</style>

@@ -42,12 +42,12 @@ let services = [{
 <template>
   <HomeCarousel />
 
-  <div class="container px-3">
+  <div class="container px-3" id="animation">
     <div class="common_heading d-flex py-3">
       <h2 class="fw-bold m-auto text-center">Tutti i servizi per Te e il tuo Pet</h2>
     </div>
     <b-row class="g-3 mb-5">
-      <div v-for="service in services" class="col-lg-4 col-sm-6 col-12">
+      <div id="animation2" v-for="service in services" class="col-lg-4 col-sm-6 col-12">
         <div class="boxes_shadow p-4 h-100 d-flex flex-column text-center">
           <i :class="service.icon"></i>
           <div class="common_heading">
@@ -69,12 +69,34 @@ let services = [{
   width: 75%;
 }
 
+#animation {
+  animation: fadeIn 0.8s ease-in both;
+}
+
+#animation2 {
+  animation: fadeIn 0.8s ease-in both;
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
 .boxes_shadow {
   box-shadow: 2px 2px 20px rgb(0 0 0 / 10%);
   border-radius: 10px;
+  transition: transform .2s;
 
   &:hover {
     box-shadow: 2px 2px 60px rgba(25, 66, 189, 0.862);
+    transform: scale(1.1); 
   }
 }
 
