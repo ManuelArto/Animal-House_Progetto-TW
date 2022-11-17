@@ -47,11 +47,89 @@ function myDisLike(x) {
 function share(x){
     let content = document.getElementById("link" + x);
     navigator.clipboard.writeText(content.value);
-    alert("Link del video copiato negli appunti");
 }
 </script>
 
-<style scoped>
+<template>
+    <b-container>
+        <h1 id="title" class="fw-bold m-auto text-center">Video buffi</h1>
+        <div id="body">
+            <b-row>
+                <b-col v-for="video in videos">
+                    <div class="animal-video">
+                        <b-row>
+                            <div class="col-12">
+                                <div class="animal-video-title mb-2"><strong> {{ video.title }} </strong></div>
+                            </div>
+                        </b-row>
+                        <b-row>
+                            <div class="vid">
+                                <iframe :src="video.src" style="width:100%; height:250px;border-radius: 10px;" allowfullscreen></iframe>
+                            </div>
+                        </b-row>
+                        <b-row>
+                            <b-col>
+                                <b-button id="btn" @click="myLike(video.index)">
+                                    <i :id="'like' + video.index" class="bi bi-hand-thumbs-up-fill"></i>
+                                </b-button>
+                            </b-col>
+                            <b-col>
+                                <b-button id="btn" @click="myDisLike(video.index)">
+                                    <i :id="'dislike' + video.index" class="bi bi-hand-thumbs-down-fill"></i>
+                                </b-button>
+                            </b-col>
+                            <b-col>
+                                <textarea :id="'link' + video.index" hidden>{{video.src}}</textarea>
+                                <b-button id="btn" @click="share(video.index)" data-bs-toggle="modal" data-bs-target="#notify">
+                                    <i id="share" class="bi bi-share-fill"></i>
+                                </b-button>
+                            </b-col>
+                        </b-row>
+                        <b-row>
+                            <div class="col-12">
+                                <div class="text_18"> {{ video.description }} </div>
+                            </div>
+                        </b-row>
+                    </div>
+                    <br>
+                </b-col>
+            </b-row>
+        </div>
+    </b-container>
+
+    <div class="modal fade" id="notify" tabindex="-1" role="dialog" aria-labelledby="notify" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="alert">
+                    <i class="bi bi-check-circle" style="color:green;"></i>
+                    <h5 class="modal-title" >
+                        Link copiato negli appunti</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style>
+#title {
+    color: #2f4eec;
+    animation: zoom 0.5s ease-in both;
+}
+
+#body {
+    animation: zoom 0.5s ease-in both;
+    
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(1.5);
+	}
+	to {
+		transform: scale(1);
+	}
+}
 
 .bi {
     color: darkgrey;
@@ -65,81 +143,20 @@ function share(x){
 }
 
 #btn {
-    background-color: white;
+    background-color: transparent;
     border: none;
-}
-</style>
-
-<template>
-    <b-container>
-        <h1 style="color:black; font-weight: bold; font-family: Georgia; padding:30px;">Video buffi</h1>
-        <b-row>
-            <b-col v-for="video in videos">
-                <div class="animal-video">
-                    <b-row>
-                        <div class="col-12">
-                            <div class="animal-video-title mb-2"><strong> {{ video.title }} </strong></div>
-                        </div>
-                    </b-row>
-                    <b-row>
-                        <div class="vid">
-                            <iframe :src="video.src" style="width:100%; height:250px;" allowfullscreen></iframe>
-                        </div>
-                    </b-row>
-                    <b-row>
-                        <b-col>
-                            <b-button id="btn" @click="myLike(video.index)">
-                                <i :id="'like' + video.index" class="bi bi-hand-thumbs-up-fill"></i>
-                            </b-button>
-                        </b-col>
-                        <b-col>
-                            <b-button id="btn" @click="myDisLike(video.index)">
-                                <i :id="'dislike' + video.index" class="bi bi-hand-thumbs-down-fill"></i>
-                            </b-button>
-                        </b-col>
-                        <b-col>
-                            <textarea :id="'link' + video.index" hidden>{{video.src}}</textarea>
-                            <b-button id="btn" @click="share(video.index)">
-                                <i id="share" class="bi bi-share-fill"></i>
-                            </b-button>
-                            
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <div class="col-12">
-                            <div class="text_18"> {{ video.description }} </div>
-                        </div>
-                    </b-row>
-                </div>
-                <br>
-            </b-col>
-        </b-row>
-    </b-container>
-</template>
-
-<style>
-
-.bi {
-    color: black;
-    font-size: 35px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.bi:hover {
-    color: darkblue;
-}
-
-#btn {
-    background-color: #EFEFEF;
 }
 
 .vid {
-    transition: transform .2s;
+    position:relative;
+    transition:all 0.4s ease 0s;
+    display:block;
 }
 
 .vid :hover{
-    transform: scale(1.3); 
+    transition:all 0.4s ease 0s;
+    transform:scale(1.3);
+    z-index:2;
 }
 .animal-video{
     background: white;
@@ -180,4 +197,7 @@ function share(x){
     font-size: 22px;
 }
 
+#alert {
+    background-color: lightgreen;
+}
 </style>
