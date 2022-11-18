@@ -100,7 +100,7 @@ function share(x){
     <div class="modal fade" id="notify" tabindex="-1" role="dialog" aria-labelledby="notify" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header" id="alert">
+                <div class="modal-header">
                     <i class="bi bi-check-circle" style="color:green;"></i>
                     <h5 class="modal-title" >
                         Link copiato negli appunti</h5>
@@ -113,13 +113,14 @@ function share(x){
 
 <style scoped>
 #title {
+    font-size: 60px;
+    padding: 50px;
     color: #2f4eec;
     animation: zoom 0.5s ease-in both;
 }
 
 #body {
     animation: zoom 0.5s ease-in both;
-    
 }
 
 @keyframes zoom {
@@ -197,7 +198,4 @@ function share(x){
     font-size: 22px;
 }
 
-#alert {
-    background-color: lightgreen;
-}
 </style>
