@@ -1,6 +1,6 @@
 <template>
 	<br>
-	<b-container class="my-5">
+	<b-container class="mb-5">
 		<AnimalCard v-for="animal in currentPageAnimals" :animal="animal" :isRandAnimal="true" />
 
 		<b-pagination v-show="animals.length" v-model="currentPage" :perPage="perPage" :total-rows="rows" :limit="3"
@@ -14,10 +14,6 @@ import { computed, onMounted, reactive, ref } from 'vue';
 import AnimalCard from '@/components/AnimalCard.vue'
 import type { RandAnimal } from '@/model';
 import type { BvEvent } from 'bootstrap-vue-3';
-
-defineProps<{
-	curiosity_type: string
-}>()
 
 var animals: RandAnimal[] = reactive([])
 function getRandAnimals(number: number) {

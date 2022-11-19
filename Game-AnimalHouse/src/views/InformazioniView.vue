@@ -9,9 +9,9 @@
                     <!-- inizio paragrafo -->
                     <div class="regolaInfo108_el105727_pos61 paragrafo11 " style="position:relative;">
                         <div id="text">
-                            <p><img alt="Cane a computer" class="img-fluid"
-                                    src="https://us.123rf.com/450wm/christinaholovach/christinaholovach2004/christinaholovach200400006/146340199-punto-interrogativo-risolvere-il-problema-del-cane-che-trova-le-risposte-facendo-i-compiti-con-i-lib.jpg?ver=6"
-                                    style="width: 1200px; height: 630px;"></p>
+                            <p><img alt="Cane a computer" class="img-fluid w-100"
+                                    src="https://us.123rf.com/450wm/christinaholovach/christinaholovach2004/christinaholovach200400006/146340199-punto-interrogativo-risolvere-il-problema-del-cane-che-trova-le-risposte-facendo-i-compiti-con-i-lib.jpg?ver=6">
+                            </p>
                             <p>In questa pagina troverai le risposte alle domande più frequenti sugli animali domestici,
                                 il loro comportamento e il loro stato di salute.&nbsp;</p>
                             <p>Verranno forniti alcuni consigli utili per poter garantire al tuo amico a quattro zampe

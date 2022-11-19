@@ -3,17 +3,6 @@
 	  <b-carousel-slide active>
 		<template #img>
 		  <div style="background-color: #000000;">
-			<img class="w-100" src="@/assets/home-1.jpg" alt="home-banner"/>
-		  </div>
-		  <div class="overlay-1 text-wrap">
-			<p class="carousel_text_1 fw-bold mb-0">I migliori prodotti li trovi da noi</p>
-			<p class="carousel_text_2">Cerca nel nostro store i prodotti <br>più adatti al tuo amico</p>
-		  </div>
-		</template>
-	  </b-carousel-slide>
-	  <b-carousel-slide>
-		<template #img>
-		  <div style="background-color: #000000;">
 			<img class="w-100" src="@/assets/home-2.png" alt="home-banner"/>
 		  </div>
 		  <div class="overlay-2 text-wrap">
@@ -30,6 +19,17 @@
 		  <div class="overlay-3 text-wrap">
 			<p class="carousel_text_1 fw-bold mb-0">Le informazioni di <br>cui hai bisogno</p>
 			<p class="carousel_text_2">Villegiature, psicologi, pet sitter. <br>Leggi tutte le informazioni</p>
+		  </div>
+		</template>
+	  </b-carousel-slide>
+	  <b-carousel-slide>
+		<template #img>
+		  <div style="background-color: #000000;">
+			<img class="w-100" src="@/assets/home-1.jpg" alt="home-banner"/>
+		  </div>
+		  <div class="overlay-1 text-wrap">
+			<p class="carousel_text_1 fw-bold mb-0">I migliori prodotti li trovi da noi</p>
+			<p class="carousel_text_2">Cerca nel nostro store i prodotti <br>più adatti al tuo amico</p>
 		  </div>
 		</template>
 	  </b-carousel-slide>
