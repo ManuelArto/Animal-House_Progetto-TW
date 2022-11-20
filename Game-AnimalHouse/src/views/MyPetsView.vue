@@ -36,12 +36,12 @@ var currentPageAnimals = computed(() => {
       <b-pagination v-model="currentPage" :perPage="perPage" :total-rows="rows" :limit="3" pills align="center">
       </b-pagination>
     </b-row>
-
   </div>
 </template>
 
 
 <style scoped>
+
 #img_header {
   width: 100%;
   margin-bottom: 33px;
