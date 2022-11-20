@@ -20,8 +20,8 @@
                                 uno.&nbsp;</p>
                             <details class="pre">
                                 <summary>
-                                    <div id="regolaInfo108_el105727_pos61_0_0" class="jumptarget"></div>
-                                    <h2 class="pre-title" id="h2_regolaInfo108_el105727_pos61_0_0">Come posso occuparmi
+                                    <div id="regola1" class="jumptarget"></div>
+                                    <h2 class="pre-title">Come posso occuparmi
                                         di un cane?</h2>
                                 </summary>
 
@@ -29,9 +29,7 @@
                                     <p>E' possibile prendersi cura di un cane del canile anche senza portarlo in casa
                                         tutti i giorni.</p>
 
-                                    <p>Presso <a
-                                            href="https://www.comune.prato.it/it/temi/ambiente-e-animali/indirizzario/canile-il-rifugio/archivio26_0_14.html">il
-                                            canile "Il Rifugio"</a> è possibile portare i cani a fare delle passeggiate,
+                                    <p>Presso il canile è possibile portare i cani a fare delle passeggiate,
                                         pettinarli, lavarli e passare un po' di tempo con loro dentro le aree di
                                         sgambatura preposte.</p>
                                 </div>
@@ -39,8 +37,8 @@
 
                             <details class="pre">
                                 <summary>
-                                    <div id="regolaInfo108_el105727_pos61_0_1" class="jumptarget"></div>
-                                    <h2 class="pre-title" id="h2_regolaInfo108_el105727_pos61_0_1">Come posso occuparmi
+                                    <div id="regola2" class="jumptarget"></div>
+                                    <h2 class="pre-title">Come posso occuparmi
                                         di un gatto?</h2>
                                 </summary>
 
@@ -54,20 +52,16 @@
                                             spazzolare e coccolare i gatti.&nbsp;</li>
                                     </ul>
 
-                                    <p>Consulta l’<a
-                                            href="https://icaroprato.it//RicercaElencoRisultati?ricerca_associazioni%5Bid_area%5D=3&amp;ricerca_associazioni%5Bid_settore%5D=17">elenco
-                                            delle associazioni animaliste presenti sul territorio pratese</a> o contatta
-                                        <a
-                                            href="https://www.comune.prato.it/it/temi/ambiente-e-animali/indirizzario/oasi-felina-la-bogaia/archivio26_1_18.html">l’Oasi
-                                            Felina di Prato “La Bogaia”</a> per maggiori informazioni.
+                                    <p>Consulta l'elenco delle associazioni animaliste presenti sul tuo territorio o contatta
+                                        l’Oasi Felina di “La Bogaia” per maggiori informazioni.
                                     </p>
                                 </div>
                             </details>
 
                             <details class="pre">
                                 <summary>
-                                    <div id="regolaInfo108_el105727_pos61_0_2" class="jumptarget"></div>
-                                    <h2 class="pre-title" id="h2_regolaInfo108_el105727_pos61_0_2">Cosa faccio se il mio
+                                    <div id="regola3" class="jumptarget"></div>
+                                    <h2 class="pre-title">Cosa faccio se il mio
                                         cane morde?</h2>
                                 </summary>
 
@@ -83,8 +77,8 @@
 
                             <details class="pre">
                                 <summary>
-                                    <div id="regolaInfo108_el105727_pos61_0_3" class="jumptarget"></div>
-                                    <h2 class="pre-title" id="h2_regolaInfo108_el105727_pos61_0_3">Cosa faccio se il mio
+                                    <div id="regola4" class="jumptarget"></div>
+                                    <h2 class="pre-title">Cosa faccio se il mio
                                         cane abbaia tanto?</h2>
                                 </summary>
 
@@ -102,8 +96,8 @@
 
                             <details class="pre">
                                 <summary>
-                                    <div id="regolaInfo108_el105727_pos61_0_4" class="jumptarget"></div>
-                                    <h2 class="pre-title" id="h2_regolaInfo108_el105727_pos61_0_4">Piccoli accorgimenti
+                                    <div id="regola5" class="jumptarget"></div>
+                                    <h2 class="pre-title">Piccoli accorgimenti
                                         per non smarrire o non far scappare il tuo animale</h2>
                                 </summary>
 
@@ -126,18 +120,16 @@
 
                             <details class="pre">
                                 <summary>
-                                    <div id="regolaInfo108_el105727_pos61_0_5" class="jumptarget"></div>
-                                    <h2 class="pre-title" id="h2_regolaInfo108_el105727_pos61_0_5">Sterilizzazione: un
+                                    <div id="regola6" class="jumptarget"></div>
+                                    <h2 class="pre-title">Sterilizzazione: un
                                         aiuto alla lotta al randagismo</h2>
                                 </summary>
 
                                 <div class="pre-content">
                                     <p>La sterilizzazione è l’unica arma concreta che abbiamo per combattere il
                                         randagismo e per contenere la crescita della popolazione canina e felina sul
-                                        territorio, infatti il <a
-                                            href="https://governo.comune.prato.it/statuto-e-regolamenti/archivio16_1_4_60_6.html">Regolamento
-                                            Comunale per la tutela ed il benessere degli animali in città</a> prevede
-                                        che i possessori di animali si impegnino ad impedire la loro proliferazione se
+                                        territorio, infatti il Regolamento Comunale per la tutela ed il benessere degli animali in 
+                                        città prevede  che i possessori di animali si impegnino ad impedire la loro proliferazione se
                                         non si è certi di poter collocare idoneamente la cucciolata ed informarsi sui
                                         metodi più opportuni per il contenimento delle nascite.</p>
 
@@ -166,8 +158,8 @@
 
                             <details class="pre">
                                 <summary>
-                                    <div id="regolaInfo108_el105727_pos61_0_6" class="jumptarget"></div>
-                                    <h2 class="pre-title" id="h2_regolaInfo108_el105727_pos61_0_6">Le visite veterinarie
+                                    <div id="regola7" class="jumptarget"></div>
+                                    <h2 class="pre-title">Le visite veterinarie
                                     </h2>
                                 </summary>
 
@@ -188,8 +180,8 @@
 
                             <details class="pre">
                                 <summary>
-                                    <div id="regolaInfo108_el105727_pos61_0_7" class="jumptarget"></div>
-                                    <h2 class="pre-title" id="h2_regolaInfo108_el105727_pos61_0_7">Come riconoscere un
+                                    <div id="regola8" class="jumptarget"></div>
+                                    <h2 class="pre-title">Come riconoscere un
                                         animale in buona salute</h2>
                                 </summary>
 
@@ -246,42 +238,42 @@
                                     Indice </h2>
                                 <ul id="menuAncore" class="nav nav-pills flex-column mx-auto">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#regolaInfo108_el105727_pos61_0_0">
+                                        <a class="nav-link" href="#regola1">
                                             Come posso occuparmi di un cane?
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#regolaInfo108_el105727_pos61_0_1">
+                                        <a class="nav-link" href="#regola2">
                                             Come posso occuparmi di un gatto?
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#regolaInfo108_el105727_pos61_0_2">
+                                        <a class="nav-link" href="#regola3">
                                             Cosa faccio se il mio cane morde?
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#regolaInfo108_el105727_pos61_0_3">
+                                        <a class="nav-link" href="#regola4">
                                             Cosa faccio se il mio cane abbaia tanto?
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#regolaInfo108_el105727_pos61_0_4">
+                                        <a class="nav-link" href="#regola5">
                                             Piccoli accorgimenti per non smarrire o non far scappare il tuo animale
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#regolaInfo108_el105727_pos61_0_5">
+                                        <a class="nav-link" href="#regola6">
                                             Sterilizzazione: un aiuto alla lotta al randagismo
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#regolaInfo108_el105727_pos61_0_6">
+                                        <a class="nav-link" href="#regola7">
                                             Le visite veterinarie
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#regolaInfo108_el105727_pos61_0_7">
+                                        <a class="nav-link" href="#regola8">
                                             Come riconoscere un animale in buona salute
                                         </a>
                                     </li>
@@ -299,7 +291,6 @@
 
 <script setup>
 import { onMounted } from "vue"
-
 onMounted(() => {
     var header = document.getElementById("menuAncore");
     var btns = header?.getElementsByClassName("nav-link");
@@ -330,7 +321,7 @@ details summary:after {
     position: absolute;
     font-size: 3rem;
     line-height: 0;
-    margin-top: -40px;
+    margin-top: -50px;
     right: 0;
     font-weight: 200;
     transform-origin: center;
@@ -380,18 +371,11 @@ details[open] summary~* {
     font-size: 20px;
 }
 
-
 .pre h2.pre-title {
     color: #003399;
     font-weight: bold;
     font-size: 35px;
-}
-
-.pre .pre-title {
     border-bottom: 3px solid #003399 !important;
-}
-
-.pre {
     margin: 20px 0px;
     margin-top: 20px;
     margin-right: 0px;
@@ -424,9 +408,6 @@ details[open] summary~* {
 .sidemenu-paginterna,
 .navbar {
     padding: 5px;
-}
-
-.navbar {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -449,11 +430,9 @@ ul.nav.nav-pills {
 .mx-auto {
     margin-right: auto !important;
 }
-
 .flex-column {
     flex-direction: column !important;
 }
-
 .nav {
     display: flex;
     flex-wrap: wrap;
