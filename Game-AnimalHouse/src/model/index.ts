@@ -39,4 +39,15 @@ interface RandAnimal {
 	id: number
 }
 
-export type { Animal, Route, RandAnimal}
+interface Answer {
+	answer: string,
+	isCorrect: boolean
+}
+
+interface Question {
+	question: string,
+	animalImage: string,
+	answers: Array<Answer>
+}
+
+export type { Animal, Route, RandAnimal, Question, Answer}
