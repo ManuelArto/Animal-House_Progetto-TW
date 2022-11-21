@@ -48,7 +48,7 @@ function getCustomText(animal: RandAnimal) {
                     </div>
                     <div class="col-12">
                         <p v-if="isRandAnimal" class="text_18">{{ getCustomText(animal as RandAnimal) }}</p>
-                        <p v-else>
+                        <p v-else class="text_my_animal">
                             <b>Specie: </b> {{ (animal as Animal).specie }} <br>
                             <b>Razza: </b> {{ (animal as Animal).razza }}<br>
                             <b>Nascita: </b> {{ (animal as Animal).birthday }} <br>
@@ -139,6 +139,10 @@ function getCustomText(animal: RandAnimal) {
 		font-size: 16px !important;
 		font-weight: normal !important;
 	}
+}
+
+.text_my_animal {
+    font-size: 18px;
 }
 
 img {

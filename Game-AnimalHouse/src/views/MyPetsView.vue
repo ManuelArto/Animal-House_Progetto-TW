@@ -24,7 +24,7 @@ var currentPageAnimals = computed(() => {
     <!-- Button trigger modal -->
     <b-button id="btn" class="position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#RegisterModal">
       <i class="bi bi-plus-circle-fill" id="plus"></i>
-    </b-button>
+    </b-button> 
 
     <!-- Modal -->
     <RegisterAnimalModal :modalId="'RegisterModal'"></RegisterAnimalModal>
