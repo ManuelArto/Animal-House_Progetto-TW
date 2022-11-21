@@ -24,12 +24,12 @@ defineProps<{
 				<span v-for="route in routes">
 					<b-nav-item v-if="!route.nested" class="mx-2 mx-lg-1" :key="route.path" :to="route.path" id="highlight">
 						<i :class="route.icon"/>
-						{{ route.text }}
+						<span id="text">{{ route.text }} </span>
 					</b-nav-item>
 					<b-nav-item-dropdown v-else class="mx-2 mx-lg-1" :key="route.text">
 						<template #button-content>
 							<i :class="route.icon" />
-							{{ route.text }}
+							<span id="text">{{ route.text }}</span>
 						</template>
 						<b-dropdown-item v-for="sub_route in route.routes" :key="sub_route.path" :to="sub_route.path">
 							{{ sub_route.text }}
@@ -45,7 +45,12 @@ defineProps<{
 <style scoped>
 
 i {
-	font-size: 1rem;
+	font-size: 1.5rem;
+}
+
+#text {
+	font-size: 17px;
+	margin-left: 10px;
 }
 
 #highlight :hover{
@@ -54,5 +59,15 @@ i {
   	color: black;
 	transition: transform .2s;
 	transform: scale(1.1); 
+}
+
+@media screen and (max-width: 992px) {
+	#highlight :hover{
+		box-shadow: inset 300px 0 0 0 rgb(236, 236, 236);
+		border-radius: 25px;
+		color: black;
+		transition: transform .2s;
+		transform: scale(1.03); 
+	}
 }
 </style>
