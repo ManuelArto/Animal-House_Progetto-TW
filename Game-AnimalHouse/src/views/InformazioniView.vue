@@ -1,8 +1,8 @@
 
 <template>
     <div id="animation">
-        <span id="title">Tutto quello che devi sapere</span>
         <div class="container fascia-margin-40-20">
+            <p class="m-0" id="title">Tutto quello che devi sapere</p>
             
             <div class=" row">
                 <div class=" col-md-8 order-last create-a-menu">
@@ -22,7 +22,7 @@
                                 <details class="pre">
                                     <summary>
                                         <div id="regola1" class="jumptarget"></div>
-                                        <h2 class="pre-title">Come posso occuparmi
+                                        <h2 class="pre-title pe-4">Come posso occuparmi
                                             di un cane?</h2>
                                     </summary>
 
@@ -39,7 +39,7 @@
                                 <details class="pre">
                                     <summary>
                                         <div id="regola2" class="jumptarget"></div>
-                                        <h2 class="pre-title">Come posso occuparmi
+                                        <h2 class="pre-title pe-4">Come posso occuparmi
                                             di un gatto?</h2>
                                     </summary>
 
@@ -62,7 +62,7 @@
                                 <details class="pre">
                                     <summary>
                                         <div id="regola3" class="jumptarget"></div>
-                                        <h2 class="pre-title">Cosa faccio se il mio
+                                        <h2 class="pre-title pe-4">Cosa faccio se il mio
                                             cane morde?</h2>
                                     </summary>
 
@@ -79,7 +79,7 @@
                                 <details class="pre">
                                     <summary>
                                         <div id="regola4" class="jumptarget"></div>
-                                        <h2 class="pre-title">Cosa faccio se il mio
+                                        <h2 class="pre-title pe-4">Cosa faccio se il mio
                                             cane abbaia tanto?</h2>
                                     </summary>
 
@@ -98,7 +98,7 @@
                                 <details class="pre">
                                     <summary>
                                         <div id="regola5" class="jumptarget"></div>
-                                        <h2 class="pre-title">Piccoli accorgimenti
+                                        <h2 class="pre-title pe-4">Piccoli accorgimenti
                                             per non smarrire o non far scappare il tuo animale</h2>
                                     </summary>
 
@@ -122,7 +122,7 @@
                                 <details class="pre">
                                     <summary>
                                         <div id="regola6" class="jumptarget"></div>
-                                        <h2 class="pre-title">Sterilizzazione: un
+                                        <h2 class="pre-title pe-4">Sterilizzazione: un
                                             aiuto alla lotta al randagismo</h2>
                                     </summary>
 
@@ -160,7 +160,7 @@
                                 <details class="pre">
                                     <summary>
                                         <div id="regola7" class="jumptarget"></div>
-                                        <h2 class="pre-title">Le visite veterinarie
+                                        <h2 class="pre-title pe-4">Le visite veterinarie
                                         </h2>
                                     </summary>
 
@@ -182,7 +182,7 @@
                                 <details class="pre">
                                     <summary>
                                         <div id="regola8" class="jumptarget"></div>
-                                        <h2 class="pre-title">Come riconoscere un
+                                        <h2 class="pre-title pe-4">Come riconoscere un
                                             animale in buona salute</h2>
                                     </summary>
 
@@ -235,8 +235,7 @@
                         <div class=" sticky-top sticky-offset">
                             <div class="sidemenu-paginterna sidemenu-hidemobile">
                                 <nav id="navbar-indice" class="navbar">
-                                    <h2 id="indice">
-                                        Indice </h2>
+                                    <span id="indice"> Indice </span>
                                     <ul id="menuAncore" class="nav nav-pills flex-column mx-auto">
                                         <li class="nav-item">
                                             <a class="nav-link" href="#regola1">
@@ -361,24 +360,32 @@ details[open] summary~* {
     }
 }
 
-.container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
 .fascia-margin-40-20 {
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
 #title {
-    margin-left: 100px;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
     color: #2f4eec;
+}
+
+#indice {
+    font-weight: bold;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+}
+
+@media screen and (max-width: 564px) {
+    #title {
+        font-size: 28px
+    }
+    #indice {
+        font-size: 25px
+    }
+
 }
 
 #text {
@@ -388,7 +395,6 @@ details[open] summary~* {
 .pre h2.pre-title {
     color: #003399;
     font-weight: bold;
-    font-size: 35px;
     border-bottom: 3px solid #003399 !important;
     margin: 20px 0px;
     margin-top: 20px;
@@ -398,61 +404,16 @@ details[open] summary~* {
 }
 
 .jumptarget {
+    position: absolute;
+    top: -84px;
     display: block;
     height: 10px;
     margin: -10px 0 0;
     padding-top: 25px;
 }
 
-#indice {
-    font-weight: bold;
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 50px;
-}
-
-.d-inline {
-    display: inline !important;
-}
-
 .sticky-offset {
     top: 100px;
-}
-
-.sidemenu-paginterna,
-.navbar {
-    padding: 5px;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.sidemenu-paginterna,
-ul.nav.nav-pills {
-    width: 100%;
-    padding-right: 10px;
-}
-
-.ml-auto,
-.mx-auto {
-    margin-left: auto !important;
-}
-
-.mr-auto,
-.mx-auto {
-    margin-right: auto !important;
-}
-.flex-column {
-    flex-direction: column !important;
-}
-.nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
 }
 
 li.nav-item:first-child {
@@ -461,10 +422,6 @@ li.nav-item:first-child {
 
 li.nav-item {
     border-bottom: 1.6px solid #003399;
-}
-
-li {
-    display: list-item;
 }
 
 .nav-link:hover {
