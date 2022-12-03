@@ -5,5 +5,3 @@
 <style>
 	/* your styles go here */
 </style>
-
-<h2>Home</h2>
