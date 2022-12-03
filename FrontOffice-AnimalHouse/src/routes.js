@@ -19,12 +19,12 @@ export const routes = {
   "/shop" : Shop,
   "/serviziPresenza" : ServiziPresenza,
   // Servizi di Comunità
-  "/leaderboard" : Leaderboard,
-  "/bachecaEccoloQua" : BachecaEccoloQua,
-  "/bachecaCercoPartner" : BachecaCercoPartner,
-  "/bachecaAiutami" : BachecaAiutami,
+  "/servizi/leaderboard" : Leaderboard,
+  "/servizi/bachecaEccoloQua" : BachecaEccoloQua,
+  "/servizi/bachecaCercoPartner" : BachecaCercoPartner,
+  "/servizi/bachecaAiutami" : BachecaAiutami,
   // Servizi Online
-  "/videoConfEsperto" : VideoConfEsperto,
-  "/videoConfVeterinaio" : VideoConfVeterinaio,
-  "/notFound" : NotFound,
+  "/serviziOnline/videoConfEsperto" : VideoConfEsperto,
+  "/serviziOnline/videoConfVeterinaio" : VideoConfVeterinaio,
+  "*" : NotFound,
 };
