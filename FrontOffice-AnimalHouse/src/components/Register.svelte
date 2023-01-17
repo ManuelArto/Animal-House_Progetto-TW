@@ -62,5 +62,5 @@
         <Checkbox>Remember me</Checkbox>
         <a href="/" class="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Lost password?</a>
     </div>
-    <Button type="submit" class="w-full1" on:click={openLoginForm()}>Create your account </Button>Button>
+    <Button type="submit" class="w-full1" on:click={openLoginForm()}>Create your account </Button>
 </form>
