@@ -1,6 +1,9 @@
 <script>
   import { Button, Modal, Label, Input, Checkbox } from 'flowbite-svelte'
   let show = false;
+  export let openRegisterForm;
+  export let closeLoginForm;
+  export let isLogged;
 </script>
 
 
@@ -26,8 +29,8 @@
         <Checkbox>Remember me</Checkbox>
         <a href="/" class="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Lost password?</a>
     </div>
-    <Button type="submit" class="w-full1">Login to your account</Button>
+    <Button type="submit" class="w-full1" on:click={() => (isLogged(), closeLoginForm())}>Login to your account</Button>
       <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-        Not registered? <a href="/" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+        Not registered? <button class="text-blue-700 hover:underline dark:text-blue-500" on:click={() => (openRegisterForm(), closeLoginForm())}>Create account</button>
       </div>
   </form>

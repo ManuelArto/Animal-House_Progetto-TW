@@ -4,17 +4,23 @@
     import Register from "./Register.svelte"
     let formLogin = false;
     let formRegister = false;
+    export let isLogged;
 
     let openLoginForm = () => formLogin = true;
-    let openRegisterForm = () => formLogin = true;
+    let openRegisterForm = () => formRegister = true;
+    let closeLoginForm = () => formLogin = false;
+   
 </script>
 
-<Button on:click={openLoginForm}>Accedi</Button>
+<Button gradient color="tealToLime" on:click={openLoginForm}>Accedi</Button>
 <Modal bind:open={formLogin} size="xs" autoclose={false} class="w-full">
-    <Login openRegisterForm={openRegisterForm}/>
+    <Login closeLoginForm={closeLoginForm} 
+            openRegisterForm={openRegisterForm} 
+            isLogged={isLogged}/>
 </Modal>
 
-<Button on:click={openRegisterForm}>Registrati</Button>
+<Button gradient color="greenToBlue" on:click={openRegisterForm}>Registrati</Button>
 <Modal bind:open={formRegister} size="xs" autoclose={false} class="w-full">
     <Register openLoginForm={openLoginForm}/>
 </Modal>
+

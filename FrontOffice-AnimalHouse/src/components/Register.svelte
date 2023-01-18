@@ -1,6 +1,7 @@
 <script>
     import { Button, Modal, Label, Input, Checkbox } from 'flowbite-svelte'
     export let openLoginForm;
+    let show = false;
 </script>
 
 <form class="flex flex-col space-y-6" action="#">

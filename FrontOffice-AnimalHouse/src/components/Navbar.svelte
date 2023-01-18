@@ -1,7 +1,10 @@
 <script>
     import SignModal from "./SignModal.svelte"
-    import { Dropdown, DropdownItem, Chevron, DropdownDivider, Navbar, NavBrand, NavHamburger, NavUl, NavLi } from 'flowbite-svelte'
+    import user from "../assets/user.png"
+    import { Button, Dropdown, DropdownItem, DropdownHeader, Avatar, Chevron, DropdownDivider, Navbar, NavBrand, NavHamburger, NavUl, NavLi } from 'flowbite-svelte'
     let group3=2;
+    let isLogged = false;
+    let Logged = () => isLogged = true;
 </script>
   
 
@@ -11,12 +14,29 @@
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Front Office</span>
     </NavBrand>
     <div class="flex md:order-2">
-        <SignModal />
+        {#if !isLogged}
+            <SignModal isLogged={Logged}/>
+        {:else}
+            <Button pill color="light" id="avatar-menu" class="!p-1">
+                <Avatar src={user} class="mr-2"/>
+                Bonnie Green
+            </Button>
+            <Dropdown placement="bottom" triggeredBy="#avatar-menu">
+                <DropdownHeader>
+                    <span class="block text-sm"> Bonnie Green </span>
+                    <span class="block truncate text-sm font-medium"> name@flowbite.com </span>
+                </DropdownHeader>
+                <DropdownItem><NavLi href="#/profile">Profilo</NavLi></DropdownItem>
+                <DropdownItem><NavLi href="/">Dashboard</NavLi></DropdownItem>
+                <DropdownItem><NavLi href="/">Setting</NavLi></DropdownItem>
+                <DropdownDivider />
+                <DropdownItem><Button type="button" color="light" on:click={() => isLogged = false}>Sign out</Button></DropdownItem>
+            </Dropdown>
+        {/if}
     </div>     
     <NavHamburger on:click={toggle} />
     <NavUl {hidden} class="ml-3">
         <NavLi href="/" active={true}>Home</NavLi>
-        <NavLi href="#/profile">Profilo</NavLi>    
         <NavLi href="#/shop">Shop</NavLi>
         <NavLi href="#/serviziPresenza">Servizi Presenza</NavLi>
         <NavLi href="#/servizi/leaderboard">LeaderBoard</NavLi>
