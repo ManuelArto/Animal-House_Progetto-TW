@@ -10,7 +10,6 @@ interface IUser {
 	name: string;
 	email: string;
 	password: string;
-	tokens: any[];
 	save: Function;
 }
 
@@ -37,13 +36,7 @@ const userSchema = new Schema<IUser>({
 		required: true,
 		minLength: 7,
 		trim: true,
-	},
-	tokens: [{
-		token: {
-			type: String,
-			required: true
-		}
-	}]
+	}
 }, {
 	timestamps: true
 })
@@ -53,7 +46,6 @@ const userSchema = new Schema<IUser>({
 userSchema.methods.generateAuthToken = async function () {
     const user = this
     const token = jwt.sign({ _id: user._id.toString()}, process.env.JWT_SECRET)
-    user.tokens = user.tokens.concat({token})
     
 	await user.save()
     return token
@@ -85,8 +77,6 @@ userSchema.pre('save', async function(next: Function) {
 })
 
 
-const User = model<IUser>('User', userSchema)
-
-module.exports = User
+export const User = model<IUser>('User', userSchema)
 
 export type { IUser }
