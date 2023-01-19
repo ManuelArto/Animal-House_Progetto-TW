@@ -5,7 +5,7 @@
   "main": "src/app.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "concurrently \"tsc --watch\" \"nodemon -q src/app.ts\"",
+    "dev": "npx nodemon src/app.ts",
     "start": "tsc && node dist/app.js"
   },
   "keywords": [],
@@ -18,11 +18,16 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.4",
+    "ts-node": "^10.9.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.15",
+    "@types/jsonwebtoken": "^9.0.1",
     "@types/node": "^18.11.18",
+    "@types/validator": "^13.7.10",
     "concurrently": "^7.6.0",
     "nodemon": "^2.0.20",
     "typescript": "^4.9.4"

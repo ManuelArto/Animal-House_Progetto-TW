@@ -1,18 +1,23 @@
 import express, { Router, Request, Response }  from "express";
-const User = require('../model/user')
+import { UserModel } from '../model/user'
 
 export const router: Router = express.Router();
 
 // signup
 router.post('/signup', async (req: Request, res: Response) => {
-    const user = new User(req.body)
+    const user = new UserModel(req.body)
 
     try {
         await user.save()
         const token = await user.generateAuthToken()
-        res.status(201).send({user, token})
+
+        // storing our JWT web token as a cookie in our browser
+        // res.cookie('token',token,{ maxAge: 4 * 60 * 60 * 1000, httpOnly: true });  // maxAge: 4 hours
+        
+        res.status(201).send({...user.toJSON(), token })
     } catch (error) {
-        res.status(400).send(error)
+        // TODO: non ritorna bene error
+        res.status(400).send(JSON.stringify(error))
     }
 
 })
@@ -20,12 +25,14 @@ router.post('/signup', async (req: Request, res: Response) => {
 // login
 router.post('/login', async (req, res: Response) => {
     try {
-        const user = await User.findByCredentials(req.body.email, req.body.password)
+        const user = await UserModel.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
-        res.send({ user, token})
+         
+        res.send({ ...user.toJSON(), token })
     } catch (error) {
-        res.status(400).send(error)
+        // TODO: non ritorna bene error
+        res.status(400).send(JSON.stringify(error))
     }
 })
 
-module.exports = router
+export default router
