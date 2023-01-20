@@ -4,7 +4,7 @@ import { UserModel } from '../model/user'
 export const router: Router = express.Router();
 
 // signup
-router.post('/signup', async (req: Request, res: Response) => {
+router.post('/register', async (req: Request, res: Response) => {
     const user = new UserModel(req.body)
 
     try {
@@ -15,9 +15,8 @@ router.post('/signup', async (req: Request, res: Response) => {
         // res.cookie('token',token,{ maxAge: 4 * 60 * 60 * 1000, httpOnly: true });  // maxAge: 4 hours
         
         res.status(201).send({...user.toJSON(), token })
-    } catch (error) {
-        // TODO: non ritorna bene error
-        res.status(400).send(JSON.stringify(error))
+    } catch (error: any) {
+        res.status(400).send( {error: error.message} )
     }
 
 })
@@ -29,9 +28,8 @@ router.post('/login', async (req, res: Response) => {
         const token = await user.generateAuthToken()
          
         res.send({ ...user.toJSON(), token })
-    } catch (error) {
-        // TODO: non ritorna bene error
-        res.status(400).send(JSON.stringify(error))
+    } catch (error: any) {
+        res.status(400).send( {error: error.message} )
     }
 })
 
