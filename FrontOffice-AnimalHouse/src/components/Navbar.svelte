@@ -1,8 +1,7 @@
 <script>
     import SignModal from "./SignModal.svelte"
     import { Dropdown, DropdownItem, DropdownHeader, DropdownDivider, Avatar, Chevron, Navbar, NavBrand, NavHamburger, NavUl, NavLi } from 'flowbite-svelte'
-
-    let isLogged = true;
+    let isLogged = false;
 </script>
   
 
