@@ -2,16 +2,15 @@ import express, { Express, Request, Response } from "express"
 import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config()
-
-import db from './db/mongo'
+import connectMongo from './db/mongo'
 import userRouter from './routes/user'
 
 const app: Express = express();
+const PORT = process.env.PORT;
 
 app.use(cors())
 app.use(express.json())
-
-db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req: Request, res: Response) => {
   res.json({ message: "Welcome to the application." });
@@ -19,7 +18,8 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use('/user/', userRouter)
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-  console.log(`⚡️[server]: Server is running on port ${PORT}.`)
+
+app.listen(PORT, async () => {
+  console.log(`⚡️[server]: Server is running on port ${PORT}`)
+  await connectMongo()
 })

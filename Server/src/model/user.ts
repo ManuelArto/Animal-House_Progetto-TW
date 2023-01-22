@@ -1,8 +1,8 @@
 import { Document, Schema, Model, model } from 'mongoose';
-
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { constants } from '../utils/const';
 
 
 interface IUser extends Document {
@@ -16,22 +16,17 @@ interface IUserModel extends Model<IUser> {
 	findByCredentials(email: string, password: string): Promise<IUser>
 }
 
-function getter(val: any) { return val }
-
 const userSchema = new Schema<IUser>({
 	name: {
 		type: String,
 		required: true,
-		trim: true,
-		lowercase: true,
-		get: getter
+		unique: true
 	},
 	email: {
 		type: String,
 		required: true,
 		unique: true,
 		lowercase: true,
-		get: getter,
 		validate(value: string) {
 			if (!validator.isEmail(value)) {
 				throw new Error('Email is invalid')
@@ -41,14 +36,13 @@ const userSchema = new Schema<IUser>({
 	password: {
 		type: String,
 		required: true,
-		trim: true,
 		minLength: 7,
 	}
 }, {
+	timestamps: true,
 	toJSON: { 
 		transform(doc, ret) {
 			ret = {
-				"id": doc._id,
 				"name": doc.name,
 				"email": doc.email,
 			}
@@ -64,7 +58,7 @@ userSchema.methods.generateAuthToken = async function () {
 	const token = jwt.sign(
 		{ id: user._id.toString() },
 		process.env.JWT_SECRET!,
-		{ expiresIn: '4h' }
+		{ expiresIn: constants.expiresInToken }
 	)
 
 	await user.save()
@@ -95,6 +89,6 @@ userSchema.pre('save', async function (next: Function) {
 })
 
 
-export const UserModel: IUserModel = model<IUser, IUserModel>('User', userSchema)
+export const UserModel: IUserModel = model<IUser, IUserModel>('User', userSchema, "user")
 
 export type { IUser }

@@ -1,4 +1,5 @@
 import express, { Router, Request, Response }  from "express";
+import { constants } from '../utils/const'
 import { UserModel } from '../model/user'
 
 export const router: Router = express.Router();
@@ -12,11 +13,11 @@ router.post('/register', async (req: Request, res: Response) => {
         const token = await user.generateAuthToken()
 
         // storing our JWT web token as a cookie in our browser
-        // res.cookie('token',token,{ maxAge: 4 * 60 * 60 * 1000, httpOnly: true });  // maxAge: 4 hours
+        res.cookie('token',token,{ maxAge: constants.maxAgeToken, httpOnly: true });  // maxAge: 4 hours
         
         res.status(201).send({...user.toJSON(), token })
     } catch (error: any) {
-        res.status(400).send( {error: error.message} )
+        res.status(400).send( {error: error, message: error.message} )
     }
 
 })
@@ -29,7 +30,7 @@ router.post('/login', async (req, res: Response) => {
          
         res.send({ ...user.toJSON(), token })
     } catch (error: any) {
-        res.status(400).send( {error: error.message} )
+        res.status(400).send( {error: error, message: error.message} )
     }
 })
 
