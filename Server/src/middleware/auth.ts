@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express-serve-static-core';
+import { Request, Response, NextFunction } from 'express-serve-static-core'
 import jwt, { JwtPayload } from 'jsonwebtoken'
 import { UserModel, IUser } from '../model/user'
 

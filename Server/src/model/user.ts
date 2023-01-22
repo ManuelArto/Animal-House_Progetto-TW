@@ -1,15 +1,18 @@
-import { Document, Schema, Model, model } from 'mongoose';
-import validator from 'validator';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import { constants } from '../utils/const';
+import { Document, Schema, Model, model } from 'mongoose'
+import validator from 'validator'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import { constants } from '../utils/const'
 
 
 interface IUser extends Document {
-	name: string;
-	email: string;
-	password: string;
-	generateAuthToken(): Promise<string>;
+	name: string
+	email: string
+	password: string
+	phoneNumber: string
+	birthDate: Date
+	preference: string
+	generateAuthToken(): Promise<string>
 }
 
 interface IUserModel extends Model<IUser> {
@@ -33,10 +36,27 @@ const userSchema = new Schema<IUser>({
 			}
 		}
 	},
+	phoneNumber: {
+		type: String,
+		required: true,
+		validate(value: string) {
+			if (!validator.isMobilePhone(value)) {
+				throw new Error('Telefono is invalid')
+			}
+		}
+	},
+	birthDate: {
+		type: Date,
+		required: true
+	},
+	preference: {
+		type: String,
+		required: true
+	},
 	password: {
 		type: String,
 		required: true,
-		minLength: 7,
+		minLength: constants.pwdMinLenght,
 	}
 }, {
 	timestamps: true,
@@ -45,11 +65,14 @@ const userSchema = new Schema<IUser>({
 			ret = {
 				"name": doc.name,
 				"email": doc.email,
+				"phoneNumber": doc.phoneNumber,
+				"birthDate": doc.birthDate,
+				"preference": doc.preference
 			}
 			return ret
 		},
 	 }
-});
+})
 
 
 // Generate auth token
@@ -89,6 +112,6 @@ userSchema.pre('save', async function (next: Function) {
 })
 
 
-export const UserModel: IUserModel = model<IUser, IUserModel>('User', userSchema, "user")
+export const UserModel: IUserModel = model<IUser, IUserModel>('User', userSchema)
 
 export type { IUser }

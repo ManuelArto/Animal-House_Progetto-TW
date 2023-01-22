@@ -3,39 +3,27 @@
 		"_id" : "5fea8abcda05f098a1ac9857",
 		"name": "Andrea",
 		"email": "andrea@test.com",
-		"telefono": "3247833963",
-		"address": {
-			"street": "",
-			"city": "",
-			"state": ""
-		},
+		"phoneNumber": "3247833963",
+		"birthDate": "09/09/2001",
 		"password": "$2a$08$GYfB8Gpgnw5HLzjBi44s/OgkCT38rS0K2V.7apml8NcObPmMT7m0m",
-		"preferenze": "Cani"
+		"preference": "Cani"
 	},
 	{
 		"_id" : "5fea8abcda05f098a1ac9858",
 		"name": "Manuel",
 		"email": "manuel@test.com",
-		"telefono": "3257833963",
-		"address": {
-			"street": "",
-			"city": "",
-			"state": ""
-		},
+		"phoneNumber": "3257833963",
+		"birthDate": "09/09/2001",
 		"password": "$2a$08$mWREbn7FxFFWcexQ258DM.F2ushozDa//dTZ2NDbXVJ/grvAqeqlC",
-		"preferenze": "Cani e draghi"
+		"preference": "Cani e draghi"
 	},
 	{
 		"_id" : "5fea8abcda05f098a1ac9859",
 		"name": "John Doe",
 		"email": "john.doe@gmail.com",
-		"telefono": "3267833963",
-		"address": {
-			"street": "",
-			"city": "",
-			"state": ""
-		},
+		"phoneNumber": "3267833963",
+		"birthDate": "09/09/2001",
 		"password": "$2a$08$cWY/RCqHcNRIqP2Z6X1KJujiwiDRiZNrjLYjE3J0cu9JD56u8Xzh2",
-		"preferenze": "Rettili"
+		"preference": "Rettili"
 	}
 ]
