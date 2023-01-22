@@ -1,19 +1,19 @@
 [
 	{
-		"gioco": "Quiz",
-		"idUtente": "5fea8abcda05f098a1ac9857",
+		"game": "Quiz",
+		"name": "Andrea",
 		"punteggio": 150,
 		"createdAt": "2023-01-20T16:37:48.244Z"
 	},
 	{
-		"gioco": "Quiz",
-		"idUtente": "5fea8abcda05f098a1ac9858",
+		"game": "Quiz",
+		"name": "Manuel",
 		"punteggio": 100,
 		"createdAt": "2023-01-26T16:37:48.244Z"
 	},
 	{
-		"gioco": "5fea8abcda05f098a1ac9859",
-		"idUtente": "5fea8abcda05f098a1ac9858",
+		"game": "Quiz",
+		"name": "Manuel",
 		"punteggio": 70,
 		"createdAt": "2023-01-27T16:37:48.244Z"
 	}
