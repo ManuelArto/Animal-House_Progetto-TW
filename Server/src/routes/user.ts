@@ -19,7 +19,7 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
         res.status(201).json({ "user": user.toJSON(), token })
     } catch (error: any) {
         res.clearCookie("token")
-        next(new ErrorWrapper(400, error))
+        next(new ErrorWrapper({statusCode: 400, error: error}))
     }
 
 })
@@ -36,7 +36,7 @@ router.post('/login', async (req, res: Response, next: NextFunction) => {
         res.json({ "user": user.toJSON(), token })
     } catch (error: any) {
         res.clearCookie("token")
-        next(new ErrorWrapper(400, error))
+        next(new ErrorWrapper({statusCode: 400, error: error}))
     }
 })
 

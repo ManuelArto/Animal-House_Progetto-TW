@@ -22,13 +22,16 @@ export const authJwt = async(req: Request, res: Response, next: NextFunction) =>
         
         const user = await UserModel.findOne({ _id: decoded.id.toString() })
         if(!user)
-            throw new ErrorWrapper(400, new Error("No user with that id"), "NoUserFoundError");
+            throw new ErrorWrapper({ statusCode: 400, errorType: "NoUserFoundError", errorMsg: "No user with that id" });
 
         (req as AuthRequest).token = token;
         (req as AuthRequest).user = user;
         next()
     } catch (error: any) {
         res.clearCookie("token")
-        next(error instanceof ErrorWrapper ? error: new ErrorWrapper(401, error))
+        if (error instanceof ErrorWrapper)
+            next(error)
+        else            
+            next(new ErrorWrapper({statusCode: 401, error: error}))
     }
 }

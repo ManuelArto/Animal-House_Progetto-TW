@@ -1,12 +1,19 @@
 import { Request, Response, NextFunction } from "express"
 
+interface ErrorWrapperParams {
+	statusCode: number
+	error?: Error
+	errorType?: string
+	errorMsg?: string
+}
+
 export class ErrorWrapper {
 	statusCode: number
 	error: Error
 	errorType?: string
 
-	constructor(statusCode: number, error: Error, errorType?: string) {
-		this.error = error
+	constructor({statusCode, error, errorType, errorMsg}: ErrorWrapperParams) {
+		this.error = error || new Error(errorMsg)
 		this.statusCode = statusCode
 		this.errorType = errorType
 	}
@@ -15,14 +22,9 @@ export class ErrorWrapper {
 // Error handling Middleware functions
 
 export const errorLogger = () => (errorWrapper: any, req: Request, res: Response, next: NextFunction) => {
-	let error = errorWrapper
-	let errorType
-	if (errorWrapper instanceof ErrorWrapper) {
-		error = errorWrapper.error
-		errorType = error.constructor.name === 'Error' ? errorWrapper.errorType : error.constructor.name
-	} else {
-		errorType = error.constructor.name
-	}
+	// TODO: scrivi commenti un po' ovunque
+	const error = errorWrapper.error
+	const errorType = errorWrapper.errorType || error.constructor.name
 
 	console.error(`⚡️[ERROR] Type: ${errorType}, Message: ${error.message}`)
 	if (process.env.NODE_ENV !== 'production')
@@ -33,14 +35,8 @@ export const errorLogger = () => (errorWrapper: any, req: Request, res: Response
 
 export const errorResponder = () => (errorWrapper: any, req: Request, res: Response, next: NextFunction) => {
 	const statusCode = errorWrapper.statusCode || 500
-	let error = errorWrapper
-	let errorType
-	if (errorWrapper instanceof ErrorWrapper) {
-		error = errorWrapper.error
-		errorType = error.constructor.name === 'Error' ? errorWrapper.errorType : error.constructor.name
-	} else {
-		errorType = error.constructor.name
-	}
+	const error = errorWrapper.error
+	const errorType = errorWrapper.errorType || error.constructor.name
 
 	res.status(statusCode).json({
 		response: 'Error',
