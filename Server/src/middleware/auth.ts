@@ -15,17 +15,17 @@ export const auth = async(req: AuthRequest, res: Response, next: NextFunction) =
     try {
         const token = req.cookies.token as string
         const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtRequest
-        const user = await UserModel.findOne({ _id: decoded._id })
         
-        if(!user) {
-            throw new Error
-        }
+        const user = await UserModel.findOne({ _id: decoded._id })
+        if(!user) throw new Error(`No user with this id ${decoded._id}`)
+
         req.token = token
         req.user = user
         next()
-    } catch (error) {
+    } catch (error: any) {
         res.clearCookie("token")
-        res.status(401).send({error: "Authentication required"})
+        error.status = 401
+        next(error)
     }
 }
 

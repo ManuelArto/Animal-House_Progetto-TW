@@ -17,7 +17,7 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
 
         res.status(201).send({ "user": user.toJSON(), token })
     } catch (error: any) {
-        error.status = 400
+        error.statusCode = 400
         next(error)
     }
 
@@ -31,7 +31,7 @@ router.post('/login', async (req, res: Response, next: NextFunction) => {
 
         res.send({ "user": user.toJSON(), token })
     } catch (error: any) {
-        error.status = 400
+        error.statusCode = 400
         next(error)
     }
 })
