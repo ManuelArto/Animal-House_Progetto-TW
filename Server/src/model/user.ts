@@ -84,7 +84,6 @@ userSchema.methods.generateAuthToken = async function () {
 		{ expiresIn: constants.expiresInToken }
 	)
 
-	await user.save()
 	return token
 }
 

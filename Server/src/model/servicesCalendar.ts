@@ -4,6 +4,7 @@ import { Document, Schema, model, ObjectId } from 'mongoose'
 interface IServicesCalendar extends Document {
 	idHeadQuarter: ObjectId
 	idUser: ObjectId
+	idAnimal: ObjectId
 	name: string
 	number: number
 	dateFrom: Date
@@ -16,6 +17,10 @@ const servicesCalendarSchema = new Schema<IServicesCalendar>({
 		required: true
 	},
 	idUser: {
+		type: Schema.Types.ObjectId,
+		required: true
+	},
+	idAnimal: {
 		type: Schema.Types.ObjectId,
 		required: true
 	},

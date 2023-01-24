@@ -1,29 +1,44 @@
 [
 	{
-		"_id" : "5fea8abcda05f098a1ac9857",
+		"_id": {
+			"$oid": "5fea8abcda05f098a1ac9857"
+		},
 		"name": "Andrea",
 		"email": "andrea@test.com",
 		"phoneNumber": "3247833963",
 		"birthDate": "09/09/2001",
 		"password": "$2a$08$GYfB8Gpgnw5HLzjBi44s/OgkCT38rS0K2V.7apml8NcObPmMT7m0m",
-		"preference": "Cani"
+		"preference": "Cani",
+		"createdAt": "2023-01-22T11:16:32.285Z",
+		"updatedAt": "2023-01-22T11:16:32.285Z",
+		"__v": 0
 	},
 	{
-		"_id" : "5fea8abcda05f098a1ac9858",
+		"_id": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		},
 		"name": "Manuel",
 		"email": "manuel@test.com",
 		"phoneNumber": "3257833963",
 		"birthDate": "09/09/2001",
 		"password": "$2a$08$mWREbn7FxFFWcexQ258DM.F2ushozDa//dTZ2NDbXVJ/grvAqeqlC",
-		"preference": "Cani e draghi"
+		"preference": "Cani e draghi",
+		"createdAt": "2023-01-22T11:16:32.285Z",
+		"updatedAt": "2023-01-22T11:16:32.285Z",
+		"__v": 0
 	},
 	{
-		"_id" : "5fea8abcda05f098a1ac9859",
+		"_id": {
+			"$oid": "5fea8abcda05f098a1ac9859"
+		},
 		"name": "John Doe",
 		"email": "john.doe@gmail.com",
 		"phoneNumber": "3267833963",
 		"birthDate": "09/09/2001",
 		"password": "$2a$08$cWY/RCqHcNRIqP2Z6X1KJujiwiDRiZNrjLYjE3J0cu9JD56u8Xzh2",
-		"preference": "Rettili"
+		"preference": "Rettili",
+		"createdAt": "2023-01-22T11:16:32.285Z",
+		"updatedAt": "2023-01-22T11:16:32.285Z",
+		"__v": 0
 	}
 ]

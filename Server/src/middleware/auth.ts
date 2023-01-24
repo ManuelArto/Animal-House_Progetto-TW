@@ -1,33 +1,34 @@
 import { Request, Response, NextFunction } from 'express-serve-static-core'
-import jwt, { JwtPayload } from 'jsonwebtoken'
+import jwt, { JsonWebTokenError, JwtPayload } from 'jsonwebtoken'
 import { UserModel, IUser } from '../model/user'
+import { ErrorWrapper } from './error'
 
-interface AuthRequest extends Request {
+
+interface JwtRequest extends JwtPayload {
+    id: string
+}
+export interface AuthRequest extends Request {
 	token: string
 	user: IUser
 }
 
-interface JwtRequest extends JwtPayload {
-    _id: string
-}
-
-export const auth = async(req: AuthRequest, res: Response, next: NextFunction) => {
+export const authJwt = async(req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = req.cookies.token as string
+        if (!req.cookies)
+            throw new JsonWebTokenError("Missing token, please authenticate");
+        
+        const token = req.cookies.token
         const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtRequest
         
-        const user = await UserModel.findOne({ _id: decoded._id })
-        if(!user) throw new Error(`No user with this id ${decoded._id}`)
+        const user = await UserModel.findOne({ _id: decoded.id.toString() })
+        if(!user)
+            throw new ErrorWrapper(400, new Error("No user with that id"), "NoUserFoundError");
 
-        req.token = token
-        req.user = user
+        (req as AuthRequest).token = token;
+        (req as AuthRequest).user = user;
         next()
     } catch (error: any) {
         res.clearCookie("token")
-        error.status = 401
-        next(error)
+        next(error instanceof ErrorWrapper ? error: new ErrorWrapper(401, error))
     }
 }
-
-
-export type { AuthRequest }

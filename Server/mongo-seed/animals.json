@@ -8,7 +8,9 @@
 		"gender": "Male",
 		"weight": "40-60",
 		"condition": null,
-		"ownerId": "5fea8abcda05f098a1ac9858"
+		"ownerId": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		}
 	},
 	{
 		"name": "Mittens",
@@ -19,7 +21,9 @@
 		"gender": "Female",
 		"weight": "0-10",
 		"condition": null,
-		"ownerId": "5fea8abcda05f098a1ac9857"
+		"ownerId": {
+			"$oid": "5fea8abcda05f098a1ac9857"
+		}
 	},
 	{
 		"name": "Buddy",
@@ -30,6 +34,8 @@
 		"gender": "Male",
 		"weight": "60+",
 		"condition": null,
-		"ownerId": "5fea8abcda05f098a1ac9858"
+		"ownerId": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		}
 	}
 ]

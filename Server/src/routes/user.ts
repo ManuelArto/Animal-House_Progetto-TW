@@ -1,6 +1,7 @@
 import express, { Router, Request, Response, NextFunction } from "express"
 import { constants } from '../utils/const'
 import { UserModel } from '../model/user'
+import { ErrorWrapper } from "../middleware/error"
 
 export const router: Router = express.Router()
 
@@ -15,10 +16,10 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
         // storing our JWT web token as a cookie in our browser
         res.cookie('token', token, { maxAge: constants.maxAgeToken, httpOnly: true })
 
-        res.status(201).send({ "user": user.toJSON(), token })
+        res.status(201).json({ "user": user.toJSON(), token })
     } catch (error: any) {
-        error.statusCode = 400
-        next(error)
+        res.clearCookie("token")
+        next(new ErrorWrapper(400, error))
     }
 
 })
@@ -29,10 +30,13 @@ router.post('/login', async (req, res: Response, next: NextFunction) => {
         const user = await UserModel.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
 
-        res.send({ "user": user.toJSON(), token })
+        // storing our JWT web token as a cookie in our browser
+        res.cookie('token', token, { maxAge: constants.maxAgeToken, httpOnly: true })
+
+        res.json({ "user": user.toJSON(), token })
     } catch (error: any) {
-        error.statusCode = 400
-        next(error)
+        res.clearCookie("token")
+        next(new ErrorWrapper(400, error))
     }
 })
 

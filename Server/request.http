@@ -1,0 +1,23 @@
+POST http://localhost:5000/user/register HTTP/1.1
+content-type: application/json
+
+{
+	"name": "manu1",
+    "email": "manua@test.com",
+    "password": "ciaociao",
+    "birthDate": "09/09/01",
+    "phoneNumber": "342423423",
+    "preference": "Cani"
+}
+
+###
+POST http://localhost:5000/user/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "manuel@test.com",
+    "password": "ciaociao"
+}
+
+###
+GET http://localhost:5000/animals/list HTTP/1.1
