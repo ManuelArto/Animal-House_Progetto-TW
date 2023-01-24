@@ -21,8 +21,10 @@ app.use(morgan('dev'))
 // Routes
 import userRouter from './routes/user'
 import animalsRouter from './routes/animals'
+import productsRouter from './routes/products'
 app.use('/user/', userRouter)
 app.use('/animals/', animalsRouter)
+app.use('/products/', productsRouter)
 
 // Middlewares
 app.use(helmet())
