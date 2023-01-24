@@ -31,20 +31,9 @@
     {/if}
     <NavHamburger on:click={toggle} />
     <NavUl {hidden} class="ml-3">
-        <NavLi href="/" active={true}>Home</NavLi>
         <NavLi href="#/shop">Shop</NavLi>
         <NavLi href="#/serviziPresenza">Servizi Presenza</NavLi>
         <NavLi href="#/servizi/leaderboard">LeaderBoard</NavLi>
-        <NavLi class="cursor-pointer"><Chevron aligned>Bacheche</Chevron></NavLi>
-        <Dropdown offset="18">
-            <DropdownItem><NavLi href="#/servizi/bachecaEccoloQua">Eccolo qua</NavLi></DropdownItem>
-            <DropdownItem><NavLi href="#/servizi/bachecaCercoPartner">Cerco Partner</NavLi></DropdownItem>
-            <DropdownItem><NavLi href="#/servizi/bachecaAiutami">Aiutami</NavLi></DropdownItem>
-        </Dropdown>
-        <NavLi class="cursor-pointer"><Chevron aligned>Servizi online</Chevron></NavLi>
-        <Dropdown offset="18">
-            <DropdownItem><NavLi href="#/serviziOnline/videoConfEsperto">Chiamata con esperto</NavLi></DropdownItem>
-            <DropdownItem><NavLi href="#/serviziOnline/videoConfVeterinaio">Chiamata con veterinario</NavLi></DropdownItem>
-        </Dropdown>
+        <NavLi href="#/servizi/bachecaEccoloQua">Bacheca "Eccolo qua"</NavLi>
     </NavUl>
 </Navbar>

@@ -4,7 +4,7 @@
     export let defaultModal;
 
 </script>
-<Modal title="Add your animal" bind:open={defaultModal} autoclose>
+<Modal title="Add your animal" bind:open={defaultModal} size="md" autoclose>
     <form>
         <div class="lg:pl-6">
             <div class="flex flex-wrap ">
@@ -16,7 +16,7 @@
                             >Name</label
                         >
                         <input
-                            type="text"
+                            type="text" 
                             id="input-username"
                             class="block appearance-none w-full py-1 px-2 mb-1 bg-white text-gray-500 border border-stone-300 rounded"
                             placeholder= "Nome"
@@ -92,6 +92,11 @@
                             class="form-control-label"
                             for="input-weight"
                             >Peso</label
+                        >
+                        <label
+                            class="absolute right-32 form-control-label"
+                            for="input-sex"
+                            >Sesso</label
                         ><br>
                         <select class="form-select" id="pet-weight">
                             <option value="0-10kg">0-10 kg</option>
@@ -100,10 +105,14 @@
                             <option value="40-60kg">40-60 kg</option>
                             <option value="60+kg">60+ kg</option>
                         </select>
+                        <select class="form-select" id="sex">
+                            <option value="0-10kg">M</option>
+                            <option value="10-25kg">F</option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <Button class="absolute bottom-2 right-2 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Confirm</Button>
+    <Button class="absolute bottom-1 right-2 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Confirm</Button>
 </Modal>
