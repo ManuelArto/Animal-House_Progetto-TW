@@ -2,8 +2,7 @@
 @-ms-viewport {
     width: device-width;
   }
-  
-  
+
   hr {
     overflow: visible;
     box-sizing: content-box;
@@ -78,20 +77,6 @@
     }
   }
   
-  @keyframes progress-bar-stripes {
-    from {
-      background-position: 1rem 0;
-    }
-  
-    to {
-      background-position: 0 0;
-    }
-  }
-  
-  
-  .bg-white {
-    background-color: #fff !important;
-  }
   .bg-white {
     background-color: #fff !important;
   }
@@ -104,49 +89,20 @@
   .card-profile-image img {
     box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15) !important;
   }
-  .mb-0 {
-    margin-bottom: 0 !important;
-  }
-  
-  .mr-2 {
-    margin-right: .5rem !important;
-  }
-  
-  .ml-2 {
-    margin-left: .5rem !important;
-  }
-  
-  .mb-5 {
-    margin-bottom: 3rem !important;
-  }
+ 
   
   .mt--7 {
     margin-top: -6rem !important;
-  }
-  
-  .pt-0 {
-    padding-top: 0 !important;
-  }
-  
-  .pr-0 {
-    padding-right: 0 !important;
   }
   
   .pb-0 {
     padding-bottom: 0 !important;
   }
   
-  .pt-5 {
-    padding-top: 3rem !important;
-  }
-  
   .pt-8 {
     padding-top: 8rem !important;
   }
-  
-  .pb-8 {
-    padding-bottom: 8rem !important;
-  }
+ 
   .text-center {
     text-align: center !important;
   }
@@ -184,19 +140,8 @@
     .container {
       min-width: 992px !important;
     }
-  }
-  .bg-white {
-    background-color: #fff !important;
-  }
+  }ì
 
-  
-  [class*='shadow'] {
-    transition: all .15s ease;
-  }
-  .text-sm {
-    font-size: .875rem !important;
-  }
-  
   .avatar {
     font-size: 1rem;
     display: inline-flex;
@@ -269,7 +214,7 @@
     text-transform: uppercase;
   }
 
-  #pet-weight{
+  #pet-weight, #sex{
     border-radius: 10%;
     border-color: lightgray;
   }
