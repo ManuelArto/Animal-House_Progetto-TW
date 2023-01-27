@@ -33,8 +33,6 @@ router.get('/:animalId', authJwt, async (req: Request | AuthRequest, res: Respon
         else
             next(new ErrorWrapper({ statusCode: 500, error: error }))
     }
-
-
 })
 
 router.delete('/:animalId', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
