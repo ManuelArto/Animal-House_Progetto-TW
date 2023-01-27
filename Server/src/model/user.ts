@@ -1,25 +1,29 @@
-import { Schema, model } from 'mongoose';
+import { Document, Schema, Model, model } from 'mongoose'
+import validator from 'validator'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import { constants } from '../utils/const'
 
-const validator = require('validator');
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
 
+interface IUser extends Document {
+	name: string
+	email: string
+	password: string
+	phoneNumber: string
+	birthDate: Date
+	preference: string
+	generateAuthToken(): Promise<string>
+}
 
-// 1. Create an interface representing a document in MongoDB.
-interface IUser {
-	name: string;
-	email: string;
-	password: string;
-	tokens: any[];
-	save: Function;
+interface IUserModel extends Model<IUser> {
+	findByCredentials(email: string, password: string): Promise<IUser>
 }
 
 const userSchema = new Schema<IUser>({
 	name: {
 		type: String,
 		required: true,
-		trim: true,
-		lowercase: true
+		unique: true
 	},
 	email: {
 		type: String,
@@ -32,61 +36,81 @@ const userSchema = new Schema<IUser>({
 			}
 		}
 	},
+	phoneNumber: {
+		type: String,
+		required: true,
+		validate(value: string) {
+			if (!validator.isMobilePhone(value)) {
+				throw new Error('Telefono is invalid')
+			}
+		}
+	},
+	birthDate: {
+		type: Date,
+		required: true
+	},
+	preference: {
+		type: String,
+		required: true
+	},
 	password: {
 		type: String,
 		required: true,
-		minLength: 7,
-		trim: true,
-	},
-	tokens: [{
-		token: {
-			type: String,
-			required: true
-		}
-	}]
+		minLength: constants.pwdMinLenght,
+	}
 }, {
-	timestamps: true
+	timestamps: true,
+	toJSON: { 
+		transform(doc, ret) {
+			ret = {
+				"name": doc.name,
+				"email": doc.email,
+				"phoneNumber": doc.phoneNumber,
+				"birthDate": doc.birthDate,
+				"preference": doc.preference
+			}
+			return ret
+		},
+	 }
 })
 
 
 // Generate auth token
 userSchema.methods.generateAuthToken = async function () {
-    const user = this
-    const token = jwt.sign({ _id: user._id.toString()}, process.env.JWT_SECRET)
-    user.tokens = user.tokens.concat({token})
-    
-	await user.save()
-    return token
+	const user = this
+	const token = jwt.sign(
+		{ id: user._id.toString() },
+		process.env.JWT_SECRET!,
+		{ expiresIn: constants.expiresInToken }
+	)
+
+	return token
 }
 
-// login in users
+// log in user
 userSchema.statics.findByCredentials = async (email: string, password: string) => {
-    const user = await User.findOne({ email })
-    if (!user) {
-        throw new Error('Unable to log in')
-    }
-    const isMatch = await bcrypt.compare(password, user.password)
-    console.log(isMatch)
-    if(!isMatch) {
-        throw new Error('Unable to login')
-    }
+	const user = await UserModel.findOne({ email })
+	if (!user) {
+		throw new Error('Unable to login: no user with that email')
+	}
+	if (!await bcrypt.compare(password, user.password)) {
+		throw new Error('Unable to login: wrong password')
+	}
 
-    return user
+	return user
 }
 
 // Hash plain password before saving
-userSchema.pre('save', async function(next: Function) {
-    const user = this
-    if (user.isModified('password')) {
-        user.password = await bcrypt.hash(user.password, 8)
-    }
+userSchema.pre('save', async function (next: Function) {
+	const user = this
+	if (user.isModified('password')) {
+		user.password = await bcrypt.hash(user.password, 8)
+	}
 
-    next()
+	next()
 })
 
 
-const User = model<IUser>('User', userSchema)
-
-module.exports = User
+export const UserModel: IUserModel = model<IUser, IUserModel>('User', userSchema)
 
 export type { IUser }

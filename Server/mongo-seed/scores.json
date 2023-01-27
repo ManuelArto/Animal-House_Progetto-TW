@@ -1,0 +1,20 @@
+[
+	{
+		"game": "Quiz",
+		"name": "Andrea",
+		"punteggio": 150,
+		"createdAt": "2023-01-20T16:37:48.244Z"
+	},
+	{
+		"game": "Quiz",
+		"name": "Manuel",
+		"punteggio": 100,
+		"createdAt": "2023-01-26T16:37:48.244Z"
+	},
+	{
+		"game": "Quiz",
+		"name": "Manuel",
+		"punteggio": 70,
+		"createdAt": "2023-01-27T16:37:48.244Z"
+	}
+]

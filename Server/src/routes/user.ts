@@ -1,59 +1,43 @@
-import express, { Router, Request, Response }  from "express";
-import { AuthRequest } from '../utils/auth';
-import Auth = require('../utils/auth')
-const User = require('../models/user')
+import express, { Router, Request, Response, NextFunction } from "express"
+import { constants } from '../utils/const'
+import { UserModel } from '../model/user'
+import { ErrorWrapper } from "../middleware/error"
 
-export const router: Router = express.Router();
+export const router: Router = express.Router()
 
-//signup
-router.post('/users', async (req: Request, res: Response) => {
-    const user = new User(req.body)
+// signup
+router.post('/register', async (req: Request, res: Response, next: NextFunction) => {
+    const user = new UserModel(req.body)
 
     try {
         await user.save()
         const token = await user.generateAuthToken()
-        res.status(201).send({user, token})
-    } catch (error) {
-        res.status(400).send(error)
+
+        // storing our JWT web token as a cookie in our browser
+        res.cookie('token', token, { maxAge: constants.maxAgeToken, httpOnly: true })
+
+        res.status(201).json({ "user": user.toJSON(), token })
+    } catch (error: any) {
+        res.clearCookie("token")
+        next(new ErrorWrapper({statusCode: 400, error: error}))
     }
 
 })
 
-//login
-
-router.post('/users/login', async (req, res: Response) => {
+// login
+router.post('/login', async (req, res: Response, next: NextFunction) => {
     try {
-        const user = await User.findByCredentials(req.body.email, req.body.password)
+        const user = await UserModel.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
-        res.send({ user, token})
-    } catch (error) {
-        res.status(400).send(error)
+
+        // storing our JWT web token as a cookie in our browser
+        res.cookie('token', token, { maxAge: constants.maxAgeToken, httpOnly: true })
+
+        res.json({ "user": user.toJSON(), token })
+    } catch (error: any) {
+        res.clearCookie("token")
+        next(new ErrorWrapper({statusCode: 400, error: error}))
     }
 })
 
-//logout
-router.post('/users/logout', Auth, async (req: AuthRequest, res: Response) => {
-   
-    try {
-       req.user.tokens =  req.user.tokens.filter((token) => {
-            return token.token !== req.token 
-        })
-
-        await req.user.save()
-        res.send()
-    } catch (error) {
-        res.status(500).send()
-    }
-})
-
-//Logout All 
-router.post('/users/logoutAll', Auth, async(req: AuthRequest, res: Response) => {
-    try {
-        req.user.tokens = []
-        await req.user.save()
-        res.send()
-    } catch (error) {
-        res.status(500).send()        
-    }
-})
-module.exports = router
+export default router

@@ -1,0 +1,41 @@
+[
+	{
+		"name": "Fido",
+		"imageURI": "https://petadvisor.it/wp-content/uploads/2019/12/labrador-retriever-cop.jpg",
+		"species": "Dog",
+		"breed": "Labrador Retriever",
+		"birthdate": "01/01/2010",
+		"gender": "Male",
+		"weight": "40-60",
+		"condition": null,
+		"ownerId": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		}
+	},
+	{
+		"name": "Mittens",
+		"imageURI": "https://www.tuttogreen.it/wp-content/uploads/2016/08/shutterstock_169231703.jpg",
+		"species": "Cat",
+		"breed": "Siamese Cat",
+		"birthdate": "02/02/2011",
+		"gender": "Female",
+		"weight": "0-10",
+		"condition": null,
+		"ownerId": {
+			"$oid": "5fea8abcda05f098a1ac9857"
+		}
+	},
+	{
+		"name": "Buddy",
+		"imageURI": "https://img2.storyblok.com/filters:format(webp)/f/83829/1200x628/9a2981fd1e/esperance-vie-cavalier-king-charles.jpg",
+		"species": "Dog",
+		"breed": "Cavalier King",
+		"birthdate": "03/03/2012",
+		"gender": "Male",
+		"weight": "60+",
+		"condition": null,
+		"ownerId": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		}
+	}
+]

@@ -1,0 +1,730 @@
+[
+	{
+		"address": {
+			"street": "Via caltanisetta 12",
+			"city": "Foggia",
+			"zipCode": "711000"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via Roma 1",
+			"city": "Roma",
+			"zipCode": "00185"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza del Duomo 5",
+			"city": "Milano",
+			"zipCode": "20122"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via dei Giardini 15",
+			"city": "Napoli",
+			"zipCode": "80121"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via San Giovanni 10",
+			"city": "Genova",
+			"zipCode": "16123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Viale della Liberta 20",
+			"city": "Firenze",
+			"zipCode": "50123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza Garibaldi 30",
+			"city": "Palermo",
+			"zipCode": "90123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza del Popolo 15",
+			"city": "Bologna",
+			"zipCode": "40123"
+		},
+		"services": [
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via degli Dei 12",
+			"city": "Bergamo",
+			"zipCode": "24123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Erbe 25",
+			"city": "Verona",
+			"zipCode": "37123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza della Repubblica 10",
+			"city": "Reggio Emilia",
+			"zipCode": "42123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via Nazionale 15",
+			"city": "Venezia",
+			"zipCode": "30123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza del Plebiscito 20",
+			"city": "Napoli",
+			"zipCode": "80121"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Cure 20",
+			"city": "Firenze",
+			"zipCode": "50123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via del Corso 10",
+			"city": "Roma",
+			"zipCode": "00185"
+		},
+		"services": [
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via delle Rose 15",
+			"city": "Torino",
+			"zipCode": "10123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza della Signoria 20",
+			"city": "Firenze",
+			"zipCode": "50123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via dei Mercanti 15",
+			"city": "Milano",
+			"zipCode": "20122"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza del Popolo 20",
+			"city": "Roma",
+			"zipCode": "00185"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Viale della Vittoria 15",
+			"city": "Genova",
+			"zipCode": "16123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Erbe 10",
+			"city": "Verona",
+			"zipCode": "37123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via degli Dei 15",
+			"city": "Bergamo",
+			"zipCode": "24123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Cure 10",
+			"city": "Firenze",
+			"zipCode": "50123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via del Corso 20",
+			"city": "Roma",
+			"zipCode": "00185"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza del Plebiscito 10",
+			"city": "Napoli",
+			"zipCode": "80121"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Erbe 20",
+			"city": "Verona",
+			"zipCode": "37123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via degli Dei 20",
+			"city": "Bergamo",
+			"zipCode": "24123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Cure 15",
+			"city": "Firenze",
+			"zipCode": "50123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via del Corso 25",
+			"city": "Roma",
+			"zipCode": "00185"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza del Plebiscito 15",
+			"city": "Napoli",
+			"zipCode": "80121"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Erbe 25",
+			"city": "Verona",
+			"zipCode": "37123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via degli Dei 25",
+			"city": "Bergamo",
+			"zipCode": "24123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Cure 20",
+			"city": "Firenze",
+			"zipCode": "50123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via del Corso 30",
+			"city": "Roma",
+			"zipCode": "00185"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza del Plebiscito 20",
+			"city": "Napoli",
+			"zipCode": "80121"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Erbe 30",
+			"city": "Verona",
+			"zipCode": "37123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via degli Dei 30",
+			"city": "Bergamo",
+			"zipCode": "24123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Cure 25",
+			"city": "Firenze",
+			"zipCode": "50123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via del Corso 35",
+			"city": "Roma",
+			"zipCode": "00185"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza del Plebiscito 25",
+			"city": "Napoli",
+			"zipCode": "80121"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Erbe 35",
+			"city": "Verona",
+			"zipCode": "37123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via degli Dei 35",
+			"city": "Bergamo",
+			"zipCode": "24123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 3
+			},
+			{
+				"service": "Veterinaio",
+				"number": 1
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Piazza delle Cure 30",
+			"city": "Firenze",
+			"zipCode": "50123"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 1
+			},
+			{
+				"service": "Veterinaio",
+				"number": 2
+			}
+		]
+	},
+	{
+		"address": {
+			"street": "Via del Corso 40",
+			"city": "Roma",
+			"zipCode": "00185"
+		},
+		"services": [
+			{
+				"service": "Dog Sitter",
+				"number": 2
+			},
+			{
+				"service": "Veterinaio",
+				"number": 3
+			}
+		]
+	}
+]

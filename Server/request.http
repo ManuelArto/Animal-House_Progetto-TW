@@ -1,0 +1,67 @@
+// USER
+POST http://localhost:5000/user/register HTTP/1.1
+content-type: application/json
+
+{
+	"name": "manu1",
+    "email": "manua@test.com",
+    "password": "ciaociao",
+    "birthDate": "09/09/01",
+    "phoneNumber": "342423423",
+    "preference": "Cani"
+}
+###
+POST http://localhost:5000/user/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "andrea@test.com",
+    "password": "ciaociao"
+}
+
+// ANIMALS
+###
+GET http://localhost:5000/animals/list HTTP/1.1
+###
+GET http://localhost:5000/animals/63d03fa3788d002cb12754af HTTP/1.1
+###
+DELETE http://localhost:5000/animals/63d06ecd969c1886977ede6e HTTP/1.1
+###
+POST http://localhost:5000/animals/ HTTP/1.1
+content-type: application/json
+
+{
+    "weight" : "0-10kg",
+    "gender" : "Male",
+    "birthdate" : "06/06/2001",
+    "breed" : "Dalmata",
+    "species" : "Cane",
+    "imageURI" : "https://upload.wikimedia.org/wikipedia/commons/4/4f/Dalmatian_puppy%2C_four_months.png",
+    "name" : "Pinuzzo"
+}
+
+
+// PRODUCT
+###
+GET http://localhost:5000/products/list HTTP/1.1
+###
+GET http://localhost:5000/products/cibo/list HTTP/1.1
+###
+GET http://localhost:5000/products/63d03a2174724ca39b25122b HTTP/1.1
+
+
+// PRODUCT
+###
+GET http://localhost:5000/scores/list HTTP/1.1
+###
+POST http://localhost:5000/scores/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "score": 2000,
+    "game": "quiz"
+}
+
+// SEDI
+###
+GET http://localhost:5000/sedi/list HTTP/1.1
