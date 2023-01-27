@@ -27,7 +27,7 @@
 <div class="container mx-auto w-3/5 mt-8">	
 	<h1 class="text-2xl text-center font-bold mb-8">Classifica degli utenti al gioco <i>"Quiz"</i></h1>	
 	<Table>
-		<TableHead class="bg-blue-300 text-center">
+		<TableHead class="bg-blue-400 text-center">
 		<TableHeadCell>#</TableHeadCell>
 		<TableHeadCell>Username</TableHeadCell>
 		<TableHeadCell>Punteggio</TableHeadCell>
