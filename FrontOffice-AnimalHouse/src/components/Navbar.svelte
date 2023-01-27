@@ -33,7 +33,12 @@
     <NavUl {hidden} class="ml-3">
         <NavLi href="#/shop">Shop</NavLi>
         <NavLi href="#/serviziPresenza">Servizi Presenza</NavLi>
-        <NavLi href="#/servizi/leaderboard">LeaderBoard</NavLi>
-        <NavLi href="#/servizi/bachecaEccoloQua">Bacheca "Eccolo qua"</NavLi>
+        <NavLi class="cursor-pointer"><Chevron aligned>Servizi comunità</Chevron></NavLi>
+        <Dropdown offset="18">
+          <DropdownItem><NavLi href="#/servizi/leaderboard">LeaderBoard</NavLi></DropdownItem>
+          <DropdownItem><NavLi href="#/servizi/bachecaEccoloQua">Bacheca "Eccolo qua"</NavLi></DropdownItem>
+        </Dropdown>
+        
+        
     </NavUl>
 </Navbar>
