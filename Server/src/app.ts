@@ -5,6 +5,8 @@ import morgan from 'morgan'
 import helmet from "helmet"
 import dotenv from 'dotenv'
 dotenv.config()
+import { getResponseExpress } from '@tiemma/sonic-express';
+import { options } from './swagger-config';
 import { errorLogger, errorResponder } from './middleware/error'
 import connectMongo from './db/mongo'
 
@@ -15,6 +17,7 @@ const PORT = process.env.PORT || 5000
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(getResponseExpress(app, options(__filename), './swagger.json'));
 app.use(cookieParser());
 app.use(morgan('dev'))
 
