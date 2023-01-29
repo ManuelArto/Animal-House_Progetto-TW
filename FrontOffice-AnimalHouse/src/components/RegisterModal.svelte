@@ -98,14 +98,14 @@
                             for="input-sex"
                             >Sesso</label
                         ><br>
-                        <select class="form-select" id="pet-weight">
+                        <select class="form-select border-gray-300 rounded-xl">
                             <option value="0-10kg">0-10 kg</option>
                             <option value="10-25kg">10-25 kg</option>
                             <option value="25-40kg">25-40 kg</option>
                             <option value="40-60kg">40-60 kg</option>
                             <option value="60+kg">60+ kg</option>
                         </select>
-                        <select class="form-select" id="sex">
+                        <select class="form-select border-gray-300 rounded-xl">
                             <option value="0-10kg">M</option>
                             <option value="10-25kg">F</option>
                         </select>
