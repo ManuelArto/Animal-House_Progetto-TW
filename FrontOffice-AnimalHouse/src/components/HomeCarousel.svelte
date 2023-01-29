@@ -1,5 +1,5 @@
 <script>
-    import { images } from "../image"
+    import images from "../data/images.json"
     import { CarouselTransition } from 'flowbite-svelte'
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-    import SignModal from "./SignModal.svelte"
+    import SignInModal from "./user/SignInModal.svelte"
     import { Dropdown, DropdownItem, DropdownHeader, DropdownDivider, Avatar, Chevron, Navbar, NavBrand, NavHamburger, NavUl, NavLi } from 'flowbite-svelte'
     let isLogged = false;
 </script>
@@ -10,9 +10,9 @@
         <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">AnimalHouse</span>
     </NavBrand>
-    {#if isLogged}
+    {#if !isLogged}
         <div class="flex md:order-2 ml-auto">
-            <SignModal />
+            <SignInModal />
         </div>
     {:else}
         <div class="flex md:order-2 ml-auto">
@@ -20,11 +20,11 @@
         </div>
         <Dropdown placement="bottom" triggeredBy="#avatar-menu">
             <DropdownHeader>
-            <span class="block text-sm"> Bonnie Green </span>
-            <span class="block truncate text-sm font-medium"> name@flowbite.com </span>
+                <span class="block text-sm"> Bonnie Green </span>
+                <span class="block truncate text-sm font-medium"> name@flowbite.com </span>
             </DropdownHeader>
             <DropdownItem href="#/profile">My Profile</DropdownItem>
-            <DropdownItem href="#/profile/settings">Account Settings</DropdownItem>
+            <DropdownItem href="#/profile/pets">My Pets</DropdownItem>
             <DropdownDivider />
             <DropdownItem>Sign out</DropdownItem>
         </Dropdown>
@@ -38,7 +38,5 @@
           <DropdownItem><NavLi href="#/servizi/leaderboard">LeaderBoard</NavLi></DropdownItem>
           <DropdownItem><NavLi href="#/servizi/bachecaEccoloQua">Bacheca "Eccolo qua"</NavLi></DropdownItem>
         </Dropdown>
-        
-        
     </NavUl>
 </Navbar>

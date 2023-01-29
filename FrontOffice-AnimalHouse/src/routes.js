@@ -9,6 +9,10 @@ export const routes = {
   "/profile": wrap({
     asyncComponent: () => import('./views/Profile.svelte')
   }),
+  "/profile/pets": wrap({
+    asyncComponent: () => import('./views/Profile.svelte'),
+    props: { page: "pets" }
+  }),
   "/shop": wrap({
     asyncComponent: () => import('./views/Shop.svelte')
   }),

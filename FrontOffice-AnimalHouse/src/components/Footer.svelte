@@ -1,4 +1,4 @@
-<style scoped>
+<style>
     .container{
         background-color: #2140D8;
         width: 100%;

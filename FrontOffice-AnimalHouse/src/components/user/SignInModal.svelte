@@ -1,7 +1,7 @@
 <script>
     import { Button, Modal } from 'flowbite-svelte'
-    import Login from "./Login.svelte"
-    import Register from "./Register.svelte"
+    import LoginForm from "./LoginForm.svelte"
+    import RegisterForm from "./RegisterForm.svelte"
     let formLogin = false;
     let formRegister = false;
 
@@ -23,8 +23,8 @@
 </Button>
 
 <Modal bind:open={formLogin} size="xs" autoclose={false}>
-    <Login openRegisterForm={openRegisterForm}/>
+    <LoginForm openRegisterForm={openRegisterForm}/>
 </Modal>
 <Modal bind:open={formRegister} size="xs" autoclose={false}>
-    <Register openLoginForm={openLoginForm}/>
+    <RegisterForm openLoginForm={openLoginForm}/>
 </Modal>

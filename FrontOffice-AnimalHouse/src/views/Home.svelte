@@ -161,14 +161,14 @@
 			</Card>
 		</div>
 		<div>
-			<!--  C'E' DA CAMBIARE L'IMMAGINE  -->
+			<!--  TODO: C'E' DA CAMBIARE L'IMMAGINE  -->
 			{#if card_leaderboard}
 				<img id="leaderboard" style="width:300px;" class="ml-16 rounded-lg" src="http://www.canalesassuolo.it/wp-content/uploads/2018/12/classifica-serie-a-16.jpg" alt="classifica">
 			{/if}
 		</div>
 	</div>
 
-	<!--  CI SONO DA CAMBIARE LE IMMAGINI  -->
+	<!--  TODO: CI SONO DA CAMBIARE LE IMMAGINI  -->
 	<div class=" mt-8 flex flex-row-reverse">
 		<div class="grid grid-rows-3 grid-flow-col">
 			{#if card_bacheca}
