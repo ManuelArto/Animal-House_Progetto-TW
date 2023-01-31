@@ -1,5 +1,5 @@
 <script>
-    import { Card, Button } from "flowbite-svelte";
+    import { Card, Button } from "flowbite-svelte"
 </script>
 
 <div>

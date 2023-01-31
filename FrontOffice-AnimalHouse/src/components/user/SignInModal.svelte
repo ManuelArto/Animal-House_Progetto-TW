@@ -2,17 +2,17 @@
     import { Button, Modal } from 'flowbite-svelte'
     import LoginForm from "./LoginForm.svelte"
     import RegisterForm from "./RegisterForm.svelte"
-    let formLogin = false;
-    let formRegister = false;
+    let formLogin = false
+    let formRegister = false
 
     let openLoginForm = () => {
-        formRegister = false;
-        formLogin = true;
-    };
+        formRegister = false
+        formLogin = true
+    }
     let openRegisterForm = () => {
-        formLogin = false;
-        formRegister = true;
-    };
+        formLogin = false
+        formRegister = true
+    }
 </script>
 
 <Button size='sm' on:click={openLoginForm}>

@@ -1,7 +1,7 @@
 <script>
-    import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, TableSearch, Button, Modal, Label, Input } from "flowbite-svelte";
-    let searchTerm = '';
-    let description = 'For me, getting my business website made was a lot of tech wizardry things. Thankfully i get an ad on Facebook ragarding commence website. I get connected with BBB team. They made my stunning website live in just 3 days. With the increase demand of online customers. I had to take my business online. BBB Team guided me at each ste and enabled me to centralise my work and have control on all aspect of my online business.';
+    import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, TableSearch, Button, Modal, Label, Input } from "flowbite-svelte"
+    let searchTerm = ''
+    let description = 'For me, getting my business website made was a lot of tech wizardry things. Thankfully i get an ad on Facebook ragarding commence website. I get connected with BBB team. They made my stunning website live in just 3 days. With the increase demand of online customers. I had to take my business online. BBB Team guided me at each ste and enabled me to centralise my work and have control on all aspect of my online business.'
     
     let items = [
         { title: 'Il mio cane abbaia in continuazione', num_post: '15', date: "05-feb-2019", creator: "Maria", 
@@ -23,19 +23,19 @@
             {author: 'Ronaldo', img: 'https://primabergamo.it/media/2016/02/maxresdefault8-e1456571029185.jpg', data: '15-gen-2022', content: description},
             {author: 'Messi', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXi4AawFx87__7ef_8QCdCmnSS0-WLjOmG8A&usqp=CAU', data: '9-mar-2021', content: description},
         ]},
-    ];
+    ]
 
     $: filteredItems = items.filter(
         (item) => item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
-    );
-    let val = true;
-    let p;
+    )
+    let val = true
+    let p
     function change(title){
-        val = false;
-        p = title;
+        val = false
+        p = title
     }
-    let PostModal = false;
-    let ThreadModal = false;
+    let PostModal = false
+    let ThreadModal = false
 </script>
 
 <style scoped>

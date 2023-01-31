@@ -1,10 +1,10 @@
 <script>
   import { Button, Label, Input} from 'flowbite-svelte'
-  import { ENDPOINT } from '../../utils/const';
-  import { handleSubmit } from '../../utils/formRequestHandler';
+  import { ENDPOINT } from '../../utils/const'
+  import { handleSubmit } from '../../utils/formRequestHandler'
 
-  let showPwd = false;
-  export let openRegisterForm;
+  let showPwd = false
+  export let openRegisterForm
 </script>
 
 

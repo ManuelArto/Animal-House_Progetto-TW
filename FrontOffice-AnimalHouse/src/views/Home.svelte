@@ -1,6 +1,6 @@
 <script>
 	import HomeCarousel from "../components/HomeCarousel.svelte"
-	import { Card, Button, Rating, Badge } from "flowbite-svelte";
+	import { Card, Button, Rating, Badge } from "flowbite-svelte"
 	let services = [{
 		name: "Shop",
 		path: "#/shop",
@@ -24,12 +24,12 @@
 		path: "#/servizi/bachecaEccoloQua",
 		icon: "M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z",
 		description: "Vuoi farti due risate? Qui puoi trovare una serie di video in cui i nostri piccoli amici ci fanno divertire nelle loro azioni quotidiane.",
-	}];
+	}]
 
-	let card_shop = false;
-	let card_services = false;
-	let card_leaderboard = false;
-	let card_bacheca = false;
+	let card_shop = false
+	let card_services = false
+	let card_leaderboard = false
+	let card_bacheca = false
 </script>
 
 <style>
@@ -65,10 +65,10 @@
 <div class="container w-3/4 ml-5 mt-10">
 	<div class="inline-flex">
 		<div on:mouseenter={() => {
-			card_shop=true;
+			card_shop=true
 		}}
 		on:mouseleave={() => {
-			card_shop=false;
+			card_shop=false
 		}} id="card_shop">
 			<Card  class="ml-10" img="https://www.carrello.eu/wp-content/uploads/2020/02/dog-fa-la-spesa.jpg" horizontal reverse={false}>
 				<h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Shop</h5>
@@ -129,10 +129,10 @@
 				</div>
 			{/if}
 			<div on:mouseenter={() => {
-				card_services=true;
+				card_services=true
 			}}
 			on:mouseleave={() => {
-				card_services=false;
+				card_services=false
 			}} id="card_services" class="row-start-1 row-end-4">
 				<Card img="https://img.freepik.com/premium-vector/cartoon-veterinary-examining-dog_29190-3349.jpg" horizontal reverse={true}>
 					<h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Servizi in presenza</h5>
@@ -147,10 +147,10 @@
 	</div>	
 	<div class="inline-flex mt-8">
 		<div on:mouseenter={() => {
-			card_leaderboard=true;
+			card_leaderboard=true
 		}}
 		on:mouseleave={() => {
-			card_leaderboard=false;
+			card_leaderboard=false
 		}} id="card_leaderboard">
 			<Card class="ml-10" img="https://img.pixers.pics/pho_wat(s3:700/FO/43/70/54/74/700_FO43705474_9207b6f77692347b23988cb4ea48c1ca.jpg,698,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,478,650,jpg)/carte-da-parati-cartoon-vincitori-podio.jpg.jpg" horizontal reverse={false}>
 				<h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Leaderboard</h5>
@@ -180,10 +180,10 @@
 				</div>
 			{/if}
 			<div on:mouseenter={() => {
-				card_bacheca=true;
+				card_bacheca=true
 			}}
 			on:mouseleave={() => {
-				card_bacheca=false;
+				card_bacheca=false
 			}} id="card_services" class="row-start-1 row-end-4">
 				<Card img="https://media.istockphoto.com/id/1219927783/it/vettoriale/nota-carta-con-icona-a-spillo-in-design-piatto-alla-moda.jpg?s=612x612&w=0&k=20&c=ZSKlVswybtBRueNOI5gLhRTZiXAQvujc95Iz84VR1Lk=" horizontal reverse={true}>
 					<h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Bacheca</h5>

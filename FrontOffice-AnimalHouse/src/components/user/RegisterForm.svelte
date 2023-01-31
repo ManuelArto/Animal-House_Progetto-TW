@@ -1,10 +1,10 @@
 <script>
     import { Button, Label, Input} from 'flowbite-svelte'
-    import { ENDPOINT } from '../../utils/const';
-    import { handleSubmit } from '../../utils/formRequestHandler';
-    let showPwd = false;
+    import { ENDPOINT } from '../../utils/const'
+    import { handleSubmit } from '../../utils/formRequestHandler'
+    let showPwd = false
 
-    export let openLoginForm;
+    export let openLoginForm
 </script>
 
 <form class="flex flex-col space-y-6" action={ENDPOINT.REGISTER} on:submit|preventDefault={handleSubmit} method="POST">

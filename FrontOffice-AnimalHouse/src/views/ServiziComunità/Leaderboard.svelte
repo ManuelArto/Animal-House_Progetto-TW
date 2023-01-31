@@ -1,5 +1,5 @@
 <script>
-	import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from 'flowbite-svelte';
+	import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from 'flowbite-svelte'
 
 	let ranking = [
 		{username: "bobby78", punteggio: 5700, data: "15-gen-2022", ora: "17:58"},
@@ -15,9 +15,9 @@
 		{username: "insigne", punteggio: 4250, data: "15-gen-2022", ora: "17:58"},
 	]
 	ranking.sort(function(a, b){
-    	return b.punteggio - a.punteggio;
-	});
-	let id=1;
+    	return b.punteggio - a.punteggio
+	})
+	let id=1
 </script>
   
 
