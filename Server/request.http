@@ -1,10 +1,11 @@
 // USER
+###
 POST http://localhost:5000/user/register HTTP/1.1
 content-type: application/json
 
 {
-	"name": "manu1",
-    "email": "manua@test.com",
+	"name": "manu11",
+    "email": "manuaa@test.com",
     "password": "ciaociao",
     "birthDate": "09/09/01",
     "phoneNumber": "342423423",
@@ -15,9 +16,9 @@ POST http://localhost:5000/user/login HTTP/1.1
 content-type: application/json
 
 {
-    "email": "andrea@test.com",
+    "email": "manuel@test.com",
     "password": "ciaociao"
-}
+} 
 
 // ANIMALS
 ###
@@ -41,7 +42,7 @@ content-type: application/json
 }
 
 
-// PRODUCT
+// PRODUCTS
 ###
 GET http://localhost:5000/products/list HTTP/1.1
 ###
@@ -50,7 +51,7 @@ GET http://localhost:5000/products/cibo/list HTTP/1.1
 GET http://localhost:5000/products/63d03a2174724ca39b25122b HTTP/1.1
 
 
-// PRODUCT
+// SCORES
 ###
 GET http://localhost:5000/scores/list HTTP/1.1
 ###

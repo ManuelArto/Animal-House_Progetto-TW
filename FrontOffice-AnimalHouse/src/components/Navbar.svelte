@@ -1,7 +1,10 @@
 <script>
-    import SignInModal from "./user/SignInModal.svelte"
     import { Dropdown, DropdownItem, DropdownHeader, DropdownDivider, Avatar, Chevron, Navbar, NavBrand, NavHamburger, NavUl, NavLi } from 'flowbite-svelte'
-    let isLogged = false;
+    import { user } from '../store'
+    import SignInModal from "./user/SignInModal.svelte"
+
+    let isUserLogged;
+	user.isUserLogged.subscribe(value => isUserLogged = value );
 </script>
   
 
@@ -10,18 +13,18 @@
         <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">AnimalHouse</span>
     </NavBrand>
-    {#if !isLogged}
+    {#if !isUserLogged}
         <div class="flex md:order-2 ml-auto">
             <SignInModal />
         </div>
     {:else}
         <div class="flex md:order-2 ml-auto">
-            <Avatar id="avatar-menu">BG</Avatar>
+            <Avatar id="avatar-menu">{$user.name.charAt(0) + $user.surname.charAt(0)}</Avatar>
         </div>
         <Dropdown placement="bottom" triggeredBy="#avatar-menu">
             <DropdownHeader>
-                <span class="block text-sm"> Bonnie Green </span>
-                <span class="block truncate text-sm font-medium"> name@flowbite.com </span>
+                <span class="block text-sm"> { $user.name + $user.surname } </span>
+                <span class="block truncate text-sm font-medium"> { $user.email } </span>
             </DropdownHeader>
             <DropdownItem href="#/profile">My Profile</DropdownItem>
             <DropdownItem href="#/profile/pets">My Pets</DropdownItem>

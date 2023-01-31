@@ -1,9 +1,21 @@
 import express, { Router, Request, Response, NextFunction } from "express"
 import { constants } from '../utils/const'
-import { UserModel } from '../model/user'
+import { IUser, UserModel } from '../model/user'
 import { ErrorWrapper } from "../middleware/error"
+import { authJwt, AuthRequest } from "../middleware/auth"
 
 export const router: Router = express.Router()
+
+// verify and refresh token
+router.get('/verifyToken', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+    try {
+        const user: IUser = (req as AuthRequest).user
+        res.json({ user: user.toJSON(), token: user.generateAuthToken() })
+        
+    } catch (error: any) {
+        next(new ErrorWrapper({statusCode: 400, error: error}))
+    }
+})
 
 // signup
 router.post('/register', async (req: Request, res: Response, next: NextFunction) => {
@@ -13,12 +25,8 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
         await user.save()
         const token = await user.generateAuthToken()
 
-        // storing our JWT web token as a cookie in our browser
-        res.cookie('token', token, { maxAge: constants.maxAgeToken, httpOnly: true })
-
-        res.status(201).json({ "user": user.toJSON(), token })
+        res.status(201).json({ user: user.toJSON(), token: token })
     } catch (error: any) {
-        res.clearCookie("token")
         next(new ErrorWrapper({statusCode: 400, error: error}))
     }
 
@@ -30,12 +38,8 @@ router.post('/login', async (req, res: Response, next: NextFunction) => {
         const user = await UserModel.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
 
-        // storing our JWT web token as a cookie in our browser
-        res.cookie('token', token, { maxAge: constants.maxAgeToken, httpOnly: true })
-
-        res.json({ "user": user.toJSON(), token })
+        res.json({ user: user.toJSON(), token: token })
     } catch (error: any) {
-        res.clearCookie("token")
         next(new ErrorWrapper({statusCode: 400, error: error}))
     }
 })

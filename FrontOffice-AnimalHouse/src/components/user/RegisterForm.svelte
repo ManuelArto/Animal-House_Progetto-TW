@@ -1,50 +1,52 @@
 <script>
     import { Button, Label, Input} from 'flowbite-svelte'
+    import { ENDPOINT } from '../../utils/const';
+    import { handleSubmit } from '../../utils/formRequestHandler';
     let showPwd = false;
 
     export let openLoginForm;
 </script>
 
-<form class="flex flex-col space-y-6" action="#">
+<form class="flex flex-col space-y-6" action={ENDPOINT.REGISTER} on:submit|preventDefault={handleSubmit} method="POST">
     <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Register on our platform</h3>
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">
             <span>Nome</span>
-            <Input type="text" placeholder="es: Mario" required />
+            <Input name="name" type="text" placeholder="es: Mario" required />
         </Label>
         <Label class="space-y-1">
             <span>Cognome</span>
-            <Input type="text" placeholder="es: Rossi" required />
+            <Input name="surname" type="text" placeholder="es: Rossi" required />
         </Label>
     </div>
     <Label class="space-y-1">
         <span>Email</span>
-        <Input type="email" placeholder="name@company.com" required />
+        <Input name="email" type="email" placeholder="name@company.com" required />
     </Label>
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">
             <span>Username</span>
-            <Input type="text" placeholder="es: limone89" required />
+            <Input name="username" type="text" placeholder="es: limone89" required />
         </Label>
     </div>
     <div class="grid grid-rows-1 grid-flow-col gap-1">
         <Label class="space-y-1">
             <span>Data di nascita</span>
-            <Input type="date" required />
+            <Input name="birthDate" type="date" required />
         </Label>
         <Label class="space-y-1">
             <span>Telefono</span>
-            <Input type="tel" placeholder="es: 123-4567890" required />
+            <Input name="phoneNumber" type="tel" placeholder="es: 123-4567890" required />
         </Label>
     </div>
     <Label class="space-y-1">
         <span>Preferenze</span>
-        <Input type="text" placeholder="Cani, gatti, animali, ecc..." required />
+        <Input name="preference" type="text" placeholder="Cani, gatti, animali, ecc..." required />
     </Label>
     <Label class="space-y-1">
         <span>Your password</span>
-        <Input type={showPwd ? 'text' : 'password'} placeholder="Your password here" size="md">
-        <button slot="left" on:click={() => (showPwd = !showPwd)} class="pointer-events-auto">
+        <Input name="password" type={showPwd ? 'text' : 'password'} placeholder="Your password here" size="md" required>
+        <button type="button" slot="left" on:click={() => (showPwd = !showPwd)} class="pointer-events-auto">
             {#if showPwd}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             {:else}

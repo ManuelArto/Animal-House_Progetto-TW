@@ -7,6 +7,8 @@ import { constants } from '../utils/const'
 
 interface IUser extends Document {
 	name: string
+	surname: string
+	username: string
 	email: string
 	password: string
 	phoneNumber: string
@@ -21,6 +23,14 @@ interface IUserModel extends Model<IUser> {
 
 const userSchema = new Schema<IUser>({
 	name: {
+		type: String,
+		required: true,
+	},
+	surname: {
+		type: String,
+		required: true,
+	},
+	username: {
 		type: String,
 		required: true,
 		unique: true
@@ -64,6 +74,8 @@ const userSchema = new Schema<IUser>({
 		transform(doc, ret) {
 			ret = {
 				"name": doc.name,
+				"surname": doc.surname,
+				"username": doc.username,
 				"email": doc.email,
 				"phoneNumber": doc.phoneNumber,
 				"birthDate": doc.birthDate,

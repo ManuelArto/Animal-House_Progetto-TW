@@ -4,6 +4,8 @@
 			"$oid": "5fea8abcda05f098a1ac9857"
 		},
 		"name": "Andrea",
+		"surname": "Napoli",
+		"username": "Naepols",
 		"email": "andrea@test.com",
 		"phoneNumber": "3247833963",
 		"birthDate": "09/09/2001",
@@ -18,6 +20,8 @@
 			"$oid": "5fea8abcda05f098a1ac9858"
 		},
 		"name": "Manuel",
+		"surname": "Arto",
+		"username": "Pinuzzo06",
 		"email": "manuel@test.com",
 		"phoneNumber": "3257833963",
 		"birthDate": "09/09/2001",
@@ -32,6 +36,8 @@
 			"$oid": "5fea8abcda05f098a1ac9859"
 		},
 		"name": "John Doe",
+		"surname": "Doe",
+		"username": "JohnDoe",
 		"email": "john.doe@gmail.com",
 		"phoneNumber": "3267833963",
 		"birthDate": "09/09/2001",

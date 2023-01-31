@@ -1,6 +1,5 @@
 import express, { Express } from "express"
 import cors from 'cors'
-import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 import helmet from "helmet"
 import dotenv from 'dotenv'
@@ -15,7 +14,6 @@ const PORT = process.env.PORT || 5000
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cookieParser());
 app.use(morgan('dev'))
 
 // Routes

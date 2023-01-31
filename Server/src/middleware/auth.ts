@@ -14,10 +14,11 @@ export interface AuthRequest extends Request {
 
 export const authJwt = async(req: Request, res: Response, next: NextFunction) => {
     try {
-        if (!req.cookies)
-            throw new JsonWebTokenError("Missing token, please authenticate");
+        const authHeader = req.headers['authorization']
+        if (!authHeader)
+            throw new JsonWebTokenError("Missing token, please authenticate")
         
-        const token = req.cookies.token
+        const token = authHeader.split(' ')[1] as string
         const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtRequest
         
         const user = await UserModel.findOne({ _id: decoded.id.toString() })
@@ -28,7 +29,6 @@ export const authJwt = async(req: Request, res: Response, next: NextFunction) =>
         (req as AuthRequest).user = user;
         next()
     } catch (error: any) {
-        res.clearCookie("token")
         if (error instanceof ErrorWrapper)
             next(error)
         else            
