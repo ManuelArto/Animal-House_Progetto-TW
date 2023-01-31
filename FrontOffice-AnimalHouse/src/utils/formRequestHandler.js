@@ -22,5 +22,5 @@ export const handleSubmit = async e => {
 		})			
 	}
 
-	user.setData(await response.json())
+	await user.setData(await response.json())
 }

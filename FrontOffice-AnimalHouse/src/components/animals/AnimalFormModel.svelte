@@ -1,10 +1,10 @@
 <script>
-	import {  Modal, Button } from "flowbite-svelte";
+	import {  Modal, Button } from "flowbite-svelte"
     import "../../assets/ProfilePage.css"
-    export let defaultModal;
 
+    export let isAnimalModalFormOpen
 </script>
-<Modal title="Add your animal" bind:open={defaultModal} size="md" autoclose>
+<Modal title="Add your animal" bind:open={isAnimalModalFormOpen} size="md" autoclose>
     <form>
         <div class="lg:pl-6">
             <div class="flex flex-wrap">
