@@ -24,18 +24,28 @@
 		path: "#/servizi/bachecaEccoloQua",
 		icon: "M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z",
 		description: "Vuoi farti due risate? Qui puoi trovare una serie di video in cui i nostri piccoli amici ci fanno divertire nelle loro azioni quotidiane.",
-	}]
+	}];
 
 	let card_shop = false
 	let card_services = false
 	let card_leaderboard = false
 	let card_bacheca = false
+	let screen_Desktop
+	
+	window.addEventListener("resize", () => {
+		if(window.innerWidth < 1260){
+			screen_Desktop = false
+		}else{
+			screen_Desktop = true
+		}
+	});
 </script>
 
 <style>
 	#card_shop:hover, 
 	#card_services:hover,
-	#card_leaderboard:hover{
+	#card_leaderboard:hover,
+	#card_bacheca:hover{
 		transform: scale(1.2);
 		transition: transform 0.3s ease-in-out;
 	}
@@ -52,9 +62,14 @@
 		100% { opacity: 1; }
 	}
 
-	img:hover{
-		transform: scale(1.5);
-		transition: transform 0.5s ease-in-out; 
+	@media screen and (max-width:1260px){
+		
+		#card_shop:hover, 
+		#card_services:hover,
+		#card_leaderboard:hover,
+		#card_bacheca:hover{
+			transform: none;
+		}
 	}
 	
 
@@ -70,7 +85,7 @@
 		on:mouseleave={() => {
 			card_shop=false
 		}} id="card_shop">
-			<Card  class="ml-10" img="https://www.carrello.eu/wp-content/uploads/2020/02/dog-fa-la-spesa.jpg" horizontal reverse={false}>
+			<Card  class="xl:ml-10 sm:flex justify-center" img="https://www.carrello.eu/wp-content/uploads/2020/02/dog-fa-la-spesa.jpg" horizontal reverse={false}>
 				<h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Shop</h5>
 				<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
 					Vieni a visitare il nostro shop per scoprire le nostre offerte e fare dei veri e propri affari. Qui potrai trovare tutte le cose di cui hai bisogno ad un prezzo molto conveniente <br>
@@ -79,7 +94,7 @@
 			</Card>
 		</div>
 		<div>
-			{#if card_shop}
+			{#if card_shop && screen_Desktop}
 				<div class="inline-flex" id="shop">
 					<div class="ml-5">
 						<a href="#/shop">
@@ -120,7 +135,7 @@
 	
 	<div class=" mt-8 flex flex-row-reverse">
 		<div class="grid grid-rows-3 grid-flow-col">
-			{#if card_services}
+			{#if card_services && screen_Desktop}
 				<div id="services1" class="row-start-2 row-span-2">
 					<img class="w-60 rounded-lg" src="https://i.etsystatic.com/11516728/r/il/56f9b9/1957336565/il_fullxfull.1957336565_eh3d.jpg" alt="cane-dogsitter">
 				</div>
@@ -162,7 +177,7 @@
 		</div>
 		<div>
 			<!--  TODO: C'E' DA CAMBIARE L'IMMAGINE  -->
-			{#if card_leaderboard}
+			{#if card_leaderboard && screen_Desktop}
 				<img id="leaderboard" style="width:300px;" class="ml-16 rounded-lg" src="http://www.canalesassuolo.it/wp-content/uploads/2018/12/classifica-serie-a-16.jpg" alt="classifica">
 			{/if}
 		</div>
@@ -171,7 +186,7 @@
 	<!--  TODO: CI SONO DA CAMBIARE LE IMMAGINI  -->
 	<div class=" mt-8 flex flex-row-reverse">
 		<div class="grid grid-rows-3 grid-flow-col">
-			{#if card_bacheca}
+			{#if card_bacheca && screen_Desktop}
 				<div id="services1" class="row-start-2 row-span-2">
 					<img class="w-60 rounded-lg" src="https://i.etsystatic.com/11516728/r/il/56f9b9/1957336565/il_fullxfull.1957336565_eh3d.jpg" alt="cane-dogsitter">
 				</div>
@@ -184,7 +199,7 @@
 			}}
 			on:mouseleave={() => {
 				card_bacheca=false
-			}} id="card_services" class="row-start-1 row-end-4">
+			}} id="card_bacheca" class="row-start-1 row-end-4">
 				<Card img="https://media.istockphoto.com/id/1219927783/it/vettoriale/nota-carta-con-icona-a-spillo-in-design-piatto-alla-moda.jpg?s=612x612&w=0&k=20&c=ZSKlVswybtBRueNOI5gLhRTZiXAQvujc95Iz84VR1Lk=" horizontal reverse={true}>
 					<h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Bacheca</h5>
 					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
