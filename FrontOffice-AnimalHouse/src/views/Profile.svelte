@@ -49,7 +49,7 @@
 						<Button class="bg-blue-500" on:click={ () => animalsView = true } disabled={editMode} >I miei animali</Button>
 					{/if}
 				</div>
-				<div class="xl:w-1/3 pr-4 pl-4 xl:order-2 mb-2 xl:mb-0 sm:mt-14 sm:mb-16 sm:text-center">
+				<div class="xl:w-1/3 pr-4 pl-4 xl:order-2 mb-2 xl:mb-0 mt-14 mb-5 sm:text-center">
 					<div
 						class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 card-profile shadow"
 					>
@@ -58,7 +58,8 @@
 								<div class="card-profile-image relative">
 									<img
 										src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg"
-										class=" absolute rounded-full left-1/2"
+										class="absolute rounded-full left-1/2"
+										alt = "user profile icon"
 									/>
 								</div>
 							</div>
