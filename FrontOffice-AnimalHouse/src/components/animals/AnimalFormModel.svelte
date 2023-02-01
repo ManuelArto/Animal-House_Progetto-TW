@@ -1,10 +1,17 @@
 <script>
 	import {  Modal, Button } from "flowbite-svelte"
+	import { createEventDispatcher } from 'svelte';
     import "../../assets/ProfilePage.css"
 
-    export let isAnimalModalFormOpen
+    export let isAnimalFormOpen
+    
+	const dispatch = createEventDispatcher();
+    $: if (!isAnimalFormOpen) {
+        dispatch("closeForm")
+    }
+
 </script>
-<Modal title="Add your animal" bind:open={isAnimalModalFormOpen} size="md" autoclose>
+<Modal title="Add your animal" bind:open={isAnimalFormOpen} size="md" autoclose={false}>
     <form>
         <div class="lg:pl-6">
             <div class="flex flex-wrap">
@@ -100,8 +107,8 @@
                 </div>
             </div>
         </div>
+        <Button type="submit" class="absolute bottom-1 right-2 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+            Confirm
+        </Button>
     </form>
-    <Button class="absolute bottom-1 right-2 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-        Confirm
-    </Button>
 </Modal>
