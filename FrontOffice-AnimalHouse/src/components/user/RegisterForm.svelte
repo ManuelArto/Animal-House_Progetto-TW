@@ -36,7 +36,7 @@
         </Label>
         <Label class="space-y-1">
             <span>Telefono</span>
-            <Input name="phoneNumber" type="tel" placeholder="es: 123-4567890" required />
+            <Input name="phoneNumber" type="tel" pattern={"[0-9]{10}"}  placeholder="es: 1234567890" required />
         </Label>
     </div>
     <Label class="space-y-1">

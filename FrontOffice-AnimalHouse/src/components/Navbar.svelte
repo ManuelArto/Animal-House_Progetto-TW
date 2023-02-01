@@ -20,7 +20,7 @@
             <Avatar id="avatar-menu">{$user.name.charAt(0) + $user.surname.charAt(0)}</Avatar>
             <Dropdown placement="bottom" triggeredBy="#avatar-menu">
                 <DropdownHeader>
-                    <span class="block text-sm"> { user.getFullName() } </span>
+                    <span class="block text-sm"> { $user.fullName } </span>
                     <span class="block truncate text-sm font-medium"> { $user.email } </span>
                 </DropdownHeader>
                 <DropdownItem href="#/profile">My Profile</DropdownItem>

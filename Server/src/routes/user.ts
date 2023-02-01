@@ -44,4 +44,20 @@ router.post('/login', async (req, res: Response, next: NextFunction) => {
     }
 })
 
+// update
+router.patch('/update', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+    try {
+        const user: IUser = (req as AuthRequest).user
+        const updates = Object.keys(req.body)
+        updates.forEach(update => {
+            (user as any)[update] = req.body[update]
+        });
+
+        await user.save()
+        res.json({ user: user.toJSON(), message: "Dati utente modificati con successo" })
+    } catch (error: any) {
+        next(new ErrorWrapper({statusCode: 400, error: error}))
+    }
+})
+
 export default router

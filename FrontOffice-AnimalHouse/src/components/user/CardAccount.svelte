@@ -1,5 +1,4 @@
 <script>
-    import { onMount } from "svelte";
     import "../../assets/ProfilePage.css"	
     import { user } from '../../store'
 
@@ -8,26 +7,18 @@
 
     $: input_style = editMode ? "border: 2px solid black; color: black" : ""
 
-    let userEdited = false
-    let oldData = JSON.stringify($user)
-    $: if (oldData != JSON.stringify($user)) {
-        userEdited = true
-        oldData = JSON.stringify($user)
-    }
+    let formData = {...$user}
 
-    function submitData(event) {
-        if (userEdited) {
-            console.log(event)
-            console.log("editing")
-            // TODO: make api request
-            // user.editData()
+    async function submitData(formEvent) {
+        if (JSON.stringify(formData) != JSON.stringify($user)) {
+            await user.editData(formData)
+            formData = {...$user}
         }
-        userEdited = false
     }
 
 </script>
 
-// TODO: verifica form validation
+<!-- TODO: verifica form validation -->
 
 <div class="flex-auto p-6">
     <form id={ formId }  on:submit|preventDefault={submitData}>
@@ -43,11 +34,11 @@
                         </label>
                         <input
                             type="text"
-                            id="input-username"
                             class="block appearance-none w-full py-1 px-2 mb-1 bg-white text-gray-500 border border-stone-300 rounded"
                             style={input_style}
-                            bind:value={ $user.username }
-                            disable={!editMode}
+                            bind:value={ formData.username }
+                            disabled={!editMode}
+                            required
                         />
                     </div>
                 </div>
@@ -58,11 +49,11 @@
                         </label>
                         <input
                             type="email"
-                            id="input-email"
                             class="block appearance-none w-full py-1 px-2 mb-1 bg-white text-gray-500 border border-stone-300 rounded"
                             style={input_style}
-                            bind:value={ $user.email }
-                            disable={!editMode}
+                            bind:value={ formData.email }
+                            disabled={!editMode}
+                            required
                         />
                     </div>
                 </div>
@@ -75,11 +66,11 @@
                         </label>
                         <input
                             type="text"
-                            id="input-full-name"
                             class="block appearance-none w-full py-1 px-2 mb-1 bg-white text-gray-500 border border-stone-300 rounded"
                             style={input_style}
-                            bind:value={$user.fullName}
-                            disable={!editMode}
+                            bind:value={formData.fullName}
+                            disabled={!editMode}
+                            required
                         />
                     </div>
                 </div>
@@ -90,11 +81,11 @@
                         </label>
                         <input
                             type="date"
-                            id="input-date"
                             class="block appearance-none w-full py-1 px-2 mb-1 bg-white text-gray-500 border border-stone-300 rounded"
                             style={input_style}
-                            value="1993-06-24"
-                            disable={!editMode}
+                            bind:value={formData.birthDate}
+                            disabled={!editMode}
+                            required
                         />
                     </div>
                 </div>
@@ -107,11 +98,11 @@
                         </label>
                         <input
                             type="tel"
-                            id="input-phone"
                             class="block appearance-none w-full py-1 px-2 mb-1 bg-white text-gray-500 border border-stone-300 rounded"
                             style={input_style}
-                            bind:value={ $user.phoneNumber }
-                            disable={!editMode}
+                            bind:value={ formData.phoneNumber }
+                            disabled={!editMode}
+                            required
                         />
                     </div>
                 </div>
@@ -122,11 +113,11 @@
                         </label>
                         <input
                             type="text"
-                            id="input-preference"
                             class="block appearance-none w-full py-1 px-2 mb-1 bg-white text-gray-500 border border-stone-300 rounded"
                             style={input_style}
-                            bind:value={ $user.preference }
-                            disable={!editMode}
+                            bind:value={ formData.preference }
+                            disabled={!editMode}
+                            required
                         />
                     </div>
                 </div>

@@ -32,31 +32,54 @@ export async function createUserStore() {
 		user.set({})
 		await push('/')
 	}
+	const setUserData = (data) => {
+		// format date
+		data.user.birthDate = data.user.birthDate.split('T')[0]
+		
+		user.set({...data.user, fullName: data.user.name + ' ' + data.user.surname})
+		isUserLogged.set(true)
+		localStorage.setItem("user", JSON.stringify(get(user)))
+	}
 
-	const token = localStorage.getItem("token")
+	let token = localStorage.getItem("token")
 	if (token) await setRefreshTokenTimer(token, logOut)
 	
 	return {
 		subscribe: user.subscribe,
 		isUserLogged: isUserLogged,
 		token: token,
-		getFullName: () => get(user).name + ' ' + get(user).surname,
+		set: (value) => user.set(value),
 		setData: async (data) => {
 			if (data.error) {
 				alert(JSON.stringify(data.error))
 			} else {
-				user.set(data.user)
-				isUserLogged.set(true)
-				localStorage.setItem("user", JSON.stringify(data.user))
-				localStorage.setItem("token", data.token)
+				setUserData(data)
 
-				await setRefreshTokenTimer(data.token, logOut)
+				token = data.token
+				localStorage.setItem("token", token)
+				await setRefreshTokenTimer(token, logOut)
 			}
 		},
 		logOut: async () => await logOut(),
-		editData: async (params) => {
-
-		}, 
-		set: (value) => user.set(value)
+		editData: async (formData) => {
+			// split full name 
+			const [name, ...surnames] = formData.fullName.split(' ')
+			formData.name = name
+			formData.surname = surnames.join(' ')
+			
+			const response = await fetch(ENDPOINT.EDIT_DATA, {
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${token}`
+				},
+				body: JSON.stringify(formData)
+			})
+			const data = await response.json()
+			if (data.error) {
+				alert(JSON.stringify(data.error))
+			} else 
+				setUserData(data)
+		},
 	}
 }
