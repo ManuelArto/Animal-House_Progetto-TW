@@ -43,7 +43,7 @@ router.delete('/:animalId', authJwt, async (req: Request | AuthRequest, res: Res
         if (!animal)
             throw new ErrorWrapper({ statusCode: 404, errorType: "NoAnimalFound", errorMsg: "No animal with that id" })
 
-        res.send(animal)
+        res.json({ message: `${animal.name} successfully deleted` })
     } catch (error: any) {
         if (error instanceof ErrorWrapper)
             next(error)
@@ -66,6 +66,5 @@ router.post('', authJwt, async (req: Request | AuthRequest, res: Response, next:
 })
 
 // router.patch('/:id', authJwt, async (req, res, next: NextFunction) => {})
-// router.delete('/:id', authJwt, async (req, res, next: NextFunction) => {})
 
 export default router

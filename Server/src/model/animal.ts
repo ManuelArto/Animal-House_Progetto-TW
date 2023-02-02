@@ -6,7 +6,7 @@ interface IAnimal extends Document {
 	imageURI: string
 	species: string
 	breed: string
-	birthdate: string
+	birthDate: string
 	gender: string
 	weight: string
 	ownerId: ObjectId
@@ -29,7 +29,7 @@ const animalSchema = new Schema<IAnimal>({
 		type: String,
 		required: true
 	},
-	birthdate: {
+	birthDate: {
 		type: String,
 		required: true
 	},

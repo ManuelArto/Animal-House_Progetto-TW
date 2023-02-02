@@ -1,19 +1,38 @@
 <script>
-    import { Card, Button } from "flowbite-svelte"
+    import { Card, Badge, Modal, Button } from "flowbite-svelte"
+    import { animals } from '../../store'
+
+    export let animal
+
+    let deleteAnimalModal = false;
+
+    async function deleteAnimal() {
+        await animals.deleteAnimal(animal._id)
+    }
+
 </script>
 
-<div>
-    <Card class="rounded mt-4" img="https://t1.ea.ltmcdn.com/it/razas/7/0/0/maltese_7_0_600.jpg" horizontal>
-        <h5 class="mt-0 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lillo</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-            <b>Specie: </b> Cane <br>
-            <b>Razza: </b> Maltese<br>
-            <b>Nascita: </b> 24/12/2021 <br>
-            <b>Sesso:</b> Maschio <br>
-            <b>Peso: </b> 0-10 kg<br>
-        </p>
-        <Button class="absolute right-3 top-3 !p-2" color="red" size="lg">
+<Card class="relative rounded mt-4 mx-4 m-0 p-0 flex" img={animal.imageURI} horizontal>
+    <h5 class="mt-0 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {animal.name} </h5>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
+        <b>Specie: </b> {animal.species} <br>
+        <b>Razza: </b> {animal.breed} <br>
+        <b>Nascita: </b> {animal.birthDate} <br>
+        <b>Sesso:</b> {animal.gender} <br>
+        <b>Peso: </b> {animal.weight} <br>
+    </p>
+    <button on:click={() => deleteAnimalModal = true}>
+        <Badge large rounded index color='red'>
             X
-        </Button>
-    </Card>
-</div>
+        </Badge>
+    </button>
+</Card>
+
+<Modal bind:open={deleteAnimalModal} size="xs" autoclose>
+  <div class="text-center">
+      <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400"> Sei sicuro di voler eliminare {animal.name}?</h3>
+      <Button color="red" class="mr-2" on:click={deleteAnimal} >Sì</Button>
+      <Button color='alternative'>Cancella</Button>
+  </div>
+</Modal>

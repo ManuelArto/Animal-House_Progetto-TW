@@ -1,5 +1,6 @@
 import { push } from 'svelte-spa-router'
 import { get, writable } from 'svelte/store'
+import { animals } from '.'
 import { ENDPOINT } from '../utils/const'
 
 async function refreshToken (token) {
@@ -48,7 +49,7 @@ export async function createUserStore() {
 	return {
 		subscribe: user.subscribe,
 		isUserLogged: isUserLogged,
-		token: token,
+		getToken: () => token,
 		set: (value) => user.set(value),
 		setData: async (data) => {
 			if (data.error) {
@@ -59,6 +60,9 @@ export async function createUserStore() {
 				token = data.token
 				localStorage.setItem("token", token)
 				await setRefreshTokenTimer(token, logOut)
+
+				// get all user animals
+				await animals.getAll()
 			}
 		},
 		logOut: async () => await logOut(),

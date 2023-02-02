@@ -1,18 +1,16 @@
 <script>
 	import { Button } from "flowbite-svelte"
-	import { user } from '../store'
+	import { user, animals } from '../store'
 	import "../assets/ProfilePage.css"
 	import CardAccount from "../components/user/CardAccount.svelte"
 	import AnimalFormModel from "../components/animals/AnimalFormModel.svelte"
 	import CardAnimal from "../components/animals/CardAnimal.svelte"
 
 	let formId = "edit-user-form"
+	let editMode = false
 	
 	export let animalsView = false
 	let isAnimalFormOpen = false
-	
-	let editMode = false
-
 </script>
 
 <div class="main-content relative w-full">
@@ -49,12 +47,10 @@
 						<Button class="bg-blue-500" on:click={ () => animalsView = true } disabled={editMode} >I miei animali</Button>
 					{/if}
 				</div>
-				<div class="xl:w-1/3 pr-4 pl-4 xl:order-2 mb-2 xl:mb-0 mt-14 mb-5 sm:text-center">
-					<div
-						class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 card-profile shadow"
-					>
+				<div class="xl:w-1/3 px-4 xl:order-2 mb-2 xl:mb-0 mt-14 mb-5 sm:text-center">
+					<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 card-profile shadow">
 						<div class="flex flex-wrap  justify-center">
-							<div class="lg:w-1/4 pr-4 pl-4 lg:order-2">
+							<div class="lg:w-1/4 lg:order-2">
 								<div class="card-profile-image relative">
 									<img
 										src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg"
@@ -70,7 +66,7 @@
 						<div class="flex-auto">
 							<div class="text-center">
 								<h3 class="mb-2 font-bold text-md">
-									{ $user.fullName }
+									{ $user.username }
 								</h3>
 								<div>
 									<!-- TODO: make delete button effective -->
@@ -83,19 +79,18 @@
 			</div>
 		</div>
 	</div>
-	<div class="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4 mt-6">
-		<div class="flex flex-wrap ">
-			<div class="xl:w-2/3 pr-4 pl-4 xl:order-1 rounded">
-				<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 bg-gray-600 shadow mb-5">
-					{#if animalsView}
-						<AnimalFormModel isAnimalFormOpen={isAnimalFormOpen} on:closeForm={() => isAnimalFormOpen = false} />
-						<CardAnimal />
-						<CardAnimal />
-					{:else}
-						<CardAccount formId={formId} editMode={editMode}/>
-					{/if}
-				</div>
-			</div>
+	<div class="container mx-auto my-6">
+		{#if animalsView}
+			<AnimalFormModel isAnimalFormOpen={isAnimalFormOpen} on:closeForm={() => isAnimalFormOpen = false} />
+				{#each $animals as animal (animal._id)}
+					<CardAnimal animal={animal}/>
+				{:else}
+					No animals yet
+				{/each}
+		{:else}
+		<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 bg-gray-600 shadow mb-5 mx-2">
+			<CardAccount formId={formId} editMode={editMode}/>
 		</div>
+		{/if}
 	</div>
 </div>
