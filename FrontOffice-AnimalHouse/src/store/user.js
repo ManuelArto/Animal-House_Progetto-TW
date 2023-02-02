@@ -16,10 +16,11 @@ async function setRefreshTokenTimer(token, logOutCallBack) {
 
 	// Check if token is expired
 	if (exp <= +new Date()) await logOutCallBack()
-
-	// set interval for refreshing the token
-	// TODO: save new token
-	setInterval(async () => await refreshToken(token), exp - +new Date())
+	else {
+		// set interval for refreshing the token
+		// TODO: save new token
+		setInterval(async () => await refreshToken(token), exp - +new Date())
+	} 
 }
 
 export async function createUserStore() {
