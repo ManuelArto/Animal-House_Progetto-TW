@@ -1,3 +1,5 @@
+@token = 
+
 // USER
 ###
 POST http://localhost:5000/user/register HTTP/1.1
@@ -23,12 +25,16 @@ content-type: application/json
 // ANIMALS
 ###
 GET http://localhost:5000/animals/list HTTP/1.1
+Authorization: Bearer {{token}}
 ###
 GET http://localhost:5000/animals/63d03fa3788d002cb12754af HTTP/1.1
+Authorization: Bearer {{token}}
 ###
 DELETE http://localhost:5000/animals/63d06ecd969c1886977ede6e HTTP/1.1
+Authorization: Bearer {{token}}
 ###
 POST http://localhost:5000/animals/ HTTP/1.1
+Authorization: Bearer {{token}}
 content-type: application/json
 
 {
@@ -56,6 +62,7 @@ GET http://localhost:5000/products/63d03a2174724ca39b25122b HTTP/1.1
 GET http://localhost:5000/scores/list HTTP/1.1
 ###
 POST http://localhost:5000/scores/ HTTP/1.1
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {

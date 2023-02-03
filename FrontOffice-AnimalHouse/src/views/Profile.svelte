@@ -1,7 +1,6 @@
 <script>
 	import { Button } from "flowbite-svelte"
 	import { user, animals } from '../store'
-	import "../assets/ProfilePage.css"
 	import CardAccount from "../components/user/CardAccount.svelte"
 	import AnimalFormModel from "../components/animals/AnimalFormModel.svelte"
 	import CardAnimal from "../components/animals/CardAnimal.svelte"
@@ -81,8 +80,10 @@
 			{#each $animals as animal (animal._id)}
 				<CardAnimal animal={animal}/>
 			{:else}
-				<div class="text-lg font-medium text-gray-700 mb-10 text-center h-full my-5">
-					<span class="bg-gray-300 p-2 rounded-full text-gray-700">No animals yet</span>
+				<div class="bg-white rounded shadow p-8 text-center mx-auto my-10">
+					<h2 class="text-xl font-bold text-gray-800 mb-4">Nessun animale presente</h2>
+					<p class="text-gray-600 mb-0">Aggiungi subito il tuo primo animale domestico!</p>
+					<Button class="bg-blue-500 mt-4" on:click={() => isAnimalFormOpen = !isAnimalFormOpen }>Aggiungi</Button>
 				</div>
 			{/each}
 	{:else}
