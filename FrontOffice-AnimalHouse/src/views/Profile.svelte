@@ -13,22 +13,17 @@
 	let isAnimalFormOpen = false
 </script>
 
-<div class="main-content relative w-full">
-	<nav class="absolute flex flex-wrap items-center content-between py-3 px-4 navbar-top w-full text-dark" id="navbar-main">
-		<div class="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4">
-			<div>USER PROFILE</div>
-		</div>
-	</nav>
-	<div
-		class="header pb-8 pt-5 pt-lg-8 flex items-center"
-		style="min-height: 600px; background-image: url(https://img.freepik.com/premium-photo/simple-white-background-with-smooth-lines-light-colors_476363-5558.jpg); background-size: cover; background-position: center top;"
-	>
-		<div class="container mx-auto mt-4 sm:px-4 max-w-full mx-auto sm:px-4 flex items-center">
-			<div class="flex flex-wrap ">
-				<div class="lg:w-3/5 pr-4 pl-4">
-					<h1 class="text-2xl mb-8 text-dark sm:mt-4">Hello {$user.name}</h1>
+<div class="relative w-full"
+	style="min-height: 500px; background-image: url(https://img.freepik.com/premium-photo/simple-white-background-with-smooth-lines-light-colors_476363-5558.jpg); background-size: cover; background-position: center top;"
+>
+	<div class="container mx-auto my-auto p-5">
+		<p class="absolute sm:px-4 sm:px-4"> USER PROFILE </p>
+		<div class="mt-3 pb-8 pt-5">
+			<div class="sm:px-4 mx-auto sm:px-4 sm:flex justify-between mt-3">
+				<div class="sm:w-2/3">
+					<h1 class="text-2xl sm:mb-8 text-dark sm:mt-4">Hello {$user.name}</h1>
 					<!-- TODO: modifica testo presentazione pagina profilo -->
-					<p class="text-dark font-light text-base mb-10">
+					<p class="text-dark font-light text-base mb-2 sm:mb-10">
 						{#if animalsView}
 							This is your pets page. You can see the progress
 							you've made with your work and manage your projects or
@@ -47,9 +42,9 @@
 						<Button class="bg-blue-500" on:click={ () => animalsView = true } disabled={editMode} >I miei animali</Button>
 					{/if}
 				</div>
-				<div class="xl:w-1/3 px-4 xl:order-2 mb-2 xl:mb-0 mt-14 mb-5 sm:text-center">
-					<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 card-profile shadow">
-						<div class="flex flex-wrap  justify-center">
+				<div class="w-3/5 sm:w-2/5 lg:w-1/4 xl:order-2 xl:mb-0 mb-5 sm:text-center mt-16 sm:mt-14">
+					<div class="rounded break-words border bg-white border-1 border-gray-300 card-profile shadow">
+						<div class="flex justify-center">
 							<div class="lg:w-1/4 lg:order-2">
 								<div class="card-profile-image relative">
 									<img
@@ -60,9 +55,7 @@
 								</div>
 							</div>
 						</div>
-						<div
-							class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900 text-center border-0 pt-8 md:pt-6 pb-0 md:pb-6"
-						/>
+						<div class="px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900 text-center border-0 pt-8 pb-0"/>
 						<div class="flex-auto">
 							<div class="text-center">
 								<h3 class="mb-2 font-bold text-md">
@@ -79,18 +72,20 @@
 			</div>
 		</div>
 	</div>
-	<div class="container mx-auto my-6">
-		{#if animalsView}
-			<AnimalFormModel isAnimalFormOpen={isAnimalFormOpen} on:closeForm={() => isAnimalFormOpen = false} />
-				{#each $animals as animal (animal._id)}
-					<CardAnimal animal={animal}/>
-				{:else}
-					No animals yet
-				{/each}
-		{:else}
-		<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 bg-gray-600 shadow mb-5 mx-2">
-			<CardAccount formId={formId} editMode={editMode}/>
-		</div>
-		{/if}
+</div>
+<div class="container mx-auto my-6 h-max block items-center md:flex md:items-start">
+	{#if animalsView}
+		<AnimalFormModel isAnimalFormOpen={isAnimalFormOpen} on:closeForm={() => isAnimalFormOpen = false} />
+			{#each $animals as animal (animal._id)}
+				<CardAnimal animal={animal}/>
+			{:else}
+				<div class="text-lg font-medium text-gray-700 mb-10 text-center h-full my-5">
+					<span class="bg-gray-300 p-2 rounded-full text-gray-700">No animals yet</span>
+				</div>
+			{/each}
+	{:else}
+	<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 bg-gray-600 shadow mb-5 mx-2">
+		<CardAccount formId={formId} editMode={editMode}/>
 	</div>
+	{/if}
 </div>
