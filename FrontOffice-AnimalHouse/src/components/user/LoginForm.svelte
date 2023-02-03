@@ -9,7 +9,7 @@
 
 
 <form class="flex flex-col space-y-6" action={ENDPOINT.LOGIN} on:submit|preventDefault={userInfoSubmit} method="POST">
-  <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Sign in to our platform</h3>
+  <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Accedi alla piattaform</h3>
   <Label class="space-y-2">
     <span>Email</span>
     <Input type="email" name="email" placeholder="name@company.com" size="md" required >
@@ -17,7 +17,7 @@
     </Input>
   </Label>
   <div class="space-y-2">
-    <Label for="show-password" class="mb-2">Your password</Label>
+    <Label for="show-password" class="mb-2">Password</Label>
     <Input name="password" id="show-password" type={showPwd ? 'text' : 'password'} placeholder="Your password here" size="md">
       <button type="button" slot="left" on:click={() => (showPwd = !showPwd)} class="pointer-events-auto">
         {#if showPwd}
@@ -28,8 +28,8 @@
       </button>
     </Input>
   </div>
-  <Button type="submit" class="w-full1">Login to your account</Button>
+  <Button type="submit" class="w-full1">Accedi</Button>
   <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-    Not registered? <button on:click={openRegisterForm()} class="text-blue-700 hover:underline dark:text-blue-500">Create account</button>
+    Non ancora registrato? <button on:click={openRegisterForm()} class="text-blue-700 hover:underline dark:text-blue-500">Crea il tuo account</button>
   </div>
 </form>

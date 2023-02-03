@@ -8,7 +8,7 @@
 </script>
 
 <form class="flex flex-col space-y-6" action={ENDPOINT.REGISTER} on:submit|preventDefault={userInfoSubmit} method="POST">
-    <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Register on our platform</h3>
+    <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Registrati sulla nostra piattaforma</h3>
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">
             <span>Nome</span>
@@ -44,7 +44,7 @@
         <Input name="preference" type="text" placeholder="Cani, gatti, animali, ecc..." required />
     </Label>
     <Label class="space-y-1">
-        <span>Your password</span>
+        <span>Password</span>
         <Input name="password" type={showPwd ? 'text' : 'password'} placeholder="Your password here" size="md" required>
         <button type="button" slot="left" on:click={() => (showPwd = !showPwd)} class="pointer-events-auto">
             {#if showPwd}
@@ -55,8 +55,8 @@
         </button>
         </Input>
     </Label>    
-    <Button type="submit" class="w-full1">Create your account </Button>
+    <Button type="submit" class="w-full1">Crea il tuo account</Button>
     <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-        Already have an account? <button on:click={openLoginForm()} class="text-blue-700 hover:underline dark:text-blue-500">Log in</button>
+        Hai già un account? <button on:click={openLoginForm()} class="text-blue-700 hover:underline dark:text-blue-500">Accedi</button>
     </div>
 </form>
