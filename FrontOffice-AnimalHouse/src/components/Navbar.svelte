@@ -39,7 +39,7 @@
                 <DropdownItem on:click={() => changePage("#/profile", hidden, toggle)}>My Profile</DropdownItem>
                 <DropdownItem on:click={() => changePage("#/profile/pets", hidden, toggle)}>My Pets</DropdownItem>
                 <DropdownDivider />
-                <DropdownItem on:click={async() => await user.logOut()} >Sign out</DropdownItem>
+                <DropdownItem on:click={async() => { await user.logOut(); changePage("/", hidden, toggle)}} >Sign out</DropdownItem>
             </Dropdown>
         {/if}
     </div>

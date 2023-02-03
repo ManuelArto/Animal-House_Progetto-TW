@@ -32,7 +32,6 @@ export async function createUserStore() {
 		localStorage.clear()
 		isUserLogged.set(false)
 		user.set({})
-		await push('/')
 	}
 	const setUserData = (data) => {
 		// format date
