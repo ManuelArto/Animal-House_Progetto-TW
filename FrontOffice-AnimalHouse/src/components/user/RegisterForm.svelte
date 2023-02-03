@@ -1,13 +1,13 @@
 <script>
     import { Button, Label, Input} from 'flowbite-svelte'
     import { ENDPOINT } from '../../utils/const'
-    import { handleSubmit } from '../../utils/formRequestHandler'
+    import { userInfoSubmit } from '../../utils/formRequestHandler'
     let showPwd = false
 
     export let openLoginForm
 </script>
 
-<form class="flex flex-col space-y-6" action={ENDPOINT.REGISTER} on:submit|preventDefault={handleSubmit} method="POST">
+<form class="flex flex-col space-y-6" action={ENDPOINT.REGISTER} on:submit|preventDefault={userInfoSubmit} method="POST">
     <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Register on our platform</h3>
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">

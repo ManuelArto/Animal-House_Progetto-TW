@@ -20,6 +20,10 @@ export async function createAnimalsStore() {
 				localStorage.setItem("animals", JSON.stringify(get(animals)))
 			}
 		},
+		newAnimal: async (animal) => {
+			animals.update(animals => [...animals, animal])
+			localStorage.setItem("animals", JSON.stringify(get(animals)))
+		},
 		deleteAnimal: async (animalId) => {
 			const response = await fetch(ENDPOINT.ANIMALS_DELETE(animalId), {
 				method: 'DELETE',

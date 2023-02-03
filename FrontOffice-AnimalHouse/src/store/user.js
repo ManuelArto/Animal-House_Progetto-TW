@@ -52,18 +52,14 @@ export async function createUserStore() {
 		getToken: () => token,
 		set: (value) => user.set(value),
 		setData: async (data) => {
-			if (data.error) {
-				alert(JSON.stringify(data.error))
-			} else {
-				setUserData(data)
+			setUserData(data)
 
-				token = data.token
-				localStorage.setItem("token", token)
-				await setRefreshTokenTimer(token, logOut)
+			token = data.token
+			localStorage.setItem("token", token)
+			await setRefreshTokenTimer(token, logOut)
 
-				// get all user animals
-				await animals.getAll()
-			}
+			// get all user animals
+			await animals.getAll()
 		},
 		logOut: async () => await logOut(),
 		editData: async (formData) => {
