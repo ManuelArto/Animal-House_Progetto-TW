@@ -1,6 +1,6 @@
 <script>
-	import { AccordionItem, Accordion, Modal, TableBody, TableBodyCell, TableBodyRow, Checkbox, Radio, TableHead, TableHeadCell, TableSearch, Card, Button } from "flowbite-svelte";
-
+	import { AccordionItem, Accordion, Modal, TableBody, TableBodyCell, TableBodyRow, Checkbox, Input, Label, Radio, TableHead, TableHeadCell, TableSearch, Card, Button } from "flowbite-svelte";
+	import CardServices from "../components/CardServices.svelte";
 	let searchTerm = '';
 	let data = [
 		{
@@ -94,15 +94,17 @@
 	]
 
 	$: filteredItems = data.filter(
-        (item) => item.address.street.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+        (item) => item.address.street.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 
     );
 
 	let error;
 	let date_insert = false;
 	let error_insert_service=false;
 	
+	let total_services = ["Dogsitter", "Veterinario"];
 	let selected_sits = [];
 	let selected_service = [];
+	let date_value;
 
 	window.addEventListener("load", () => {
 		const dateInput = document.getElementById("input-date");
@@ -122,7 +124,7 @@
 		let checkboxes_sits = form2.querySelectorAll('input[type="checkbox"]');
 		let checkedOne = Array.prototype.slice.call(checkboxes_services).some(x => x.checked);
 		let checkedTwo = Array.prototype.slice.call(checkboxes_sits).some(x => x.checked);
-
+		date_value = document.getElementById("input-date").value;
 		if (date_insert && !checkedOne) {
 			error_insert_service = true;
 			error = true;
@@ -173,8 +175,7 @@
 	const items = Array(selected_sits.length); 
 	const open_all = () => items.forEach((_,i)=> items[i] = true)
 	const close_all= () => items.forEach((_,i)=> items[i] = false)
-	
-	
+
 </script>
 
 <style>
@@ -183,7 +184,7 @@
 <p class="mt-10 ml-10 font-bold font-serif xl:text-4xl sm:text-lg text-gray-900 dark:text-white">Prenota il servizio desiderato dove vuoi e quando vuoi</p>
 
 
-<div id="selezione">
+<div id="selezione" style="display:none;">  <!--   DA CAMBIAREEE    -->
 	<p class="mt-5 ml-10 font-serif xl:text-2xl sm:text-lg text-gray-900 dark:text-white">Compila i campi di seguito e controlla la nostra disponibilità</p>
 	<div class="xl:inline-flex sm:block mt-10 ml-5">
 		<Card class="xl:ml-5 xl:mb-64">
@@ -199,11 +200,11 @@
 		</Card>
 		<Card class="xl:ml-5 max-h-96">
 			<p class="text-lg text-dark">Scegli la sede più comoda</p>
-			<TableSearch placeholder="Search by site" hoverable={true} bind:inputValue={searchTerm}>
+			<TableSearch placeholder="Search by address" hoverable={true} bind:inputValue={searchTerm}>
 				<TableBody class="divide-y" id="checkbox_sits">
 					{#each filteredItems as item}
 						<TableBodyRow class="border-separate border-spacing-2 border border-slate-400">
-							<TableBodyCell><Checkbox value={item.address.street}>{item.address.street}</Checkbox></TableBodyCell>
+							<TableBodyCell><Checkbox value={item.address.street}>{item.address.street + ", " + item.address.city}</Checkbox></TableBodyCell>
 						</TableBodyRow>
 					{/each}
 				</TableBody>
@@ -248,7 +249,7 @@
 {/if}
 
 
-<div id="prenotazione" style="display:none;">   
+<div id="prenotazione" style="display:block;">   <!--  DA CAMBIAREEEEEE -->
 	<p class="mt-5 ml-10 font-serif xl:text-2xl sm:text-lg text-gray-900 dark:text-white">Ecco le sedi che offrono il servizio</p>
 
 	<div class="mt-10 ml-10">
@@ -271,62 +272,16 @@
 						<div class="inline-flex">
 							{#each data as item}
 								{#if sit === item.address.street}
-									{#if selected_service.length == 0} <!--  Mostrare le sedi selezionate con i servizi che offre -->
-										{#if item.services.Veterinario}
-											<Card>
-												<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Veterinario</h5>
-												<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-													Lunedì-Venerdì: 8-20 <br>
-													Sabato: 10-20 <br>
-													Domenica: 10-19 <br>
-												</p>
-												<Button class="w-fit">
-												Prenota <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-												</Button>
-											</Card>
-										{/if}
-										{#if item.services.Dogsitter}
-											<Card class="ml-5">
-												<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">DogSitter</h5>
-												<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-													Lunedì-Venerdì: 8-20 <br>
-													Sabato: 10-20 <br>
-													Domenica: 10-19 <br>
-												</p>
-												<Button class="w-fit">
-												Prenota <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-												</Button>
-											</Card>
-										{/if}
+									{#if selected_service.length == 0} 
+										{#each total_services as ts}
+											{#if item.services[ts]}
+												<CardServices service={ts} date_value={date_value} sit={item.address.street}/>
+											{/if}
+										{/each}
 									{:else}
 										{#each selected_service as service}
 											{#if item.services[service]}
-												{#if service === "Veterinario" && item.services.Veterinario}
-													<Card>
-														<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Veterinario</h5>
-														<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-															Lunedì-Venerdì: 8-20 <br>
-															Sabato: 10-20 <br>
-															Domenica: 10-19 <br>
-														</p>
-														<Button class="w-fit">
-														Prenota <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-														</Button>
-													</Card>
-												{/if}
-												{#if service === "Dogsitter" && item.services.Dogsitter}
-													<Card class="ml-5">
-														<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">DogSitter</h5>
-														<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-															Lunedì-Venerdì: 8-20 <br>
-															Sabato: 10-20 <br>
-															Domenica: 10-19 <br>
-														</p>
-														<Button class="w-fit">
-														Prenota <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-														</Button>
-													</Card>
-												{/if}
+												<CardServices service={service} date_value={date_value} sit={item.address.street} />
 											{/if}
 										{/each}
 									{/if}
@@ -339,26 +294,25 @@
 			<!--  SELEZIONE SOLO PER SERVIZIO  -->
 			{:else}
 				{#each data as item, i}
-					<AccordionItem bind:open={items[i]}>
-						<span slot="header">{item.address.street}</span>
-						<div class="inline-flex">
-							{#each selected_service as service}
-								{#if item.services[service]}
-									<Card class="ml-5">
-										<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{service}</h5>
-										<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-											Lunedì-Venerdì: 8-20 <br>
-											Sabato: 10-20 <br>
-											Domenica: 10-19 <br>
-										</p>
-										<Button class="w-fit">
-										Prenota <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-										</Button>
-									</Card>
-								{/if}
-							{/each}	
-						</div>
-					</AccordionItem>
+					{#if selected_service.length == 1 && item.services[selected_service]}
+						<AccordionItem bind:open={items[i]}>
+							<span slot="header">{item.address.street}</span>
+							<div class="inline-flex">
+								<CardServices service={selected_service[0]} date_value={date_value} sit={item.address.street}/>
+							</div>
+						</AccordionItem>
+					{:else if selected_service.length == 2 && (item.services[selected_service[0]] || item.services[selected_service[1]])}
+						<AccordionItem bind:open={items[i]}>
+							<span slot="header">{item.address.street}</span>
+							<div class="inline-flex">
+								{#each selected_service as service}
+									{#if item.services[service]}
+										<CardServices service={service} date_value={date_value} sit={item.address.street} />
+									{/if}
+								{/each}	
+							</div>
+						</AccordionItem>
+					{/if}
 				{/each}
 			{/if}
 		</Accordion>
