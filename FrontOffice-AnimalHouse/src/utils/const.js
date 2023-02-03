@@ -7,5 +7,6 @@ export const ENDPOINT = {
 	VERIFY_TOKEN: SERVER_URL + "/user/verifyToken",
 	ANIMALS_LIST: SERVER_URL + "/animals/list",
 	ANIMALS_NEW: SERVER_URL + "/animals/",
-	ANIMALS_DELETE: (animalId) => SERVER_URL + `/animals/${animalId}`
+	ANIMALS_DELETE: (animalId) => SERVER_URL + `/animals/${animalId}`,
+	SCORES_LIST: SERVER_URL + "/scores/list"
 }

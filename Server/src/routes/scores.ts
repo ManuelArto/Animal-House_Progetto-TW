@@ -8,7 +8,7 @@ export const router: Router = express.Router()
 
 router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
 	try{
-		const scores = await ScoreModel.find()
+		const scores = await ScoreModel.find().sort({ punteggio: -1 })
 
 		res.json(scores)
 	} catch(error: any) {
