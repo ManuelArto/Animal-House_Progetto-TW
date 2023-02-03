@@ -91,3 +91,20 @@
 	</div>
 	{/if}
 </div>
+
+
+<style>
+.bg-white {
+  background-color: #fff !important;
+}
+
+.pt-8 {
+  padding-top: 8rem !important;
+}
+
+.card-profile-image img {
+  max-width: 180px;
+  transform: translate(-50%, -30%);
+  border-radius: .375rem;
+}
+</style>
