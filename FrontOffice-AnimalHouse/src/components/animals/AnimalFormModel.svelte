@@ -1,7 +1,6 @@
 <script>
 	import {  Modal, Button } from "flowbite-svelte"
 	import { createEventDispatcher } from 'svelte';
-    import "../../assets/ProfilePage.css"
 
     export let isAnimalFormOpen
     

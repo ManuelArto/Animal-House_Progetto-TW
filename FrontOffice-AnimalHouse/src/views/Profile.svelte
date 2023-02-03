@@ -23,7 +23,7 @@
 				<div class="sm:w-2/3">
 					<h1 class="text-2xl sm:mb-8 text-dark sm:mt-4">Hello {$user.name}</h1>
 					<!-- TODO: modifica testo presentazione pagina profilo -->
-					<p class="text-dark font-light text-base mb-2 sm:mb-10">
+					<p class="text-dark font-light text-base mb-2 sm:mb-10 mt-5">
 						{#if animalsView}
 							This is your pets page. You can see the progress
 							you've made with your work and manage your projects or
@@ -34,13 +34,15 @@
 							assigned tasks
 						{/if}
 					</p>
-					{#if animalsView}
-						<Button class="bg-blue-500" on:click={() => isAnimalFormOpen = !isAnimalFormOpen }> Aggiungi</Button>
-						<Button color="dark" on:click={ () => animalsView = false }> Torna al profilo </Button>
-					{:else}
-						<Button color={editMode ? "green" : "dark"} type="submit" form={formId} on:click={() => editMode = !editMode }> {editMode ? "Save" :  "Edit" } </Button>
-						<Button class="bg-blue-500" on:click={ () => animalsView = true } disabled={editMode} >I miei animali</Button>
-					{/if}
+					<div class="my-4">
+						{#if animalsView}
+							<Button class="bg-blue-500" on:click={() => isAnimalFormOpen = !isAnimalFormOpen }> Aggiungi</Button>
+							<Button color="dark" on:click={ () => animalsView = false }> Torna al profilo </Button>
+						{:else}
+							<Button color={editMode ? "green" : "dark"} type="submit" form={formId} on:click={() => editMode = !editMode }> {editMode ? "Save" :  "Edit" } </Button>
+							<Button class="bg-blue-500" on:click={ () => animalsView = true } disabled={editMode} >I miei animali</Button>
+						{/if}
+					</div>
 				</div>
 				<div class="w-3/5 sm:w-2/5 lg:w-1/4 xl:order-2 xl:mb-0 mb-5 sm:text-center mt-16 sm:mt-14">
 					<div class="rounded break-words border bg-white border-1 border-gray-300 card-profile shadow">
@@ -84,7 +86,7 @@
 				</div>
 			{/each}
 	{:else}
-	<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 bg-gray-600 shadow mb-5 mx-2">
+	<div class="w-full rounded break-words border bg-white border-1 border-gray-300 bg-gray-600 shadow mb-5 mx-2">
 		<CardAccount formId={formId} editMode={editMode}/>
 	</div>
 	{/if}

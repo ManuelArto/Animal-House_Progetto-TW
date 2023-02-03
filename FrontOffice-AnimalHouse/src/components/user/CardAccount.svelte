@@ -1,5 +1,4 @@
 <script>
-    import "../../assets/ProfilePage.css"	
     import { user } from '../../store'
 
     export let formId
