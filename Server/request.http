@@ -78,7 +78,6 @@ GET http://localhost:5000/sedi/list HTTP/1.1
 /// THREADS
 ###
 GET http://localhost:5000/threads/list HTTP/1.1
-
 ###
 POST http://localhost:5000/threads HTTP/1.1
 Authorization: Bearer {{token}}

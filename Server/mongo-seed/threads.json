@@ -4,7 +4,7 @@
 		"creatorId": {
 			"$oid": "5fea8abcda05f098a1ac9858"
 		},
-		"creatorUsename": "Maria",
+		"creatorUsername": "Maria",
 		"createdAt": "2023-01-20T16:37:48.244Z",
 		"messages": [
 			{
@@ -38,7 +38,7 @@
 		"creatorId": {
 			"$oid": "f0c8d0abcd123456789abcde"
 		},
-		"creatorUsename": "Giovanni",
+		"creatorUsername": "Giovanni",
 		"createdAt": "2023-01-25T10:15:36.192Z",
 		"messages": [
 			{
@@ -80,7 +80,7 @@
 		"creatorId": {
 			"$oid": "a0b8c0abcd123456789abcde"
 		},
-		"creatorUsename": "Chiara",
+		"creatorUsername": "Chiara",
 		"createdAt": "2023-02-01T12:34:23.171Z",
 		"messages": [
 			{

@@ -1,33 +1,31 @@
 <script>
     import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, TableSearch, Button, Modal, Label, Input } from "flowbite-svelte"
-    let searchTerm = ''
-    let description = 'For me, getting my business website made was a lot of tech wizardry things. Thankfully i get an ad on Facebook ragarding commence website. I get connected with BBB team. They made my stunning website live in just 3 days. With the increase demand of online customers. I had to take my business online. BBB Team guided me at each ste and enabled me to centralise my work and have control on all aspect of my online business.'
+    import { onMount } from "svelte";
+    import {ENDPOINT } from "../../utils/const"
     
-    let items = [
-        { title: 'Il mio cane abbaia in continuazione', num_post: '15', date: "05-feb-2019", creator: "Maria", 
-        comment: [
-            {author: 'Fred de Palma', img: "https://www.donnamoderna.com/content/uploads/2021/08/Donna-con-cellulare-830x625.jpg", data: '15-gen-2022', content: description},
-            {author: 'Lazza merda', img: 'https://isabellaratti.com/wp-content/uploads/2019/05/come-fare-foto-profilo-professionale.jpg', data: '9-mar-2021', content: description},
-        ]},
-        { title: 'Al mio gatto puzzano le zampe', num_post: '9', date: "15-mar-2021", creator: "Lucia", 
-        comment: [
-            {author: 'Angela', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrK9f4ewlcgnQ8la2CB_BsA20HaFFfDImEA&usqp=CAU', data: '15-gen-2022', content: description},
-            {author: 'Salmo', img: 'https://images.everyeye.it/img-notizie/-chi-possiede-foto-profilo-anime-tossico-polemica-social-v4-536485-1280x960.webp', data: '9-mar-2021', content: description},
-        ]},
-        { title: 'Il mio criceto non mangia da due mesi', num_post: '3', date: "27-lug-2022", creator: "Federico", 
-        comment: [
-            {author: 'Giuseppe', img: 'https://www.skuola.net/news_foto/2017/canon-fotoprofilo.jpg', data: '15-gen-2022', content: description},
-            {author: 'Hamsik', img: 'https://lifestylemadeinitaly.it/wp-content/uploads/Creazione-avatar-FB.jpg', data: '9-mar-2021', content: description},
-        ]},
-        { title: 'Il mio pappagallo dice un sacco di parolacce', num_post: '47', date: "9-ott-2022" , creator: "Marco", comment: [
-            {author: 'Ronaldo', img: 'https://primabergamo.it/media/2016/02/maxresdefault8-e1456571029185.jpg', data: '15-gen-2022', content: description},
-            {author: 'Messi', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXi4AawFx87__7ef_8QCdCmnSS0-WLjOmG8A&usqp=CAU', data: '9-mar-2021', content: description},
-        ]},
-    ]
+    async function getThreads() {
+		const res = await fetch(ENDPOINT.THREADS_LIST)
+		const data = await res.json()
 
-    $: filteredItems = items.filter(
-        (item) => item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+		if (data.error) {
+			throw new Error(data.error)
+		} else {
+			return data
+		}
+	}
+	
+    let threads = []
+    let searchTerm = ''
+    $: filteredThreads = threads.filter(
+        (thread) => thread.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
     )
+
+    onMount(async() => {
+        threads = await getThreads()
+        console.log(threads)
+        threads.forEach((item) => console.log(item))
+    })
+    
     let val = true
     let p
     function change(title){
@@ -38,11 +36,7 @@
     let ThreadModal = false
 </script>
 
-<style scoped>
-    .mt-100 {
-        margin-top: 100px;
-    }
-
+<style>
     a:hover{
         color: #93C5FD;
         text-decoration: underline;
@@ -63,7 +57,7 @@
     </div>
 </div>
 
-<div class="container mx-auto sm:px-4 max-w-3/4 mx-auto sm:px-4 mt-100">
+<div class="container mx-auto sm:px-4 max-w-3/4 mx-auto sm:px-4 mt-20">
     {#if val}
         <Button on:click={() => ThreadModal = true}
             class="mb-10 mt-4 inline-flex align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-4 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-800"
@@ -73,7 +67,7 @@
             <div class="md:w-full pr-4 pl-4">
                 <TableSearch placeholder="Search by title" hoverable={true} bind:inputValue={searchTerm}>
                     <TableHead class="bg-blue-300 rounded-xl">
-                        <TableHeadCell>Title of thread</TableHeadCell>
+                        <TableHeadCell>titolo</TableHeadCell>
                         <TableHeadCell><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
                         </svg>
@@ -84,11 +78,11 @@
                         </TableHeadCell>
                     </TableHead>
                     <TableBody class="divide-y">
-                    {#each filteredItems as item}
+                    {#each filteredThreads as item}
                         <TableBodyRow class="border-separate border-spacing-2 border border-slate-400">
                         <TableBodyCell><a href="#/servizi/bachecaEccoloQua" on:click={() => change(item.title)}>{item.title}</a></TableBodyCell>
-                        <TableBodyCell>{item.num_post}<br> <span style="color: gray;">posts</span></TableBodyCell>
-                        <TableBodyCell>Creato da: <b>{item.creator}</b> <br> {item.date}</TableBodyCell>
+                        <TableBodyCell>{item.messages.length}<br> <span style="color: gray;">posts</span></TableBodyCell>
+                        <TableBodyCell>Creato da: <b>{item.creatorUsername}</b> <br> {item.createdAt}</TableBodyCell>
                         </TableBodyRow>
                     {/each}
                     </TableBody>
@@ -110,7 +104,7 @@
 
         <div class="flex flex-wrap ">
             <div class="md:w-full pr-4 pl-4">
-                {#each filteredItems as item}
+                {#each filteredThreads as item}
                     {#if p === item.title}
                         {#each item.comment as comment}   
                         <div class="relative mt-8 flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 mb-4">

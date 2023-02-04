@@ -8,5 +8,6 @@ export const ENDPOINT = {
 	ANIMALS_LIST: SERVER_URL + "/animals/list",
 	ANIMALS_NEW: SERVER_URL + "/animals/",
 	ANIMALS_DELETE: (animalId) => SERVER_URL + `/animals/${animalId}`,
-	SCORES_LIST: SERVER_URL + "/scores/list"
+	SCORES_LIST: SERVER_URL + "/scores/list",
+	THREADS_LIST: SERVER_URL + "/threads/list"
 }
