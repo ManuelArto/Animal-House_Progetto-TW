@@ -22,11 +22,13 @@ import animalsRouter from './routes/animals'
 import productsRouter from './routes/products'
 import scoresRouter from './routes/scores'
 import headquartersRouter from './routes/headquarters'
+import threadsRouter from './routes/threads'
 app.use('/user/', userRouter)
 app.use('/animals/', animalsRouter)
 app.use('/products/', productsRouter)
 app.use('/scores/', scoresRouter)
 app.use('/sedi/', headquartersRouter)
+app.use('/threads/', threadsRouter)
 
 // Middlewares
 app.use(helmet())

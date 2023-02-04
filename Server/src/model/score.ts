@@ -29,7 +29,6 @@ const scoreSchema = new Schema<IScore>({
 				"game": doc.game,
 				"name": doc.name,
 				"punteggio": doc.punteggio,
-				// TODO: dividi in data e ora
 				"date": date.format(doc.createdAt, "DD-MM-YYYY"),
 				"time": date.format(doc.createdAt, "HH:mm"),
 			}

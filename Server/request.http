@@ -1,4 +1,4 @@
-@token = 
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NTUwMzI2NSwiZXhwIjoxNjc1NTE3NjY1fQ.EFWhgVnjlnzhNEd43xznAMBd4YvSluuVz06PBvwVwAo
 
 // USER
 ###
@@ -73,3 +73,26 @@ Content-Type: application/json
 // SEDI
 ###
 GET http://localhost:5000/sedi/list HTTP/1.1
+
+
+/// THREADS
+###
+GET http://localhost:5000/threads/list HTTP/1.1
+
+###
+POST http://localhost:5000/threads HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "title": "Nuovo Thread"
+}
+
+###
+POST http://localhost:5000/threads/63de2a9bcf4d16be3e23a416/newMessage HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "content": "Altro Nuovo Messaggio"
+}
