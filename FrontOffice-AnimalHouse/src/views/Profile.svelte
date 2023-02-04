@@ -74,7 +74,7 @@
 		</div>
 	</div>
 </div>
-<div class="container mx-auto my-6 h-max block items-center md:flex md:items-start">
+<div class="container mx-auto my-6 h-max block items-center lg:flex md:items-start">
 	{#if animalsView}
 		<AnimalFormModel isAnimalFormOpen={isAnimalFormOpen} on:closeForm={() => isAnimalFormOpen = false} />
 			{#each $animals as animal (animal._id)}
