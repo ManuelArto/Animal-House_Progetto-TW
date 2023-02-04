@@ -22,6 +22,9 @@ export class ErrorWrapper {
 // Error handling Middleware functions
 
 export const errorLogger = () => (errorWrapper: any, req: Request, res: Response, next: NextFunction) => {
+	if (!(errorWrapper instanceof ErrorWrapper))
+		errorWrapper = new ErrorWrapper({ statusCode: 500, error: errorWrapper })
+	
 	// TODO: scrivi commenti un po' ovunque
 	const error = errorWrapper.error
 	const errorType = errorWrapper.errorType || error.constructor.name
