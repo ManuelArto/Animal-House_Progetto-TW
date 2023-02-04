@@ -1,0 +1,120 @@
+[
+	{
+		"title": "Il mio cane abbaia in continuazione",
+		"creatorId": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		},
+		"creatorUsename": "Maria",
+		"createdAt": "2023-01-20T16:37:48.244Z",
+		"messages": [
+			{
+				"authorId": {
+					"$oid": "5fea8abcda05f098a1ac9858"
+				},
+				"authorUsername": "Fred de Palma",
+				"content": "Ciao a tutti i ragazzi il mio cane abbaia in continuazione e non so come fare per farlo smettere",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			},
+			{
+				"authorId": {
+					"$oid": "c4d4f0abcd123456789abcde"
+				},
+				"authorUsername": "Luca",
+				"content": "Ciao Maria, potresti provare a farlo socializzare di più con altri cani o addestrarlo",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			},
+			{
+				"authorId": {
+					"$oid": "5fea8abcda05f098a1ac9858"
+				},
+				"authorUsername": "Maria",
+				"content": "Grazie Luca, cercherò di fare come dici tu.",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			}
+		]
+	},
+	{
+		"title": "Adozione gatto europeo",
+		"creatorId": {
+			"$oid": "f0c8d0abcd123456789abcde"
+		},
+		"creatorUsename": "Giovanni",
+		"createdAt": "2023-01-25T10:15:36.192Z",
+		"messages": [
+			{
+				"authorId": {
+					"$oid": "f0c8d0abcd123456789abcde"
+				},
+				"authorUsername": "Giovanni",
+				"content": "Ciao a tutti, sto cercando di adottare un gatto europeo, qualcuno può aiutarmi?",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			},
+			{
+				"authorId": {
+					"$oid": "c4d4f0abcd123456789abcde"
+				},
+				"authorUsername": "Luca",
+				"content": "Ciao Giovanni, conosco una persona che sta cercando di far adottare un gatto europeo, posso farti il suo contatto se vuoi?",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			},
+			{
+				"authorId": {
+					"$oid": "f0c8d0abcd123456789abcde"
+				},
+				"authorUsername": "Giovanni",
+				"content": "Sì, per favore! Grazie mille, Luca.",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			},
+			{
+				"authorId": {
+					"$oid": "c4d4f0abcd123456789abcde"
+				},
+				"authorUsername": "Luca",
+				"content": "Di niente, ti ho inviato il contatto via messaggio privato. Buona fortuna con la tua adozione!",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			}
+		]
+	},
+	{
+		"title": "Vendo cuccioli di Golden Retriever",
+		"creatorId": {
+			"$oid": "a0b8c0abcd123456789abcde"
+		},
+		"creatorUsename": "Chiara",
+		"createdAt": "2023-02-01T12:34:23.171Z",
+		"messages": [
+			{
+				"authorId": {
+					"$oid": "a0b8c0abcd123456789abcde"
+				},
+				"authorUsername": "Chiara",
+				"content": "Ciao a tutti, sto vendendo dei bellissimi cuccioli di Golden Retriever, sono disponibili subito!",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			},
+			{
+				"authorId": {
+					"$oid": "f0c8d0abcd123456789abcde"
+				},
+				"authorUsername": "Giovanni",
+				"content": "Ciao Chiara, quanto chiedi per un cucciolo?",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			},
+			{
+				"authorId": {
+					"$oid": "a0b8c0abcd123456789abcde"
+				},
+				"authorUsername": "Chiara",
+				"content": "Ciao Giovanni, chiedo 800 euro per un cucciolo.",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			},
+			{
+				"authorId": {
+					"$oid": "f0c8d0abcd123456789abcde"
+				},
+				"authorUsername": "Giovanni",
+				"content": "Grazie per la risposta Chiara, ti farò sapere se sono interessato.",
+				"createdAt": "2023-01-20T16:37:48.244Z"
+			}
+		]
+	}
+]
