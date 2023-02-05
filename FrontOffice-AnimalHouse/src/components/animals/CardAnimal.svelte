@@ -19,7 +19,7 @@
         <b>Razza: </b> {animal.breed} <br>
         <b>Nascita: </b> {animal.birthDate} <br>
         <b>Sesso:</b> {animal.gender} <br>
-        <b>Peso: </b> {animal.weight} <br>
+        <b>Peso: </b> {animal.weight} kg<br>
     </p>
     <button on:click={() => deleteAnimalModal = true}>
         <Badge large rounded index color='red'>

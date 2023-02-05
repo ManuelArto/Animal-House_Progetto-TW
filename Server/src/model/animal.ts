@@ -8,7 +8,7 @@ interface IAnimal extends Document {
 	breed: string
 	birthDate: string
 	gender: string
-	weight: string
+	weight: number
 	ownerId: ObjectId
 }
 
@@ -38,7 +38,7 @@ const animalSchema = new Schema<IAnimal>({
 		required: true
 	},
 	weight: {
-		type: String,
+		type: Number,
 		required: true
 	},
 	ownerId: {
