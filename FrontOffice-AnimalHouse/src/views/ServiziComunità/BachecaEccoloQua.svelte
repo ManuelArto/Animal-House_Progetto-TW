@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<div class="container mx-auto sm:px-4 max-w-3/4 mx-auto sm:px-4 mt-20">
+<div class="container mx-auto sm:px-4 max-w-3/4 mt-20">
     {#if val}
         <Button on:click={() => ThreadModal = true}
             class="mb-10 mt-4 inline-flex align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-4 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-800"
@@ -109,7 +109,7 @@
                         {#each item.comment as comment}   
                         <div class="relative mt-8 flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 mb-4">
                             <div class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
-                                <div class="flex items-start flex-wrap w-full items-center">
+                                <div class="flex items-start flex-wrap w-full">
                                     <img
                                         src={comment.img}
                                         class="w-10 h-10 rounded-full"

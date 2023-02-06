@@ -17,7 +17,7 @@
                 if(item.address.street === sit){
                     if(item.services[service]){
                         item.services[service].forEach(element => {
-                            if(element["tipo"].includes(animal.species)){   
+                            if(element["tipo"].includes(animal.species.toLowerCase())){   
                                 let str = element["peso"];
                                 let values = str.split("-");
                                 let num1 = parseInt(values[0]);

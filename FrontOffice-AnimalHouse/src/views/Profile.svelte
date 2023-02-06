@@ -16,9 +16,9 @@
 	style="min-height: 500px; background-image: url(https://img.freepik.com/premium-photo/simple-white-background-with-smooth-lines-light-colors_476363-5558.jpg); background-size: cover; background-position: center top;"
 >
 	<div class="container mx-auto my-auto p-5">
-		<p class="absolute sm:px-4 sm:px-4"> USER PROFILE </p>
+		<p class="absolute sm:px-4"> USER PROFILE </p>
 		<div class="mt-3 pb-8 pt-5">
-			<div class="sm:px-4 mx-auto sm:px-4 sm:flex justify-between mt-3">
+			<div class="mx-auto sm:px-4 sm:flex justify-between mt-3">
 				<div class="sm:w-2/3">
 					<h1 class="text-2xl sm:mb-8 text-dark sm:mt-4">Hello {$user.name}</h1>
 					<!-- TODO: modifica testo presentazione pagina profilo -->
@@ -87,7 +87,7 @@
 				</div>
 			{/each}
 	{:else}
-	<div class="w-full rounded break-words border bg-white border-1 border-gray-300 bg-gray-600 shadow mb-5 mx-2">
+	<div class="w-full rounded break-words border bg-white border-1 border-gray-300 shadow mb-5 mx-2">
 		<CardAccount formId={formId} editMode={editMode}/>
 	</div>
 	{/if}

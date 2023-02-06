@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NTUwMzI2NSwiZXhwIjoxNjc1NTE3NjY1fQ.EFWhgVnjlnzhNEd43xznAMBd4YvSluuVz06PBvwVwAo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NTUyMzI0OCwiZXhwIjoxNjc1NTM3NjQ4fQ.OCCSsn54tiIzY2Rhmu6RKbQ8DtnZzLC3ZaC-it9jDEg
 
 // USER
 ###
@@ -66,7 +66,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "score": 2000,
+    "punteggio": 2000,
     "game": "quiz"
 }
 

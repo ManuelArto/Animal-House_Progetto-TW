@@ -266,7 +266,7 @@
 	</Modal>
 {/if}
 
-<div id="prenotazione" style="display:none;">   <!--  DA CAMBIAREEEEEE -->
+<div id="prenotazione" style="display:none;">   <!--  TODO: DA CAMBIAREEEEEE -->
 	<p class="mt-5 ml-10 font-serif xl:text-2xl sm:text-lg text-gray-900 dark:text-white">Ecco le sedi che offrono il servizio</p>
 	<div class="mt-10 ml-10">
 		<a href="#/serviziPresenza" class="py-36" on:click={back}>

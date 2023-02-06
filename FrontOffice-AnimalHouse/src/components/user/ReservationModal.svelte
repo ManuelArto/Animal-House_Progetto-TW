@@ -70,7 +70,7 @@
             </select>
         </Label>
     </div>
-    <div class="inline-flex flex flex-row-reverse">
+    <div class="flex flex-row-reverse">
         <Button color="green">Confirm</Button>
         <Button color="red" class="mr-2">Cancel</Button>
     </div>
