@@ -107,14 +107,14 @@
                             Sesso
                         </label>
                         <br>
-                        <select class="form-select border-gray-300 rounded-xl" id="weight-input" name="weight" required>
-                            <option value="0-10kg">0-10 kg</option>
-                            <option value="10-25kg">10-25 kg</option>
-                            <option value="25-40kg">25-40 kg</option>
-                            <option value="40-60kg">40-60 kg</option>
-                            <option value="60+kg">60+ kg</option>
-                        </select>
-                        <select class="form-select border-gray-300 rounded-xl" id="gender-input" name="gender" required>
+                        <input
+                            type="number"
+                            name="weight"
+                            id="weight-input"
+                            class="appearance-none w-20 py-1 px-2 mb-1 text-black border border-stone-300 rounded-xl"
+                            required
+                        /> kg
+                        <select class="ml-4 form-select border-gray-300 rounded-xl" id="gender-input" name="gender" required>
                             <option value="M">M</option>
                             <option value="F">F</option>
                         </select>
