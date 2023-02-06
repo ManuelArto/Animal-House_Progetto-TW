@@ -136,31 +136,6 @@
 			}
 		}
 
-		//TODO: riempimento valori checkbox con bug (devo prima far uscire un alert per poter salvare il contenuto)
-		for(const checkbox of checkboxes_sits){
-			checkbox.addEventListener("change", function(){
-				if(this.checked){
-					if(!selected_sits.includes(this.value)){
-						selected_sits.push(this.value);
-					}
-				}else{
-					selected_sits = selected_sits.filter(item => item !== this.value);
-				}
-			})
-		}
-		
-		for(const checkbox of checkboxes_services){
-			checkbox.addEventListener("change", function(){
-				if(this.checked){
-					if(!selected_service.includes(this.value)){
-						selected_service.push(this.value);
-					}
-				}else{
-					selected_service = selected_service.filter(item => item !== this.value);
-				}
-			})
-		}
-
 		selected_sits = selected_sits;
 		selected_service = selected_service;
 	}
@@ -195,8 +170,30 @@
 					{:else}
 						<p class="text-lg text-dark">Scegli il servizio desiderato</p>
 					{/if}
-					<Checkbox class="mt-5 text-lg" name="example" value="Dogsitter">Dogsitter</Checkbox>
-					<Checkbox class="mt-5 text-lg" name="example" value="Veterinario">Veterinario</Checkbox>
+					<Checkbox class="mt-5 text-lg" name="example" value="Dogsitter" 
+						on:change={(event) => {
+							const target = event.target;
+							if (target.checked) {
+								if (!selected_service.includes(target.value)) {
+									selected_service.push(target.value);
+								}
+							} else {
+								selected_service = selected_service.filter(item => item !== target.value);
+							}
+					  	}}
+					>Dogsitter</Checkbox>
+					<Checkbox class="mt-5 text-lg" name="example" value="Veterinario" 
+						on:change={(event) => {
+							const target = event.target;
+							if (target.checked) {
+								if (!selected_service.includes(target.value)) {
+									selected_service.push(target.value);
+								}
+							} else {
+								selected_service = selected_service.filter(item => item !== target.value);
+							}
+						}}
+					>Veterinario</Checkbox>
 				</div>
 			</Card>
 			<Card class="xl:ml-5 max-h-96">
@@ -205,7 +202,17 @@
 					<TableBody class="divide-y" id="checkbox_sits">
 						{#each filteredItems as item}
 							<TableBodyRow class="border-separate border-spacing-2 border border-slate-400">
-								<TableBodyCell><Checkbox value={item.address.street}>{item.address.street + ", " + item.address.city}</Checkbox></TableBodyCell>
+								<TableBodyCell><Checkbox value={item.address.street} 
+									on:change={() => {
+										if(event.target.checked) {
+										if (!selected_sits.includes(item.address.street)) {
+											selected_sits.push(item.address.street);
+										}
+										} else {
+										selected_sits = selected_sits.filter(address => address !== item.address.street);
+										}
+									}}
+								>{item.address.street + ", " + item.address.city}</Checkbox></TableBodyCell>
 							</TableBodyRow>
 						{/each}
 					</TableBody>
