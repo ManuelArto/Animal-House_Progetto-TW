@@ -9,7 +9,7 @@
 
 <Router {routes} on:conditionsFailed={conditionsFailed} />
 
-<!-- <Footer /> -->
+<Footer />
 
 <style>
 </style>
