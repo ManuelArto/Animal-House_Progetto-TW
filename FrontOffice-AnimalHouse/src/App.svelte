@@ -5,11 +5,20 @@
   import Footer from "./components/Footer.svelte"
 </script>
 
-<Navbar />
+<div class="flex flex-col min-h-screen">
+  <header>
+    <Navbar />
+  </header>
+  
+  <main class="flex-grow">
+      <Router {routes} on:conditionsFailed={conditionsFailed} />
+  </main>
+  
+  <footer>
+    <Footer />
+  </footer>
+</div>
 
-<Router {routes} on:conditionsFailed={conditionsFailed} />
-
-<Footer />
 
 <style>
 </style>

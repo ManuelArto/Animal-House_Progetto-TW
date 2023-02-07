@@ -1,6 +1,6 @@
 <script>
     import { Dropdown, DropdownItem, DropdownHeader, DropdownDivider, Avatar, Chevron, Navbar, NavBrand, NavHamburger, NavUl, NavLi } from 'flowbite-svelte'
-    import Router, { push } from 'svelte-spa-router';
+    import { push } from 'svelte-spa-router';
     import { user } from '../store'
     import SignInModal from "./user/SignInModal.svelte"
 
@@ -22,10 +22,10 @@
   
 
 <Navbar let:hidden let:toggle>
-    <NavBrand href="/">
+    <a class="flex" href="/#" on:click={() => changePage("#/", hidden, toggle)}>
         <img src="favicon.ico" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">AnimalHouse</span>
-    </NavBrand>
+    </a>
     <div class="flex md:order-2 ml-auto">
         {#if !isUserLogged}
                 <SignInModal />
@@ -39,14 +39,14 @@
                 <DropdownItem on:click={() => changePage("#/profile", hidden, toggle)}>My Profile</DropdownItem>
                 <DropdownItem on:click={() => changePage("#/profile/pets", hidden, toggle)}>My Pets</DropdownItem>
                 <DropdownDivider />
-                <DropdownItem on:click={async() => { await user.logOut(); changePage("/", hidden, toggle)}} >Sign out</DropdownItem>
+                <DropdownItem on:click={ () => { user.logOut(); changePage("/", hidden, toggle)}} >Sign out</DropdownItem>
             </Dropdown>
         {/if}
     </div>
     <NavHamburger on:click={toggle}/>
     <NavUl {hidden} class="ml-3">
-        <NavLi on:click={() => changePage("#/shop", hidden, toggle)}>Shop</NavLi>
-        <NavLi on:click={() => changePage("#/serviziPresenza", hidden, toggle)}>Servizi Presenza</NavLi>
+        <NavLi class="cursor-pointer" on:click={() => changePage("#/shop", hidden, toggle)}>Shop</NavLi>
+        <NavLi class="cursor-pointer"on:click={() => changePage("#/serviziPresenza", hidden, toggle)}>Servizi Presenza</NavLi>
         <NavLi class="cursor-pointer"><Chevron aligned>Servizi comunità</Chevron></NavLi>
         <Dropdown offset="18" open={dropDownsOpen[1]} on:show={(event) => dropDownsOpen[1] = event.detail}>
           <DropdownItem on:click={() => changePage("#/servizi/leaderboard", hidden, toggle)}>LeaderBoard</DropdownItem>

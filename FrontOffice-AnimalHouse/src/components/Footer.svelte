@@ -7,7 +7,7 @@
 	} from "flowbite-svelte";
 </script>
 
-<Footer class="shadow-2xl mt-16 bg-gray-50 fixed bottom-0 w-full" footerType="socialmedia">
+<Footer class="shadow-2xl mt-16 bg-gray-50 static bottom-0 w-full" footerType="socialmedia">
 	<div class="container mx-auto max-w-screen-xl text-center">
 		<FooterBrand href="/" src="favicon.ico" alt="AnimalHouse Logo" name="AnimalHouse" 
 			aClass="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white"/>
