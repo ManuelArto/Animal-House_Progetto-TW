@@ -1,85 +1,68 @@
-import { push } from 'svelte-spa-router'
 import { get, writable } from 'svelte/store'
-import { animals } from '.'
+import { setRefreshTokenTimer } from '../utils/jwt'
+import { animals } from './animals'
 import { ENDPOINT } from '../utils/const'
 
-async function refreshToken (token) {
-	const response = await fetch(ENDPOINT.VERIFY_TOKEN, {
-		headers: { 'Authorization': `Bearer ${token}`}
-	}).catch((err) => { throw err })
-
-	return await response.json()
-}
-
-async function setRefreshTokenTimer(token, logOutCallBack) {
-	let tokens = token.split(".");
-	let exp = JSON.parse(window.atob(tokens[1])).exp * 1000 // in millisecond
-
-	// Check if token is expired
-	if (exp <= +new Date()) await logOutCallBack()
-	else {
-		// set interval for refreshing the token
-		// TODO: save new token
-		setInterval(async () => await refreshToken(token), exp - +new Date())
-	} 
-}
-
-export async function createUserStore() {
-	const user = writable(JSON.parse(localStorage.getItem("user")))
-	const isUserLogged = writable(get(user) !== null)
-	
-	const logOut = async () => {
-		localStorage.clear()
-		isUserLogged.set(false)
-		user.set({})
+class User {
+	constructor() {
+		this.user = writable(JSON.parse(localStorage.getItem("user")))
+		this.subscribe = this.user.subscribe
+		this.isUserLogged = writable(get(this.user) !== null)
+		if (this.token = localStorage.getItem("token")) 
+			setRefreshTokenTimer(this.token, this.logOut)
 	}
-	const setUserData = (data) => {
+
+	logOut () {
+		localStorage.clear()
+		this.isUserLogged.set(false)
+		this.user.set({})
+	}
+
+	async setUserData (data) {
 		// format date
 		data.user.birthDate = data.user.birthDate.split('T')[0]
 		
-		user.set({...data.user, fullName: data.user.name + ' ' + data.user.surname})
-		isUserLogged.set(true)
-		localStorage.setItem("user", JSON.stringify(get(user)))
+		this.user.set({...data.user, fullName: data.user.name + ' ' + data.user.surname})
+		this.isUserLogged.set(true)
+		localStorage.setItem("user", JSON.stringify(get(this.user)))
 	}
 
-	let token = localStorage.getItem("token")
-	if (token) await setRefreshTokenTimer(token, logOut)
-	
-	return {
-		subscribe: user.subscribe,
-		isUserLogged: isUserLogged,
-		getToken: () => token,
-		set: (value) => user.set(value),
-		setData: async (data) => {
-			setUserData(data)
+	async setData(data) {
+		this.setUserData(data)
 
-			token = data.token
-			localStorage.setItem("token", token)
-			await setRefreshTokenTimer(token, logOut)
+		this.token = data.token
+		localStorage.setItem("token", this.token)
+		await setRefreshTokenTimer(this.token, this.logOut)
 
-			// get all user animals
-			await animals.getAll()
-		},
-		logOut: async () => await logOut(),
-		editData: async (formData) => {
-			// split full name 
-			const [name, ...surnames] = formData.fullName.split(' ')
-			formData.name = name
-			formData.surname = surnames.join(' ')
-			
-			const response = await fetch(ENDPOINT.EDIT_DATA, {
-				method: 'PATCH',
-				headers: {
-					'Content-Type': 'application/json',
-					'Authorization': `Bearer ${token}`
-				},
-				body: JSON.stringify(formData)
-			})
-			const data = await response.json()
-			if (data.error) {
-				alert(JSON.stringify(data.error))
-			} else 
-				setUserData(data)
-		},
+		// fetch all user animals
+		await animals.getAll()
 	}
+
+	async editData(formData) {
+		// split full name 
+		const [name, ...surnames] = formData.fullName.split(' ')
+		formData.name = name
+		formData.surname = surnames.join(' ')
+		
+		const response = await fetch(ENDPOINT.EDIT_DATA, {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${this.token}`
+			},
+			body: JSON.stringify(formData)
+		})
+		const data = await response.json()
+		if (data.error) {
+			alert(JSON.stringify(data.error))
+		} else 
+			this.setUserData(data)
+	}
+
+	set(value) { this.user.set(value) }
+
+	getToken() { return this.token }
+
 }
+
+export const user = new User()

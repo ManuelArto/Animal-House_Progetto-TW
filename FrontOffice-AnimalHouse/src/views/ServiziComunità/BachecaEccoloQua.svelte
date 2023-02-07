@@ -1,7 +1,7 @@
 <script>
     import { TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, TableSearch, Button, Modal, Label, Input, Img } from "flowbite-svelte"
     import { onMount } from "svelte"
-    import { user } from "../../store";
+    import { user } from "../../store/user";
     import { ENDPOINT } from "../../utils/const"
     import { formSubmit } from "../../utils/formRequestHandler";
 

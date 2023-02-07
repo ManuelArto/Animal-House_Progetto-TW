@@ -1,4 +1,5 @@
-import { user, animals } from '../store'
+import { user } from '../store/user'
+import { animals } from '../store/animals'
 
 async function handleSubmit (e) {
 	// getting the action url

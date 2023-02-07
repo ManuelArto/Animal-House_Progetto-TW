@@ -1,7 +1,7 @@
 <script>
 	import { AccordionItem, Accordion, Modal, TableBody, TableBodyCell, TableBodyRow, Checkbox, Input, Label, Radio, TableHead, TableHeadCell, TableSearch, Card, Button } from "flowbite-svelte";
-	import { animals } from '../store'
-	import { user } from '../store'
+	import { animals } from '../store/animals'
+	import { user } from '../store/user'
 	import CardServices from "../components/CardServices.svelte";
 	let searchTerm = '';
 	let isUserLogged;

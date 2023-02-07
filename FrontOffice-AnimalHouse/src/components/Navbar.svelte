@@ -1,7 +1,7 @@
 <script>
     import { Dropdown, DropdownItem, DropdownHeader, DropdownDivider, Avatar, Chevron, Navbar, NavBrand, NavHamburger, NavUl, NavLi } from 'flowbite-svelte'
     import { push } from 'svelte-spa-router';
-    import { user } from '../store'
+    import { user } from '../store/user'
     import SignInModal from "./user/SignInModal.svelte"
 
     let isUserLogged;

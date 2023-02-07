@@ -1,5 +1,5 @@
 <script>
-    import { user } from '../../store'
+    import { user } from '../../store/user'
 
     export let formId
     export let editMode = false

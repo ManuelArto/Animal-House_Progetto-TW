@@ -1,6 +1,6 @@
 <script>
     import { Card, Badge, Modal, Button } from "flowbite-svelte"
-    import { animals } from '../../store'
+    import { animals } from '../../store/animals'
 
     export let animal
 

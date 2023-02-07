@@ -1,6 +1,7 @@
 <script>
 	import { Button } from "flowbite-svelte"
-	import { user, animals } from '../store'
+	import { user } from '../store/user'
+	import { animals } from '../store/animals'
 	import CardAccount from "../components/user/CardAccount.svelte"
 	import AnimalFormModel from "../components/animals/AnimalFormModel.svelte"
 	import CardAnimal from "../components/animals/CardAnimal.svelte"

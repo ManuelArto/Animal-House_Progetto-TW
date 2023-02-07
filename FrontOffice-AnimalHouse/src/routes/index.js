@@ -2,7 +2,7 @@ import { replace } from 'svelte-spa-router'
 import { wrap } from 'svelte-spa-router/wrap'
 import { get } from 'svelte/store'
 
-import { user } from '../store'
+import { user } from '../store/user'
 import Home from "../views/Home.svelte"
 import NotFound from "../views/NotFound.svelte"
 
