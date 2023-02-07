@@ -11,7 +11,6 @@
 	<div class="container mx-auto max-w-screen-xl text-center">
 		<FooterBrand href="/" src="favicon.ico" alt="AnimalHouse Logo" name="AnimalHouse" 
 			aClass="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white"/>
-		<!-- TODO: modifica frase footer -->
 		<p class="my-6 text-gray-500 dark:text-gray-400">
 			Garantiamo il benessere dei tuoi animali domestici
 		</p>
