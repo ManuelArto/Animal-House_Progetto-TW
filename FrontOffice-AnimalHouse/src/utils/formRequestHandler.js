@@ -46,3 +46,9 @@ export async function newAnimalSubmit(e) {
 	else
 		await animals.newAnimal(data)
 }
+
+export async function formSubmit(e) {
+	const data = await handleSubmit(e)
+
+	return data
+}

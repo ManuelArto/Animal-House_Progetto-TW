@@ -42,13 +42,13 @@ const threadSchema = new Schema({
 		type: String,
 		required: true
 	},
-	messages: { 
-		type: [messageSchema], 
-		default: [] 
+	messages: {
+		type: [messageSchema],
+		default: []
 	}
 }, {
 	timestamps: true,
-	toJSON: { 
+	toJSON: {
 		transform(doc, ret) {
 			ret = {
 				"id": doc._id,
@@ -56,11 +56,17 @@ const threadSchema = new Schema({
 				"creatorId": doc.creatorId,
 				"creatorUsername": doc.creatorUsername,
 				"createdAt": date.format(doc.createdAt, "DD-MM-YYYY"),
-				"messages": doc.messages,
+				"messages": doc.messages.map((message: any) => ({
+					authorId: message.authorId,
+					authorUsername: message.authorUsername,
+					content: message.content,
+					createdAt: date.format(message.createdAt, "DD-MM-YYYY HH:mm") 
+				})),
 			}
+
 			return ret
 		},
-	 }
+	}
 })
 
 

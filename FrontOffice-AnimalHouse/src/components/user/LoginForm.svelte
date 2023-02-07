@@ -28,7 +28,7 @@
       </button>
     </Input>
   </div>
-  <Button type="submit" class="w-full1">Accedi</Button>
+  <Button type="submit" >Accedi</Button>
   <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
     Non ancora registrato? <button on:click={openRegisterForm()} class="text-blue-700 hover:underline dark:text-blue-500">Crea il tuo account</button>
   </div>

@@ -12,6 +12,8 @@ export const ENDPOINT = {
 	ANIMALS_DELETE: (animalId) => SERVER_URL + `/animals/${animalId}`,
 	SCORES_LIST: SERVER_URL + "/scores/list",
 	THREADS_LIST: SERVER_URL + "/threads/list",
+	THREADS_NEW: SERVER_URL + "/threads",
+	THREADS_NEW_MESSAGE: (threadId) => SERVER_URL + `/threads/${threadId}/newMessage`,
 	// GAME
 	GAME_QUIZ: GAME_URL + "/games/quiz"
 }

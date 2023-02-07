@@ -8,7 +8,7 @@ export const router: Router = express.Router()
 
 router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const threads = await ThreadModel.find().sort({ "messages.createdAt": -1 })
+        const threads = await ThreadModel.find().sort({ createdAt: -1 })
 
         res.json(threads.map(thread => thread.toJSON()))
     } catch (error: any) {
@@ -17,7 +17,6 @@ router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
 })
 
 router.post('', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
-    console.log("ciao")
     const user: IUser = (req as AuthRequest).user
     try {
         const newThread = new ThreadModel({ ...req.body, creatorId: user._id, creatorUsername: user.username })

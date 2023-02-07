@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NTUyMzI0OCwiZXhwIjoxNjc1NTM3NjQ4fQ.OCCSsn54tiIzY2Rhmu6RKbQ8DtnZzLC3ZaC-it9jDEg
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NTc4OTQ3MiwiZXhwIjoxNjc1ODAzODcyfQ.vUh2ppgsj008IB7y3-1oAHf_FmirnEgA_waxoHHRmo0
 
 // USER
 ###
@@ -88,10 +88,10 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/threads/63de2a9bcf4d16be3e23a416/newMessage HTTP/1.1
+POST http://localhost:5000/threads/63e284aeffb9b30018d80370/newMessage HTTP/1.1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "content": "Altro Nuovo Messaggio"
+    "content": "Nuovo Messaggio"
 }
