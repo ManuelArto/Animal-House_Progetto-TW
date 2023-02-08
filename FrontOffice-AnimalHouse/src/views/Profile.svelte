@@ -75,18 +75,21 @@
 		</div>
 	</div>
 </div>
-<div class="container mx-auto my-6 h-max block items-center lg:flex md:items-start">
+<div class="container mx-auto my-6 h-max">
 	{#if animalsView}
 		<AnimalFormModel isAnimalFormOpen={isAnimalFormOpen} on:closeForm={() => isAnimalFormOpen = false} />
+		<div class="lg:grid lg:grid-cols-2 gap-5">
 			{#each $animals as animal (animal._id)}
 				<CardAnimal animal={animal}/>
-			{:else}
-				<div class="bg-white rounded shadow p-8 text-center mx-auto my-10">
-					<h2 class="text-xl font-bold text-gray-800 mb-4">Nessun animale presente</h2>
-					<p class="text-gray-600 mb-0">Aggiungi subito il tuo primo animale domestico!</p>
-					<Button class="bg-blue-500 mt-4" on:click={() => isAnimalFormOpen = !isAnimalFormOpen }>Aggiungi</Button>
-				</div>
 			{/each}
+		</div>
+		{#if $animals.length == 0}
+			<div class="lg:w-1/2 bg-white rounded shadow p-8 text-center mx-auto my-10">
+				<h2 class="text-xl font-bold text-gray-800 mb-4">Nessun animale presente</h2>
+				<p class="text-gray-600 mb-0">Aggiungi subito il tuo primo animale domestico!</p>
+				<Button class="bg-blue-500 mt-4" on:click={() => isAnimalFormOpen = !isAnimalFormOpen }>Aggiungi</Button>
+			</div>
+		{/if}
 	{:else}
 		<div class="w-full rounded break-words border bg-white border-1 border-gray-300 shadow mb-5 mx-2">
 			<CardAccount formId={formId} editMode={editMode}/>
