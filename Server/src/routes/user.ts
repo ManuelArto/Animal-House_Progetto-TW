@@ -1,5 +1,4 @@
 import express, { Router, Request, Response, NextFunction } from "express"
-import { constants } from '../utils/const'
 import { IUser, UserModel } from '../model/user'
 import { ErrorWrapper } from "../middleware/error"
 import { authJwt, AuthRequest } from "../middleware/auth"
@@ -7,10 +6,12 @@ import { authJwt, AuthRequest } from "../middleware/auth"
 export const router: Router = express.Router()
 
 // verify and refresh token
-router.get('/verifyToken', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.get('/refreshToken', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     try {
         const user: IUser = (req as AuthRequest).user
-        res.json({ user: user.toJSON(), token: user.generateAuthToken() })
+        const token = await user.generateAuthToken()
+
+        res.json({ user: user.toJSON(), token: token })
         
     } catch (error: any) {
         next(new ErrorWrapper({statusCode: 400, error: error}))

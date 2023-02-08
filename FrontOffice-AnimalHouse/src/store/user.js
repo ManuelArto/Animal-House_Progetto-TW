@@ -1,5 +1,5 @@
 import { get, writable } from 'svelte/store'
-import { setRefreshTokenTimer } from '../utils/jwt'
+import { isTokenExpired ,setRefreshTokenTimer } from '../utils/jwt'
 import { animals } from './animals'
 import { addToast } from './toasts'
 import { ENDPOINT } from '../utils/const'
@@ -9,8 +9,14 @@ class User {
 		this.user = writable(JSON.parse(localStorage.getItem("user")))
 		this.subscribe = this.user.subscribe
 		this.isUserLogged = writable(get(this.user) !== null)
-		if (this.token = localStorage.getItem("token")) 
-			setRefreshTokenTimer(this.token, this.logOut)
+		
+		// handle JWT token
+		if (this.token = localStorage.getItem("token")) {
+			if (isTokenExpired(this.token))
+				this.logOut()
+			else
+				setRefreshTokenTimer(this.token)
+		}
 	}
 
 	logOut () {
@@ -33,7 +39,7 @@ class User {
 
 		this.token = data.token
 		localStorage.setItem("token", this.token)
-		await setRefreshTokenTimer(this.token, this.logOut)
+		setRefreshTokenTimer(this.token)
 
 		// fetch all user animals
 		await animals.getAll()
@@ -61,7 +67,12 @@ class User {
 	}
 
 	set(value) { this.user.set(value) }
-
+	
+	setNewToken(token) { 
+		this.token = token
+		localStorage.setItem("token", this.token)
+		setRefreshTokenTimer(this.token)
+	}
 	getToken() { return this.token }
 
 }
