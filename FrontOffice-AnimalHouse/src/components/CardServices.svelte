@@ -58,6 +58,6 @@
 
 
 <!-- MODAL riepilogo dati prenotazione -->
-<Modal bind:open={Reservation} size="xs" autoclose class="w-full">
+<Modal bind:open={Reservation} size="xs" autoclose class="w-full h-min my-auto">
 	<ReservationModal service={service} date={date} sit={sit}/>
 </Modal>

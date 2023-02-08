@@ -74,7 +74,6 @@
     }
 
 </style>
-
 <img id="banner" src="images/banner_bacheca_eccoloqua.png" class="object-scale-down w-full " alt="banner bacheca eccolo qua"/>
 
 <div class="container mx-auto px-4 max-w-3/4 md:mt-10 mb-48">
@@ -161,7 +160,7 @@
     {/if}
 </div>
 
-<Modal title="Nuova Discussione" bind:open={isNewThreadModalOpen}>
+<Modal class="h-min my-auto" title="Nuova Discussione" bind:open={isNewThreadModalOpen}>
     <form class="grid grid-rows-1 grid-flow-col gap-2" id="newThreadForm" action={ENDPOINT.THREADS_NEW} on:submit|preventDefault={newThreadSubmit} method="POST">
         <Label class="space-y-1">
             <span class="mt-4">Inserisci il titolo</span>
@@ -172,7 +171,7 @@
     <Button color="red" on:click={() => isNewThreadModalOpen = false}> Cancella </Button>
 </Modal>
 
-<Modal title="Nuovo Messaggio" bind:open={isNewPostModalOpen}>
+<Modal class="h-min my-auto" title="Nuovo Messaggio" bind:open={isNewPostModalOpen}>
     <form class="grid grid-rows-1 grid-flow-col gap-2" id="newMessageForm" on:submit|preventDefault={newMessageSubmit} method="POST">
         <Label class="space-y-1">
             <textarea name="content" id="description" rows="4" placeholder="Inserisci il testo" required class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>

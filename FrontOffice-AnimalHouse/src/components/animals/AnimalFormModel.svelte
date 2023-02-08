@@ -16,7 +16,7 @@
     }
 
 </script>
-<Modal title="Add your animal" bind:open={isAnimalFormOpen} size="md" autoclose={false}>
+<Modal class="h-min my-auto" title="Add your animal" bind:open={isAnimalFormOpen} size="md" autoclose={false}>
     <form action={ENDPOINT.ANIMALS_NEW} on:submit|preventDefault={submitForm} method="POST">
         <div class="lg:pl-6 text-black">
             <div class="flex flex-wrap">

@@ -22,9 +22,9 @@
     Accedi
 </Button>
 
-<Modal bind:open={formLogin} size="xs" autoclose={false}>
+<Modal class="h-min my-auto" bind:open={formLogin} size="xs" autoclose={false}>
     <LoginForm openRegisterForm={openRegisterForm}/>
 </Modal>
-<Modal bind:open={formRegister} size="xs" autoclose={false}>
+<Modal class="h-min my-auto" bind:open={formRegister} size="xs" autoclose={false}>
     <RegisterForm openLoginForm={openLoginForm}/>
 </Modal>
