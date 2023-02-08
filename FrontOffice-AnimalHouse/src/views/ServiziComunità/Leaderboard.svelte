@@ -1,16 +1,21 @@
 <script>
 	import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, Spinner, A, Button } from 'flowbite-svelte'
+	import { handleRequest } from "../../utils/requestHandler"
     import { ENDPOINT } from '../../utils/const';
+    import { addToast } from '../../store/toasts';
 
 	async function getLeaderboardScores() {
-		const res = await fetch(ENDPOINT.SCORES_LIST)
-		const data = await res.json()
-
-		if (data.error) {
-			throw new Error(data.error)
-		} else {
-			return data
-		}
+		let res
+		if (res = await handleRequest(ENDPOINT.SCORES_LIST)) {
+			const data = await res.json()
+	
+			if (data.error) {
+				addToast({ message: `${data.error.type}<br>${data.error.message}`})
+			} else {
+				return data
+			}
+		} else
+			return []
 	}
 	
 	let scoresPromise = getLeaderboardScores()

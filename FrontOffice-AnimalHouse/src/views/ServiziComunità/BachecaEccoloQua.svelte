@@ -4,20 +4,22 @@
     import { user } from "../../store/user"
     import { addToast } from '../../store/toasts';
     import { ENDPOINT } from "../../utils/const"
-    import { formSubmit } from "../../utils/formRequestHandler";
+    import { formSubmit, handleRequest } from "../../utils/requestHandler";
 
     let isUserLogged;
 	user.isUserLogged.subscribe(value => isUserLogged = value );
 
     async function getThreads() {
-		const res = await fetch(ENDPOINT.THREADS_LIST)
-		const data = await res.json()
-
-		if (data.error) {
-			addToast({ message: `${data.error.type}<br>${data.error.message}`})
-		} else {
-			return data
-		}
+		let res 
+        if (res = await handleRequest(ENDPOINT.THREADS_LIST)) {
+            const data = await res.json()
+    
+            if (data.error)
+                addToast({ message: `${data.error.type}<br>${data.error.message}`})
+            else
+                return data
+        } else
+            return []
 	}
 	
     let threads = []

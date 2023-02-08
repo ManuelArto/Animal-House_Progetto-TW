@@ -1,7 +1,7 @@
 <script>
     import { Button, Label, Input} from 'flowbite-svelte'
     import { ENDPOINT } from '../../utils/const'
-    import { userInfoSubmit } from '../../utils/formRequestHandler'
+    import { userInfoSubmit } from '../../utils/requestHandler'
     let showPwd = false
 
     export let openLoginForm

@@ -2,7 +2,7 @@
 	import {  Modal, Button } from "flowbite-svelte"
 	import { createEventDispatcher } from 'svelte'
     import { ENDPOINT } from "../../utils/const"
-    import { newAnimalSubmit } from '../../utils/formRequestHandler'
+    import { newAnimalSubmit } from '../../utils/requestHandler'
 
     export let isAnimalFormOpen
     
