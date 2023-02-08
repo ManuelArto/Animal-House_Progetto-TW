@@ -1,6 +1,7 @@
 import { get, writable } from 'svelte/store'
 import { setRefreshTokenTimer } from '../utils/jwt'
 import { animals } from './animals'
+import { addToast } from './toasts'
 import { ENDPOINT } from '../utils/const'
 
 class User {
@@ -54,7 +55,7 @@ class User {
 		})
 		const data = await response.json()
 		if (data.error) {
-			alert(JSON.stringify(data.error))
+			addToast({ message: `${data.error.type}<br>${data.error.message}`})
 		} else 
 			this.setUserData(data)
 	}

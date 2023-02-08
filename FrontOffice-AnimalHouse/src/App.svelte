@@ -3,7 +3,10 @@
   import { routes, conditionsFailed } from "./routes/index.js"
   import Navbar from "./components/Navbar.svelte"
   import Footer from "./components/Footer.svelte"
+  import Toasts from "./components/toast/Toasts.svelte"
 </script>
+
+<Toasts />
 
 <div class="flex flex-col min-h-screen">
   <header>

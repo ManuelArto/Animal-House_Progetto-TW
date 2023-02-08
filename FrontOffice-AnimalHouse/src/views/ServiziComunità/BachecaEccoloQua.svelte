@@ -1,7 +1,8 @@
 <script>
     import { TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, TableSearch, Button, Modal, Label, Input, Img } from "flowbite-svelte"
     import { onMount } from "svelte"
-    import { user } from "../../store/user";
+    import { user } from "../../store/user"
+    import { addToast } from '../../store/toasts';
     import { ENDPOINT } from "../../utils/const"
     import { formSubmit } from "../../utils/formRequestHandler";
 
@@ -13,7 +14,7 @@
 		const data = await res.json()
 
 		if (data.error) {
-			alert(JSON.stringify(data.error))
+			addToast({ message: `${data.error.type}<br>${data.error.message}`})
 		} else {
 			return data
 		}
@@ -36,7 +37,7 @@
     async function newThreadSubmit(event) {
         const newThread = await formSubmit(event)
         if (newThread.error)
-            alert(JSON.stringify(newThread.error))
+            addToast({ message: `${newThread.error.type}<br>${newThread.error.message}`})
         else
             threads = [newThread, ...threads]
         
@@ -46,7 +47,7 @@
         event.target.action = ENDPOINT.THREADS_NEW_MESSAGE(currentThread.id)
         const newThread = await formSubmit(event)
         if (newThread.error)
-            alert(JSON.stringify(newThread.error))
+            addToast({ message: `${newThread.error.type}<br>${newThread.error.message}`})
         else {
             threads = threads.map((thread) => thread.id == newThread.id ? newThread : thread)
             currentThread = newThread
@@ -56,7 +57,7 @@
     }
 
     function showUnauthorizedAlert(message) {
-        alert(`Devi essere loggato per poter ${message}`)
+        addToast({ message: `Devi essere loggato per poter ${message}`})
     }
 
 </script>

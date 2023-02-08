@@ -1,5 +1,6 @@
 import { get, writable } from 'svelte/store'
 import { user } from './user'
+import { addToast } from './toasts'
 import { ENDPOINT } from '../utils/const'
 
 class Animals {
@@ -14,7 +15,7 @@ class Animals {
 		})
 		const data = await response.json()
 		if (data.error) {
-			alert(JSON.stringify(data.error))
+			addToast({ message: `${data.error.type}<br>${data.error.message}`})
 		} else {
 			this.animals.set(data)
 			localStorage.setItem("animals", JSON.stringify(get(this.animals)))
@@ -33,13 +34,12 @@ class Animals {
 		})
 		const data = await response.json()
 		if (data.error) {
-			alert(JSON.stringify(data.error))
+			addToast({ message: `${data.error.type}<br>${data.error.message}`})
 		} else {
 			this.animals.set(get(this.animals).filter(animal => animal._id != animalId))
 			localStorage.setItem("animals", JSON.stringify(get(this.animals)))
 			
-			// TODO: crea toast
-			alert(data.message)
+			addToast({ message: data.message, type: "success"})
 		}	
 	}
 

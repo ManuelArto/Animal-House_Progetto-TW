@@ -1,5 +1,6 @@
 import { user } from '../store/user'
 import { animals } from '../store/animals'
+import { addToast } from '../store/toasts'
 
 async function handleSubmit (e) {
 	// getting the action url
@@ -34,7 +35,7 @@ export async function userInfoSubmit(e) {
 	const data = await handleSubmit(e)
 
 	if (data.error)
-		alert(JSON.stringify(data.error))
+		addToast({ message: `${data.error.type}<br>${data.error.message}`})
 	else
 		await user.setData(data)
 }
@@ -43,7 +44,7 @@ export async function newAnimalSubmit(e) {
 	const data = await handleSubmit(e)
 
 	if (data.error)
-		alert(JSON.stringify(data.error))
+		addToast({ message: `${data.error.type}<br>${data.error.message}`})
 	else
 		await animals.newAnimal(data)
 }
