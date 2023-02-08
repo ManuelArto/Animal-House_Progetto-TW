@@ -88,9 +88,9 @@
 				</div>
 			{/each}
 	{:else}
-	<div class="w-full rounded break-words border bg-white border-1 border-gray-300 shadow mb-5 mx-2">
-		<CardAccount formId={formId} editMode={editMode}/>
-	</div>
+		<div class="w-full rounded break-words border bg-white border-1 border-gray-300 shadow mb-5 mx-2">
+			<CardAccount formId={formId} editMode={editMode}/>
+		</div>
 	{/if}
 </div>
 
