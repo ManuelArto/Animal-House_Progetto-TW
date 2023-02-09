@@ -52,7 +52,6 @@
             {#if date == ""}
                 <Input type="date" />
             {:else}
-                {console.log(date)}
                 <Input type="date" value={date} placeholder={date} disabled />
             {/if}
         </Label>
