@@ -1,11 +1,11 @@
 <script>
+	import { dismissToast, toasts } from "../../store/toasts";
 	import Toast from "./Toast.svelte";
 
-	import { dismissToast, toasts } from "../../store/toasts";
 </script>
 
 {#if $toasts}
-	<section>
+	<section class="w-min mx-auto">
 		{#each $toasts as toast (toast.id)}
 			<Toast
 				type={toast.type}
@@ -22,7 +22,6 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		width: 100%;
 		display: flex;
 		margin-top: 1rem;
 		justify-content: center;
