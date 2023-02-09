@@ -238,42 +238,42 @@
                                     <span id="indice"> Indice </span>
                                     <ul id="menuAncore" class="nav nav-pills flex-column mx-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#regola1">
+                                            <a class="nav-link" @click="(event) => scrollToParagrah(event, 'regola1')">
                                                 Come posso occuparmi di un cane?
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#regola2">
+                                            <a class="nav-link" @click="(event) => scrollToParagrah(event, 'regola2')">
                                                 Come posso occuparmi di un gatto?
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#regola3">
+                                            <a class="nav-link" @click="(event) => scrollToParagrah(event, 'regola3')">
                                                 Cosa faccio se il mio cane morde?
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#regola4">
+                                            <a class="nav-link" @click="(event) => scrollToParagrah(event, 'regola4')">
                                                 Cosa faccio se il mio cane abbaia tanto?
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#regola5">
+                                            <a class="nav-link" @click="(event) => scrollToParagrah(event, 'regola5')">
                                                 Piccoli accorgimenti per non smarrire o non far scappare il tuo animale
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#regola6">
+                                            <a class="nav-link" @click="(event) => scrollToParagrah(event, 'regola6')">
                                                 Sterilizzazione: un aiuto alla lotta al randagismo
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#regola7">
+                                            <a class="nav-link" @click="(event) => scrollToParagrah(event, 'regola7')">
                                                 Le visite veterinarie
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#regola8">
+                                            <a class="nav-link" @click="(event) => scrollToParagrah(event, 'regola8')">
                                                 Come riconoscere un animale in buona salute
                                             </a>
                                         </li>
@@ -290,18 +290,16 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue"
-onMounted(() => {
+
+function scrollToParagrah(event, id) {
+    document.getElementById(id).scrollIntoView()
+
     var header = document.getElementById("menuAncore");
-    var btns = header?.getElementsByClassName("nav-link");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            var current = header.getElementsByClassName("nav-link active");
-            if (current[0]) current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
-    }
-})
+    var current = header.getElementsByClassName("nav-link active");
+    if (current[0]) current[0].className = current[0].className.replace(" active", "");
+    event.target.className += " active";
+}
+
 </script>
 
 <style scoped>
