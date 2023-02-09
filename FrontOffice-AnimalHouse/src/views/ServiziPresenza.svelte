@@ -165,20 +165,19 @@
 		<div class="xl:inline-flex sm:block mt-10 ml-5">
 			<Card class="xl:ml-5 xl:mb-64">
 				<div id="checkbox_services">
-					{#if date_insert}
+					{#if date_insert && selected_service.length == 0}
 							<p class="text-lg text-red-600">Scegli il servizio desiderato (required)</p>
 					{:else}
 						<p class="text-lg text-dark">Scegli il servizio desiderato</p>
 					{/if}
 					<Checkbox class="mt-5 text-lg" name="example" value="Dogsitter" 
 						on:change={(event) => {
-							const target = event.target;
-							if (target.checked) {
-								if (!selected_service.includes(target.value)) {
-									selected_service.push(target.value);
+							if (event.target.checked) {
+								if (!selected_service.includes(event.target.value)) {
+									selected_service.push(event.target.value);
 								}
 							} else {
-								selected_service = selected_service.filter(item => item !== target.value);
+								selected_service = selected_service.filter(item => item !== event.target.value);
 							}
 					  	}}
 					>Dogsitter</Checkbox>
@@ -222,7 +221,14 @@
 			<Card class="xl:ml-5 xl:mb-72">
 				<p class="text-lg text-dark">Scegli la data desiderata *</p>
 				<div class="relative max-w-sm mt-5">
-					<input class="w-75 rounded-lg" type="date" id="input-date" bind:value={date_value} on:change={() => date_insert = !date_insert}>
+					<input class="w-75 rounded-lg" type="date" id="input-date" bind:value={date_value} 
+					on:change={(event) => {
+							if(event.target.value === ""){
+								date_insert = false;
+							}else{
+								date_insert=true;
+							}
+						}}>
 				</div>
 			</Card>
 		</div>
@@ -300,7 +306,7 @@
 										{#each total_services as ts}
 											{#if item.services[ts]}
 												<CardServices data={data} selectedOption={selectedOption} service={ts} date_value={date_value} sit={item.address.street}/>
-											{/if}
+												{/if}
 										{/each}
 									{:else}
 										{#each selected_service as service}
