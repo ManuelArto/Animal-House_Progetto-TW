@@ -8,6 +8,7 @@ interface IProduct extends Document {
 	imageURI: string
 	price: number
 	quantity: number
+	rating: number
 }
 
 const productSchema = new Schema<IProduct>({
@@ -35,6 +36,9 @@ const productSchema = new Schema<IProduct>({
 		type: Number,
 		required: true
 	},
+	rating: {
+		type: Number,
+	}
 }, { timestamps: true })
 
 

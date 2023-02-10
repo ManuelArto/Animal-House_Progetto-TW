@@ -5,7 +5,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 2
+		"quantity": 2,
+		"rating": 2
 	},
 	{
 		"name": "Ciotola per cibo in acciaio inox",
@@ -13,7 +14,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
-		"quantity": 5
+		"quantity": 5,
+		"rating": 3
 	},
 	{
 		"name": "Croccantini per cani adulti",
@@ -21,7 +23,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Latte in polvere per gattini",
@@ -29,7 +32,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 5
 	},
 	{
 		"name": "Tappetino per animali domestici",
@@ -37,7 +41,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 6
+		"quantity": 6,
+		"rating": 5
 	},
 	{
 		"name": "Pelle di pollo essiccata",
@@ -45,7 +50,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Gabbia per uccelli",
@@ -53,7 +59,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 40,
-		"quantity": 3
+		"quantity": 3,
+		"rating": 3
 	},
 	{
 		"name": "Pellet per conigli",
@@ -61,7 +68,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 2
 	},
 	{
 		"name": "Cuccia per gatti",
@@ -69,7 +77,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
-		"quantity": 4
+		"quantity": 4,
+		"rating": 4
 	},
 	{
 		"name": "Alimento per pesci tropicali",
@@ -77,7 +86,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
-		"quantity": 15
+		"quantity": 15,
+		"rating": 3
 	},
 	{
 		"name": "Cintura per cani da passeggio",
@@ -85,7 +95,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Alimento per tartarughe",
@@ -93,7 +104,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 4
 	},
 	{
 		"name": "Cuscino per animali domestici",
@@ -101,7 +113,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 6
+		"quantity": 6,
+		"rating": 3
 	},
 	{
 		"name": "Latte per giovani equini",
@@ -109,7 +122,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Ciotola per cibo in ceramica",
@@ -117,7 +131,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 5
+		"quantity": 5,
+		"rating": 5
 	},
 	{
 		"name": "Alimento per roditori",
@@ -125,7 +140,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
-		"quantity": 15
+		"quantity": 15,
+		"rating": 5
 	},
 	{
 		"name": "Cestino per cani",
@@ -133,7 +149,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 30,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 3
 	},
 	{
 		"name": "Alimento per pesci d'acquario",
@@ -141,7 +158,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
-		"quantity": 20
+		"quantity": 20,
+		"rating": 0
 	},
 	{
 		"name": "Tunnel per gatti",
@@ -149,7 +167,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Alimento per rettili",
@@ -157,7 +176,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Trasportino per animali domestici",
@@ -165,7 +185,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 40,
-		"quantity": 5
+		"quantity": 5,
+		"rating": 5
 	},
 	{
 		"name": "Alimento per cavalli",
@@ -173,7 +194,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 30,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 3
 	},
 	{
 		"name": "Letto per animali domestici",
@@ -181,7 +203,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
-		"quantity": 6
+		"quantity": 6,
+		"rating": 5
 	},
 	{
 		"name": "Alimento per furetti",
@@ -189,7 +212,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Giocattoli per animali domestici",
@@ -197,7 +221,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
-		"quantity": 20
+		"quantity": 20,
+		"rating": 0
 	},
 	{
 		"name": "Alimento per cani senior",
@@ -205,7 +230,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Lettiera per gatti",
@@ -213,7 +239,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 3
 	},
 	{
 		"name": "Alimento per uccelli",
@@ -221,7 +248,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
-		"quantity": 20
+		"quantity": 20,
+		"rating": 0
 	},
 	{
 		"name": "Gabbia per uccelli",
@@ -229,7 +257,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 50,
-		"quantity": 5
+		"quantity": 5,
+		"rating": 5
 	},
 	{
 		"name": "Alimento per pesci combattenti",
@@ -237,7 +266,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
-		"quantity": 15
+		"quantity": 15,
+		"rating": 5
 	},
 	{
 		"name": "Collare per cani",
@@ -245,7 +275,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 1
 	},
 	{
 		"name": "Alimento per gatti sterilizzati",
@@ -253,7 +284,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Arrampicata per gatti",
@@ -261,7 +293,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 35,
-		"quantity": 6
+		"quantity": 6,
+		"rating": 2
 	},
 	{
 		"name": "Alimento per conigli",
@@ -269,7 +302,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
-		"quantity": 15
+		"quantity": 15,
+		"rating": 5
 	},
 	{
 		"name": "Casa per animali domestici",
@@ -277,7 +311,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 40,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 1
 	},
 	{
 		"name": "Alimento per tartarughe",
@@ -285,7 +320,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 1
 	},
 	{
 		"name": "Tappetino per animali domestici",
@@ -293,7 +329,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Alimento per pappagalli",
@@ -301,7 +338,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Percorso agility per cani",
@@ -309,7 +347,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 50,
-		"quantity": 5
+		"quantity": 5,
+		"rating": 5
 	},
 	{
 		"name": "Alimento per porcellini d'India",
@@ -317,7 +356,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Pettorina per cani",
@@ -325,7 +365,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 3
 	},
 	{
 		"name": "Alimento per rettili",
@@ -333,7 +374,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
-		"quantity": 15
+		"quantity": 15,
+		"rating": 5
 	},
 	{
 		"name": "Terrario per rettili",
@@ -341,7 +383,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 80,
-		"quantity": 5
+		"quantity": 5,
+		"rating": 5
 	},
 	{
 		"name": "Alimento per roditori",
@@ -349,7 +392,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
-		"quantity": 20
+		"quantity": 20,
+		"rating": 0
 	},
 	{
 		"name": "Gabbia per roditori",
@@ -357,7 +401,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 30,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 3
 	},
 	{
 		"name": "Alimento per cavalli",
@@ -365,7 +410,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Selleria per cavalli",
@@ -373,7 +419,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 50,
-		"quantity": 5
+		"quantity": 5,
+		"rating": 5
 	},
 	{
 		"name": "Alimento per furetti",
@@ -381,7 +428,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
-		"quantity": 15
+		"quantity": 15,
+		"rating": 5
 	},
 	{
 		"name": "Casa per furetti",
@@ -389,7 +437,8 @@
 		"category": "accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 40,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 5
 	},
 	{
 		"name": "Alimento per tartarughe acquatiche",
@@ -397,7 +446,8 @@
 		"category": "cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 5
 	},
 	{
 		"name": "Shampoo per cani",
@@ -405,7 +455,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 2
 	},
 	{
 		"name": "Fipronil per cani",
@@ -413,7 +464,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Pipette per gatti",
@@ -421,7 +473,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Spray per animali domestici",
@@ -429,7 +482,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 2
 	},
 	{
 		"name": "Pettine per animali domestici",
@@ -437,7 +491,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
-		"quantity": 15
+		"quantity": 15,
+		"rating": 5
 	},
 	{
 		"name": "Colluttorio per cani",
@@ -445,7 +500,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Pettorina per gatti",
@@ -453,7 +509,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 3
 	},
 	{
 		"name": "Spray repellente per animali",
@@ -461,7 +518,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Crema per il trattamento delle ferite",
@@ -469,7 +527,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Collare antiparassitario",
@@ -477,7 +536,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 3
 	},
 	{
 		"name": "Pulitore per orecchie",
@@ -485,7 +545,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
-		"quantity": 15
+		"quantity": 15,
+		"rating": 5
 	},
 	{
 		"name": "Spray per il trattamento dei parassiti",
@@ -493,7 +554,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Pomata per le unghie",
@@ -501,7 +563,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 2
 	},
 	{
 		"name": "Spray per il trattamento delle ferite",
@@ -509,7 +572,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 4
 	},
 	{
 		"name": "Lozione per il trattamento della dermatite",
@@ -517,7 +581,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 4
 	},
 	{
 		"name": "Fiale per la cura delle orecchie",
@@ -525,7 +590,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 4
 	},
 	{
 		"name": "Salve per il trattamento delle piaghe",
@@ -533,7 +599,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	},
 	{
 		"name": "Lozione per il trattamento della forfora",
@@ -541,7 +608,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
-		"quantity": 8
+		"quantity": 8,
+		"rating": 5
 	},
 	{
 		"name": "Siringa per la somministrazione di farmaci",
@@ -549,7 +617,8 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 5,
-		"quantity": 12
+		"quantity": 12,
+		"rating": 2
 	},
 	{
 		"name": "Pillole per la cura delle infezioni delle vie urinarie",
@@ -557,6 +626,7 @@
 		"category": "prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
-		"quantity": 10
+		"quantity": 10,
+		"rating": 0
 	}
 ]
