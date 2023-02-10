@@ -15,7 +15,7 @@
 				return data
 			}
 		} else
-			return []
+			throw Error()
 	}
 	
 	let scoresPromise = getLeaderboardScores()
