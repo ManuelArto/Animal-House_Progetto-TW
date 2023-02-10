@@ -2,7 +2,7 @@
 	{
 		"name": "Distributore di acqua per animali domestici",
 		"description": "Il distributore di acqua piccolo per animali domestici sfrutta la forza di gravità per garantire costantemente acqua potabile fresca all'animale domestico; ideale per cani o gatti in appartamento; adatto a uno o più animali domestici",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 2,
@@ -11,7 +11,7 @@
 	{
 		"name": "Ciotola per cibo in acciaio inox",
 		"description": "La ciotola per cibo in acciaio inox è robusta, igienica e resistente alla ruggine; ideale per cani e gatti; facile da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
 		"quantity": 5,
@@ -20,7 +20,7 @@
 	{
 		"name": "Croccantini per cani adulti",
 		"description": "I croccantini per cani adulti sono formulati con ingredienti di alta qualità per soddisfare le esigenze nutrizionali dei cani adulti; ricchi di proteine e minerali; disponibili in varie gusti",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
@@ -29,7 +29,7 @@
 	{
 		"name": "Latte in polvere per gattini",
 		"description": "Il latte in polvere per gattini è un'ottima fonte di nutrienti per i gattini appena nati o in fase di crescita; facile da preparare e digerire",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -38,7 +38,7 @@
 	{
 		"name": "Tappetino per animali domestici",
 		"description": "Il tappetino per animali domestici è morbido e confortevole; facile da pulire e resistente all'acqua; ideale per cani e gatti",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 6,
@@ -47,7 +47,7 @@
 	{
 		"name": "Pelle di pollo essiccata",
 		"description": "La pelle di pollo essiccata è un ottimo snack per cani; ricca di proteine e povera di grassi; ideale per cani di ogni taglia",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
 		"quantity": 12,
@@ -56,7 +56,7 @@
 	{
 		"name": "Gabbia per uccelli",
 		"description": "La gabbia per uccelli è realizzata in metallo resistente e dotata di sportello apribile per l'accesso facile; adatta per uccelli di piccola taglia",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 40,
 		"quantity": 3,
@@ -65,7 +65,7 @@
 	{
 		"name": "Pellet per conigli",
 		"description": "I pellet per conigli sono formulati appositamente per soddisfare le esigenze nutrizionali dei conigli; ricchi di fibre e vitamine; disponibili in varie miscele",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -74,7 +74,7 @@
 	{
 		"name": "Cuccia per gatti",
 		"description": "La cuccia per gatti è realizzata in morbido peluche e dotata di un'entrata apribile per l'accesso facile; ideale per gatti di piccola taglia",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 4,
@@ -83,7 +83,7 @@
 	{
 		"name": "Alimento per pesci tropicali",
 		"description": "L'alimento per pesci tropicali è formulato per soddisfare le esigenze nutrizionali dei pesci tropicali; ricco di proteine e minerali; disponibile in varie forme",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 15,
@@ -92,7 +92,7 @@
 	{
 		"name": "Cintura per cani da passeggio",
 		"description": "La cintura per cani da passeggio è progettata per mantenere il tuo cane al sicuro mentre si fa una passeggiata all'aperto; è regolabile e dotata di una maniglia per il controllo del cane in caso di emergenza",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
@@ -101,7 +101,7 @@
 	{
 		"name": "Alimento per tartarughe",
 		"description": "L'alimento per tartarughe è formulato per soddisfare le esigenze nutrizionali delle tartarughe; contiene una combinazione di vegetali e proteine; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -110,7 +110,7 @@
 	{
 		"name": "Cuscino per animali domestici",
 		"description": "Il cuscino per animali domestici è morbido e confortevole; facile da pulire e resistente all'acqua; ideale per cani e gatti",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 6,
@@ -119,7 +119,7 @@
 	{
 		"name": "Latte per giovani equini",
 		"description": "Il latte per giovani equini è formulato per soddisfare le esigenze nutrizionali dei puledri; ricco di proteine, minerali e vitamine; disponibile in forma liquida",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 12,
@@ -128,7 +128,7 @@
 	{
 		"name": "Ciotola per cibo in ceramica",
 		"description": "La ciotola per cibo in ceramica è elegante e resistente; facile da pulire e adatta per animali di piccola e grande taglia",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 5,
@@ -137,7 +137,7 @@
 	{
 		"name": "Alimento per roditori",
 		"description": "L'alimento per roditori è formulato per soddisfare le esigenze nutrizionali di criceti, topi e altri roditori; ricco di cereali e vegetali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
 		"quantity": 15,
@@ -146,7 +146,7 @@
 	{
 		"name": "Cestino per cani",
 		"description": "Il cestino per cani è progettato per offrire un luogo confortevole per il tuo cane dove riposare; è realizzato in tessuti resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 30,
 		"quantity": 8,
@@ -155,7 +155,7 @@
 	{
 		"name": "Alimento per pesci d'acquario",
 		"description": "L'alimento per pesci d'acquario è formulato per soddisfare le esigenze nutrizionali di pesci d'acquario di varie specie; ricco di proteine e minerali; disponibile in varie forme",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 20,
@@ -164,7 +164,7 @@
 	{
 		"name": "Tunnel per gatti",
 		"description": "Il tunnel per gatti è progettato per offrire divertimento e esercizio per i gatti; realizzato in tessuti resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 10,
@@ -173,7 +173,7 @@
 	{
 		"name": "Alimento per rettili",
 		"description": "L'alimento per rettili è formulato per soddisfare le esigenze nutrizionali di serpenti, lucertole e altri rettili; ricco di proteine e minerali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 12,
@@ -182,7 +182,7 @@
 	{
 		"name": "Trasportino per animali domestici",
 		"description": "Il trasportino per animali domestici è progettato per trasportare il tuo animale domestico in sicurezza e comfort; è realizzato in materiali resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 40,
 		"quantity": 5,
@@ -191,7 +191,7 @@
 	{
 		"name": "Alimento per cavalli",
 		"description": "L'alimento per cavalli è formulato per soddisfare le esigenze nutrizionali dei cavalli; ricco di fibre, proteine e minerali; disponibile in varie miscele",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 30,
 		"quantity": 8,
@@ -200,7 +200,7 @@
 	{
 		"name": "Letto per animali domestici",
 		"description": "Il letto per animali domestici è progettato per offrire un luogo confortevole per il tuo animale domestico; è realizzato in tessuti resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 6,
@@ -209,7 +209,7 @@
 	{
 		"name": "Alimento per furetti",
 		"description": "L'alimento per furetti è formulato per soddisfare le esigenze nutrizionali dei furetti; ricco di proteine e grassi; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 12,
@@ -218,7 +218,7 @@
 	{
 		"name": "Giocattoli per animali domestici",
 		"description": "I giocattoli per animali domestici sono progettati per divertire e stimolare il tuo animale domestico; sono realizzati in materiali resistenti e sicuri",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
 		"quantity": 20,
@@ -227,7 +227,7 @@
 	{
 		"name": "Alimento per cani senior",
 		"description": "L'alimento per cani senior è formulato per soddisfare le esigenze nutrizionali dei cani anziani; contiene nutrienti specifici per supportare la salute articolare e cardiovascolare",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 10,
@@ -236,7 +236,7 @@
 	{
 		"name": "Lettiera per gatti",
 		"description": "La lettiera per gatti è progettata per rendere più facile la pulizia della toilette del tuo gatto; disponibile in varie forme e materiali",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -245,7 +245,7 @@
 	{
 		"name": "Alimento per uccelli",
 		"description": "L'alimento per uccelli è formulato per soddisfare le esigenze nutrizionali di uccelli di varie specie; ricco di semi e vegetali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 20,
@@ -254,7 +254,7 @@
 	{
 		"name": "Gabbia per uccelli",
 		"description": "La gabbia per uccelli è progettata per fornire un ambiente sicuro e confortevole per il tuo uccello; disponibile in varie dimensioni e materiali",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 50,
 		"quantity": 5,
@@ -263,7 +263,7 @@
 	{
 		"name": "Alimento per pesci combattenti",
 		"description": "L'alimento per pesci combattenti è formulato per soddisfare le esigenze nutrizionali dei pesci combattenti; ricco di proteine e minerali; disponibile in varie forme",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 15,
@@ -272,7 +272,7 @@
 	{
 		"name": "Collare per cani",
 		"description": "Il collare per cani è progettato per garantire la sicurezza e il comfort del tuo cane; è realizzato in materiali resistenti e disponibile in varie dimensioni e colori",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -281,7 +281,7 @@
 	{
 		"name": "Alimento per gatti sterilizzati",
 		"description": "L'alimento per gatti sterilizzati è formulato per soddisfare le esigenze nutrizionali dei gatti sterilizzati; contiene nutrienti specifici per supportare la salute del tratto urinario e per evitare l'aumento di peso",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
@@ -290,7 +290,7 @@
 	{
 		"name": "Arrampicata per gatti",
 		"description": "L'arrampicata per gatti è progettata per offrire divertimento e esercizio per i gatti; è realizzata in materiali resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 35,
 		"quantity": 6,
@@ -299,7 +299,7 @@
 	{
 		"name": "Alimento per conigli",
 		"description": "L'alimento per conigli è formulato per soddisfare le esigenze nutrizionali dei conigli; ricco di erba e vegetali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
 		"quantity": 15,
@@ -308,7 +308,7 @@
 	{
 		"name": "Casa per animali domestici",
 		"description": "La casa per animali domestici è progettata per offrire un luogo confortevole e sicuro per il tuo animale domestico; è realizzata in materiali resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 40,
 		"quantity": 8,
@@ -317,7 +317,7 @@
 	{
 		"name": "Alimento per tartarughe",
 		"description": "L'alimento per tartarughe è formulato per soddisfare le esigenze nutrizionali delle tartarughe; ricco di vegetali e minerali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -326,7 +326,7 @@
 	{
 		"name": "Tappetino per animali domestici",
 		"description": "Il tappetino per animali domestici è progettato per offrire un luogo confortevole per il tuo animale domestico; è realizzato in tessuti resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
@@ -335,7 +335,7 @@
 	{
 		"name": "Alimento per pappagalli",
 		"description": "L'alimento per pappagalli è formulato per soddisfare le esigenze nutrizionali dei pappagalli; ricco di semi, frutta e vegetali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 12,
@@ -344,7 +344,7 @@
 	{
 		"name": "Percorso agility per cani",
 		"description": "Il percorso agility per cani è progettato per offrire divertimento e esercizio per i cani; è realizzato in materiali resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 50,
 		"quantity": 5,
@@ -353,7 +353,7 @@
 	{
 		"name": "Alimento per porcellini d'India",
 		"description": "L'alimento per porcellini d'India è formulato per soddisfare le esigenze nutrizionali dei porcellini d'India; ricco di erba e vegetali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 10,
@@ -362,7 +362,7 @@
 	{
 		"name": "Pettorina per cani",
 		"description": "La pettorina per cani è progettata per garantire la sicurezza e il comfort del tuo cane durante le passeggiate; è realizzata in materiali resistenti e disponibile in varie dimensioni e colori",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 8,
@@ -371,7 +371,7 @@
 	{
 		"name": "Alimento per rettili",
 		"description": "L'alimento per rettili è formulato per soddisfare le esigenze nutrizionali dei rettili; contiene una combinazione di insetti e vegetali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
 		"quantity": 15,
@@ -380,7 +380,7 @@
 	{
 		"name": "Terrario per rettili",
 		"description": "Il terrario per rettili è progettato per offrire un ambiente sicuro e confortevole per il tuo rettile; disponibile in varie dimensioni e materiali",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 80,
 		"quantity": 5,
@@ -389,7 +389,7 @@
 	{
 		"name": "Alimento per roditori",
 		"description": "L'alimento per roditori è formulato per soddisfare le esigenze nutrizionali dei roditori; ricco di cereali e vegetali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 20,
@@ -398,7 +398,7 @@
 	{
 		"name": "Gabbia per roditori",
 		"description": "La gabbia per roditori è progettata per offrire un ambiente sicuro e confortevole per il tuo roditore; disponibile in varie dimensioni e materiali",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 30,
 		"quantity": 8,
@@ -407,7 +407,7 @@
 	{
 		"name": "Alimento per cavalli",
 		"description": "L'alimento per cavalli è formulato per soddisfare le esigenze nutrizionali dei cavalli; ricco di erba e cereali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 10,
@@ -416,7 +416,7 @@
 	{
 		"name": "Selleria per cavalli",
 		"description": "La selleria per cavalli è progettata per garantire il comfort e la sicurezza del tuo cavallo durante le cavalcate; è realizzata in materiali resistenti e disponibile in varie dimensioni e colori",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 50,
 		"quantity": 5,
@@ -425,7 +425,7 @@
 	{
 		"name": "Alimento per furetti",
 		"description": "L'alimento per furetti è formulato per soddisfare le esigenze nutrizionali dei furetti; ricco di proteine e vegetali; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
 		"quantity": 15,
@@ -434,7 +434,7 @@
 	{
 		"name": "Casa per furetti",
 		"description": "La casa per furetti è progettata per offrire un ambiente sicuro e confortevole per il tuo furetto; è realizzata in materiali resistenti e facili da pulire",
-		"category": "accessoristica",
+		"category": "Accessoristica",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 40,
 		"quantity": 8,
@@ -443,7 +443,7 @@
 	{
 		"name": "Alimento per tartarughe acquatiche",
 		"description": "L'alimento per tartarughe acquatiche è formulato per soddisfare le esigenze nutrizionali delle tartarughe acquatiche; ricco di vegetali e insetti; disponibile in forma di pellet",
-		"category": "cibo",
+		"category": "Cibo",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -452,7 +452,7 @@
 	{
 		"name": "Shampoo per cani",
 		"description": "Lo shampoo per cani è formulato per pulire e nutrire il pelo del cane, disponibile in diversi profumi e formulazioni per diverse esigenze della pelle del cane",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -461,7 +461,7 @@
 	{
 		"name": "Fipronil per cani",
 		"description": "Il Fipronil è un prodotto antiparassitario per cani, utilizzato per prevenire e trattare le infestazioni da zecche e pulci",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
@@ -470,7 +470,7 @@
 	{
 		"name": "Pipette per gatti",
 		"description": "Le pipette per gatti sono utilizzate per prevenire e trattare le infestazioni da zecche e pulci nei gatti",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 12,
@@ -479,7 +479,7 @@
 	{
 		"name": "Spray per animali domestici",
 		"description": "Lo spray per animali domestici è utilizzato per prevenire e trattare le infestazioni da parassiti come zecche, pulci e pidocchi",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -488,7 +488,7 @@
 	{
 		"name": "Pettine per animali domestici",
 		"description": "Il pettine per animali domestici è progettato per rimuovere i nodi e i grovigli dal pelo degli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
 		"quantity": 15,
@@ -497,7 +497,7 @@
 	{
 		"name": "Colluttorio per cani",
 		"description": "Il colluttorio per cani è utilizzato per mantenere i denti e le gengive dei cani sani e puliti",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 10,
@@ -506,7 +506,7 @@
 	{
 		"name": "Pettorina per gatti",
 		"description": "La pettorina per gatti è utilizzata per prevenire e trattare le infestazioni da zecche e pulci nei gatti",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 8,
@@ -515,7 +515,7 @@
 	{
 		"name": "Spray repellente per animali",
 		"description": "Lo spray repellente per animali è utilizzato per tenere lontani gli animali indesiderati dai giardini e dalle proprietà",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
 		"quantity": 10,
@@ -524,7 +524,7 @@
 	{
 		"name": "Crema per il trattamento delle ferite",
 		"description": "La crema per il trattamento delle ferite è utilizzata per curare e proteggere le ferite degli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 12,
@@ -533,7 +533,7 @@
 	{
 		"name": "Collare antiparassitario",
 		"description": "Il collare antiparassitario è utilizzato per prevenire e trattare le infestazioni da parassiti come zecche, pulci e pidocchi negli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
@@ -542,7 +542,7 @@
 	{
 		"name": "Pulitore per orecchie",
 		"description": "Il pulitore per orecchie è utilizzato per mantenere le orecchie dei animali domestici pulite e sane",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
 		"quantity": 15,
@@ -551,7 +551,7 @@
 	{
 		"name": "Spray per il trattamento dei parassiti",
 		"description": "Lo spray per il trattamento dei parassiti è utilizzatoper prevenire e trattare le infestazioni da parassiti come zecche, pulci e pidocchi negli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 12,
@@ -560,7 +560,7 @@
 	{
 		"name": "Pomata per le unghie",
 		"description": "La pomata per le unghie è utilizzata per curare e proteggere le unghie degli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
 		"quantity": 10,
@@ -569,7 +569,7 @@
 	{
 		"name": "Spray per il trattamento delle ferite",
 		"description": "Lo spray per il trattamento delle ferite è utilizzato per curare e proteggere le ferite degli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -578,7 +578,7 @@
 	{
 		"name": "Lozione per il trattamento della dermatite",
 		"description": "La lozione per il trattamento della dermatite è utilizzata per curare e proteggere la pelle degli animali domestici con problemi di dermatite",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 8,
@@ -587,7 +587,7 @@
 	{
 		"name": "Fiale per la cura delle orecchie",
 		"description": "Le fiale per la cura delle orecchie sono utilizzate per mantenere le orecchie degli animali domestici pulite e sane",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 8,
@@ -596,7 +596,7 @@
 	{
 		"name": "Salve per il trattamento delle piaghe",
 		"description": "La salve per il trattamento delle piaghe è utilizzata per curare e proteggere le piaghe degli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
 		"quantity": 10,
@@ -605,7 +605,7 @@
 	{
 		"name": "Lozione per il trattamento della forfora",
 		"description": "La lozione per il trattamento della forfora è utilizzata per curare e proteggere il pelo degli animali domestici con problemi di forfora",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
 		"quantity": 8,
@@ -614,7 +614,7 @@
 	{
 		"name": "Siringa per la somministrazione di farmaci",
 		"description": "La siringa per la somministrazione di farmaci è utilizzata per somministrare farmaci liquidi agli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 5,
 		"quantity": 12,
@@ -623,7 +623,7 @@
 	{
 		"name": "Pillole per la cura delle infezioni delle vie urinarie",
 		"description": "Le pillole per la cura delle infezioni delle vie urinarie sono utilizzate per trattare le infezioni delle vie urinarie negli animali domestici",
-		"category": "prodotti sanitari",
+		"category": "Prodotti sanitari",
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 10,
