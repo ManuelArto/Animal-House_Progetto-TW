@@ -76,7 +76,7 @@
     }
 
 </style>
-<img id="banner" src="/images/banner_bacheca_eccoloqua.png" class="object-scale-down w-full " alt="banner bacheca eccolo qua"/>
+<img id="banner" src="images/banner_bacheca_eccoloqua.png" class="object-scale-down w-full " alt="banner bacheca eccolo qua"/>
 
 <div class="container mx-auto px-4 max-w-3/4 md:mt-10 mb-48">
     <div class="md:absolute md:top-20 md:w-1/2">
