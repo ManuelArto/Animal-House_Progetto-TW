@@ -24,7 +24,7 @@
 	let card_services = false
 	let card_leaderboard = false
 	let card_bacheca = false
-	let screen_Desktop = true
+	let screen_Desktop = window.innerWidth >= 1260
 	
 	onMount(async () => {
 		window.addEventListener("resize", () => screen_Desktop = window.innerWidth >= 1260 )
@@ -71,13 +71,13 @@
 
 </style>
 <div class="">
-	<Carousel divClass="overflow-hidden relative rounded-lg"{images} showCaptions={false} showThumbs={false}/>
+	<Carousel divClass="overflow-hidden rounded-lg"{images} showCaptions={false} showThumbs={false}/>
 </div>
 
 <div class="container mx-auto">
 	<div class="justify-between px-12 mt-8">
 		<!-- SHOP CARD -->
-		<div class="inline-flex mt-8 relative">
+		<div class="inline-flex mt-8">
 			<div on:mouseenter={ () => card_shop=true } on:mouseleave={ () => card_shop=false } id="card_shop">
 				<Card img="https://www.carrello.eu/wp-content/uploads/2020/02/dog-fa-la-spesa.jpg" horizontal class="card">
 					<p class="text-3xl sm:text-xl mb-2 font-bold tracking-tight text-gray-900 dark:text-white">Shop</p>
@@ -114,13 +114,13 @@
 		
 		<!-- SERVIZI IN PRESENZA CARD -->
 		<div class="mt-8 flex flex-row-reverse">
-			<div class="grid grid-rows-3 grid-flow-col">
+			<div class="grid grid-rows-2 grid-flow-col">
 				{#if card_services && screen_Desktop}
 					<div id="services1" class="row-start-2 row-span-2">
-						<img class="w-60 rounded-lg" src="https://i.etsystatic.com/11516728/r/il/56f9b9/1957336565/il_fullxfull.1957336565_eh3d.jpg" alt="cane-dogsitter">
+						<img class="w-60 rounded-lg flex align-top" src="https://i.etsystatic.com/11516728/r/il/56f9b9/1957336565/il_fullxfull.1957336565_eh3d.jpg" alt="servizi di dogsitter">
 					</div>
-					<div id="services2" class="row-end-3 row-span-2">
-						<img src="https://www.petme.it/wp-content/themes/petme/assets/img/form_1.png" alt="cartella">
+					<div id="services2" class="row-end-3 row-span-3">
+						<img src="images/schermata_servizi_presenza.png" alt="servizi">
 					</div>
 				{/if}
 				<div on:mouseenter={ () => card_services=true } on:mouseleave={ () => card_services=false } id="card_services" class="row-start-1 row-end-4">
@@ -137,39 +137,34 @@
 		</div>
 	
 		<!-- LEADERBOARD CARD -->
-		<div class="inline-flex mt-8">
+		<div class="flex mt-8">
 			<div on:mouseenter={ () => card_leaderboard=true } on:mouseleave={ () => card_leaderboard=false } id="card_leaderboard">
 				<Card img="https://img.pixers.pics/pho_wat(s3:700/FO/43/70/54/74/700_FO43705474_9207b6f77692347b23988cb4ea48c1ca.jpg,698,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,478,650,jpg)/carte-da-parati-cartoon-vincitori-podio.jpg.jpg"  horizontal class="card">
-					<h5 class="mb-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Leaderboard</h5>
+					<p class="mb-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Leaderboard</p>
 					<p class="text-sm sm:text-base mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
 						Qui non manca il divertimento. Vieni a provarli e divertiti a sfidare i tuoi amici. Qui troverai i risultati e la classifica di tutti i giocatori
 					</p>
 					<Button class="mt-4" href="#/servizi/leaderboard">Esplora la classifica</Button>
 				</Card>
 			</div>
-			<div>
-				<!--  TODO: C'E' DA CAMBIARE L'IMMAGINE  -->
-				{#if card_leaderboard && screen_Desktop}
-					<img id="leaderboard" style="width:300px;" class="ml-16 rounded-lg" src="http://www.canalesassuolo.it/wp-content/uploads/2018/12/classifica-serie-a-16.jpg" alt="classifica">
-				{/if}
+			{#if card_leaderboard && screen_Desktop}
+			<div class="ml-24">
+				<img id="leaderboard" class="p-0 m-0 h-64 rounded-lg " src="images/schermata_leaderboard.png" alt="classifica">
 			</div>
+			{/if}
 		</div>
 	
 		<!-- BACHECA CARD -->
-		<!--  TODO: CI SONO DA CAMBIARE LE IMMAGINI  -->
 		<div class="mt-8 flex flex-row-reverse">
-			<div class="grid grid-rows-3 grid-flow-col">
+			<div class="grid grid-rows-2 grid-flow-col">
 				{#if card_bacheca && screen_Desktop}
-					<div id="services1" class="row-start-2 row-span-2">
-						<img class="w-60 rounded-lg" src="https://i.etsystatic.com/11516728/r/il/56f9b9/1957336565/il_fullxfull.1957336565_eh3d.jpg" alt="cane-dogsitter">
-					</div>
-					<div id="services2" class="row-end-3 row-span-2">
-						<img src="https://www.petme.it/wp-content/themes/petme/assets/img/form_1.png" alt="cartella">
+					<div class="row-start-1 row-span-2">
+						<img class="rounded-lg" src="images/schermata_bacheca_posts.png" alt="schermata post della bacheca">
 					</div>
 				{/if}
-				<div on:mouseenter={ () => card_bacheca=true } on:mouseleave={ () => card_bacheca=false } id="card_bacheca" class="row-start-1 row-end-4">
+				<div on:mouseenter={ () => card_bacheca=true } on:mouseleave={ () => card_bacheca=false } id="card_bacheca" class="row-start-1 row-span-2">
 					<Card img="https://media.istockphoto.com/id/1219927783/it/vettoriale/nota-carta-con-icona-a-spillo-in-design-piatto-alla-moda.jpg?s=612x612&w=0&k=20&c=ZSKlVswybtBRueNOI5gLhRTZiXAQvujc95Iz84VR1Lk="  horizontal class="card">
-						<h5 class="mb-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Bacheca</h5>
+						<p class="mb-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Bacheca</p>
 						<p class="text-sm sm:text-base mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
 							Hai qualche dubbio sul tuo amico peloso? Vuoi fornire un aiuto agli altri utenti? Allora la nostra bacheca è il posto giusto per te.
 						</p>
