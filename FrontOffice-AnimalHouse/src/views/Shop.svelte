@@ -1,9 +1,11 @@
 <script>
-	import { Input, ButtonGroup, Button, Chevron, Dropdown, DropdownItem, Card, Rating, Badge, Spinner, Pagination } from "flowbite-svelte";
-	import { handleRequest } from "../utils/requestHandler";
-	import { ENDPOINT } from "../utils/const";
-    import { onMount } from "svelte";
-    import { addToast } from "../store/toasts";
+	import { Input, ButtonGroup, Button, Chevron, Dropdown, DropdownItem, Spinner, Pagination } from "flowbite-svelte"
+    import { onMount } from "svelte"
+	import ProductCard from "../components/store/ProductCard.svelte"
+	import Cart from "../components/store/Cart.svelte"
+	import { handleRequest } from "../utils/requestHandler"
+	import { ENDPOINT } from "../utils/const"
+    import { addToast } from "../store/toasts"
 
 	// PRODUCTS
 	let products = []
@@ -22,7 +24,6 @@
 		} else
 			throw Error()
 	}
-	let getProductsPromise = getProducts()
 	$: filteredProducts = products.filter( (product) => product.name.toLowerCase().indexOf(searchTitle.toLowerCase()) !== -1)
 
 	// CATEGORIES
@@ -46,21 +47,37 @@
 		categoriesDropDownOpen = false
 		getProductsPromise = getProducts()
 	}
+	
+	// PAGINATION
+	const MAX_RFP = 9
+	function changePage(nextPage) {
+		helper.start += nextPage ? MAX_RFP : -MAX_RFP
+		helper.end += nextPage ? MAX_RFP : -MAX_RFP
+		window.scrollTo(0, 0)
+	}
+	$: helper = {start: 1, end: MAX_RFP, total: filteredProducts.length}
+	$: currentPageProducts = filteredProducts.slice(helper.start-1, helper.end)
+
+	let getProductsPromise = getProducts()
 	onMount(async() => {
 		categories = await getCategories()
 	})
 
-	// PAGINATION
-	const MAX_RFP = 9
-	$: helper = {start: 1, end: MAX_RFP, total: filteredProducts.length}
-	$: currentPageProducts = filteredProducts.slice(helper.start-1, helper.end)
-	
-	function changePage(nextPage) {
-		helper.start += nextPage ? MAX_RFP : -MAX_RFP
-		helper.end += nextPage ? MAX_RFP : -MAX_RFP
-		window.scrollTo(0, 0);
+	// CART
+	let cartProducts = []
+	function addToCart(event) {
+		let index = cartProducts.indexOf(event.detail)
+		if (index !== -1) {
+			cartProducts[index].quantity += 1
+		} else {
+			const product = event.detail
+			product.quantity = 1
+			cartProducts.push(product)
+		}
+		cartProducts = cartProducts
 	}
-
+	$: console.log(cartProducts)
+	
 </script>
 
 <div class="container mx-auto px-4 lg:px-24 py-8">
@@ -68,7 +85,7 @@
 	<ButtonGroup class="w-full mb-12">
 		<Button
 			color="none"
-			class="sm:flex-shrink-0 text-gray-900 bg-gray-100 border border-gray-300 dark:border-gray-700 dark:text-white hover:bg-gray-200 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+			class="rounded-l-xl sm:flex-shrink-0 text-gray-900 bg-gray-100 border border-gray-300 dark:border-gray-700 dark:text-white hover:bg-gray-200 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
 		>
 			<Chevron><p class="text-xs sm:text-base">{category_selected !== "" ? category_selected : "Tutte le categorie"}</p></Chevron>
 		</Button>
@@ -79,12 +96,15 @@
 			{/each}
 		</Dropdown>
 		<Input bind:value={searchTitle} placeholder="Cerca un prodotto" />
-		<Button color="blue" class="!p-2.5" type="submit">
+		<Button color="blue" class="!p-2.5 rounded-r-xl" type="submit">
 			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
 			</svg>
 		</Button>
+		<!-- CART -->
+		<Cart divClass={"sm:ml-6"} cartProducts={cartProducts}/>
 	</ButtonGroup>
+	<!-- CART ICON -->
 
 	{#await getProductsPromise}
 		<div class="text-center"><Spinner/></div>
@@ -98,27 +118,7 @@
 	{#if currentPageProducts.length}
 	<div class="grid grid-cols-2 xl:grid-cols-3 gap-4">
 		{#each currentPageProducts as product}
-			<Card class="mx-auto w-full flex items-">
-				<img class="p-1 h-36 sm:h-64 mx-auto rounded-t-lg" src={product.imageURI} alt="product 1"/>
-				<h5 class="mb-4 text-sm sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-					{product.name}
-				</h5>
-				<div class="pb-5 mt-auto">
-					<hr>
-					<Rating rating={product.rating} size="18" class="mt-2.5 mb-5">
-						<Badge slot="text" class="ml-3">{product.rating}</Badge>
-					</Rating>
-					<Badge slot="text">{product.category}</Badge>
-					<Badge color="red" slot="text">Rimangono {product.quantity} {product.quantity == 1 ? "prodotto" : "prodotti"} </Badge>
-					<div class="flex justify-between items-center -m-1 mt-4">
-						<span class="text-xl sm:text-3xl font-bold text-gray-900 dark:text-white">{product.price}€</span>
-						<Button>
-							<svg aria-hidden="true" class="mx-auto sm:mr-2 sm:-ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
-							<p class="hidden sm:block">Acquista subito</p>
-						</Button>
-					</div>
-				</div>
-			</Card>
+			<ProductCard product={product} on:addToCart={addToCart}/>
 		{/each}
 	</div>
 
@@ -142,4 +142,3 @@
 	</div>
 	{/if}
 </div>
-
