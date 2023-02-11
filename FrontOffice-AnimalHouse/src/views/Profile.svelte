@@ -17,21 +17,17 @@
 	style="min-height: 500px; background-image: url(https://img.freepik.com/premium-photo/simple-white-background-with-smooth-lines-light-colors_476363-5558.jpg); background-size: cover; background-position: center top;"
 >
 	<div class="container mx-auto my-auto p-5">
-		<p class="absolute sm:px-4"> USER PROFILE </p>
+		<p class="absolute sm:px-4"> PROFILO UTENTE </p>
 		<div class="mt-3 pb-8 pt-5">
 			<div class="mx-auto sm:px-4 sm:flex justify-between mt-3">
-				<div class="sm:w-2/3">
-					<h1 class="text-2xl sm:mb-8 text-dark sm:mt-4">Hello {$user.name}</h1>
+				<div class="sm:w-2/3 mr-4">
+					<h1 class="text-2xl sm:mb-8 text-dark sm:mt-4">Ciao {$user.name}</h1>
 					<!-- TODO: modifica testo presentazione pagina profilo -->
 					<p class="text-dark font-light text-base mb-2 sm:mb-10 mt-5">
 						{#if animalsView}
-							This is your pets page. You can see the progress
-							you've made with your work and manage your projects or
-							assigned tasks	 
+							Questa è la pagina dei tuoi animali. Qui puoi aggiungere tutti i tuoi animali domestici preferiti
 						{:else}
-							This is your profile page. You can see the progress
-							you've made with your work and manage your projects or
-							assigned tasks
+							Questa è la tua pagina profilo. Qui puoi visualizzare e modificare i tuoi dati
 						{/if}
 					</p>
 					<div class="my-4">
@@ -39,7 +35,7 @@
 							<Button class="bg-blue-500" on:click={() => isAnimalFormOpen = !isAnimalFormOpen }> Aggiungi</Button>
 							<Button color="dark" on:click={ () => animalsView = false }> Torna al profilo </Button>
 						{:else}
-							<Button color={editMode ? "green" : "dark"} type="submit" form={formId} on:click={() => editMode = !editMode }> {editMode ? "Save" :  "Edit" } </Button>
+							<Button color={editMode ? "green" : "dark"} type="submit" form={formId} on:click={() => editMode = !editMode }> {editMode ? "Salva" :  "Modifica" } </Button>
 							<Button class="bg-blue-500" on:click={ () => animalsView = true } disabled={editMode} >I miei animali</Button>
 						{/if}
 					</div>
@@ -78,7 +74,7 @@
 <div class="container mx-auto my-6 h-max">
 	{#if animalsView}
 		<AnimalFormModel isAnimalFormOpen={isAnimalFormOpen} on:closeForm={() => isAnimalFormOpen = false} />
-		<div class="lg:grid lg:grid-cols-2 gap-5">
+		<div class="lg:grid lg:grid-cols-2 gap-5 p-6">
 			{#each $animals as animal (animal._id)}
 				<CardAnimal animal={animal}/>
 			{/each}
@@ -91,7 +87,7 @@
 			</div>
 		{/if}
 	{:else}
-		<div class="w-full rounded break-words border bg-white border-1 border-gray-300 shadow mb-5 mx-2">
+		<div class="lg:w-3/4 mx-2 lg:mx-auto rounded break-words border bg-white border-1 border-gray-300 shadow mb-5">
 			<CardAccount formId={formId} editMode={editMode}/>
 		</div>
 	{/if}
