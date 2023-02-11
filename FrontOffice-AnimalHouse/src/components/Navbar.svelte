@@ -30,16 +30,16 @@
         {#if !isUserLogged}
                 <SignInModal />
         {:else}
-            <Avatar id="avatar-menu">{$user.name.charAt(0) + $user.surname.charAt(0)}</Avatar>
+            <Avatar class="cursor-pointer" id="avatar-menu">{$user.name.charAt(0) + $user.surname.charAt(0)}</Avatar>
             <Dropdown placement="bottom" triggeredBy="#avatar-menu" open={dropDownsOpen[0]} on:show={(event) => dropDownsOpen[0] = event.detail}>
                 <DropdownHeader>
                     <span class="block text-sm"> { $user.fullName } </span>
                     <span class="block truncate text-sm font-medium"> { $user.email } </span>
                 </DropdownHeader>
-                <DropdownItem on:click={() => changePage("#/profile", hidden, toggle)}>My Profile</DropdownItem>
-                <DropdownItem on:click={() => changePage("#/profile/pets", hidden, toggle)}>My Pets</DropdownItem>
+                <DropdownItem on:click={() => changePage("#/profile", hidden, toggle)}>Profilo</DropdownItem>
+                <DropdownItem on:click={() => changePage("#/profile/pets", hidden, toggle)}>I miei animali</DropdownItem>
                 <DropdownDivider />
-                <DropdownItem on:click={ () => { user.logOut(); changePage("/", hidden, toggle)}} >Sign out</DropdownItem>
+                <DropdownItem on:click={ () => { user.logOut(); changePage("/", hidden, toggle)}} >Esci dal profilo</DropdownItem>
             </Dropdown>
         {/if}
     </div>
