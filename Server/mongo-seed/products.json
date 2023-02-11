@@ -24,7 +24,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Latte in polvere per gattini",
@@ -96,7 +96,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Alimento per tartarughe",
@@ -159,7 +159,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 20,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Tunnel per gatti",
@@ -168,7 +168,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Alimento per rettili",
@@ -222,7 +222,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 10,
 		"quantity": 20,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Alimento per cani senior",
@@ -231,7 +231,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Lettiera per gatti",
@@ -249,7 +249,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 20,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Gabbia per uccelli",
@@ -285,7 +285,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Arrampicata per gatti",
@@ -330,7 +330,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Alimento per pappagalli",
@@ -357,7 +357,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Pettorina per cani",
@@ -393,7 +393,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 8,
 		"quantity": 20,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Gabbia per roditori",
@@ -411,7 +411,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 25,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Selleria per cavalli",
@@ -465,7 +465,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 20,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Pipette per gatti",
@@ -501,7 +501,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Pettorina per gatti",
@@ -519,7 +519,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Crema per il trattamento delle ferite",
@@ -600,7 +600,7 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 12,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	},
 	{
 		"name": "Lozione per il trattamento della forfora",
@@ -627,6 +627,6 @@
 		"imageURI": "https://m.media-amazon.com/images/I/71REzqy5KKL._AC_SL1500_.jpg",
 		"price": 15,
 		"quantity": 10,
-		"rating": 0
+		"rating": 5
 	}
 ]
