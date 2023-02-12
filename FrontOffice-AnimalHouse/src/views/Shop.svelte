@@ -66,7 +66,7 @@
 
 	// CART
 	let isDropdownCartOpen = false
-	let cartProducts = []
+	let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || []
 	function addToCart(event) {
 		let index = cartProducts.findIndex((product) => product._id == event.detail._id)
 		if (index !== -1) {

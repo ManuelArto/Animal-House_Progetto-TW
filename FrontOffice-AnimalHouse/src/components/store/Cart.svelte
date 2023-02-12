@@ -8,6 +8,10 @@
 	export let divClass
 	export let products = []
 
+	function changeQuantity(event) {
+		localStorage.setItem("cartProducts", JSON.stringify(products))
+	}
+
 	$: totalPrice = products.reduce( (accumulator, product) => accumulator + (product.quantity * product.price), 0)
 
 </script>
@@ -37,7 +41,7 @@
 				<p class="text-gray-500"> 
 					Quantity:
 					<Input defaultClass="inline-flex w-16 h-4 disabled:cursor-not-allowed" let:props>
-						<input type="number" {...props} bind:value={product.quantity} max={product.maxQuantity} min="1" />
+						<input type="number" {...props} on:change={changeQuantity} bind:value={product.quantity} max={product.maxQuantity} min="1" />
 					</Input>
 				</p>
 				<div class="flex">
