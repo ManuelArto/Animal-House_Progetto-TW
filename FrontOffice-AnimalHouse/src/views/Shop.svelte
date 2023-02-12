@@ -65,7 +65,6 @@
 	})
 
 	// CART
-	let isDropdownCartOpen = false
 	let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || []
 	function addToCart(event) {
 		let index = cartProducts.findIndex((product) => product._id == event.detail._id)
@@ -83,7 +82,6 @@
 	function removeFromCart(event) {
 		cartProducts = cartProducts.filter((product) => product._id != event.detail._id)
 		localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
-		isDropdownCartOpen = true
 	}
 
 </script>
@@ -110,7 +108,7 @@
 			</svg>
 		</Button>
 		<!-- CART -->
-		<Cart divClass={"sm:ml-6"} products={cartProducts} on:remove={removeFromCart} isDropdownCartOpen={isDropdownCartOpen}/>
+		<Cart divClass={"sm:ml-6"} products={cartProducts} on:remove={removeFromCart}/>
 	</ButtonGroup>
 	<!-- CART ICON -->
 

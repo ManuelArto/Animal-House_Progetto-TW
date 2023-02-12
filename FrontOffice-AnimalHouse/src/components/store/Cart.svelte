@@ -4,7 +4,6 @@
 	
 	const dispatch = createEventDispatcher();
 	
-	export let isDropdownOpen = false
 	export let divClass
 	export let products = []
 
@@ -24,7 +23,7 @@
 		</div>
 	{/if}
 </div>
-<Dropdown on:show={(event) => isDropdownOpen = event.detail} open={isDropdownOpen} triggeredBy="#bell" class="w-full sm:w-96 divide-y divide-gray-100 shadow dark:bg-gray-800 dark:divide-gray-700">
+<Dropdown triggeredBy="#bell" class="w-full h-96 overflow-y-scroll sm:scrollbar-hide sm:w-96 divide-y divide-gray-100 shadow dark:bg-gray-800 dark:divide-gray-700">
 	<div slot="header" class="text-center py-2 font-bold"> Carrello </div>
 	{#each products as product}
 	<DropdownItem class="flex justify-between py-6">

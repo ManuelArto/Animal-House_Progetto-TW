@@ -1,18 +1,21 @@
 <script>
-	import { Button, Card, Rating, Badge } from "flowbite-svelte";
+	import { Button, Card, Rating, Badge, Modal } from "flowbite-svelte";
 	import { createEventDispatcher } from 'svelte'
+    import ProductModal from "./ProductModal.svelte";
 	
 	export let product
+	
 	const dispatch = createEventDispatcher();
+	let isProductModalOpen = false
 </script>
 
 <Card class="mx-auto w-full flex items-">
-	<div class="cursor-pointer" id="modalDiv">
+	<button class="cursor-pointer" id="modalDiv" on:click={() => isProductModalOpen = !isProductModalOpen}>
 		<img class="p-1 h-36 sm:h-64 mx-auto rounded-t-lg" src={product.imageURI} alt="product 1"/>
 		<h5 class="mb-4 text-sm sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
 			{product.name}
 		</h5>
-	</div>
+	</button>
 	<div class="pb-5 mt-auto">
 		<hr>
 		<Rating rating={product.rating} size="18" class="mt-2.5 mb-5">
@@ -29,3 +32,8 @@
 		</div>
 	</div>
 </Card>
+
+
+<Modal bind:open={isProductModalOpen} size="xl" autoclose>
+    <ProductModal product={product} on:addToCart />
+</Modal>
