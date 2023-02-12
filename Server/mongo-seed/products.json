@@ -36,15 +36,6 @@
 		"rating": 5
 	},
 	{
-		"name": "Tappetino per animali domestici",
-		"description": "E' morbido e confortevole; facile da pulire e resistente all'acqua; ideale per cani e gatti",
-		"category": "Accessoristica",
-		"imageURI": "https://cdn.geapetshop.it/uploads/2021/02/5371.jpg",
-		"price": 20,
-		"quantity": 6,
-		"rating": 5
-	},
-	{
 		"name": "Pelle di pollo essiccata",
 		"description": "Ottimo snack per cani; ricca di proteine e povera di grassi; ideale per cani di ogni taglia",
 		"category": "Cibo",
@@ -97,15 +88,6 @@
 		"price": 20,
 		"quantity": 10,
 		"rating": 5
-	},
-	{
-		"name": "Alimento per tartarughe",
-		"description": "E' formulato per soddisfare le esigenze nutrizionali delle tartarughe; contiene una combinazione di vegetali e proteine; disponibile in forma di pellet",
-		"category": "Cibo",
-		"imageURI": "https://ibrio.it/5328-Ebay/tetra-reptomin-1-lt-mangime-in-stick-per-tartarughe-d-acqua.jpg",
-		"price": 15,
-		"quantity": 8,
-		"rating": 4
 	},
 	{
 		"name": "Cuscino per animali domestici",
@@ -171,15 +153,6 @@
 		"rating": 5
 	},
 	{
-		"name": "Alimento per rettili",
-		"description": "E' formulato per soddisfare le esigenze nutrizionali di serpenti, lucertole e altri rettili; ricco di proteine e minerali; disponibile in forma di pellet",
-		"category": "Cibo",
-		"imageURI": "https://static.zoomalia.com/prod_img/10248/it_1950336dcbab05b9d5ad24f4333c7658a0e1537975824.jpg",
-		"price": 15,
-		"quantity": 12,
-		"rating": 2
-	},
-	{
 		"name": "Trasportino per animali domestici",
 		"description": "Progettato per trasportare il tuo animale domestico in sicurezza e comfort; è realizzato in materiali resistenti e facili da pulire",
 		"category": "Accessoristica",
@@ -189,15 +162,6 @@
 		"rating": 5
 	},
 	{
-		"name": "Alimento per cavalli",
-		"description": "E' formulato per soddisfare le esigenze nutrizionali dei cavalli; ricco di fibre, proteine e minerali; disponibile in varie miscele",
-		"category": "Cibo",
-		"imageURI": "https://www.morando.it/wp-content/uploads/2022/05/Allevamento.png",
-		"price": 30,
-		"quantity": 8,
-		"rating": 3
-	},
-	{
 		"name": "Letto per animali domestici",
 		"description": "E' progettato per offrire un luogo confortevole per il tuo animale domestico; è realizzato in tessuti resistenti e facili da pulire",
 		"category": "Accessoristica",
@@ -205,15 +169,6 @@
 		"price": 25,
 		"quantity": 6,
 		"rating": 5
-	},
-	{
-		"name": "Alimento per furetti",
-		"description": "E' formulato per soddisfare le esigenze nutrizionali dei furetti; ricco di proteine e grassi; disponibile in forma di pellet",
-		"category": "Cibo",
-		"imageURI": "https://m.media-amazon.com/images/I/81EdU94eH5L._AC_SL1500_.jpg",
-		"price": 15,
-		"quantity": 12,
-		"rating": 2
 	},
 	{
 		"name": "Giocattoli per animali domestici",
@@ -249,15 +204,6 @@
 		"imageURI": "http://www.gheginonline.it/3/products/images/000/008/4008239218827.jpg",
 		"price": 8,
 		"quantity": 20,
-		"rating": 5
-	},
-	{
-		"name": "Gabbia per uccelli",
-		"description": "E' progettata per fornire un ambiente sicuro e confortevole per il tuo uccello; disponibile in varie dimensioni e materiali",
-		"category": "Accessoristica",
-		"imageURI": "https://images.eprice.it/nobrand/0/Lightbox/462/202898462/331052007811PRDID.0.jpg",
-		"price": 50,
-		"quantity": 5,
 		"rating": 5
 	},
 	{
@@ -384,15 +330,6 @@
 		"imageURI": "https://i.ebayimg.com/images/g/HHAAAOSw1BdhCUuL/s-l500.jpg",
 		"price": 80,
 		"quantity": 5,
-		"rating": 5
-	},
-	{
-		"name": "Alimento per roditori",
-		"description": "E' formulato per soddisfare le esigenze nutrizionali dei roditori; ricco di cereali e vegetali; disponibile in forma di pellet",
-		"category": "Cibo",
-		"imageURI": "https://petmarket.it/13349-thickbox_default/versele-laga-crispy-biscuits-gr-70-alimento-per-roditori.jpg",
-		"price": 8,
-		"quantity": 20,
 		"rating": 5
 	},
 	{
