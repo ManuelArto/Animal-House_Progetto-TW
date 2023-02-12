@@ -14,7 +14,7 @@
 </script>
 
 <div class="relative w-full"
-	style="min-height: 500px; background-image: url(https://img.freepik.com/premium-photo/simple-white-background-with-smooth-lines-light-colors_476363-5558.jpg); background-size: cover; background-position: center top;"
+	style="min-height: 450px; background-image: url(https://img.freepik.com/premium-photo/simple-white-background-with-smooth-lines-light-colors_476363-5558.jpg); background-size: cover; background-position: center top;"
 >
 	<div class="container mx-auto my-auto p-5">
 		<p class="absolute sm:px-4"> PROFILO UTENTE </p>
