@@ -22,7 +22,6 @@
 			<div class="mx-auto sm:px-4 sm:flex justify-between mt-3">
 				<div class="sm:w-2/3 mr-4">
 					<h1 class="text-2xl sm:mb-8 text-dark sm:mt-4">Ciao {$user.name}</h1>
-					<!-- TODO: modifica testo presentazione pagina profilo -->
 					<p class="text-dark font-light text-base mb-2 sm:mb-10 mt-5">
 						{#if animalsView}
 							Questa è la pagina dei tuoi animali. Qui puoi aggiungere tutti i tuoi animali domestici preferiti
