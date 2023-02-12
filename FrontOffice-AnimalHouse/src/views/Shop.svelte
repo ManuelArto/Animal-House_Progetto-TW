@@ -50,19 +50,18 @@
 	
 	// PAGINATION
 	const MAX_RFP = 9
+	$: currentPageProducts = filteredProducts.slice(helper.start-1, helper.end)
+	$: helper = {
+		start: 1, 
+		end: Math.min(filteredProducts.length, MAX_RFP), 
+		total: filteredProducts.length
+	}
 	function changePage(nextPage) {
 		helper.start += nextPage ? MAX_RFP : -MAX_RFP
 		helper.end += nextPage ? MAX_RFP : -MAX_RFP
 		helper.end = Math.min(filteredProducts.length, helper.end)
 		window.scrollTo(0, 0)
 	}
-	$: helper = {start: 1, end: MAX_RFP, total: filteredProducts.length}
-	$: currentPageProducts = filteredProducts.slice(helper.start-1, helper.end)
-
-	let getProductsPromise = getProducts()
-	onMount(async() => {
-		categories = await getCategories()
-	})
 
 	// CART
 	let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || []
@@ -84,6 +83,11 @@
 		localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
 	}
 
+
+	let getProductsPromise = getProducts()
+	onMount(async() => {
+		categories = await getCategories()
+	})
 </script>
 
 <div class="container mx-auto px-4 lg:px-24 py-8">
