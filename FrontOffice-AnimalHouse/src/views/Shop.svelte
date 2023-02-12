@@ -64,20 +64,27 @@
 	})
 
 	// CART
+	let isDropdownCartOpen = false
 	let cartProducts = []
 	function addToCart(event) {
-		let index = cartProducts.indexOf(event.detail)
+		let index = cartProducts.findIndex((product) => product._id == event.detail._id)
 		if (index !== -1) {
-			cartProducts[index].quantity += 1
+			cartProducts[index].quantity += cartProducts[index].quantity < cartProducts[index].maxQuantity ? 1 : 0
 		} else {
-			const product = event.detail
+			const product = {...event.detail}
+			product.maxQuantity = product.quantity
 			product.quantity = 1
 			cartProducts.push(product)
 		}
+		localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
 		cartProducts = cartProducts
 	}
-	$: console.log(cartProducts)
-	
+	function removeFromCart(event) {
+		cartProducts = cartProducts.filter((product) => product._id != event.detail._id)
+		localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
+		isDropdownCartOpen = true
+	}
+
 </script>
 
 <div class="container mx-auto px-4 lg:px-24 py-8">
@@ -102,7 +109,7 @@
 			</svg>
 		</Button>
 		<!-- CART -->
-		<Cart divClass={"sm:ml-6"} cartProducts={cartProducts}/>
+		<Cart divClass={"sm:ml-6"} products={cartProducts} on:remove={removeFromCart} isDropdownCartOpen={isDropdownCartOpen}/>
 	</ButtonGroup>
 	<!-- CART ICON -->
 

@@ -7,10 +7,12 @@
 </script>
 
 <Card class="mx-auto w-full flex items-">
-	<img class="p-1 h-36 sm:h-64 mx-auto rounded-t-lg" src={product.imageURI} alt="product 1"/>
-	<h5 class="mb-4 text-sm sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-		{product.name}
-	</h5>
+	<div class="cursor-pointer" id="modalDiv">
+		<img class="p-1 h-36 sm:h-64 mx-auto rounded-t-lg" src={product.imageURI} alt="product 1"/>
+		<h5 class="mb-4 text-sm sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+			{product.name}
+		</h5>
+	</div>
 	<div class="pb-5 mt-auto">
 		<hr>
 		<Rating rating={product.rating} size="18" class="mt-2.5 mb-5">
