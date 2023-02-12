@@ -130,85 +130,99 @@ startGame()
 </script>
 
 <template>
-	<img src="@/assets/banner_quiz.jpg" class="mb-3 border-bottom border-light w-100" alt="banner_quiz"
-		style="object-fit: cover;">
+	<div id="animation">
+		<img src="@/assets/banner_quiz.jpg" class="mb-3 border-bottom border-light w-100" alt="banner_quiz"
+			style="object-fit: cover;">
 
-	<b-container class="d-flex mx-auto m-3">
-		<div class="card mx-auto w-100 shadow">
-			<!-- QUIZ TITLE -->
-			<div class="card-header d-flex justify-content-between align-items-center">
-				<h6 class="m-0"><i class="bi bi-patch-question-fill"></i> Animal Quiz</h6>
-				<span>Score ({{ score }}/{{ keys.length }}) <i class="bi bi-award-fill"></i></span>
+		<b-container class="d-flex mx-auto m-3">
+			<div class="card mx-auto w-100 shadow">
+				<!-- QUIZ TITLE -->
+				<div class="card-header d-flex justify-content-between align-items-center">
+					<h6 class="m-0"><i class="bi bi-patch-question-fill"></i> Animal Quiz</h6>
+					<span>Score ({{ score }}/{{ keys.length }}) <i class="bi bi-award-fill"></i></span>
+				</div>
+				<ul class="list-group list-group-flush w-100 card-quiz-section d-flex justify-content-center align-items-center text-center">
+					<h1 class="mb-3" v-if="questionIndex === keys.length">
+						Hai totalizzato<br><b>{{ score }}/{{ keys.length }}</b> punti!!
+					</h1>
+					<!-- QUIZ CONTENT -->
+					<li v-else class="list-group-item w-100 card-quiz-section d-flex justify-content-center align-items-center text-center">
+						<b-spinner v-if="!currentQuestion">
+						</b-spinner>
+						<div class="w-100" v-else>
+							<h4 class="position-absolute top-0">{{ questionIndex + 1 }}.</h4>
+							<!-- QUIZ IMAGE -->
+							<img :src="currentQuestion?.animalImage" alt="animal image" class="img-thumbnail position-relative" >
+							<!-- QUIZ QUESTIOn -->
+							<h3 class="mt-2" v-html="currentQuestion.question" />
+							<!-- QUIZ ANSWERS -->
+							<b-row class="row-cols-2 g-4 my-2">
+								<b-col class="d-flex justify-content-center my-2"
+									v-for="(answer, index) in currentQuestion.answers">
+									<input type="button" class="btn-check" :id="`input${index}`" name="selection"
+										autocomplete="off" :onClick="(event) => answerClicked(answer, index)" />
+									<label class="btn btn-outline-dark w-75 p-2 d-flex align-items-center justify-content-center" :id="`label${index}`"
+										:for="`input${index}`">
+										<span class="answer">{{ answer.answer }}</span>
+									</label>
+								</b-col>
+							</b-row>
+						</div>
+					</li>
+					<!-- QUIZ BUTTONS -->
+					<li :class="`list-group-item ${questionIndex !== keys.length ? 'd-flex align-self-end' : ''}`">
+						<b-button variant="primary" class="rounded rounded-4 mx-2" :onClick="(event) => startGame()">
+							<i class="bi bi-arrow-clockwise"></i>
+						</b-button>
+						<b-button v-if="questionIndex !== keys.length" ref="nextQuestionButton" id="nextQuestion" variant="success" class="rounded rounded-4"
+							:onClick="() => getNewQuestion(keys[++questionIndex])" :disabled="isNextQuestionDisabled">
+							Next question
+						</b-button>
+					</li>
+				</ul>
 			</div>
-			<ul class="list-group list-group-flush w-100 card-quiz-section d-flex justify-content-center align-items-center text-center">
-				<h1 class="mb-3" v-if="questionIndex === keys.length">
-					Hai totalizzato<br><b>{{ score }}/{{ keys.length }}</b> punti!!
-				</h1>
-				<!-- QUIZ CONTENT -->
-				<li v-else class="list-group-item w-100 card-quiz-section d-flex justify-content-center align-items-center text-center">
-					<b-spinner v-if="!currentQuestion">
-					</b-spinner>
-					<div class="w-100" v-else>
-						<h4 class="position-absolute top-0">{{ questionIndex + 1 }}.</h4>
-						<!-- QUIZ IMAGE -->
-						<img :src="currentQuestion?.animalImage" alt="animal image" class="img-thumbnail position-relative" >
-						<!-- QUIZ QUESTIOn -->
-						<h3 class="mt-2" v-html="currentQuestion.question" />
-						<!-- QUIZ ANSWERS -->
-						<b-row class="row-cols-2 g-4 my-2">
-							<b-col class="d-flex justify-content-center my-2"
-								v-for="(answer, index) in currentQuestion.answers">
-								<input type="button" class="btn-check" :id="`input${index}`" name="selection"
-									autocomplete="off" :onClick="(event) => answerClicked(answer, index)" />
-								<label class="btn btn-outline-dark w-75 p-2 d-flex align-items-center justify-content-center" :id="`label${index}`"
-									:for="`input${index}`">
-									<span class="answer">{{ answer.answer }}</span>
-								</label>
-							</b-col>
-						</b-row>
-					</div>
-				</li>
-				<!-- QUIZ BUTTONS -->
-				<li :class="`list-group-item ${questionIndex !== keys.length ? 'd-flex align-self-end' : ''}`">
-					<b-button variant="primary" class="rounded rounded-4 mx-2" :onClick="(event) => startGame()">
-						<i class="bi bi-arrow-clockwise"></i>
-					</b-button>
-					<b-button v-if="questionIndex !== keys.length" ref="nextQuestionButton" id="nextQuestion" variant="success" class="rounded rounded-4"
-						:onClick="() => getNewQuestion(keys[++questionIndex])" :disabled="isNextQuestionDisabled">
-						Next question
-					</b-button>
-				</li>
-			</ul>
-		</div>
-	</b-container>
+		</b-container>
+	</div>
 </template>
 
 <style scoped>
+	#animation {
+    	animation: ombra 0.5s ease-in both;
+  	}
 
-img {
-	max-height: 400px;
-	object-fit: fill !important;
-}
+	@keyframes ombra {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity:1;
+		}
+	}
 
-.card-quiz-section {
-	min-height: 600px;
-}
+	img {
+		max-height: 400px;
+		object-fit: fill !important;
+	}
 
-.img-thumbnail {
-	height: 400px;
-}
-
-@media screen and (max-width: 564px) {
 	.card-quiz-section {
-		min-height: 300px;
-	}
-	
-	.img-thumbnail {
-		height: 150px;
+		min-height: 600px;
 	}
 
-	.answer {
-		font-size: 12px
+	.img-thumbnail {
+		height: 400px;
 	}
-}
+
+	@media screen and (max-width: 564px) {
+		.card-quiz-section {
+			min-height: 300px;
+		}
+		
+		.img-thumbnail {
+			height: 150px;
+		}
+
+		.answer {
+			font-size: 12px
+		}
+	}
 </style>

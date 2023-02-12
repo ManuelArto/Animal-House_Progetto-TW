@@ -1,29 +1,31 @@
 <template>
+  <div id="animation">
     <div class="container-fluid">
         <div class="row" id="contenitore">
-            <div class="col-12 col-md-6 mt-3 mb-3" v-for="service in services" :key="service.id">
-                <b-card class="mb-3 h-100" id="card">
-                    <div class="row no-gutters h-100">
-                        <div class="col-md-5">
-                            <img :src="service.image" class="card-img h-100">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body d-flex flex-column h-100">
-                                <h5 class="card-title fs-2">{{ service.name }}</h5>
-                                <p class="card-text fs-5">{{ service.description }}</p>
-                                <div class="d-flex justify-content-end mt-auto">
-                                    <button class="fs-4 btn btn-primary">Prenota adesso</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </b-card>
-            </div>
+          <div class="col-12 col-md-6 mt-3 mb-3" v-for="service in services" :key="service.id">
+            <b-card class="mb-3 h-100" id="card">
+              <div class="row no-gutters h-100">
+                <div class="col-md-5">
+                  <img :src="service.image" class="card-img h-100">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body d-flex flex-column h-100">
+                      <h5 class="card-title fs-2">{{ service.name }}</h5>
+                      <p class="card-text fs-5">{{ service.description }}</p>
+                      <div class="d-flex justify-content-end mt-auto">
+                          <button class="fs-4 btn btn-primary">Prenota adesso</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </b-card>
+          </div>
         </div>
     </div>
+  </div>
 </template>
   
-  <script>
+<script>
   export default {
     data() {
       return {
@@ -56,9 +58,21 @@
       };
     },
   };
-  </script>
+</script>
   
-  <style>
+<style>
+  #animation {
+    animation: ombra 0.5s ease-in both;
+  }
+
+  @keyframes ombra {
+    from {
+          opacity: 0;
+    }
+    to {
+          opacity:1;
+    }
+  }
   .card-img {
     object-fit: cover;
     height: 100%;
@@ -76,4 +90,4 @@
     }
   }
   
-  </style>
+</style>
