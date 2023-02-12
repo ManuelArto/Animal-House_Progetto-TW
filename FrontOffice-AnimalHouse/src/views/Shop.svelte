@@ -53,6 +53,7 @@
 	function changePage(nextPage) {
 		helper.start += nextPage ? MAX_RFP : -MAX_RFP
 		helper.end += nextPage ? MAX_RFP : -MAX_RFP
+		helper.end = Math.min(filteredProducts.length, helper.end)
 		window.scrollTo(0, 0)
 	}
 	$: helper = {start: 1, end: MAX_RFP, total: filteredProducts.length}
