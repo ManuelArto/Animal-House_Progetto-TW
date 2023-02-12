@@ -11,12 +11,7 @@ const routes: Array<Route> = [
 	{ path: "/videos", text: "Video divertenti", icon: "bi-collection-play"},
 	{ path: "/negozio", text: "Prodotti", icon: "bi-shop"},
 	{ path: "/servizi", text: "Servizi", icon: "bi-gear"},
-	{ path: "", text: "Games ", nested: true, icon: "bi-controller", routes: [
-		{ path: "/games/quiz", text: "Quiz", icon: "s"},
-		{ path: "/games/memory", text: "Memory", icon: "s"},
-		{ path: "/games/impiccato", text: "Impiccato", icon: "s"},
-		{ path: "/games/scova_le_differenze", text: "Scova le differenze", icon: "s"},
-	]}
+	{ path: "/Games/quiz", text: "Quiz ", icon: "bi-controller"}
 ];
 
 </script>

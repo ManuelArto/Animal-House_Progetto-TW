@@ -26,15 +26,6 @@ defineProps<{
 						<i :class="route.icon"/>
 						<span class="ms-2">{{ route.text }} </span>
 					</b-nav-item>
-					<b-nav-item-dropdown v-else class="mx-2 mx-lg-1" :key="route.text">
-						<template #button-content>
-							<i :class="route.icon" />
-							<span class="ms-2">{{ route.text }}</span>
-						</template>
-						<b-dropdown-item v-for="sub_route in route.routes" :key="sub_route.path" :to="sub_route.path">
-							{{ sub_route.text }}
-						</b-dropdown-item>
-					</b-nav-item-dropdown>
 				</span>
 			</b-navbar-nav>
 		</b-collapse>
