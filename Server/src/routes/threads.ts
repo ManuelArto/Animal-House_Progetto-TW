@@ -13,7 +13,7 @@ router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
             .populate("messages.author")
             .exec()
 
-        res.json(threads.map(thread => thread.toJSON()))
+        res.json(threads)
     } catch (error: any) {
         next(new ErrorWrapper({ statusCode: 500, error: error }))
     }
@@ -28,7 +28,7 @@ router.post('', authJwt, async (req: Request | AuthRequest, res: Response, next:
         await ThreadModel.populate(newThread, "creator")
         await ThreadModel.populate(newThread, "messages.author")
 
-        res.status(201).json(newThread.toJSON())
+        res.status(201).json(newThread)
     } catch (error: any) {
         next(new ErrorWrapper({ statusCode: 500, error: error }))
     }
@@ -47,7 +47,7 @@ router.post('/:threadId/newMessage', authJwt, async (req: Request | AuthRequest,
 
         await ThreadModel.populate(thread, "creator")
         await ThreadModel.populate(thread, "messages.author")
-        res.json(thread.toJSON())
+        res.json(thread)
     } catch (error: any) {
         if (error instanceof ErrorWrapper)
             next(error)
