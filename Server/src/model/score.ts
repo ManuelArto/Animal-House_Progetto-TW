@@ -1,10 +1,10 @@
-import { Document, Schema, model } from 'mongoose'
+import { Document, Schema, model, ObjectId } from 'mongoose'
 import date from 'date-and-time'
 
 
 interface IScore extends Document {
 	game: string
-	name: string
+	user: ObjectId
 	punteggio: number
 }
 
@@ -13,9 +13,10 @@ const scoreSchema = new Schema<IScore>({
 		type: String,
 		required: true
 	},
-	name: {
-		type: String,
-		required: true
+	user: {
+		type: Schema.Types.ObjectId,
+		required: true,
+		ref: 'User'
 	},
 	punteggio: {
 		type: Number,
@@ -27,7 +28,7 @@ const scoreSchema = new Schema<IScore>({
 		transform(doc, ret) {
 			ret = {
 				"game": doc.game,
-				"name": doc.name,
+				"name": doc.user?.username || "[utente eliminato]",
 				"punteggio": doc.punteggio,
 				"date": date.format(doc.createdAt, "DD-MM-YYYY"),
 				"time": date.format(doc.createdAt, "HH:mm"),
