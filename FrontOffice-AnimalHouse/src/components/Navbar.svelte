@@ -5,19 +5,22 @@
     import SignInModal from "./user/SignInModal.svelte"
 
     let isUserLogged;
+    let active = "#/";
 	user.isUserLogged.subscribe(value => isUserLogged = value );
 
     let dropDownsOpen = [false, false]
     function changePage(url, isHamburgerMenuHidden, toggleMenu) {
         // closing dropdowns
         dropDownsOpen = dropDownsOpen.map((_) => false)
+        
+        active = url;
+        console.log("merdaa ", active);
         // close HamburgerMenu
         if (!isHamburgerMenuHidden)
             toggleMenu()
 
         push(url)
     }
-
 </script>
   
 
@@ -45,9 +48,9 @@
     </div>
     <NavHamburger on:click={toggle}/>
     <NavUl {hidden} class="ml-3">
-        <NavLi class="cursor-pointer" on:click={() => changePage("#/shop", hidden, toggle)}>Shop</NavLi>
-        <NavLi class="cursor-pointer"on:click={() => changePage("#/serviziPresenza", hidden, toggle)}>Servizi Presenza</NavLi>
-        <NavLi class="cursor-pointer"><Chevron aligned>Servizi comunità</Chevron></NavLi>
+        <NavLi class="cursor-pointer" style="{active === '#/shop' ? 'color:#0000CD; font-weight:bold; font-size:22px;' : ''}" on:click={() => changePage("#/shop", hidden, toggle)}>Shop</NavLi>
+        <NavLi class="cursor-pointer" style="{active === '#/serviziPresenza' ? 'color:#0000CD; font-weight:bold; font-size:22px;' : ''}" on:click={() => changePage("#/serviziPresenza", hidden, toggle)}>Servizi Presenza</NavLi>
+        <NavLi class="cursor-pointer" style="{active === '#/servizi/leaderboard' ||  active === '#/servizi/bachecaEccoloQua' ? 'color:#0000CD; font-weight:bold; font-size:22px;' : ''}"><Chevron aligned>Servizi comunità</Chevron></NavLi>
         <Dropdown offset="18" open={dropDownsOpen[1]} on:show={(event) => dropDownsOpen[1] = event.detail}>
           <DropdownItem on:click={() => changePage("#/servizi/leaderboard", hidden, toggle)}>LeaderBoard</DropdownItem>
           <DropdownItem on:click={() => changePage("#/servizi/bachecaEccoloQua", hidden, toggle)}>Bacheca "Eccolo qua"</DropdownItem>
