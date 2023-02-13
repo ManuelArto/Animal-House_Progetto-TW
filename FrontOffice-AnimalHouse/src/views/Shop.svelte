@@ -58,7 +58,7 @@
 	}
 	function changePage(nextPage) {
 		helper.start += nextPage ? MAX_RFP : -MAX_RFP
-		helper.end += nextPage ? MAX_RFP : -MAX_RFP
+		helper.end = helper.start + (MAX_RFP - 1)
 		helper.end = Math.min(filteredProducts.length, helper.end)
 		window.scrollTo(0, 0)
 	}
@@ -126,7 +126,7 @@
 
 	<!-- PRODUCTS -->
 	{#if currentPageProducts.length}
-	<div class="grid grid-cols-2 xl:grid-cols-3 gap-4">
+	<div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
 		{#each currentPageProducts as product}
 			<ProductCard product={product} on:addToCart={addToCart}/>
 		{/each}
@@ -139,12 +139,12 @@
 			<span class="font-semibold text-gray-900 dark:text-white">{helper.end}</span>
 			of <span class="font-semibold text-gray-900 dark:text-white">{helper.total}</span> Entries
 		</div>
-		<Pagination table on:next={() => changePage(true)} on:previous={() => changePage(false)}>
-			<Button slot="prev" class="flex items-center gap-2" disabled={helper.start == 1}>
+		<Pagination table>
+			<Button slot="prev" class="flex items-center gap-2" disabled={helper.start == 1} on:click={() => changePage(false)}>
 			  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
 			  Prev
 			</Button>
-			<Button slot="next" class="flex items-center gap-2" disabled={helper.end == helper.total}>
+			<Button slot="next" class="flex items-center gap-2" disabled={helper.end == helper.total} on:click={() => changePage(true)}>
 			  Next
 			  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
 			</Button>
