@@ -7,7 +7,13 @@
 	export let divClass
 	export let products = []
 
-	function changeQuantity(event) {
+	function changeQuantity(event, product) {
+		if (product.quantity < 1)
+			product.quantity = 1
+		else if (product.quantity > product.maxQuantity)
+			product.quantity = product.maxQuantity
+			
+		products = products
 		localStorage.setItem("cartProducts", JSON.stringify(products))
 	}
 
@@ -33,14 +39,14 @@
 		<div class="w-full">
 			<div class="flex justify-between gap-4 text-base font-medium text-gray-900">
 				<p class="flex text-sm sm:text-base">{product.name}</p>
-				<p class="flex">{product.price}€</p>
+				<p class="flex">{product.price * product.quantity}€</p>
 			</div>
 			<Badge class="mt-2 mb-0"  slot="text">{product.category}</Badge>
 			<div class="flex justify-between text-sm mt-2">
 				<p class="text-gray-500"> 
 					Quantity:
 					<Input defaultClass="inline-flex w-16 h-4 disabled:cursor-not-allowed" let:props>
-						<input type="number" {...props} on:change={changeQuantity} bind:value={product.quantity} max={product.maxQuantity} min="1" />
+						<input type="number" {...props} on:change={(event) => changeQuantity(event, product)} bind:value={product.quantity} max={product.maxQuantity} min="1" />
 					</Input>
 				</p>
 				<div class="flex">
