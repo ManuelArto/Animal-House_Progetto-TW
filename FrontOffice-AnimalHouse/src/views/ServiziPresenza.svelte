@@ -34,8 +34,8 @@
 
 	// Indirizzi SEDI
 	let searchTerm = '';
-	$: filteredSedi = sedi.filter(
-        (item) => `${item.address.street}, ${item.address.city}`.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 
+	$: table_sedi = sedi.filter(
+        (sede) => `${sede.address.street}, ${sede.address.city}`.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 
     )
 
 	// FILTRI
@@ -43,30 +43,28 @@
 	let selected_sedi = [];
 	let selected_services = [];
 	let selected_date;
-	
-	function cercaServizi(){
-		selected_sedi = selected_sedi.length ? selected_sedi : sedi;
-		selected_services = selected_services.length ? selected_services : services;
-
-		if($animals.length == 0){
-			error_animal = true;
-		}else{
-			error_animal = false;
+	function cercaServizi() {
+		if($animals.length == 0)
+			noAnimalError = true;
+		else {
+			selected_animal = $animals[0]
+			noAnimalError = false;
 			document.getElementById("selezione").style.display = "none";
 			document.getElementById("prenotazione").style.display = "block";
 		}
 	}
 
+	
 	// SEZIONE SERVIZI
-	let error_animal;
-	let selected_animal
+	$: filtered_sedi = selected_sedi.length ? selected_sedi : sedi;
+	$: filtered_services = selected_services.length ? selected_services : services;
+
+	let noAnimalError
+	let selected_animal = $animals[0]
 
 	function back(){
 		document.getElementById("selezione").style.display = "block";
 		document.getElementById("prenotazione").style.display = "none";
-
-		selected_sedi = [];
-		selected_services = [];
 	}
 
 	$: isSediSectionOpen = selected_sedi.map((value) => false)
@@ -90,7 +88,7 @@
 		<p class="mt-5 mb-2 ml-10 font-serif xl:text-2xl sm:text-lg text-gray-900 dark:text-white">Utilizza i filtri di seguito e visualizza le nostre disponibilità</p>
 		<p class="ml-10 text-sm">(clicca direttamente su <b>prenota</b> per visualizzare i servizi di tutte le sedi)</p>
 		{#if fetching}
-    		<div class="text-center"><Spinner/></div>
+		<div class="text-center"><Spinner/></div>
 		{:else}
 			<div class="xl:inline-flex sm:block mt-10 ml-5">
 				<!-- FILTRO SERVIZI -->
@@ -98,17 +96,18 @@
 					<div id="checkbox_services">
 						<p class="text-lg text-dark">Filtra il servizio desiderato</p>
 						{#each services as service}
-							 <Checkbox class="mt-5 text-lg" name="example" value={service} 
-								on:change={(event) => {
+							<Checkbox class="mt-5 text-lg" value={service} 
+							on:change={(event) => {
 									if (event.target.checked) {
 										if (!selected_services.includes(event.target.value)) {
 											selected_services.push(event.target.value);
 										}
 									} else {
-										selected_services = selected_services.filter(item => item !== event.target.value);
+										selected_services = selected_services.filter((service) => service !== event.target.value)
 									}
+									selected_services = selected_services
 								}}>
-							 	{service}
+								{service}
 							</Checkbox>
 						{/each}
 					</div>
@@ -119,18 +118,19 @@
 					<Search size="sm" placeholder="Cerca un indirizzo o città" on:input={(event) => searchTerm = event.target.value} />
 					<Table divClass="relative mt-2 -ml-2 overflow-auto overflow-x-hidden sm:rounded-lg" hoverable={true}>
 						<TableBody class="divide-y" id="checkbox_sits">
-							{#each filteredSedi as sede}
+							{#each table_sedi as sede}
 								<TableBodyRow class="border-slate-400">
 									<TableBodyCell tdClass="whitespace-nowrap font-medium">
-										<Checkbox class="px-6 py-4" value={sede.address.street} 
+										<Checkbox class="px-6 py-4" value={sede._id}
 											on:change={(event) => {
 												if(event.target.checked) {
 													if (!selected_sedi.includes(sede)) {
 														selected_sedi.push(sede);
 													}
 												} else {
-													selected_sedi.remove(sede)
+													selected_sedi = selected_sedi.filter((sede) => sede._id !== event.target.value)
 												}
+												selected_sedi = selected_sedi
 											}}>
 											{sede.address.street + ", " + sede.address.city}
 										</Checkbox>
@@ -157,16 +157,7 @@
 </div>
 {/if}
 
-{#if error_animal}
-	<Modal class="h-min my-auto" bind:open={error_animal} size="xs" autoclose>
-		<div class="text-center">
-			<svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-			<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Non hai ancora inserito animali</h3>
-			<Button color='alternative' href="#/profile/pets">Clicca qui</Button>
-		</div>
-	</Modal>
-{/if}
-
+{#if selected_animal != null}
 <div id="prenotazione" style="display:none;">
 	<p class="mt-5 ml-10 font-serif xl:text-2xl sm:text-lg text-gray-900 dark:text-white">Ecco le sedi che offrono il servizio</p>
 	<div class="mt-10 ml-10">
@@ -181,17 +172,31 @@
 		<Button on:click={open_all}>Open all</Button>
 		<Button on:click={close_all}>Close all</Button>
 		<div class="mr-8 flex justify-end">
-			<select class="rounded-lg text-center" bind:value={selected_animal} on:change={close_all}>
+			<select class="rounded-lg text-center" bind:value={selected_animal} >
 				{#each $animals as animal}
-					<option value={animal.name}>{animal.name} </option>
+					<option value={animal}>{animal.name} </option>
 				{/each}
 			</select>
 		</div>
 		
 		<Accordion multiple class="mt-5 mr-5">
-			{#each selected_sedi as sede, i}
-				<SedeServicesCard isSedeSectionOpen={isSediSectionOpen[i]} sede={sede} selected_services={selected_services} selected_date={selected_date} />
+			{#each filtered_sedi as sede, i}
+				<SedeServicesCard 
+					isSedeSectionOpen={isSediSectionOpen[i]} 
+					sede={sede} 
+					filtered_services={filtered_services} 
+					selected_date={selected_date} 
+					selected_animal={selected_animal}/>
 			{/each}
 		</Accordion>
 	</div>
 </div>
+{:else}
+	<Modal class="h-min my-auto" bind:open={noAnimalError} size="xs" autoclose>
+		<div class="text-center">
+			<svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+			<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Non hai ancora inserito animali</h3>
+			<Button color='alternative' href="#/profile/pets">Clicca qui</Button>
+		</div>
+	</Modal>
+{/if}

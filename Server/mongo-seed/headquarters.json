@@ -337,34 +337,6 @@
 	},
 	{
 		"address": {
-			"street": "Piazza del Plebiscito 20",
-			"city": "Napoli",
-			"zipCode": "80121"
-		},
-		"services": {
-			"Dogsitter": [
-				{
-					"tipo": ["cane", "gatto"],
-					"peso": "10-30kg",
-					"number": 0
-				},
-				{
-					"tipo": ["cane"],
-					"peso": "30-50kg",
-					"number": 1
-				}
-			],
-			"Veterinario": [
-				{
-					"tipo": ["cane"],
-					"peso": "10-20kg",
-					"number": 0
-				}
-			]
-		}
-	},
-	{
-		"address": {
 			"street": "Piazza delle Cure 20",
 			"city": "Firenze",
 			"zipCode": "50123"
