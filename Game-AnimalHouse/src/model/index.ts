@@ -50,4 +50,15 @@ interface Question {
 	answers: Array<Answer>
 }
 
-export type { Animal, Route, RandAnimal, Question, Answer}
+interface Product {
+	id: string
+	name: string
+	description: string
+	category: string
+	imageURI: string
+	price: number
+	quantity: number
+	rating: number
+}
+
+export type { Animal, Route, RandAnimal, Question, Answer, Product}
