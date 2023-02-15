@@ -67,7 +67,7 @@
 		document.getElementById("prenotazione").style.display = "none";
 	}
 
-	$: isSediSectionOpen = selected_sedi.map((value) => false)
+	$: isSediSectionOpen = filtered_sedi.map((value) => false)
 	const open_all  = () => isSediSectionOpen = isSediSectionOpen.map((value) => true)
 	const close_all = () => isSediSectionOpen = isSediSectionOpen.map((value) => false)
 
@@ -83,16 +83,16 @@
 </div>
 {:else}
 <div class="container mx-auto">
-	<p class="mt-10 ml-10 font-bold font-serif xl:text-4xl sm:text-lg text-gray-900 dark:text-white">Prenota il servizio desiderato dove vuoi e quando vuoi</p>
-	<div id="selezione" style="display:block;"> 
-		<p class="mt-5 mb-2 ml-10 font-serif xl:text-2xl sm:text-lg text-gray-900 dark:text-white">Utilizza i filtri di seguito e visualizza le nostre disponibilità</p>
-		<p class="ml-10 text-sm">(clicca direttamente su <b>prenota</b> per visualizzare i servizi di tutte le sedi)</p>
+	<p class="mx-4 mt-10 sm:ml-10 font-bold font-serif text-xl sm:text-4xl  text-gray-900 dark:text-white">Prenota il servizio desiderato dove vuoi e quando vuoi</p>
+	<div id="selezione" style="display:block;" class="mx-4 sm:ml-10"> 
+		<p class="mt-5 mb-2 font-serif sm:text-2xl text-gray-900 dark:text-white">Utilizza i filtri di seguito e visualizza le nostre disponibilità</p>
+		<p class=" text-sm">(clicca direttamente su <b>prenota</b> per visualizzare i servizi di tutte le sedi)</p>
 		{#if fetching}
 		<div class="text-center"><Spinner/></div>
 		{:else}
-			<div class="xl:inline-flex sm:block mt-10 ml-5">
+			<div class="lg:inline-flex sm:block mt-10 sm:ml-5">
 				<!-- FILTRO SERVIZI -->
-				<Card class="xl:ml-5 xl:mb-auto">
+				<Card class="mb-4 mx-auto lg:ml-5 md:mb-auto">
 					<div id="checkbox_services">
 						<p class="text-lg text-dark">Filtra il servizio desiderato</p>
 						{#each services as service}
@@ -113,7 +113,7 @@
 					</div>
 				</Card>
 				<!-- FILTRO INDIRIZZI SEDI -->
-				<Card class="xl:ml-5 max-h-96">
+				<Card class="mb-4 mx-auto lg:ml-5 max-h-96">
 					<p class="text-lg text-dark mb-2 ">Filtra la sede più comoda</p>
 					<Search size="sm" placeholder="Cerca un indirizzo o città" on:input={(event) => searchTerm = event.target.value} />
 					<Table divClass="relative mt-2 -ml-2 overflow-auto overflow-x-hidden sm:rounded-lg" hoverable={true}>
@@ -141,7 +141,7 @@
 					</Table>
 				</Card>
 				<!-- FILTRO DATA -->
-				<Card class="xl:ml-5 xl:mb-auto">
+				<Card class="mb-4 mx-auto lg:ml-5 md:mb-auto">
 					<p class="text-lg text-dark">Filtra la data desiderata *</p>
 					<div class="relative max-w-sm mt-5">
 						<input class="w-75 rounded-lg" type="date" id="input-date" bind:value={selected_date} />
@@ -149,7 +149,7 @@
 				</Card>
 			</div>
 
-			<div class="flex flex-row-reverse mr-20 mb-10">
+			<div class="flex flex-row-reverse sm:mr-20 mb-10">
 				<Button on:click={cercaServizi}>Prenota</Button>
 			</div>
 		{/if}
@@ -158,9 +158,9 @@
 {/if}
 
 {#if selected_animal != null}
-<div id="prenotazione" style="display:none;">
-	<p class="mt-5 ml-10 font-serif xl:text-2xl sm:text-lg text-gray-900 dark:text-white">Ecco le sedi che offrono il servizio</p>
-	<div class="mt-10 ml-10">
+<div id="prenotazione" style="display:none;" class="container mx-auto">
+	<p class="mt-5 ml-4 sm:ml-10 font-serif xl:text-2xl sm:text-lg text-gray-900 dark:text-white">Ecco le sedi che offrono il servizio</p>
+	<div class="mt-10 ml-4 sm:ml-10">
 		<a href="#/serviziPresenza" class="py-36" on:click={back}>
 			<svg class="w-6 h-6 inline-flex" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
@@ -168,10 +168,10 @@
 		</a> 	
 	</div>
 
-	<div class="mt-10 ml-10">
+	<div class="mt-10 ml-4 sm:ml-10">
 		<Button on:click={open_all}>Open all</Button>
 		<Button on:click={close_all}>Close all</Button>
-		<div class="mr-8 flex justify-end">
+		<div class="mr-4 sm:mr-8 flex justify-end">
 			<select class="rounded-lg text-center" bind:value={selected_animal} >
 				{#each $animals as animal}
 					<option value={animal}>{animal.name} </option>
