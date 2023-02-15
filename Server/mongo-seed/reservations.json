@@ -1,0 +1,62 @@
+[
+	{
+		"idHeadQuarter": {
+			"$oid": "63ecedbb184bfb61868415ee"
+		},
+		"idUser": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		},
+		"idAnimal": {
+			"$oid": "63ecedbaf336c94cc61f3886"
+		},
+		"serviceName": "DogSitter",
+		"number": 1,
+		"date": "2023-03-01T10:00:00.000Z",
+		"fascia_oraria": "10:00-11:00"
+	},
+	{
+		"idHeadQuarter": {
+			"$oid": "63ecedbb184bfb61868415ee"
+		},
+		"idUser": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		},
+		"idAnimal": {
+			"$oid": "63ecedbaf336c94cc61f3886"
+		},
+		"serviceName": "Veterinaio",
+		"number": 0,
+		"date": "2023-03-01T10:00:00.000Z",
+		"fascia_oraria": "12:00-13:00"
+	},
+	{
+		"idHeadQuarter": {
+			"$oid": "63ecedbb184bfb61868415ee"
+		},
+		"idUser": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		},
+		"idAnimal": {
+			"$oid": "63ecedbaf336c94cc61f3886"
+		},
+		"serviceName": "Veterinario",
+		"number": 0,
+		"date": "2023-03-02T10:00:00.000Z",
+		"fascia_oraria": "10:00-11:00"
+	},
+	{
+		"idHeadQuarter": {
+			"$oid": "63ecedbb184bfb61868415ee"
+		},
+		"idUser": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		},
+		"idAnimal": {
+			"$oid": "63ecedbaf336c94cc61f3886"
+		},
+		"serviceName": "DogSitter",
+		"number": 0,
+		"date": "2023-03-01T10:00:00.000Z",
+		"fascia_oraria": "10:00-11:00"
+	}
+]

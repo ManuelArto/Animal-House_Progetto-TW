@@ -1,23 +1,56 @@
 <script>
     import { Label, Input, Button } from "flowbite-svelte";
-    export let service, date, sit;
-    let hours = [];
-	for(let i=10; i<=19 ; i++){
-		hours.push(i);
-	}
+    import { createEventDispatcher } from 'svelte'
+    import { addToast } from "../../store/toasts";
+    import { user } from "../../store/user";
+    import { ENDPOINT } from "../../utils/const";
+    import { formSubmit } from "../../utils/requestHandler";
+    
+    const dispatch = createEventDispatcher();
+
+    export let service
+    export let selected_date
+    export let sede
+    export let selected_animal
+
+    async function newReservationSubmit(event) {
+        event.target.action = ENDPOINT.RESERVATION_NEW(sede._id, service.serviceName, service.number)
+        const newReservation = await formSubmit(event)
+        if (newReservation.error)
+            addToast({ message: `${newReservation.error.type}<br>${newReservation.error.message}`})
+        else
+            addToast({ type: "success", message: newReservation.message})
+
+        dispatch("close_modal")
+    }
+
+    let orari_disponibili = [
+        "10:00-11:00",
+        "11:00-12:00",
+        "12:00-13:00",
+        "13:00-14:00",
+        "14:00-15:00",
+        "15:00-16:00",
+        "16:00-17:00",
+        "17:00-18:00",
+        "18:00-19:00",
+        "19:00-20:00",
+    ]
+    
 </script>
 
-<form class="flex flex-col space-y-6" action="#">
-    <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Riepilogo della tua prenotazione</h3>
+<form class="flex flex-col space-y-6" on:submit|preventDefault={newReservationSubmit} method="POST">
+    <h3 class="text-xl font-medium p-0">Riepilogo della tua prenotazione</h3>
     <span>Dati utente</span>
+    <Input type="hidden" name="idAnimal" value={selected_animal._id} />
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">
             <span>Nome</span>
-            <Input type="text" placeholder="Mario" disabled />
+            <Input type="text" value={$user.name} defaultClass="block w-full" disabled />
         </Label>
         <Label class="space-y-1">
             <span>Cognome</span>
-            <Input type="text" placeholder="Rossi" disabled />
+            <Input type="text" value={$user.surname} defaultClass="block w-full" disabled />
         </Label>
     </div>
     
@@ -25,13 +58,13 @@
         <div class="col-span-2">
         <Label class="space-y-1">
             <span>Email</span>
-            <Input type="email" placeholder="name@company.com" disabled />
+            <Input type="email" value={$user.email} defaultClass="block w-full" disabled />
         </Label>
         </div>
         <div>
             <Label class="space-y-1">
                 <span>Telefono</span>
-                <Input type="tel" placeholder="es:123-4567890" disabled />
+                <Input type="tel" value={$user.phoneNumber} defaultClass="block w-full" disabled />
             </Label>
         </div>
     </div>
@@ -39,38 +72,29 @@
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">
             <span>Servizio</span>
-            <Input type="text" value={service} disabled />
+            <Input name="serviceName" type="text" value={service.serviceName} defaultClass="block w-full" disabled />
         </Label>
         <Label class="space-y-1">
             <span>Presso</span>
-            <Input type="text" value={sit} disabled />
+            <Input type="text" value={sede.address.street} defaultClass="block w-full" disabled />
         </Label>
     </div>
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">
             <span>Giorno</span>
-            {#if date == ""}
-                <Input type="date" />
-            {:else}
-                <Input type="date" value={date} placeholder={date} disabled />
-            {/if}
+            <Input name="date" type="date" value={selected_date} placeholder={selected_date} required/>
         </Label>
         <Label class="space-y-1">
-            <span>Ora</span><br>
-            <select name="hours" id="hours" class="rounded-lg">
-                {#each hours as hour}
-                    <option value={hour}>{hour}</option>
+            <span>Fascia oraria</span><br>
+            <select name="fascia_oraria" id="orario" class="rounded-lg">
+                {#each orari_disponibili as orario}
+                    <option value={orario}>{orario}</option>
                 {/each}
-            </select>
-            :
-            <select name="minutes" id="minutes" class="rounded-lg">
-                <option value=00>00</option>
-                <option value=30>30</option>
             </select>
         </Label>
     </div>
     <div class="flex flex-row-reverse">
-        <Button color="green">Confirm</Button>
+        <Button type="submit" color="green">Confirm</Button>
         <Button color="red" class="mr-2">Cancel</Button>
     </div>
 </form>

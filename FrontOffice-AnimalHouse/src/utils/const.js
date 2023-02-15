@@ -24,6 +24,8 @@ export const ENDPOINT = {
 	PRODUCTS_RAND_LIST: (number) => SERVER_URL + `/products/list/rand/${number}`,
 	// SEDI
 	SEDI_LIST: SERVER_URL + "/sedi/list",
+	// RESERVATIONS
+	RESERVATION_NEW: (idSede, serviceName, serviceNumber) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}`,
 	// GAME
 	GAME_QUIZ: GAME_URL + "/games/quiz"
 }

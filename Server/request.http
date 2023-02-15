@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NTc4OTQ3MiwiZXhwIjoxNjc1ODAzODcyfQ.vUh2ppgsj008IB7y3-1oAHf_FmirnEgA_waxoHHRmo0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NjQ5Nzk3NSwiZXhwIjoxNjc2NTEyMzc1fQ.mQ2VjIy1s2Rd2OPEFYHuU6HVhj3qn-Bd7mYP6vlirXs
 
 // USER
 ###
@@ -96,4 +96,20 @@ Content-Type: application/json
 
 {
     "content": "Nuovo Messaggio"
+}
+
+
+/// RESERVATIONS
+###
+GET http://localhost:5000/reservations/list HTTP/1.1
+Authorization: Bearer {{token}}
+###
+POST http://localhost:5000/reservations/63ecedbb184bfb61868415ee/Dogsitter/0 HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "idAnimal": "63ed53e3b17a5c3094bb06bf",
+    "date": "02/02/2023",
+    "fascia_oraria": "10:00-11:00"
 }

@@ -1,30 +1,33 @@
 import { Document, Schema, model, ObjectId } from 'mongoose'
 
 
-interface IServicesCalendar extends Document {
+interface IReservation extends Document {
 	idHeadQuarter: ObjectId
 	idUser: ObjectId
 	idAnimal: ObjectId
-	name: string
+	serviceName: string
 	number: number
-	dateFrom: Date
-	dateTo: Date
+	date: Date
+	fascia_oraria: string
 }
 
-const servicesCalendarSchema = new Schema<IServicesCalendar>({
+const reservationSchema = new Schema<IReservation>({
 	idHeadQuarter: {
 		type: Schema.Types.ObjectId,
-		required: true
+		required: true,
+		ref: 'HeadQuarter'
 	},
 	idUser: {
 		type: Schema.Types.ObjectId,
-		required: true
+		required: true,
+		ref: 'User'
 	},
 	idAnimal: {
 		type: Schema.Types.ObjectId,
-		required: true
+		required: true,
+		ref: 'Animal'
 	},
-	name: {
+	serviceName: {
 		type: String,
 		required: true
 	},
@@ -32,17 +35,17 @@ const servicesCalendarSchema = new Schema<IServicesCalendar>({
 		type: Number,
 		required: true
 	},
-	dateFrom: {
+	date: {
 		type: Date,
 		required: true
 	},
-	dateTo: {
-		type: Date,
+	fascia_oraria: {
+		type: String,
 		required: true
 	},
 }, { timestamps: true })
 
 
-export const servicesCalendarModel = model<IServicesCalendar>('ServicesCalendar', servicesCalendarSchema)
+export const ReservationModel = model<IReservation>('Reservation', reservationSchema)
 
-export type { IServicesCalendar }
+export type { IReservation }
