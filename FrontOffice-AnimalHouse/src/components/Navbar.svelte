@@ -14,7 +14,6 @@
         dropDownsOpen = dropDownsOpen.map((_) => false)
         
         active = url;
-        console.log("merdaa ", active);
         // close HamburgerMenu
         if (!isHamburgerMenuHidden)
             toggleMenu()
