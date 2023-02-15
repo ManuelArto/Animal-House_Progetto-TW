@@ -35,7 +35,6 @@ var rows = computed(() => {
 })
 var currentPageAnimals = computed(() => {
 	var index = perPage.value * (currentPage.value - 1)
-	console.log(animals.slice(index, index + perPage.value))
 	return animals.slice(index, index + perPage.value)
 })
 
