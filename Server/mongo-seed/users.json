@@ -35,7 +35,7 @@
 		"_id": {
 			"$oid": "5fea8abcda05f098a1ac9859"
 		},
-		"name": "John Doe",
+		"name": "John",
 		"surname": "Doe",
 		"username": "JohnDoe",
 		"email": "john.doe@gmail.com",

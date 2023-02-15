@@ -9,6 +9,8 @@ export const router: Router = express.Router()
 router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
 	try{
 		const scores = await ScoreModel.find().sort({ punteggio: -1 })
+            .populate("user")
+            .exec()
 
 		res.json(scores)
 	} catch(error: any) {
@@ -21,7 +23,7 @@ router.post('', authJwt, async(req: Request | AuthRequest, res: Response, next: 
     const user: IUser = (req as AuthRequest).user
 
     try {
-        const newScore = new ScoreModel({ ...req.body, name: user.name })
+        const newScore = new ScoreModel({ ...req.body, user: user._id })
 
         await newScore.save()
         res.status(201).json(newScore)

@@ -5,16 +5,27 @@
 			"city": "Foggia",
 			"zipCode": "711000"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -22,12 +33,27 @@
 			"city": "Roma",
 			"zipCode": "00185"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				},
+				{
+					"tipo": ["gatto"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -35,16 +61,27 @@
 			"city": "Milano",
 			"zipCode": "20122"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -52,16 +89,27 @@
 			"city": "Napoli",
 			"zipCode": "80121"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -69,16 +117,27 @@
 			"city": "Genova",
 			"zipCode": "16123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -86,16 +145,27 @@
 			"city": "Firenze",
 			"zipCode": "50123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -103,16 +173,27 @@
 			"city": "Palermo",
 			"zipCode": "90123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -120,12 +201,27 @@
 			"city": "Bologna",
 			"zipCode": "40123"
 		},
-		"services": [
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -133,16 +229,27 @@
 			"city": "Bergamo",
 			"zipCode": "24123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -150,16 +257,27 @@
 			"city": "Verona",
 			"zipCode": "37123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -167,16 +285,27 @@
 			"city": "Reggio Emilia",
 			"zipCode": "42123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -184,12 +313,27 @@
 			"city": "Venezia",
 			"zipCode": "30123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -197,16 +341,27 @@
 			"city": "Napoli",
 			"zipCode": "80121"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -214,16 +369,27 @@
 			"city": "Firenze",
 			"zipCode": "50123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -231,12 +397,27 @@
 			"city": "Roma",
 			"zipCode": "00185"
 		},
-		"services": [
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -244,16 +425,27 @@
 			"city": "Torino",
 			"zipCode": "10123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -261,16 +453,27 @@
 			"city": "Firenze",
 			"zipCode": "50123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -278,16 +481,27 @@
 			"city": "Milano",
 			"zipCode": "20122"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -295,16 +509,27 @@
 			"city": "Roma",
 			"zipCode": "00185"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -312,16 +537,27 @@
 			"city": "Genova",
 			"zipCode": "16123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -329,16 +565,27 @@
 			"city": "Verona",
 			"zipCode": "37123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -346,16 +593,27 @@
 			"city": "Bergamo",
 			"zipCode": "24123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -363,12 +621,27 @@
 			"city": "Firenze",
 			"zipCode": "50123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -376,16 +649,27 @@
 			"city": "Roma",
 			"zipCode": "00185"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -393,16 +677,27 @@
 			"city": "Napoli",
 			"zipCode": "80121"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -410,16 +705,27 @@
 			"city": "Verona",
 			"zipCode": "37123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -427,16 +733,27 @@
 			"city": "Bergamo",
 			"zipCode": "24123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -444,16 +761,27 @@
 			"city": "Firenze",
 			"zipCode": "50123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -461,16 +789,27 @@
 			"city": "Roma",
 			"zipCode": "00185"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -478,16 +817,27 @@
 			"city": "Napoli",
 			"zipCode": "80121"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -495,16 +845,27 @@
 			"city": "Verona",
 			"zipCode": "37123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -512,16 +873,27 @@
 			"city": "Bergamo",
 			"zipCode": "24123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -529,16 +901,27 @@
 			"city": "Firenze",
 			"zipCode": "50123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -546,16 +929,27 @@
 			"city": "Roma",
 			"zipCode": "00185"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -563,16 +957,27 @@
 			"city": "Napoli",
 			"zipCode": "80121"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -580,16 +985,27 @@
 			"city": "Verona",
 			"zipCode": "37123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -597,16 +1013,27 @@
 			"city": "Bergamo",
 			"zipCode": "24123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -614,16 +1041,27 @@
 			"city": "Firenze",
 			"zipCode": "50123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -631,16 +1069,27 @@
 			"city": "Roma",
 			"zipCode": "00185"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -648,16 +1097,27 @@
 			"city": "Napoli",
 			"zipCode": "80121"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -665,16 +1125,27 @@
 			"city": "Verona",
 			"zipCode": "37123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -682,16 +1153,27 @@
 			"city": "Bergamo",
 			"zipCode": "24123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 3
-			},
-			{
-				"service": "Veterinaio",
-				"number": 1
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -699,16 +1181,27 @@
 			"city": "Firenze",
 			"zipCode": "50123"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 1
-			},
-			{
-				"service": "Veterinaio",
-				"number": 2
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	},
 	{
 		"address": {
@@ -716,15 +1209,26 @@
 			"city": "Roma",
 			"zipCode": "00185"
 		},
-		"services": [
-			{
-				"service": "Dog Sitter",
-				"number": 2
-			},
-			{
-				"service": "Veterinaio",
-				"number": 3
-			}
-		]
+		"services": {
+			"Dogsitter": [
+				{
+					"tipo": ["cane", "gatto"],
+					"peso": "10-30kg",
+					"number": 0
+				},
+				{
+					"tipo": ["cane"],
+					"peso": "30-50kg",
+					"number": 1
+				}
+			],
+			"Veterinario": [
+				{
+					"tipo": ["cane"],
+					"peso": "10-20kg",
+					"number": 0
+				}
+			]
+		}
 	}
 ]

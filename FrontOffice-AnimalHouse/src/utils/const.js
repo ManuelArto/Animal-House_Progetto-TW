@@ -18,7 +18,12 @@ export const ENDPOINT = {
 	THREADS_NEW: SERVER_URL + "/threads",
 	THREADS_NEW_MESSAGE: (threadId) => SERVER_URL + `/threads/${threadId}/newMessage`,
 	// PRODUCTS
+	PRODUCTS_LIST: SERVER_URL + "/products/list",
+	PRODUCTS_CATEGORIES_LIST: SERVER_URL + "/products/categories/list",
+	PRODUCTS_CATEGORY_LIST: (category) => SERVER_URL + `/products/${category}/list`,
 	PRODUCTS_RAND_LIST: (number) => SERVER_URL + `/products/list/rand/${number}`,
+	// SEDI
+	SEDI_LIST: SERVER_URL + "/sedi/list",
 	// GAME
 	GAME_QUIZ: GAME_URL + "/games/quiz"
 }

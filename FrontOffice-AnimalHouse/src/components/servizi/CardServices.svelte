@@ -1,7 +1,7 @@
 <script>
-    import { Modal, Label, Input, Card, Button } from "flowbite-svelte";
-    import { animals } from '../store/animals'
-    import ReservationModal from "./user/ReservationModal.svelte";
+    import { Modal, Card, Button } from "flowbite-svelte";
+    import { animals } from '../../store/animals'
+    import ReservationModal from "../user/ReservationModal.svelte";
     export let service, date, sit, selectedOption, data;
     let Reservation=false;
     let isDisabled = [];

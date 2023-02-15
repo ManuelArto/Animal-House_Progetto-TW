@@ -1,5 +1,5 @@
 <script>
-    import { TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, TableSearch, Button, Modal, Label, Input, Img } from "flowbite-svelte"
+    import { TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, TableSearch, Button, Modal, Label, Input, Spinner } from "flowbite-svelte"
     import { onMount } from "svelte"
     import { user } from "../../store/user"
     import { addToast } from '../../store/toasts';
@@ -28,8 +28,11 @@
         (thread) => thread.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
     )
 
+    let fetching = false
     onMount(async () => {
+        fetching = true
         threads = await getThreads()
+        fetching = false
     })
     let currentThread = null
 
@@ -78,6 +81,9 @@
 </style>
 <img id="banner" src="images/banner_bacheca_eccoloqua.png" class="object-scale-down w-full " alt="banner bacheca eccolo qua"/>
 
+{#if fetching}
+    <div class="text-center"><Spinner/></div>
+{:else}
 <div class="container mx-auto px-4 max-w-3/4 md:mt-10 mb-48">
     <div class="md:absolute md:top-20 md:w-1/2">
         <p class="flex-shrink-0 text-black font-bold text-xl uppercase">Bacheca</p>
@@ -86,11 +92,11 @@
     </div>
     {#if !currentThread}
     <!-- THREADS PAGE -->
-        <Button on:click={() => !isUserLogged ? showUnauthorizedAlert("creare una nuova discussione") : isNewThreadModalOpen = true} class="mb-10 inline-flex align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-4 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-800">
+        <Button on:click={() => !isUserLogged ? showUnauthorizedAlert("creare una nuova discussione") : isNewThreadModalOpen = true} class="mb-10 inline-flex align-middle text-center select-none border font-normal whitespace-no-wrap rounded-xl py-1 px-4 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-800">
             <svg class="h-8 w-8 text-white mr-2"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4" />  <line x1="12" y1="13" x2="12" y2="22" />  <polyline points="9 19 12 22 15 19" /></svg> 
             Nuova Discussione
         </Button>
-        <TableSearch placeholder="Search by title" hoverable={true} bind:inputValue={searchTerm}>
+        <TableSearch class="shadow-lg border rounded-xl" placeholder="Cerca il titolo" hoverable={true} bind:inputValue={searchTerm}>
             <TableHead class="bg-blue-300 rounded-xl">
                 <TableHeadCell>titolo</TableHeadCell>
                 <TableHeadCell><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -119,7 +125,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
             </svg> Torna indietro
         </a> <br>
-        <Button on:click={() => !isUserLogged ? showUnauthorizedAlert("postare un nuovo messaggio") : isNewPostModalOpen = true} class="mt-8 inline-flex align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-4 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-800">
+        <Button on:click={() => !isUserLogged ? showUnauthorizedAlert("postare un nuovo messaggio") : isNewPostModalOpen = true} class="mt-8 inline-flex align-middle text-center select-none border font-normal whitespace-no-wrap rounded-xl py-1 px-4 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-800">
             <svg class="h-8 w-8 text-white mr-2"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4" />  <line x1="12" y1="13" x2="12" y2="22" />  <polyline points="9 19 12 22 15 19" /></svg>
             New Post
         </Button><br><br>
@@ -161,6 +167,8 @@
         </div>
     {/if}
 </div>
+{/if}
+
 
 <Modal class="h-min my-auto" title="Nuova Discussione" bind:open={isNewThreadModalOpen}>
     <form class="grid grid-rows-1 grid-flow-col gap-2" id="newThreadForm" action={ENDPOINT.THREADS_NEW} on:submit|preventDefault={newThreadSubmit} method="POST">

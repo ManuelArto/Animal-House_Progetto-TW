@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "svelte-carousel": "^1.0.21",
-    "svelte-spa-router": "^3.3.0"
+    "svelte-spa-router": "^3.3.0",
+    "tailwind-scrollbar-hide": "^1.1.7"
   }
 }

@@ -15,6 +15,16 @@ router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
 
 })
 
+router.get('/categories/list', async (req: Request, res: Response, next: NextFunction) => {
+	try{
+		const categories = await ProductModel.distinct("category")
+
+		res.json(categories)
+	} catch(error: any) {
+		next(new ErrorWrapper({ statusCode: 500, error: error }))
+	}
+})
+
 router.get('/list/rand/:number', async (req: Request, res: Response, next: NextFunction) => {
 	try{
 		const products = await ProductModel.aggregate([ { $sample: {size: Number.parseInt(req.params.number)} } ])
