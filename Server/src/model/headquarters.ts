@@ -1,5 +1,10 @@
 import { Document, Schema, model } from 'mongoose'
 
+interface IService {
+	tipo: string[]
+	peso: string
+	number: number
+}
 
 interface IHeadQuarter extends Document {
 	address: {
@@ -7,12 +12,25 @@ interface IHeadQuarter extends Document {
 		city: string
 		zipCode: string
 	}
-	services: [{
-		service: string
-		number: number
-	}]
+	services: Map<string, IService[]>
 }
-const productSchema = new Schema<IHeadQuarter>({
+
+const serviceSchema = new Schema<IService>({
+	tipo: {
+		type: [String],
+		required: true
+	},
+	peso: {
+		type: String,
+		required: true
+	},
+	number: {
+		type: Number,
+		required: true
+	}
+})
+
+const headQuearterSchema = new Schema<IHeadQuarter>({
 	address: {
 		street: {
 			type: String,
@@ -27,19 +45,13 @@ const productSchema = new Schema<IHeadQuarter>({
 			required: true
 		},
 	},
-	services: [{
-		service: {
-			type: String,
-			required: true
-		},
-		number: {
-			type: Number,
-			required: true
-		},
-	}]
+	services: { 
+		type: Map,
+		of: [serviceSchema]
+	}
 })
 
 
-export const HeadQuarterModel = model<IHeadQuarter>('HeadQuarter', productSchema)
+export const HeadQuarterModel = model<IHeadQuarter>('HeadQuarter', headQuearterSchema)
 
 export type { IHeadQuarter }

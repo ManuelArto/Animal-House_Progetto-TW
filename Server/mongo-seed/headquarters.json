@@ -13,14 +13,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -43,12 +43,12 @@
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				},
 				{
-					"tipo": "gatto",
+					"tipo": ["gatto"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -69,14 +69,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -97,14 +97,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -125,14 +125,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -153,14 +153,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -181,14 +181,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -209,14 +209,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -237,14 +237,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -265,14 +265,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -293,14 +293,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -321,14 +321,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -349,14 +349,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -377,14 +377,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -405,14 +405,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -433,14 +433,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -461,14 +461,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -489,14 +489,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -517,14 +517,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -545,14 +545,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -573,14 +573,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -601,14 +601,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -629,14 +629,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -657,14 +657,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -685,14 +685,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -713,14 +713,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -741,14 +741,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -769,14 +769,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -797,14 +797,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -825,14 +825,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -853,14 +853,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -881,14 +881,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -909,14 +909,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -937,14 +937,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -965,14 +965,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -993,14 +993,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -1021,14 +1021,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -1049,14 +1049,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -1077,14 +1077,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -1105,14 +1105,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -1133,14 +1133,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -1161,14 +1161,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -1189,14 +1189,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
@@ -1217,14 +1217,14 @@
 					"number": 0
 				},
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "30-50kg",
 					"number": 1
 				}
 			],
 			"Veterinario": [
 				{
-					"tipo": "cane",
+					"tipo": ["cane"],
 					"peso": "10-20kg",
 					"number": 0
 				}
