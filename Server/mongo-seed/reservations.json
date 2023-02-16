@@ -9,9 +9,11 @@
 		"idAnimal": {
 			"$oid": "63ecedbaf336c94cc61f3886"
 		},
-		"serviceName": "DogSitter",
+		"serviceName": "Dogsitter",
 		"number": 1,
-		"date": "2023-03-01T10:00:00.000Z",
+		"date": {
+			"$date": "2023-03-01T00:00:00.000Z"
+		},
 		"fascia_oraria": "10:00-11:00"
 	},
 	{
@@ -24,9 +26,11 @@
 		"idAnimal": {
 			"$oid": "63ecedbaf336c94cc61f3886"
 		},
-		"serviceName": "Veterinaio",
+		"serviceName": "Veterinario",
 		"number": 0,
-		"date": "2023-03-01T10:00:00.000Z",
+		"date": {
+			"$date": "2023-03-01T00:00:00.000Z"
+		},
 		"fascia_oraria": "12:00-13:00"
 	},
 	{
@@ -41,7 +45,9 @@
 		},
 		"serviceName": "Veterinario",
 		"number": 0,
-		"date": "2023-03-02T10:00:00.000Z",
+		"date": {
+			"$date": "2023-03-02T00:00:00.000Z"
+		},
 		"fascia_oraria": "10:00-11:00"
 	},
 	{
@@ -54,9 +60,11 @@
 		"idAnimal": {
 			"$oid": "63ecedbaf336c94cc61f3886"
 		},
-		"serviceName": "DogSitter",
+		"serviceName": "Dogsitter",
 		"number": 0,
-		"date": "2023-03-01T10:00:00.000Z",
+		"date": {
+			"$date": "2023-03-01T00:00:00.000Z"
+		},
 		"fascia_oraria": "10:00-11:00"
 	}
 ]

@@ -38,6 +38,11 @@
 	$: services = getAllSedeServices(selected_animal)
 
 	let isReservationModalOpen = false
+	let selected_service
+	function openReservationModal (service) {
+		selected_service = service
+		isReservationModalOpen = true
+	}
 
 </script>
 
@@ -53,21 +58,24 @@
 						Peso accettato: {service.peso} <br>
 						Codice: {service.number}
 					</p>
-					<Button class="w-fit" id="btn" on:click={() => isReservationModalOpen = true} disabled={service.isDisabled}>
+					<Button class="w-fit" id="btn" on:click={() => openReservationModal(service)} disabled={service.isDisabled}>
 						Prenota <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
 					</Button>
 				</Card>
-				<!-- MODAL riepilogo dati prenotazione -->
-				<Modal bind:open={isReservationModalOpen} size="xs" class="w-full h-min my-auto">
-					<ReservationModal 
-						service={service} 
-						selected_date={selected_date} 
-						sede={sede} 
-						selected_animal={selected_animal} 
-						on:close_modal={() => isReservationModalOpen = false}/>
-				</Modal>
 			{/each}
 		</div>
 	</AccordionItem>
+
+	{#if selected_service}
+		<!-- MODAL riepilogo dati prenotazione -->
+		<Modal bind:open={isReservationModalOpen} size="xs" class="w-full h-min my-auto">
+			<ReservationModal 
+				service={selected_service} 
+				selected_date={selected_date} 
+				sede={sede} 
+				selected_animal={selected_animal} 
+				on:close_modal={() => isReservationModalOpen = false}/>
+		</Modal>
+	{/if}
 
 {/if}

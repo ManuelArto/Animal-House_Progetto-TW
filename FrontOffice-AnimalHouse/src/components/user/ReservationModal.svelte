@@ -1,10 +1,10 @@
 <script>
-    import { Label, Input, Button } from "flowbite-svelte";
+    import { Label, Input, Button, Spinner } from "flowbite-svelte";
     import { createEventDispatcher } from 'svelte'
     import { addToast } from "../../store/toasts";
     import { user } from "../../store/user";
     import { ENDPOINT } from "../../utils/const";
-    import { formSubmit } from "../../utils/requestHandler";
+    import { formSubmit, handleRequest } from "../../utils/requestHandler";
     
     const dispatch = createEventDispatcher();
 
@@ -18,24 +18,33 @@
         const newReservation = await formSubmit(event)
         if (newReservation.error)
             addToast({ message: `${newReservation.error.type}<br>${newReservation.error.message}`})
-        else
+        else 
             addToast({ type: "success", message: newReservation.message})
 
         dispatch("close_modal")
     }
 
-    let orari_disponibili = [
-        "10:00-11:00",
-        "11:00-12:00",
-        "12:00-13:00",
-        "13:00-14:00",
-        "14:00-15:00",
-        "15:00-16:00",
-        "16:00-17:00",
-        "17:00-18:00",
-        "18:00-19:00",
-        "19:00-20:00",
-    ]
+    async function getOrariDisponibili(selected_date) {
+        let res
+        if ( res = await handleRequest(
+            ENDPOINT.RESERVATION_ORARI(sede._id, service.serviceName, service.number, selected_date), 
+            { headers: { 'Authorization': `Bearer ${user.getToken()}` }})
+        ) {
+            const data = await res.json()
+    
+            if (data.error)
+                addToast({ message: `${data.error.type}<br>${data.error.message}`})
+            else
+                return data
+        } else
+            return []
+    }
+
+    let orari_disponibili = []
+    $: if (selected_date) {
+        getOrariDisponibili(selected_date)
+        .then((orari) => orari_disponibili = orari)
+    }
     
 </script>
 
@@ -82,7 +91,7 @@
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">
             <span>Giorno</span>
-            <Input name="date" type="date" value={selected_date} placeholder={selected_date} required/>
+            <Input name="date" type="date" bind:value={selected_date} placeholder={selected_date} required/>
         </Label>
         <Label class="space-y-1">
             <span>Fascia oraria</span><br>

@@ -4,6 +4,8 @@
   "description": "",
   "main": "src/app.ts",
   "scripts": {
+    "db": "docker-compose up -d",
+    "db:down": "docker-compose down",
     "build": "tsc",
     "dev": "npx nodemon src/app.ts",
     "start": "tsc && node dist/app.js"

@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NjQ5Nzk3NSwiZXhwIjoxNjc2NTEyMzc1fQ.mQ2VjIy1s2Rd2OPEFYHuU6HVhj3qn-Bd7mYP6vlirXs
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NjU3MDUxOCwiZXhwIjoxNjc2NTg0OTE4fQ.zPOeUiW3wBq1mDhzGMVTCnjYPRspm6N2TfhVZmwQwWM
 
 // USER
 ###
@@ -110,6 +110,10 @@ Content-Type: application/json
 
 {
     "idAnimal": "63ed53e3b17a5c3094bb06bf",
-    "date": "02/02/2023",
+    "date": "2023/02/16",
     "fascia_oraria": "10:00-11:00"
 }
+
+###
+GET http://localhost:5000/reservations/63ecedbb184bfb61868415ee/Veterinario/0/fasceOrarie?date=2023-03-02 HTTP/1.1
+Authorization: Bearer {{token}}
