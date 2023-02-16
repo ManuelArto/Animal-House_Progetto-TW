@@ -2,14 +2,19 @@ import { Document, Schema, model, ObjectId } from 'mongoose'
 
 
 interface IGameAnimal extends Document {
-	name: string
-	imageURI: string
-	species: string
-	breed: string
-	birthDate: string
-	gender: string
-	weight: number
-	ownerId: ObjectId
+	name: string,
+	latin_name: string,
+	animal_type: string,
+	active_time: string,
+	length_min: string,
+	length_max: string,
+	weight_min: string,
+	weight_max: string,
+	lifespan: string,
+	habitat: string,
+	diet: string,
+	geo_range: string,
+	image_link: string,
 }
 
 const gameAnimalSchema = new Schema<IGameAnimal>({
@@ -17,35 +22,62 @@ const gameAnimalSchema = new Schema<IGameAnimal>({
 		type: String,
 		required: true
 	},
-	imageURI: {
+	latin_name: {
 		type: String,
 		required: true
 	},
-	species: {
+	animal_type: {
 		type: String,
 		required: true
 	},
-	breed: {
+	active_time: {
 		type: String,
 		required: true
 	},
-	birthDate: {
+	length_min: {
 		type: String,
 		required: true
 	},
-	gender: {
+	length_max: {
 		type: String,
 		required: true
 	},
-	weight: {
-		type: Number,
+	weight_min: {
+		type: String,
 		required: true
 	},
-	ownerId: {
-		type: Schema.Types.ObjectId,
+	weight_max: {
+		type: String,
 		required: true
 	},
-}, { timestamps: true })
+	lifespan: {
+		type: String,
+		required: true
+	},
+	habitat: {
+		type: String,
+		required: true
+	},
+	diet: {
+		type: String,
+		required: true
+	},
+	geo_range: {
+		type: String,
+		required: true
+	},
+	image_link: {
+		type: String,
+		required: true
+	},
+}, {
+	toJSON: { 
+		transform(doc, ret) {
+			ret = {...doc, id: doc._id}
+			return ret
+		},
+	 }
+})
 
 
 export const GameAnimalModel = model<IGameAnimal>('GameAnimal', gameAnimalSchema)

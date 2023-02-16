@@ -119,3 +119,8 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/reservations/63ecedbb184bfb61868415ee/Dogsitter/1/fasceOrarie?date=2023-03-01 HTTP/1.1
 Authorization: Bearer {{token}}
+
+
+/// GAME ANIMALS
+###
+GET http://localhost:5000/gameAnimals/rand/3 HTTP/1.1

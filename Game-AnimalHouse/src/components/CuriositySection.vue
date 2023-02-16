@@ -14,10 +14,11 @@ import { computed, onMounted, reactive, ref } from 'vue';
 import AnimalCard from '@/components/AnimalCard.vue'
 import type { RandAnimal } from '@/model';
 import type { BvEvent } from 'bootstrap-vue-3';
+import { ENDPOINT } from '@/utils/const';
 
 var animals: RandAnimal[] = reactive([])
 function getRandAnimals(number: number) {
-	fetch(`https://zoo-animal-api.herokuapp.com/animals/rand/${number}`)
+	fetch(ENDPOINT.RAND_ANIMALS_LIST(number))
 		.then((res) => res.json())
 		.then((data) => animals.push(...data))
 }

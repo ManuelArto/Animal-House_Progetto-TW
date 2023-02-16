@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { RandAnimal, Question, Answer } from '@/model';
+import { ENDPOINT } from '@/utils/const';
 import { reactive, ref } from 'vue';
 
 function getQuestionText(animal: RandAnimal, key: string): string {
-	return `What's the <b>${key.replace("_", " ")}</b> of the <i>${animal.name}</i>?`
+	return `What's the <b>${key.replace("_", " ")}</b> of the <i>${animal?.name}</i>?`
 }
 
 let animals: RandAnimal[] = []
@@ -11,7 +12,7 @@ const getNewAnimalGenerator = getNewSingleAnimal()
 async function* getNewSingleAnimal() {
 	while (true) {
 		if (animals.length === 0) {
-			await fetch("https://zoo-animal-api.herokuapp.com/animals/rand/10")
+			await fetch(ENDPOINT.RAND_ANIMALS_LIST(10))
 				.then((res) => res.json())
 				.then((data) => animals.push(...data))
 		}
@@ -24,13 +25,13 @@ async function getNewQuestion(key: string) {
 	resetForNextQuestion()
 	currentQuestion.value = undefined
 	let animals: RandAnimal[] = []
-	await fetch("https://zoo-animal-api.herokuapp.com/animals/rand/4")
+	await fetch(ENDPOINT.RAND_ANIMALS_LIST(4))
 		.then((res) => res.json())
 		.then((data) => animals.push(...data))
 
 	let question: Question = {
 		question: getQuestionText(animals[0], key),
-		animalImage: animals[0].image_link,
+		animalImage: animals[0]?.image_link,
 		answers: []
 	}
 	for (let [index, animal] of animals.entries()) {
