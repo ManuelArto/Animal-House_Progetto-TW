@@ -27,7 +27,7 @@ router.get('/categories/list', async (req: Request, res: Response, next: NextFun
 
 router.get('/list/rand/:number', async (req: Request, res: Response, next: NextFunction) => {
 	try{
-		const products = await ProductModel.aggregate([ { $sample: {size: Number.parseInt(req.params.number)} } ])
+		const products = await ProductModel.aggregate().sample(parseInt(req.params.number))
 
 		res.json(products)
 	} catch(error: any) {
