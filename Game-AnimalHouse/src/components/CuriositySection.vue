@@ -13,7 +13,7 @@
 import { computed, onMounted, reactive, ref } from 'vue';
 import AnimalCard from '@/components/AnimalCard.vue'
 import type { RandAnimal } from '@/model';
-import type { BvEvent } from 'bootstrap-vue-3';
+import type { BvEvent } from 'bootstrap-vue-next';
 import { ENDPOINT } from '@/utils/const';
 
 var animals: RandAnimal[] = reactive([])

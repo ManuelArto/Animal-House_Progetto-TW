@@ -11,8 +11,8 @@
 		<li>The lifespan time of the animal is <b>{{ animal.lifespan }}</b></li>
 		<li>The habitat of the animal is <b>{{ animal.habitat }}</b></li>
 		<li>The diet of the animal is <b>{{ animal.diet }}</b></li>
-		<li>This animal has a minimum length of <b>{{ animal.length_min }}</b> and a maximum length of <b>{{ animal.length_max }}</b></li>
-		<li>This animal has a minimum weight of <b>{{ animal.weight_min }}</b> and a maximum weight of <b>{{ animal.weight_max }}</b></li>
+		<li>This animal has a minimum length of <b>{{ animal.length_min }}m</b> and a maximum length of <b>{{ animal.length_max }}m</b></li>
+		<li>This animal has a minimum weight of <b>{{ animal.weight_min }}kg</b> and a maximum weight of <b>{{ animal.weight_max }}kg</b></li>
 	</ol>
 </template>
 
