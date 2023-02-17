@@ -4,7 +4,7 @@ import { ENDPOINT } from '@/utils/const';
 import { reactive, ref } from 'vue';
 
 function getQuestionText(animal: RandAnimal, key: string): string {
-	return `What's the <b>${key.replace("_", " ")}</b> of the <i>${animal?.name}</i>?`
+	return `Qual è <b>${key.replace("_", " ")}</b> of the <i>${animal?.name}</i>?`
 }
 
 let animals: RandAnimal[] = []
@@ -39,10 +39,10 @@ async function getNewQuestion(key: string) {
 		while (true) {
 			switch (key) {
 				case "weight":
-					answerLabel = `${animal.weight_min}-${animal.weight_max} lbs`
+					answerLabel = `${animal.weight_min}-${animal.weight_max} kg`
 					break;
 				case "length":
-					answerLabel = `${animal.length_min}-${animal.length_max} ft`
+					answerLabel = `${animal.length_min}-${animal.length_max} m`
 					break;
 				default:
 					answerLabel = (animal as any)[key]

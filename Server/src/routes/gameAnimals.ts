@@ -6,7 +6,7 @@ export const router: Router = express.Router()
 
 router.get('/rand/:number', async (req: Request, res: Response, next: NextFunction) => {
     try {
-		const sample = parseInt(req.params.numers) || 10
+		const sample = parseInt(req.params.number) || 10
         const gameAnimals = await GameAnimalModel.aggregate().sample(sample)
 
         res.json(gameAnimals)
