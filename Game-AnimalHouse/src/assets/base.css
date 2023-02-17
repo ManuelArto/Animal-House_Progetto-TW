@@ -73,3 +73,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.modal {
+  padding-top: 84px;
+  background: rgba(0, 0, 0, 0.5) !important; 
+}
+.modal-backdrop {
+  display: none !important;
+}
