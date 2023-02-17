@@ -21,7 +21,7 @@ const routes: Array<Route> = [
     <Navbar :routes=routes />
   </header>
 
-  <main>
+  <main style="z-index: 1">
     <RouterView />
   </main>
 
