@@ -121,7 +121,7 @@ onMounted(async () => products.value = await fetchProducts(12) )
                             <h4 class="card-title fs-3">{{ product.name }}</h4>
                             <p class="card-text fs-5">{{ product.description }}</p>
                           </div>
-                          <button class="fs-5 ms-auto btn btn-primary">Altri prodotti qui <i class="bi bi-arrow-right-circle"></i></button>
+                          <a class="fs-5 mt-2 ms-auto btn btn-primary" :href="ENDPOINT.FRONT_OFFICE_PRODOTTI">Altri prodotti qui <i class="bi bi-arrow-right-circle"></i></a>
                         </div>
                       </div>
                     </div>

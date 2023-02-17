@@ -1,4 +1,4 @@
-const FRONT_OFFICE_URL = "/"
+const FRONT_OFFICE_URL = "http://localhost:5173/#/"
 const SERVER_URL = "http://localhost:5000"
 
 export const ENDPOINT = {
