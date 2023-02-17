@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import type { Product } from '@/model/';
 import { ENDPOINT } from '@/utils/const';
 
-let products: Product[] = [
+let products = ref<Product[]>([
     {
       id: '1',
       imageURI: 'https://static.naturaltrainer.com/catalog/8015699006990/3d-Pack/mediumImage',
@@ -64,7 +64,7 @@ let products: Product[] = [
       quantity: 10,
       rating: 4
     }
-]
+])
 async function fetchProducts(number: number) {
   let res
   if (res = await fetch(ENDPOINT.PRODUCTS_RAND_LIST(number)).catch(error => alert(`Error<br>${error}`))) {
@@ -80,18 +80,15 @@ async function fetchProducts(number: number) {
 }
 
 function* getNProducts(n: number) {
-	for (let i = 0; i < products.length; i += 3) {
+	for (let i = 0; i < products.value.length; i += 3) {
     let buffer: Product[] = []
-    for (let j = i; j < i+n && j < products.length; j++)
-      buffer.push(products[j])
+    for (let j = i; j < i+n && j < products.value.length; j++)
+      buffer.push(products.value[j])
 		yield buffer
 	}
 }
 
-onMounted(async () => {
-  //products = await fetchProducts(12) || products
-  //console.log(products)
-})
+onMounted(async () => products.value = await fetchProducts(12) )
 
 </script>
 
@@ -115,14 +112,16 @@ onMounted(async () => {
             <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div v-for="(n_products, index) in getNProducts(3)" :class="{'carousel-item':true, 'active': index === 0 }">
-                  <div class="row d-flex justify-content-around flex-wrap">
-                    <div v-for="product in n_products" class="col-md-4 mb-3 d-flex" :key="product.id">
+                  <div class="row">
+                    <div v-for="product in n_products" class="col-md-4 mb-3" :key="product.id">
                       <div class="card h-100" style="width:100%;">
-                        <img :src="product.imageURI" class="img-fluid" alt="100%x280">
-                        <div class="card-body d-flex align-content-end flex-wrap">
-                          <h4 class="card-title fs-3">{{ product.name }}</h4>
-                          <p class="card-text fs-5">{{ product.description }}</p>
-                          <button class="fs-5 ms-auto btn btn-primary">Front Office <i class="bi bi-arrow-right-circle"></i></button>
+                        <img :src="product.imageURI" class="rounded" :alt="product.name" >
+                        <div class="card-body d-flex align-content-between flex-wrap">
+                          <div>
+                            <h4 class="card-title fs-3">{{ product.name }}</h4>
+                            <p class="card-text fs-5">{{ product.description }}</p>
+                          </div>
+                          <button class="fs-5 ms-auto btn btn-primary">Altri prodotti qui <i class="bi bi-arrow-right-circle"></i></button>
                         </div>
                       </div>
                     </div>
@@ -137,8 +136,13 @@ onMounted(async () => {
   </div>
 </template>
   
-  
-<style>
+<style scoped>
+
+img {
+		height: 300px;
+		object-fit: scale-down !important;
+}
+
 .card {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }

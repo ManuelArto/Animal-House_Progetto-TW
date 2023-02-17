@@ -60,7 +60,7 @@
   };
 </script>
   
-<style>
+<style scoped>
   #animation {
     animation: ombra 0.5s ease-in both;
   }
