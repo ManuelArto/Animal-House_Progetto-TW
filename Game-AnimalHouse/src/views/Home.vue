@@ -11,13 +11,13 @@ let services = [{
   name: "Informazioni",
   path: "/informazioni",
   icon: "bi bi-info-circle-fill",
-  description: "Hai qualche dubbio? Puoi trovare la risposta in questa sezione specificando la razza a cui e l'animale a cui ti stai riferenedo.",
+  description: "Hai qualche dubbio? Puoi trovare la risposta in questa sezione.",
 },
 {
   name: "I miei animali",
   path: "/my_pets",
   icon: "bi bi-house-heart-fill",
-  description: "Compilando un semplice questionario puoi salvare i tuoi animali con la foto e tutte le sue caratteristiche.",
+  description: "Compilando un semplice form puoi salvare i tuoi animali con una foto profilo e tutte le loro caratteristiche.",
 },
 {
   name: "Video",
