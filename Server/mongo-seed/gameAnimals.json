@@ -27,7 +27,7 @@
 		"habitat": "Foreste, giungle, mangrovie",
 		"diet": "Carnivoro",
 		"geo_range": "Asia",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Tigre_de_bengala_%28Panthera_tigris_tigris%29_en_el_Zoo_de_San_Diego%2C_California%2C_Estados_Unidos%2C_2012-08-15%2C_DD_01.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Adult_male_Royal_Bengal_tiger.jpg/1024px-Adult_male_Royal_Bengal_tiger.jpg"
 	},
 	{
 		"name": "Orso polare",
@@ -42,7 +42,7 @@
 		"habitat": "Artico",
 		"diet": "Carnivoro",
 		"geo_range": "Artico",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/6/66/Polar_Bear_-Alaska%28cropped%29.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Polar_Bear_-_Alaska_%28cropped%29.jpg/220px-Polar_Bear_-_Alaska_%28cropped%29.jpg"
 	},
 	{
 		"name": "Ghepardo",
@@ -57,7 +57,7 @@
 		"habitat": "Savana",
 		"diet": "Carnivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Acinonyx_jubatus_4.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Acinoyx_jubatus_venaticus.jpg/250px-Acinoyx_jubatus_venaticus.jpg"
 	},
 	{
 		"name": "Leopardo",
@@ -72,7 +72,7 @@
 		"habitat": "Foreste, giungle, savane",
 		"diet": "Carnivoro",
 		"geo_range": "Africa, Asia",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Leopard_%28Panthera_pardus%29_female_NW_Namibia.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Leopard_africa.jpg/220px-Leopard_africa.jpg"
 	},
 	{
 		"name": "Panda gigante",
@@ -87,7 +87,7 @@
 		"habitat": "Foreste di bambù",
 		"diet": "Erbivoro",
 		"geo_range": "Cina",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Giant_Panda_in_Beijing_Zoo_1_%28cropped%29.jpg"
+		"image_link": "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQkiYCWt-moZw3h0NlQ7d4CgNkVuJIW7AFqj-qEOgGxXpPWtzBrQeApPVZJHCPqCkxf"
 	},
 	{
 		"name": "Elefante",
@@ -102,7 +102,7 @@
 		"habitat": "Savana, foreste",
 		"diet": "Erbivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/3/3c/African_Elephant_%28Loxodonta_africana%29_female_Serengeti.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/800px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg"
 	},
 	{
 		"name": "Rinoceronte bianco",
@@ -117,7 +117,7 @@
 		"habitat": "Savana, praterie",
 		"diet": "Erbivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/1/1f/White_Rhinoceros_%28Ceratotherium_simum_cottoni%29_female_%2810392248755%29.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/b/bf/White_Rhino_%28Ceratotherium_simum%29_%2832456964146%29.jpg"
 	},
 	{
 		"name": "Ippopotamo",
@@ -132,7 +132,7 @@
 		"habitat": "Fiumi, laghi, paludi",
 		"diet": "Erbivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Hippopotamus_%28Hippopotamus_amphibius%29_%2823507715674%29.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Hipop%C3%B3tamo_%28Hippopotamus_amphibius%29%2C_parque_nacional_de_Chobe%2C_Botsuana%2C_2018-07-28%2C_DD_82.jpg/1200px-Hipop%C3%B3tamo_%28Hippopotamus_amphibius%29%2C_parque_nacional_de_Chobe%2C_Botsuana%2C_2018-07-28%2C_DD_82.jpg"
 	},
 	{
 		"name": "Scimpanzé",
@@ -147,7 +147,7 @@
 		"habitat": "Foreste tropicali",
 		"diet": "Onnivoro",
 		"geo_range": "Africa, Asia",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/6/63/Pan_troglodytes_-Kibale_National_Park%2C_Uganda-8.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chimpanzee-Head.jpg/800px-Chimpanzee-Head.jpg"
 	},
 	{
 		"name": "Orso polare",
@@ -162,22 +162,7 @@
 		"habitat": "Regioni artiche",
 		"diet": "Carnivoro",
 		"geo_range": "Artico",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/6/68/06.07.22_Polarb%C3%A4r_Nanuq_in_Gelsenkirchen.jpg"
-	},
-	{
-		"name": "Leone",
-		"latin_name": "Panthera leo",
-		"animal_type": "Mammifero",
-		"active_time": "Diurno",
-		"length_min": "1.7",
-		"length_max": "2.5",
-		"weight_min": "120",
-		"weight_max": "250",
-		"lifespan": "10-14 anni",
-		"habitat": "Savana, foreste",
-		"diet": "Carnivoro",
-		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg"
+		"image_link": "https://static.nationalgeographic.it/files/styles/image_3200/public/polarbearjwj-3630disneynatures-polar-bear-photo-by-jeff-wilson-c2022-disney-enterprises-inc-all-rights-reserved.jpg?w=1900&h=1269"
 	},
 	{
 		"name": "Tigre",
@@ -192,22 +177,7 @@
 		"habitat": "Foreste tropicali, foresteboreali",
 		"diet": "Carnivoro",
 		"geo_range": "Asia",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/7/73/Bengal_Tiger_Kanha_National_Park.jpg"
-	},
-	{
-		"name": "Elefante africano",
-		"latin_name": "Loxodonta africana",
-		"animal_type": "Mammifero",
-		"active_time": "Diurno",
-		"length_min": "3",
-		"length_max": "4",
-		"weight_min": "3000",
-		"weight_max": "6000",
-		"lifespan": "60-70 anni",
-		"habitat": "Savana, foreste",
-		"diet": "Erbivoro",
-		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/8/82/Elephant_at_Tarangire_National_Park.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Walking_tiger_female.jpg/800px-Walking_tiger_female.jpg"
 	},
 	{
 		"name": "Zebra",
@@ -222,7 +192,7 @@
 		"habitat": "Savana",
 		"diet": "Erbivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Zebra_Tanzania.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Plains_Zebra_Equus_quagga.jpg/800px-Plains_Zebra_Equus_quagga.jpg"
 	},
 	{
 		"name": "Coccodrillo del Nilo",
@@ -237,7 +207,7 @@
 		"habitat": "Fiumi, laghi",
 		"diet": "Carnivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nile_crocodile_head.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/NileCrocodile.jpg/1024px-NileCrocodile.jpg"
 	},
 	{
 		"name": "Ippopotamo pigmeo",
@@ -252,7 +222,7 @@
 		"habitat": "Foreste pluviali",
 		"diet": "Erbivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/e/ed/WikiMiniAtlas_7_11.005_W_5_31.016_N_BNGL_IPG_20090107_01_%28cropped%29.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Pygmy_hippopotamus_pair.jpg/800px-Pygmy_hippopotamus_pair.jpg"
 	},
 	{
 		"name": "Panda gigante",
@@ -267,7 +237,7 @@
 		"habitat": "Foreste di bambù",
 		"diet": "Erbivoro",
 		"geo_range": "Cina",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/1024px-Grosser_Panda.JPG"
 	},
 	{
 		"name": "Lince eurasiatica",
@@ -282,7 +252,7 @@
 		"habitat": "Foreste",
 		"diet": "Carnivoro",
 		"geo_range": "Europa, Asia",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lynx_lynx_PO_Museum_Velenje.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Lynx_lynx_%28geypa%29-cropped.jpg"
 	},
 	{
 		"name": "Tigre siberiana",
@@ -297,7 +267,7 @@
 		"habitat": "Foreste",
 		"diet": "Carnivoro",
 		"geo_range": "Siberia",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Siberian_Tiger_Toronto_Zoo.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/P.t.altaica_Tomak_Male.jpg/1024px-P.t.altaica_Tomak_Male.jpg"
 	},
 	{
 		"name": "Orangutan di Sumatra",
@@ -312,7 +282,7 @@
 		"habitat": "Foreste pluviali",
 		"diet": "Frugivoro",
 		"geo_range": "Indonesia",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Orangutan_Tanjung_Puting.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Orangutan-Columbus-zoo.JPG/1024px-Orangutan-Columbus-zoo.JPG"
 	},
 	{
 		"name": "Pinguino imperatore",
@@ -327,7 +297,7 @@
 		"habitat": "Ghiacciai",
 		"diet": "Pescivoro",
 		"geo_range": "Antartide",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/5/52/Emperor_Penguins_Manchot_empereur.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/0/07/Emperor_Penguin_Manchot_empereur.jpg"
 	},
 	{
 		"name": "Orso grizzly",
@@ -342,7 +312,7 @@
 		"habitat": "Foreste, praterie",
 		"diet": "Omnivoro",
 		"geo_range": "Canada, Stati Uniti",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Grizzly_Bear_Alaska_%2832004491104%29.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/GrizzlyBearJeanBeaufort.jpg/1024px-GrizzlyBearJeanBeaufort.jpg"
 	},
 	{
 		"name": "Squalo bianco",
@@ -357,7 +327,7 @@
 		"habitat": "Oceano",
 		"diet": "Carnivoro",
 		"geo_range": "Mondiale",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Great_White_Shark_off_Mossel_Bay.jpg/1200px-Great_White_Shark_off_Mossel_Bay.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Great_White_Shark_%2814730744390%29.jpg/1024px-Great_White_Shark_%2814730744390%29.jpg"
 	},
 	{
 		"name": "Leone",
@@ -372,7 +342,7 @@
 		"habitat": "Savana",
 		"diet": "Carnivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Lion_waiting_in_Namibia.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/800px-Lion_waiting_in_Namibia.jpg"
 	},
 	{
 		"name": "Rinoceronte bianco",
@@ -387,7 +357,7 @@
 		"habitat": "Savana",
 		"diet": "Erbivoro",
 		"geo_range": "Africa",
-		"image_link": "https://upload.wikimedia.org/wikipedia/commons/8/81/White_Rhinoceros_South_Africa.jpg"
+		"image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/White_Rhino_%28Ceratotherium_simum%29_%2832456964146%29.jpg/800px-White_Rhino_%28Ceratotherium_simum%29_%2832456964146%29.jpg"
 	},
 	{
 		"name": "Panda gigante",
