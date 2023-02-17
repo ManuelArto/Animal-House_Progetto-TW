@@ -13,7 +13,7 @@
                       <h5 class="card-title fs-2">{{ service.name }}</h5>
                       <p class="card-text fs-5">{{ service.description }}</p>
                       <div class="d-flex justify-content-end mt-auto">
-                          <a class="fs-4 btn btn-primary" :href="ENDPOINT.FRONT_OFFICE_SERVIZI">Prenota adesso</a>
+                          <a class="fs-4 btn btn-primary" :href="ENDPOINT.FRONT_OFFICE_SERVIZI" target="_blank">Prenota adesso</a>
                       </div>
                   </div>
                 </div>
