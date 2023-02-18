@@ -1,6 +1,6 @@
 <template>
 	
-	<b-button variant="success" class="rounded rounded-4" data-bs-toggle="modal" data-bs-target="#LoginFormModal">
+	<b-button variant="success" class="rounded rounded-4" data-bs-toggle="modal" data-bs-target="#LoginFormModal" :disabled="isRegistraActive">
 		Registra il tuo punteggio
 	</b-button>
 
@@ -42,7 +42,7 @@
 	
 	<!-- TOAST MESSAGE -->
 	<div class="toast-container position-fixed bottom-0 end-0 p-3">
-		<div ref="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+		<div ref="toastRef" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 			<div class="toast-header">
 				<strong class="me-auto">{{ toastData.title }}</strong>
 				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -70,17 +70,21 @@ const form = reactive({
     password: '',
 })
 
-// TOAST
-const toast = ref(null)
+let isRegistraActive = ref(false)
+
+let toast: Toast
+const toastRef = ref(null)
 let toastData = reactive({
 	title: "",
 	message: ""
 })
 
-var modal: Modal
-var modalRef = ref(null)
+let modal: Modal
+const modalRef = ref(null)
+
 onMounted(() => {
-	modal = new Modal(modalRef.value)
+	modal = new Modal(modalRef.value!)
+	toast = new Toast(toastRef.value!)
 })
 
 async function tryLogin(event: FormDataEvent) {
@@ -97,7 +101,7 @@ async function tryLogin(event: FormDataEvent) {
 	if (data.error) {
 		toastData.title = "Error"
 		toastData.message = data.error.message
-		new Toast(toast.value).show()
+		toast.show()
 	} else {
 		await registraPunteggio(data.token)
 	}
@@ -119,14 +123,15 @@ async function registraPunteggio(token: string) {
 	if (data.error) {
 		toastData.title = "Error"
 		toastData.message = data.error.message
-		new Toast(toast.value).show()
+		toast.show()
 	} else {
 		toastData.title = "Success"
 		toastData.message = "Punteggio registrato correttamente"
-		new Toast(toast.value).show()
+		toast.show()
 		
 		form.email = ""
 		form.password = ""
+		isRegistraActive.value = true
 		modal.hide()
 	}
 }

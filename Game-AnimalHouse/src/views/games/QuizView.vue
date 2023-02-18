@@ -5,11 +5,11 @@ import { ENDPOINT } from '@/utils/const';
 import { reactive, ref } from 'vue';
 
 function getQuestionText(animal: RandAnimal, key: string): string {
-	return `Qual è <b>${key.replace("_", " ")}</b> of the <i>${animal?.name}</i>?`
+	return `Qual è <b>${key.replace("_", " ")}</b> del <i>${animal?.name}</i>?`
 }
 
 let animals: RandAnimal[] = []
-const getNewAnimalGenerator = getNewSingleAnimal() as Generator
+const getNewAnimalGenerator = getNewSingleAnimal() as AsyncGenerator
 async function* getNewSingleAnimal() {
 	while (true) {
 		if (animals.length === 0) {
@@ -23,7 +23,10 @@ async function* getNewSingleAnimal() {
 }
 
 async function getNewQuestion(key: string) {
-	if (!key) return
+	if (!key) {
+		currentQuestion.value = undefined
+		return
+	}
 	
 	resetForNextQuestion()
 	currentQuestion.value = undefined
