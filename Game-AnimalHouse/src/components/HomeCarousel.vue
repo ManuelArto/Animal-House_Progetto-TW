@@ -1,5 +1,11 @@
+<script setup lang="ts">
+import {ref} from 'vue'
+
+const slide = ref(0)
+</script>
+
 <template>
-	<b-carousel controls class="carousel-fade" img-height="100">
+	<b-carousel v-model="slide" controls class="carousel-fade" img-height="100">
 	  <b-carousel-slide active>
 		<template #img>
 		  <div style="background-color: #000000;">
