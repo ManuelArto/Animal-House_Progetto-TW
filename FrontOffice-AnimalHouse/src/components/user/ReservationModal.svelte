@@ -8,9 +8,9 @@
     
     const dispatch = createEventDispatcher();
 
-    export let service
+    export let service 
     export let selected_date
-    export let sede
+    export let sede 
     export let selected_animal
 
     async function newReservationSubmit(event) {
@@ -94,13 +94,16 @@
             <Input name="date" type="date" bind:value={selected_date} placeholder={selected_date} required/>
         </Label>
         <Label class="space-y-1">
-            <span>Fascia oraria</span><br>
+            <span>Fascia oraria *</span><br>
             <select name="fascia_oraria" id="orario" class="rounded-lg">
                 {#each orari_disponibili as orario}
                     <option value={orario}>{orario}</option>
                 {/each}
             </select>
         </Label>
+    </div>
+    <div>
+        <p class="text-xs">* Visualizzerai la fascia oraria quando selezionerai un giorno </p>
     </div>
     <div class="flex flex-row-reverse">
         <Button type="submit" color="green">Confirm</Button>
