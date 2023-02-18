@@ -26,7 +26,7 @@ const routes: Array<Route> = [
   </main>
 
   <footer>
-	<Footer />
+	  <Footer />
   </footer>
 
 </template>

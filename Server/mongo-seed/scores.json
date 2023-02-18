@@ -4,7 +4,7 @@
 		"user": {
 			"$oid": "5fea8abcda05f098a1ac9857"
 		},
-		"punteggio": 150,
+		"punteggio": 6,
 		"createdAt": "2023-01-20T16:37:48.244Z"
 	},
 	{
@@ -12,7 +12,7 @@
 		"user": {
 			"$oid": "5fea8abcda05f098a1ac9858"
 		},
-		"punteggio": 100,
+		"punteggio": 1,
 		"createdAt": "2023-01-26T16:47:48.244Z"
 	},
 	{
@@ -20,7 +20,7 @@
 		"user": {
 			"$oid": "5fea8abcda05f098a1ac9858"
 		},
-		"punteggio": 70,
+		"punteggio": 7,
 		"createdAt": "2023-01-27T12:39:48.244Z"
 	},
 	{
@@ -28,7 +28,7 @@
 		"user": {
 			"$oid": "5fea8abcda05f098a1ac9858"
 		},
-		"punteggio": 120,
+		"punteggio": 1,
 		"createdAt": "2023-01-30T11:27:48.244Z"
 	},
 	{
@@ -36,7 +36,7 @@
 		"user": {
 			"$oid": "5fea8abcda05f098a1ac9859"
 		},
-		"punteggio": 90,
+		"punteggio": 5,
 		"createdAt": "2023-01-31T10:19:48.244Z"
 	},
 	{
@@ -44,7 +44,7 @@
 		"user": {
 			"$oid": "5fea8abcda05f098a1ac9859"
 		},
-		"punteggio": 80,
+		"punteggio": 10,
 		"createdAt": "2023-02-01T22:37:48.244Z"
 	}
 ]

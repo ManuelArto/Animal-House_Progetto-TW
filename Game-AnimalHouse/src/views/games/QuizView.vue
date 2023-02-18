@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { RandAnimal, Question, Answer } from '@/model';
+import SaveGameScoreModal from '@/components/SaveGameScoreModal.vue'
 import { ENDPOINT } from '@/utils/const';
 import { reactive, ref } from 'vue';
 
@@ -8,7 +9,7 @@ function getQuestionText(animal: RandAnimal, key: string): string {
 }
 
 let animals: RandAnimal[] = []
-const getNewAnimalGenerator = getNewSingleAnimal()
+const getNewAnimalGenerator = getNewSingleAnimal() as Generator
 async function* getNewSingleAnimal() {
 	while (true) {
 		if (animals.length === 0) {
@@ -22,6 +23,8 @@ async function* getNewSingleAnimal() {
 }
 
 async function getNewQuestion(key: string) {
+	if (!key) return
+	
 	resetForNextQuestion()
 	currentQuestion.value = undefined
 	let animals: RandAnimal[] = []
@@ -142,8 +145,9 @@ startGame()
 					<h6 class="m-0"><i class="bi bi-patch-question-fill"></i> Animal Quiz</h6>
 					<span>Score ({{ score }}/{{ keys.length }}) <i class="bi bi-award-fill"></i></span>
 				</div>
-				<ul class="list-group list-group-flush w-100 card-quiz-section d-flex justify-content-center align-items-center text-center">
-					<h1 class="mb-3" v-if="questionIndex === keys.length">
+				<ul class="list-group list-group-flush w-100 card-quiz-section d-flex justify-content-center align-items-center">
+					<!-- QUIZ SCORE -->
+					<h1 class="mb-3 text-center" v-if="questionIndex === keys.length">
 						Hai totalizzato<br><b>{{ score }}/{{ keys.length }}</b> punti!!
 					</h1>
 					<!-- QUIZ CONTENT -->
@@ -171,14 +175,15 @@ startGame()
 						</div>
 					</li>
 					<!-- QUIZ BUTTONS -->
-					<li :class="`list-group-item ${questionIndex !== keys.length ? 'd-flex align-self-end' : ''}`">
-						<b-button variant="primary" class="rounded rounded-4 mx-2" :onClick="(event) => startGame()">
-							<i class="bi bi-arrow-clockwise"></i>
+					<li :class="`list-group-item d-flex ${questionIndex !== keys.length ? 'align-self-end' : 'align-self-center'}`">
+						<b-button variant="primary" class="rounded rounded-4 mx-2" :onClick="(event: any) => startGame()">
+							Ricomincia <i class="bi bi-arrow-clockwise"></i>
 						</b-button>
 						<b-button v-if="questionIndex !== keys.length" ref="nextQuestionButton" id="nextQuestion" variant="success" class="rounded rounded-4"
 							:onClick="() => getNewQuestion(keys[++questionIndex])" :disabled="isNextQuestionDisabled">
-							Next question
+							Prossima domanda <i class="bi bi-arrow-right"></i>
 						</b-button>
+						<SaveGameScoreModal v-else :score="score" />
 					</li>
 				</ul>
 			</div>
