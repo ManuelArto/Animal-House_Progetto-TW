@@ -16,10 +16,10 @@ defineProps<{
 		</b-navbar-brand>
 
 		<!-- Toggle button -->
-		<b-navbar-toggle v-b-toggle.nav-collapse></b-navbar-toggle>
+		<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
 		<!-- Collapsible -->
-		<b-collapse id="nav-collapse" is-nav :visible="state.isCollapseVisible" @shown="state.isCollapseVisible = true" @hidden="state.isCollapseVisible = false">
+		<b-collapse id="nav-collapse" is-nav v-model="state.isCollapseVisible" @shown="state.isCollapseVisible = true" @hidden="state.isCollapseVisible = false">
 			<b-navbar-nav>
 				<span v-for="route in routes">
 					<b-nav-item v-if="!route.nested" class="mx-2 mx-lg-1" :key="route.path" :to="route.path" id="highlight">
