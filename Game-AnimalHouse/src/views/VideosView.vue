@@ -2,17 +2,17 @@
 let changedLike = false;
 let changedDisLike = false;
 const videos = [
-    { src: "https://www.youtube.com/embed/bTcXkLlGFeQ", title: "Compilation", description: "Serie di video in cui i nostri animaletti ci fanno morire dal ridere durante le loro azioni quotidiane"},
-    { src: "https://www.youtube.com/embed/a4P61RKrkJc?start=15", title: "Animali o supereroi?", description: "Possiamo ammirare il coraggio che hanno questi animali nel salvare delle persone."},
-    { src: "https://www.youtube.com/embed/B6tGDtwh85U?start=15", title: "Cani e bimbi", description: "Possiamo osservare 10 razze di cane che vanno molto d'accordo con i nostri bimbi."},
-    { src: "https://www.youtube.com/embed/uDzFpp715_0?start=15", title: "Cucciolotti", description: "Ecco una compilation di cuccioli meravigliosi"},
+    { src: "https://www.youtube.com/embed/8LR6FbWD4MM", title: "Prova a non ridere", description: "Serie di video in cui i nostri animaletti ci fanno morire dal ridere durante le loro azioni quotidiane"},
+    { src: "https://www.youtube.com/embed/a4P61RKrkJc", title: "Animali o supereroi?", description: "Possiamo ammirare il coraggio che hanno questi animali nel salvare delle persone."},
+    { src: "https://www.youtube.com/embed/B6tGDtwh85U", title: "Cani e bimbi", description: "Possiamo osservare 10 razze di cane che vanno molto d'accordo con i nostri bimbi."},
+    { src: "https://www.youtube.com/embed/uDzFpp715_0", title: "Cucciolotti", description: "Ecco una compilation di cuccioli meravigliosi"},
     { src: "https://www.youtube.com/embed/d4j8ibsjpBM", title: "Cani o nani", description: "In questo video osserveremo le 10 razze di cane più piccole."},
     { src: "https://www.youtube.com/embed/OYQllOzeT3s", title: "Animali vs Specchio", description: "Possiamo osservare la reazione dei nostri amici davanti ad uno specchio"},
-    { src: "https://www.youtube.com/embed/OaQePr10CuA?start=8", title: "Compilation", description: "Serie di video in cui i nostri animaletti ci fanno morire dal ridere durante le loro azioni quotidiane"},
+    { src: "https://www.youtube.com/embed/OaQePr10CuA", title: "Compilation", description: "Serie di video in cui i nostri animaletti ci fanno morire dal ridere durante le loro azioni quotidiane"},
     { src: "https://www.youtube.com/embed/AwctIwpiz_E", title: "Animali enormi", description: "Troveremo gli esemplari di animali più grande del pianeta"},
-    { src: "https://www.youtube.com/embed/ewbARWUttFw", title: "Amore e odio", description: "Sappiamo tutti che tra cane e gatto c'è un rapporto speciale, fatto di amore ma anche di odio"},
+    { src: "https://www.youtube.com/embed/YrByaqDxzxQ", title: "Amore e odio", description: "Sappiamo tutti che tra cane e gatto c'è un rapporto speciale, fatto di amore ma anche di odio"},
     { src: "https://www.youtube.com/embed/Znd3AJI2kt0", title: "Animali o calciatori", description: "Possiamo vedere alcune scene buffe in cui gli animali chiedono autografi ai calciatori"},
-    { src: "https://www.youtube.com/embed/JhaXTd8DKJk=cotrols=0", title: "I cani e l'acqua", description: "Sappiamo che ci sono molti cani che adorano l'acqua, ma anche tanti che la odiano. Osserviamone alcuni."},
+    { src: "https://www.youtube.com/embed/JhaXTd8DKJk", title: "I cani e l'acqua", description: "Sappiamo che ci sono molti cani che adorano l'acqua, ma anche tanti che la odiano. Osserviamone alcuni."},
     { src: "https://www.youtube.com/embed/YbAU0YI4kV4", title: "Expo 2016", description: "Possiamo osservare i nostri amici a quattro zampe all'Expo che si è svolto a Milano nel 2016"}
 ]   
 function myLike(x) {
