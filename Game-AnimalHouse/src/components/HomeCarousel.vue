@@ -2,14 +2,15 @@
 import {ref} from 'vue'
 
 const slide = ref(0)
+
 </script>
 
 <template>
-	<b-carousel v-model="slide" controls class="carousel-fade" img-height="100">
+	<b-carousel v-model="slide" class="carousel-fade" img-height="100" controls indicators no-touch>
 	  <b-carousel-slide active>
 		<template #img>
 		  <div style="background-color: #000000;">
-			<img class="w-100" src="@/assets/home-2.png" alt="home-banner"/>
+			<img class="w-100" src="@/assets/home-2.png" alt="home-banner 2"/>
 		  </div>
 		  <div class="overlay-2 text-wrap">
 			<p class="carousel_text_1 fw-bold mb-0">Scopri i nostri servizi</p>
@@ -20,7 +21,7 @@ const slide = ref(0)
 	  <b-carousel-slide>
 		<template #img>
 		  <div style="background-color: #000000;">
-			<img class="w-100" src="@/assets/home-3.png" alt="home-banner"/>
+			<img class="w-100" src="@/assets/home-3.png" alt="home-banner 3"/>
 		  </div>
 		  <div class="overlay-3 text-wrap">
 			<p class="carousel_text_1 fw-bold mb-0">Le informazioni di <br>cui hai bisogno</p>
@@ -31,7 +32,7 @@ const slide = ref(0)
 	  <b-carousel-slide>
 		<template #img>
 		  <div style="background-color: #000000;">
-			<img class="w-100" src="@/assets/home-1.jpg" alt="home-banner"/>
+			<img class="w-100" src="@/assets/home-1.jpg" alt="home-banner 1"/>
 		  </div>
 		  <div class="overlay-1 text-wrap">
 			<p class="carousel_text_1 fw-bold mb-0">I migliori prodotti li trovi da noi</p>
