@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 // @ts-ignore
 import { Modal } from 'bootstrap'
 import AnimalModal from '@/components/AnimalModal.vue'
@@ -11,9 +11,10 @@ const props = defineProps<{
     isRandAnimal: boolean
 }>()
 
-var modal: Modal
+let modal: Modal
+const modalRef = ref(null)
 onMounted(() => {
-	modal = new Modal(document.getElementById(`confirmRemove${props.animal.name}`) as Element)
+	modal = new Modal(modalRef.value!)
 })
 
 function confirmRemove(id: string) {
@@ -36,7 +37,7 @@ function getCustomText(animal: RandAnimal) {
     <AnimalModal :animal='animal' :isRandAnimal="isRandAnimal" :getCustomText='getCustomText'/>
 
     <div :class="`animal-card ${isRandAnimal ? 'flexible-card': ''} p-3 mx-auto`">
-        <b-row :key="animal.id">
+        <b-row :key="animal._id">
             <b-col class="col-md-6 col-5">
                 <img :src="animal.image_link" class="rounded object-cover w-100 h-100"
                     :alt="`${animal.name} image`">
@@ -57,24 +58,24 @@ function getCustomText(animal: RandAnimal) {
                         </p>
                     </div>
                     <div class="d-none d-md-block">
-                        <b-button class="button_bottom" variant='primary' data-bs-toggle="modal" :data-bs-target="'#myAnimal' + animal.id"> 
+                        <b-button class="button_bottom" variant='primary' data-bs-toggle="modal" :data-bs-target="'#myAnimal' + animal._id"> 
                             Scopri di più 
                         </b-button>
                     </div>
                 </b-row>
             </b-col>
             <div class="col-2 d-flex align-items-center d-md-none d-block ps-0">
-            <b-button class="button_bottom_pet" data-bs-toggle="modal" :data-bs-target="'#myAnimal' + animal.id">
+            <b-button class="button_bottom_pet" data-bs-toggle="modal" :data-bs-target="'#myAnimal' + animal._id">
                     <i class="bi bi-arrow-right"></i>
                 </b-button>
             </div>
         </b-row>
-        <b-button v-if="!isRandAnimal" size="sm" variant="danger" class="rounded-pill position-absolute top-0 end-0 me-2 mt-2" data-bs-toggle="modal" :data-bs-target="`#confirmRemove${animal.name}`">
+        <b-button v-if="!isRandAnimal" size="sm" variant="danger" class="rounded-pill position-absolute top-0 end-0 me-2 mt-2" data-bs-toggle="modal" :data-bs-target="`#confirmRemove${animal._id}`">
             <i class="bi bi-x-lg"></i>
         </b-button>
     </div>
 
-    <div ref="modal" :id="`confirmRemove${animal.name}`" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div ref="modalRef" :id="`confirmRemove${animal._id}`" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
                 <div class="modal-header">
@@ -87,7 +88,7 @@ function getCustomText(animal: RandAnimal) {
                 </div>
                 <div class="modal-footer">
                     <b-button data-bs-dismiss="modal">Annulla</b-button>
-                    <b-button variant="danger" @click="confirmRemove(animal.id as string)">Delete</b-button>
+                    <b-button variant="danger" @click="confirmRemove(animal._id as string)">Delete</b-button>
                 </div>
             </div>
         </div>

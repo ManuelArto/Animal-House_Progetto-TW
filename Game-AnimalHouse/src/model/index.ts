@@ -11,7 +11,7 @@ interface Animal {
 	owner_surname: string,
 	owner_phone: string,
 	owner_email: string,
-	id: string,
+	_id: string,
 }
 
 interface Route {
@@ -36,7 +36,7 @@ interface RandAnimal {
 	diet: string,
 	geo_range: string,
 	image_link: string,
-	id: number
+	_id: string
 }
 
 interface Answer {

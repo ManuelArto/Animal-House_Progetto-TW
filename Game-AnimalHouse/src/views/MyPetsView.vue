@@ -31,7 +31,7 @@ var currentPageAnimals = computed(() => {
       <RegisterAnimalModal :modalId="'RegisterModal'"></RegisterAnimalModal>
 
       <b-row v-show="state.animals.length">
-        <b-col class="col-12 col-md-6" v-for="animal in currentPageAnimals">
+        <b-col class="col-12 col-md-6" v-for="animal in currentPageAnimals" :id="animal._id">
           <AnimalCard :animal="animal" :isRandAnimal="false" />
         </b-col>
         <b-pagination v-model="currentPage" :perPage="perPage" :total-rows="rows" :limit="3" pills align="center">

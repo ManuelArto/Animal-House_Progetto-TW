@@ -90,6 +90,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { v4 as uuidv4 } from 'uuid';
 import { addAnimal } from '@/store'
 import type { Animal } from '@/model';
 // @ts-ignore
@@ -127,7 +128,7 @@ function emptyData(): Animal {
 		owner_surname: "",
 		owner_phone: "",
 		owner_email: "",
-		id: "",
+		_id: uuidv4(),
 	}
 }
 

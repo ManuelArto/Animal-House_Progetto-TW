@@ -12,7 +12,7 @@ export function addAnimal(animal: Animal) {
 	localStorage.setItem('animals', JSON.stringify(state.animals))
 }
 export function removeAnimal(id: string) {
-	state.animals = state.animals.filter(animal => animal.id !== id)
+	state.animals = state.animals.filter(animal => animal._id !== id)
 	localStorage.setItem('animals', JSON.stringify(state.animals))
 }
 
@@ -21,7 +21,7 @@ export function removeAnimal(id: string) {
 
 function _loadAnimals(): Animal[] {
 	// TODO: remove in PROD
-	/*if (!localStorage.getItem('animals'))*/
+	if (!localStorage.getItem('animals'))
 		localStorage.setItem('animals', JSON.stringify(animals))
 
 	return JSON.parse(localStorage.getItem('animals') || '[]')
