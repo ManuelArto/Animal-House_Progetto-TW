@@ -2,11 +2,10 @@ import $ from "jquery"
 import "./style.css"
 import { setupNavbar } from './components/navbar/navbar'
 import { setupSidebar } from './components/sidebar/sidebar'
-import { setupProducts } from './components/shop/prodotti/prodotti'
 
 $('#app').html(`
-  <section id="navbar">
-  </section>
+  <header id="navbar">
+  </header>
 
   <section id="sidebar">
   </section>
@@ -15,6 +14,10 @@ $('#app').html(`
   </section>
 `)
 
+// STATIC
 setupNavbar($('#navbar'))
 setupSidebar($('#sidebar'))
-setupProducts($('#main'))
+
+// DYNAMIC ROUTING
+import { render } from "./router"
+render("#/shop/prodotti")
