@@ -17,17 +17,19 @@ const routes: Array<Route> = [
 </script>
 
 <template>
-  <header>
-    <Navbar :routes=routes />
-  </header>
-
-  <main style="z-index: 1">
-    <RouterView />
-  </main>
-
-  <footer>
-	  <Footer />
-  </footer>
+	<div class="d-flex flex-column min-vh-100">
+		<header>
+			<Navbar :routes=routes />
+		</header>
+	
+		<main style="z-index: 1; flex-grow: 1">
+			<RouterView />
+		</main>
+	
+		<footer>
+			<Footer />
+		</footer>
+	</div>
 
 </template>
 

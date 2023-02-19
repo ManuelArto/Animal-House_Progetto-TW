@@ -1,7 +1,9 @@
 <template>
 	<br>
 	<b-container class="mb-5">
-		<AnimalCard v-for="animal in currentPageAnimals" :animal="animal" :isRandAnimal="true" />
+		<span v-for="animal in currentPageAnimals" :id="animal._id">
+			<AnimalCard  :animal="animal" :isRandAnimal="true" />
+		</span>
 
 		<b-pagination v-show="animals.length" v-model="currentPage" :perPage="perPage" :total-rows="rows" :limit="3"
 			pills align="center" @page-click="changePage"></b-pagination>
@@ -24,7 +26,8 @@ function getRandAnimals(number: number) {
 }
 
 function changePage(bvEvent: BvEvent, page: number) {
-	getRandAnimals(perPage.value)
+	if (page > currentPage.value)
+		getRandAnimals(perPage.value)
     window.scrollTo(0, 300);
 }
 

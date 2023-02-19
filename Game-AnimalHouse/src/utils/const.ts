@@ -1,5 +1,5 @@
 const FRONT_OFFICE_URL = "http://localhost:5174/"
-const SERVER_URL = "http://192.168.0.101:5000"
+const SERVER_URL = "http://localhost:5000"
 
 export const ENDPOINT = {
 	// SERVER

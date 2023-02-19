@@ -21,7 +21,7 @@ export function removeAnimal(id: string) {
 
 function _loadAnimals(): Animal[] {
 	// TODO: remove in PROD
-	if (!localStorage.getItem('animals'))
+	// if (!localStorage.getItem('animals'))
 		localStorage.setItem('animals', JSON.stringify(animals))
 
 	return JSON.parse(localStorage.getItem('animals') || '[]')
