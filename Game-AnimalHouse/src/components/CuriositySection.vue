@@ -28,7 +28,7 @@ function getRandAnimals(number: number) {
 function changePage(bvEvent: BvEvent, page: number) {
 	if (page > currentPage.value)
 		getRandAnimals(perPage.value)
-    window.scrollTo(0, 300);
+    window.scrollTo(0, 200);
 }
 
 var currentPage = ref(1)
