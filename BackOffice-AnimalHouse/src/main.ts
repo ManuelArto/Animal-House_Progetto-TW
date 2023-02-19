@@ -10,7 +10,7 @@ $('#app').html(`
   <section id="sidebar">
   </section>
   
-  <section id="main">
+  <section class="ml-64" style="padding-top: 64px;" id="main">
   </section>
 `)
 
