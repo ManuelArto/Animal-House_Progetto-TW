@@ -3,6 +3,7 @@ import "./style.css"
 import { setupNavbar } from './components/navbar/navbar'
 import { setupSidebar } from './components/sidebar/sidebar'
 import { setupProducts } from './components/shop/prodotti/prodotti'
+import { setupUsers } from './components/anagrafica/user/user'
 
 $('#app').html(`
   <section id="navbar">
@@ -17,4 +18,5 @@ $('#app').html(`
 
 setupNavbar($('#navbar'))
 setupSidebar($('#sidebar'))
-setupProducts($('#main'))
+//setupProducts($('#main'))
+setupUsers($('#main'))
