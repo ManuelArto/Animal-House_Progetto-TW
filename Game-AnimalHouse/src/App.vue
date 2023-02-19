@@ -11,7 +11,7 @@ const routes: Array<Route> = [
 	{ path: "/videos", text: "Video divertenti", icon: "bi-collection-play"},
 	{ path: "/negozio", text: "Prodotti", icon: "bi-shop"},
 	{ path: "/servizi", text: "Servizi", icon: "bi-gear"},
-	{ path: "/Games/quiz", text: "Quiz ", icon: "bi-controller"}
+	{ path: "/games/quiz", text: "Quiz ", icon: "bi-controller"}
 ];
 
 </script>
@@ -26,7 +26,7 @@ const routes: Array<Route> = [
   </main>
 
   <footer>
-	<Footer />
+	  <Footer />
   </footer>
 
 </template>

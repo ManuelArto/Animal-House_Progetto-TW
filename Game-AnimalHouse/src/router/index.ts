@@ -45,21 +45,6 @@ const router = createRouter({
       name: 'quiz',
       component: () => import('@/views/games/QuizView.vue')
     },
-    {
-      path: '/games/memory',
-      name: 'memory',
-      component: () => import('@/views/games/MemoryView.vue')
-    },
-    {
-      path: '/games/impiccato',
-      name: 'impiccato',
-      component: () => import('@/views/games/ImpiccatoView.vue')
-    },
-    {
-      path: '/games/scova_le_differenze',
-      name: 'scova le differenze',
-      component: () => import('@/views/games/ScovaDifferenzeView.vue')
-    },
   ]
 })
 
