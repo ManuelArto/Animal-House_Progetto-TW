@@ -9,17 +9,13 @@ function getQuestionText(animal: RandAnimal, key: string): string {
 }
 
 let animals: RandAnimal[] = []
-const getNewAnimalGenerator = getNewSingleAnimal() as AsyncGenerator
-async function* getNewSingleAnimal() {
-	while (true) {
-		if (animals.length === 0) {
-			await fetch(ENDPOINT.RAND_ANIMALS_LIST(10))
-				.then((res) => res.json())
-				.then((data) => animals.push(...data))
-		}
-		var animal = animals.pop()
-		yield animal
+async function getNewSingleAnimal() {
+	if (animals.length === 0) {
+		await fetch(ENDPOINT.RAND_ANIMALS_LIST(10))
+			.then((res) => res.json())
+			.then((data) => animals.push(...data))
 	}
+	return animals.pop()!
 }
 
 async function getNewQuestion(key: string) {
@@ -57,7 +53,7 @@ async function getNewQuestion(key: string) {
 			// Verifico che la risposta non sia già presente, altrimenti eseguo la fetch di un altro animale e proseguo
 			if (question.answers.filter((answer) => answer.answer === answerLabel).length == 0)
 				break
-			animal = (await getNewAnimalGenerator.next()).value!
+			animal = await getNewSingleAnimal()
 		}
 		question.answers.push({
 			answer: answerLabel,
