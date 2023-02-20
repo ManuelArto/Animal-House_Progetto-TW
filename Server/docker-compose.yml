@@ -13,6 +13,6 @@ services:
     links:
       - mongodb
     volumes:
-      - C:\Users\andre\Desktop\UNI\2° anno\2° semestre\tecnologie\Animal-House_Progetto-TW\Server\mongo-seed:/mongo-seed/
+      - ./mongo-seed:/mongo-seed/
     command: 
       /mongo-seed/mongoimport.sh
