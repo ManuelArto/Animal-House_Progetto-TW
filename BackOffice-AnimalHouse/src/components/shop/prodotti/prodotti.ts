@@ -1,7 +1,7 @@
 import $ from "jquery"
 import products_html from "./prodotti.html?raw"
 
-export function setupProducts(element: JQuery<HTMLDivElement>) {
+export function renderProducts(element: JQuery<HTMLDivElement>) {
 	element.html(products_html)
 	$(function() {
 		// Selezioniamo l'elemento con id filterDropdown e aggiungiamo un listener all'evento click

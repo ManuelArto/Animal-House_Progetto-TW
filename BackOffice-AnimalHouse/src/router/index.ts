@@ -1,23 +1,45 @@
 import $ from "jquery"
-import { setupProducts } from '../components/shop/prodotti/prodotti'
-import { setupUsers } from '../components/anagrafica/user/user'
-import { setupScore } from '../components/anagrafica/score/score'
-import { setupNotFound } from "../components/NotFound/notfound"
+import { isUserAuthenticated } from "../auth/auth"
+import { renderProducts } from '../components/shop/prodotti/prodotti'
+import { renderUsers } from '../components/anagrafica/user/user'
+import { renderScore } from '../components/anagrafica/score/score'
+import { renderNotFound } from "../components/NotFound/notfound"
+import { renderNavbar } from "../components/navbar/navbar"
+import { renderSidebar } from "../components/sidebar/sidebar"
+import { renderDashboard } from "../components/dashboard/dashboard"
 
 const routes: { [key: string]: Function } = {
-	"#/shop/prodotti": setupProducts,
-	"#/anagrafica/utenti": setupUsers,
-	"#/anagrafica/punteggi": setupScore,
-	"notFound": setupNotFound
+	"": renderDashboard,
+	"#/": renderDashboard,
+	"#/shop/prodotti": renderProducts,
+	"#/anagrafica/utenti": renderUsers,
+	"#/anagrafica/punteggi": renderScore,
+	"notFound": renderNotFound
 }
 
-export function render(path: string) {
+function render(path: string) {
+	if (!isUserAuthenticated()) {
+		window.location.href = "/login"
+		return
+	}
+	// STATIC RENDERING
+	renderNavbar($('#navbar'))
+	renderSidebar($('#sidebar'))
+
 	if (routes[path])
 		routes[path]($("#main"))
 	else 
 		routes["notFound"]($("#main"))
 }
-  
+
+function isRoute(path: string) {
+	return routes[path] != null
+}
+
 window.onhashchange = (evt: HashChangeEvent) => render(window.location.hash)
-  
-window.location.href = "/#/shop/prodotti"
+
+
+export default {
+	render,
+	isRoute
+}
