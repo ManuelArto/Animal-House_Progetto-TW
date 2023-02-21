@@ -3,22 +3,30 @@ import { Modal, Dropdown } from "flowbite";
 import { Product } from "../../../model";
 import { ENDPOINT } from "../../../utils/const";
 import products_html from "./prodotti.html?raw"
+import { handleFormSubmit } from "../../../utils/requestHandler";
+
+type IAppModals = { 
+	delete: Modal; 
+	product: Modal
+}
+let app_modals = {} as IAppModals
 
 export function renderProducts(element: JQuery<HTMLDivElement>) {
 	element.html(products_html)
 
-	const productModal = new Modal($('#productModal')[0])
-	const deleteModal = new Modal($('#deleteModal')[0])
+	app_modals.product = new Modal($('#productModal')[0])
+	app_modals.delete = new Modal($('#deleteModal')[0])
 
 	$(function () {
-		initProducts(productModal, deleteModal)
-		initProductModal(productModal)
-		initDeleteModal(deleteModal)
+		initProducts()
+		initNewProductModal()
+		initCloseDeleteModal()
+		initCloseProductModal
 		initFilterDropdown()
 	});
 }
 
-function initProducts(productModal: Modal, deleteModal: Modal) {
+function initProducts() {
 	fetch(ENDPOINT.PRODUCTS_LIST)
 		.then((res) => res.json())
 		.then((products) => products.forEach((product: Product) => {
@@ -41,20 +49,65 @@ function initProducts(productModal: Modal, deleteModal: Modal) {
 			$("tbody").append(product_tmpl[0].outerHTML);
 
 			// $(`#${product._id}`).data("id", product._id)
-			$(`#edit_${product._id}`).on("click", () => productModal.toggle())
-			$(`#delete_${product._id}`).on("click", () => deleteModal.toggle())
+			$(`#edit_${product._id}`).on("click", () => openEditProductModal(product))
+			$(`#delete_${product._id}`).on("click", () => app_modals.delete.toggle())
 		}))
 }
 
-function initDeleteModal(deleteModal: Modal) {
-	$(".closeDeleteProductModal").on("click", () => deleteModal.hide() )
+function initNewProductModal() {
+	$(".newProductButton").on("click", () => {
+		app_modals.product.toggle()
+		$("#productModalTitle").text("Aggiungi un prodotto")
+		
+		$("#editForm #name").attr("value", "")
+		$("#editForm #price").attr("value", "")
+		$("#editForm #quantity").attr("value", "")
+		$("#editForm #imageURI").attr("value", "")
+		$("#editForm #description").text("")
+	
+		$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
+			event.target.method = "post"
+			const data = await handleFormSubmit(event, ENDPOINT.PRODUCTS_NEW, "POST", localStorage.getItem("token"))
+	
+			if (data.error) {
+				alert(data.error.message)
+			} else {
+				app_modals.product.hide()
+				initProducts()
+			}
+		})
+	})
 }
 
-function initProductModal(productModal: Modal) {
-	$(".newProductButton").each(function () {
-		// TODO: clear productModal ??
-		$(this).on("click", () => productModal.toggle())
+function openEditProductModal(product: Product) {
+	app_modals.product.toggle()
+	$("#productModalTitle").text("Edit Product")
+	
+	$("#editForm #name").attr("value", product.name)
+	$("#editForm #price").attr("value", product.price)
+	$("#editForm #quantity").attr("value", product.quantity)
+	$("#editForm #imageURI").attr("value", product.imageURI)
+	$("#editForm #description").text(product.description)
+	
+	$("#editForm").attr("action", "PATCH")
+	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
+		const data = await handleFormSubmit(event, ENDPOINT.PRODUCT(product._id), "PATCH", localStorage.getItem("token"))
+
+		if (data.error) {
+			alert(data.error.message)
+		} else {
+			app_modals.product.hide()
+			initProducts()
+		}
 	})
+}
+
+function initCloseDeleteModal() {
+	$(".closeDeleteProductModal").on("click", () => app_modals.delete.hide() )
+}
+
+function initCloseProductModal() {
+	$(".closeProductModal").on("click", () => app_modals.product.hide() )
 }
 
 function initFilterDropdown() {

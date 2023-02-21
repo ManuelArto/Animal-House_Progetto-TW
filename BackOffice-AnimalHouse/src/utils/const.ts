@@ -10,6 +10,8 @@ export const ENDPOINT = {
 	THREADS_LIST: SERVER_URL + "/threads/list",
 	// PRODUCTS
 	PRODUCTS_LIST: SERVER_URL + "/products/list",
+	PRODUCTS_NEW: SERVER_URL + "/products/",
+	PRODUCT: (id: string) => SERVER_URL + `/products/${id}`,
 	// SEDI
 	SEDI_LIST: SERVER_URL + "/sedi/list",
 	// RESERVATIONS
