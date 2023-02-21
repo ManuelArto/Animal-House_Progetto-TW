@@ -1,1 +1,57 @@
-dashboard
+<style>
+    .card:hover{
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 6px rgba(74, 37, 184, 0.986);
+    }
+    #btn:hover{
+        transform: scale(1.1);
+		transition: transform 0.1s ease-in-out;
+    }
+</style>
+
+<p class="mt-10 ml-10 text-3xl font-bold">Dashboard</p>
+<div class="ml-5 mr-5 mt-5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 mx-auto">
+    <div class="card max-w-sm p-6 border border-gray-200 rounded-lg bg-white rounded-lg shadow-lg p-6">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-semibold italic tracking-tight text-gray-900 dark:text-white">Anagrafica clienti</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">L'anagrafica clienti permette di eliminare e/o modificare i dati sui vari utenti e dei punteggi ottenuti nei giochi</p>
+        <a href="#/anagrafica/utenti" id="btn" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Vai a utenti
+            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
+    </div>
+
+    <div class="card max-w-sm p-6 border border-gray-200 rounded-lg bg-white rounded-lg shadow-lg p-6">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-semibold italic tracking-tight text-gray-900 dark:text-white">Servizi di comunità</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Permette di eliminare le varie discussioni create, e per ogni discussione permette di eliminare i messaggi</p>
+        <a href="#/comunita/bacheca" id="btn" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Vai alla bacheca
+            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
+    </div>
+
+    <div class="card max-w-sm p-6 border border-gray-200 rounded-lg bg-white rounded-lg shadow-lg p-6">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-semibold italic tracking-tight text-gray-900 dark:text-white">Shop</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Serve per gestire l'inserimento, la cancellazione o l'aggiornamento dei prodotti all'interno dello shop</p>
+        <a href="#/shop/prodotti" id="btn" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Vai ai prodotti
+            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
+    </div>
+
+    <div class="card max-w-sm p-6 border border-gray-200 rounded-lg bg-white rounded-lg shadow-lg p-6">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-semibold italic tracking-tight text-gray-900 dark:text-white">Servizi in presenza</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Permette di creare una nuova prenotazione o di modificare/disdirre una prenotazione già esistente</p>
+        <a href="#/servizi/prenotazioni" id="btn" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Vai alle prenotazioni
+            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
+    </div>
+
+</div>
