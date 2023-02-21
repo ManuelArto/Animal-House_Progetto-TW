@@ -11,20 +11,18 @@
 				<div class="relative">
 					<button type="button" class="mr-10 text-md font-medium rounded-full w-10 h-10 bg-gray-100 text-gray-600 dark:text-gray-300" aria-controls="dropdown-user" data-dropdown-toggle="dropdown-user">
 						<span class="sr-only">Open user menu</span>
-						<p>NS</p>
+						<p id="initial"></p>
 					</button>
-					<div class="hidden absolute z-50 top-12 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
+					<div class="hidden absolute w-max top-12 mt-2 rounded-md shadow-lg py-1 bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
 						<div class="px-4 py-3">
-						<p class="text-sm text-gray-900 dark:text-white">
-							Neil Sims
-						</p>
-						<p class="text-sm font-medium text-gray-900 dark:text-gray-300">
-							neil.sims@flowbite.com
-						</p>
+							<p id="username" class="text-sm text-gray-900 dark:text-white">
+							</p>
+							<p id="email" class="text-sm font-medium text-gray-900 dark:text-gray-300">
+							</p>
 						</div>
 						<ul class="py-1">
 							<li>
-								<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+								<a id="logout" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
 							</li>
 						</ul>
 					</div>

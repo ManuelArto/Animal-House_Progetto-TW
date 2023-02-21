@@ -12,8 +12,7 @@ export function isUserAuthenticated() {
 		}
 	}
 
-	// TODO: cambia a false 
-	return true
+	return false
 }
 
 function isTokenExpired(token: string) {

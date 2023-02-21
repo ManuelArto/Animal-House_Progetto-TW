@@ -8,6 +8,8 @@ import { renderNotFound } from "../components/NotFound/notfound"
 import { renderDashboard } from "../components/dashboard/dashboard"
 import { renderPrenotazioni } from "../components/prenotazioni/prenotazioni"
 import { renderLogin } from "../components/login/login"
+import { renderNavbar } from "../components/navbar/navbar"
+import { renderSidebar } from "../components/sidebar/sidebar"
 
 const routes: { [key: string]: Function } = {
 	"": renderDashboard,
@@ -41,9 +43,12 @@ function start(path: string, hashpath: string) {
 		renderLogin($("#app"))
 	else if (path != '/')
 		renderNotFound($("#app"))
-	else if (isUserAuthenticated())
+	else if (isUserAuthenticated()) {
+		// STATIC RENDERING
+		renderNavbar($('#navbar'))
+		renderSidebar($('#sidebar'))
 		render(hashpath)
-	else
+	} else
 		window.location.href = "/login"
 }
 	
