@@ -6,6 +6,7 @@ import { renderScore } from '../components/anagrafica/score/score'
 import { renderBacheca } from "../components/comunita/bacheca"
 import { renderNotFound } from "../components/NotFound/notfound"
 import { renderDashboard } from "../components/dashboard/dashboard"
+import { renderPrenotazioni } from "../components/prenotazioni/prenotazioni"
 import { renderLogin } from "../components/login/login"
 
 const routes: { [key: string]: Function } = {
@@ -15,6 +16,7 @@ const routes: { [key: string]: Function } = {
 	"#/anagrafica/utenti": renderUsers,
 	"#/anagrafica/punteggi": renderScore,
 	"#/comunita/bacheca": renderBacheca,
+	"#/servizi/prenotazioni" : renderPrenotazioni,
 	"notFound": renderNotFound
 }
 
