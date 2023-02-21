@@ -1,4 +1,5 @@
 import express, { Router, Request, Response, NextFunction } from "express"
+import { adminAuthJwt, AdminAuthRequest } from "../middleware/adminAuth"
 import { ErrorWrapper } from "../middleware/error"
 import { ProductModel } from "../model/product"
 
@@ -67,9 +68,49 @@ router.get('/:category/list', async (req: Request, res: Response, next: NextFunc
 	}
 })
 
+// ADMIN ROUTES
 
-// router.post('', AuthAdvanced, async (req, res) => {})
-// router.patch('/items/:id', AuthAdvanced, async (req, res) => {})
-// router.delete('/items/:id', AuthAdvanced, async (req, res) => {})
+router.post('', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	try {
+        const newProduct = new ProductModel({ ...req.body })
+
+        await newProduct.save()
+        res.status(201).json(newProduct)
+	} catch (error: any) {
+		next(new ErrorWrapper({statusCode: 400, error: error}))
+	}
+})
+
+router.patch('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	try {
+		const product = await ProductModel.findOne({ _id: req.params.id})
+	
+		if (!product)
+			throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })
+
+		const updates = Object.keys(req.body)
+		updates.forEach(update => {
+			(product as any)[update] = req.body[update]
+		});
+
+		await product.save()
+		res.json({ product, message: "Prodotto modificato con successo" })
+	} catch (error: any) {
+		next(new ErrorWrapper({statusCode: 400, error: error}))
+	}
+})
+
+router.delete('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	try {
+		const product = await ProductModel.findOneAndDelete({ _id: req.params.id })
+        if (!product)
+            throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })
+
+        res.json({ message: `${product.name} successfully deleted` })
+	} catch (error: any) {
+		next(new ErrorWrapper({statusCode: 400, error: error}))
+	}
+})
+
 
 export default router
