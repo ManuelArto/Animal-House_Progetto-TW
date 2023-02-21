@@ -8,6 +8,7 @@ import { renderNotFound } from "../components/NotFound/notfound"
 import { renderNavbar } from "../components/navbar/navbar"
 import { renderSidebar } from "../components/sidebar/sidebar"
 import { renderDashboard } from "../components/dashboard/dashboard"
+import { renderPrenotazioni } from "../components/prenotazioni/prenotazioni"
 
 const routes: { [key: string]: Function } = {
 	"": renderDashboard,
@@ -16,6 +17,7 @@ const routes: { [key: string]: Function } = {
 	"#/anagrafica/utenti": renderUsers,
 	"#/anagrafica/punteggi": renderScore,
 	"#/comunita/bacheca": renderBacheca,
+	"#/servizi/prenotazioni" : renderPrenotazioni,
 	"notFound": renderNotFound
 }
 
