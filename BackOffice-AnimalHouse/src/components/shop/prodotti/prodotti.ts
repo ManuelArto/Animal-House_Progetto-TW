@@ -49,6 +49,7 @@ function initProducts() {
 			$("tbody").append(product_tmpl[0].outerHTML);
 
 			// $(`#${product._id}`).data("id", product._id)
+			// TODO: controlla che non ci siano id duplicati
 			$(`#edit_${product._id}`).on("click", () => openEditProductModal(product))
 			$(`#delete_${product._id}`).on("click", () => app_modals.delete.toggle())
 		}))
