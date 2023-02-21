@@ -25,6 +25,8 @@ import headquartersRouter from './routes/headquarters'
 import threadsRouter from './routes/threads'
 import reservationsRouter from './routes/reservations'
 import gameAnimalsRouter from './routes/gameAnimals'
+import adminUserRouter from './routes/adminUsers'
+
 app.use('/user/', userRouter)
 app.use('/animals/', animalsRouter)
 app.use('/products/', productsRouter)
@@ -33,6 +35,7 @@ app.use('/sedi/', headquartersRouter)
 app.use('/threads/', threadsRouter)
 app.use('/reservations/', reservationsRouter)
 app.use('/gameAnimals/', gameAnimalsRouter)
+app.use('/adminUser/', adminUserRouter)
 
 // Middlewares
 app.use(helmet())

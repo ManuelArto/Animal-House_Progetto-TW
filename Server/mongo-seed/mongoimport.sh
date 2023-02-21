@@ -1,6 +1,7 @@
 #!/bin/sh
 
 mongoimport --host mongodb --db animalhouse --collection users  	  --type json --file /mongo-seed/users.json    		--jsonArray
+mongoimport --host mongodb --db animalhouse --collection adminusers   --type json --file /mongo-seed/adminUsers.json    --jsonArray
 mongoimport --host mongodb --db animalhouse --collection animals 	  --type json --file /mongo-seed/animals.json  		--jsonArray
 mongoimport --host mongodb --db animalhouse --collection products 	  --type json --file /mongo-seed/products.json 		--jsonArray
 mongoimport --host mongodb --db animalhouse --collection scores		  --type json --file /mongo-seed/scores.json 		--jsonArray

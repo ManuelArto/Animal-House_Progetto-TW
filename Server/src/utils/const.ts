@@ -1,6 +1,6 @@
 export const constants = {
 	expiresInToken: '4h',
-	pwdMinLenght: 7
+	pwdMinLenght: 6
 }
 
 // FASCE_ORARIE => ["10:00-11:00", "...", "19:00-20:00"]
