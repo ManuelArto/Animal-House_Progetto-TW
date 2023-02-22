@@ -7,6 +7,8 @@
 		transition: transform 0.3s ease-in-out;
     }
 </style>
+
+
 <div class="m-4" id="thread">
     <!-- Breadcrumb -->
     <nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700 shadow" aria-label="Breadcrumb">
@@ -66,190 +68,29 @@
                                 <th scope="col" class="px-4 py-3"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                       
-                                </td>
-                                <td class="px-4 py-3">neil45</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td> 
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                                 
-                                </td>                            
-                                <td class="px-4 py-3">adidas79</td>
-                                <td class="px-4 py-3">18/04/2021</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                                
-                                </td>                         
-                                <td class="px-4 py-3">franc_cuccix</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                               
-                                </td>                          
-                                <td class="px-4 py-3">angels_cioni83</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                               
-                                </td>                          
-                                <td class="px-4 py-3">sara_metallo</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                               
-                                </td>                            
-                                <td class="px-4 py-3">ricky76</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                               
-                                </td>                        
-                                <td class="px-4 py-3">provolone83</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                               
-                                </td>                         
-                                <td class="px-4 py-3">sarcina.frank</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                               
-                                </td>                           
-                                <td class="px-4 py-3">ciaobel83</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <button id="btn" class="text-lg">Il mio cane abbaia in continuazione</button>
-                                    </div>                               
-                                </td>                         
-                                <td class="px-4 py-3">kvara77</td>
-                                <td class="px-4 py-3">BenQ</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                          </svg>                                                                           
-                                        Delete Thread
-                                    </button>
-                                </td>
-                            </tr>
+                        <tbody id="threads_table">
                         </tbody>
                     </table>
+                    <template id="thread_template">
+                        <tr class="border-b dark:border-gray-700">
+                            <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <div>
+                                    <button id="title" class="text-lg"></button>
+                                </div>                       
+                            </td>
+                            <td class="px-4 py-3" id="creatorUsername"></td>
+                            <td class="px-4 py-3" id="createDate"></td>
+                            <td class="px-4 py-3" id="createHour">17:27</td> 
+                            <td class="px-4 py-3 flex items-center justify-end">
+                                <button id="deleteButton" data-modal-toggle="deleteModal" class="deleteThreadButton ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                        </svg>                                                                           
+                                    Delete Thread
+                                </button>
+                            </td>
+                        </tr>
+                    </template>
                 </div>
                 <!-- Paginazione -->
                 <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
@@ -298,7 +139,6 @@
     </section>
 </div>
 
-
 <!-- Modal elimina thread -->
 <div id="deleteModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
     <div class="relative p-4 w-full max-w-md h-full md:h-auto">
@@ -323,6 +163,7 @@
 </div>
 
 <!-- Tabella dei messaggi -->
+
 <div class="hidden m-4" id="messages">
     <!-- Breadcrumb -->
     <nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700 shadow" aria-label="Breadcrumb">
@@ -362,7 +203,7 @@
         </ol>
     </nav>
     <section class=" bg-gray-50 dark:bg-gray-900 my-4 shadow-lg border rounded-lg">
-        <p class="inline-block mt-2 mb-2 ml-4 text-xl"><b>Il mio cane abbaia in continuazione</b></p>
+        <p class="inline-block mt-2 mb-2 ml-4 text-xl"><b id="title_thread"></b></p>
         <div class="mx-auto w-full">
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
@@ -385,197 +226,38 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-10 py-3">Text</th>
-                                <th scope="col" class="px-4 py-3">User</th>
-                                <th scope="col" class="px-4 py-3">Data</th>
-                                <th scope="col" class="px-4 py-3">Ora</th>
+                                <th scope="col" class="px-10 py-3"></th>
+                                <th scope="col" class="px-4 py-3"></th>
+                                <th scope="col" class="px-4 py-3"></th>
+                                <th scope="col" class="px-4 py-3"></th>
                                 <th scope="col" class="px-4 py-3"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                         
-                                </td>
-                                <td class="px-4 py-3">neil45</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td> 
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                            
-                                <td class="px-4 py-3">adidas79</td>
-                                <td class="px-4 py-3">18/04/2021</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                         
-                                <td class="px-4 py-3">franc_cuccix</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                          
-                                <td class="px-4 py-3">angels_cioni83</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                          
-                                <td class="px-4 py-3">sara_metallo</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                            
-                                <td class="px-4 py-3">ricky76</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                        
-                                <td class="px-4 py-3">provolone83</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                         
-                                <td class="px-4 py-3">sarcina.frank</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                           
-                                <td class="px-4 py-3">ciaobel83</td>
-                                <td class="px-4 py-3">15/03/2022</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b dark:border-gray-700">
-                                <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div>
-                                        <p class="text-base">Il mio cane abbaia in continuazione</p>
-                                    </div>                               
-                                </td>                         
-                                <td class="px-4 py-3">kvara77</td>
-                                <td class="px-4 py-3">BenQ</td>
-                                <td class="px-4 py-3">17:27</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="deleteButton" data-modal-toggle="deleteModal" class="ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                        </svg>                                                                           
-                                        Delete message
-                                    </button>
-                                </td>
-                            </tr>
+                        <tbody id="messages_table">
                         </tbody>
                     </table>
+                    <template id="message_template">
+                        <tr class="border-b dark:border-gray-700">
+                            <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <div>
+                                    <p class="text-base" id="content"></p>
+                                </div>                         
+                            </td>
+                            <td class="px-4 py-3" id="content"></td>
+                            <td class="px-4 py-3" id="user"></td>
+                            <td class="px-4 py-3" id="date"></td> 
+                            <td class="px-4 py-3" id="time"></td> 
+                            <td class="px-4 py-3 flex items-center justify-end">
+                                
+                                <button id="deleteButton" data-modal-toggle="deleteModal" class="deleteMessageButton ml-2 flex items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    </svg>                                                                           
+                                    Delete message
+                                </button>
+                            </td>
+                        </tr>
+                    </template>
                 </div>
                 <!-- Paginazione -->
                 <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
