@@ -10,4 +10,17 @@ interface Product {
 	rating: number
 }
 
-export type { Product }
+interface User {
+	_id: string
+	name: string
+	surname: string
+	email:string
+	username: string
+	best_score: string
+	imageURI: string
+	phone: number
+	birth: Date
+	preferenze: string
+}
+
+export type { Product, User }
