@@ -28,6 +28,28 @@ interface Score {
 	name: string
 	game: string
 	punteggio: number
-	createdAt: string
+	date: string
+	time:string
 }
-export type { Product, User, Score }
+
+interface Thread {
+	_id: string
+	title: string
+	creatorId: string
+	creatorUsername: string
+	createdAt: string
+	messages: Message[]
+	date:string
+	time: string
+}
+
+interface Message {
+	_id: string
+	authorId: string
+	authorUsername: string
+	content: string
+	date: string
+	time: string
+}
+
+export type { Product, User, Score, Thread, Message }
