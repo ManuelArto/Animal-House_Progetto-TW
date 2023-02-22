@@ -23,4 +23,11 @@ interface User {
 	preferenze: string
 }
 
-export type { Product, User }
+interface Score {
+	_id: string
+	name: string
+	game: string
+	punteggio: number
+	createdAt: string
+}
+export type { Product, User, Score }
