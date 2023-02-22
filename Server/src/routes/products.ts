@@ -82,34 +82,27 @@ router.post('', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Respo
 })
 
 router.patch('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
-	try {
-		const product = await ProductModel.findOne({ _id: req.params.id})
-	
-		if (!product)
-			throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })
-
-		const updates = Object.keys(req.body)
-		updates.forEach(update => {
-			(product as any)[update] = req.body[update]
-		});
-
-		await product.save()
-		res.json({ product, message: "Prodotto modificato con successo" })
-	} catch (error: any) {
-		next(new ErrorWrapper({statusCode: 400, error: error}))
-	}
+	ProductModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
+		.then((product) => {
+			if (!product)
+				throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })
+        	
+			res.json({ product, message: "Prodotto modificato con successo" })
+    	}).catch((error: any) => {
+        	next(new ErrorWrapper({statusCode: 400, error: error}))
+    	})
 })
 
 router.delete('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
-	try {
-		const product = await ProductModel.findOneAndDelete({ _id: req.params.id })
+	ProductModel.findByIdAndDelete(req.params.id, )
+	.then((product) => {
         if (!product)
             throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })
 
         res.json({ message: `${product.name} successfully deleted` })
-	} catch (error: any) {
+	}).catch((error: any) => {
 		next(new ErrorWrapper({statusCode: 400, error: error}))
-	}
+	})
 })
 
 

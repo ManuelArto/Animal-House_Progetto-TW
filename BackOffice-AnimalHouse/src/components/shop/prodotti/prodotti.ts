@@ -21,12 +21,14 @@ export function renderProducts(element: JQuery<HTMLDivElement>) {
 		initProducts()
 		initNewProductModal()
 		initCloseDeleteModal()
-		initCloseProductModal
+		initCloseProductModal()
 		initFilterDropdown()
-	});
+	})
 }
 
 function initProducts() {
+	$("tbody").html("")
+
 	fetch(ENDPOINT.PRODUCTS_LIST)
 		.then((res) => res.json())
 		.then((products) => products.forEach((product: Product) => {
@@ -49,7 +51,6 @@ function initProducts() {
 			$("tbody").append(product_tmpl[0].outerHTML);
 
 			// $(`#${product._id}`).data("id", product._id)
-			// TODO: controlla che non ci siano id duplicati
 			$(`#edit_${product._id}`).on("click", () => openEditProductModal(product))
 			$(`#delete_${product._id}`).on("click", () => app_modals.delete.toggle())
 		}))
@@ -59,15 +60,17 @@ function initNewProductModal() {
 	$(".newProductButton").on("click", () => {
 		app_modals.product.toggle()
 		$("#productModalTitle").text("Aggiungi un prodotto")
+		$("#productModalSubmitButton").text("Aggiungi")
 		
-		$("#editForm #name").attr("value", "")
-		$("#editForm #price").attr("value", "")
-		$("#editForm #quantity").attr("value", "")
-		$("#editForm #imageURI").attr("value", "")
+		$("#editForm #name").attr("value", " ")
+		$("#editForm #price").attr("value", " ")
+		$("#editForm #quantity").attr("value", " ")
+		$("#editForm #imageURI").attr("value", " ")
 		$("#editForm #description").text("")
+		$(`#editForm option[value='Accessoristica']`).attr('selected','selected')
 	
 		$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-			event.target.method = "post"
+			console.log("ciao")
 			const data = await handleFormSubmit(event, ENDPOINT.PRODUCTS_NEW, "POST", localStorage.getItem("token"))
 	
 			if (data.error) {
@@ -75,6 +78,7 @@ function initNewProductModal() {
 			} else {
 				app_modals.product.hide()
 				initProducts()
+				$("#editForm").off("submit")
 			}
 		})
 	})
@@ -83,12 +87,14 @@ function initNewProductModal() {
 function openEditProductModal(product: Product) {
 	app_modals.product.toggle()
 	$("#productModalTitle").text("Edit Product")
+	$("#productModalSubmitButton").text("Salva")
 	
 	$("#editForm #name").attr("value", product.name)
 	$("#editForm #price").attr("value", product.price)
 	$("#editForm #quantity").attr("value", product.quantity)
 	$("#editForm #imageURI").attr("value", product.imageURI)
 	$("#editForm #description").text(product.description)
+	$(`#editForm option[value='${product.category}']`).attr('selected','selected')
 	
 	$("#editForm").attr("action", "PATCH")
 	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
@@ -99,6 +105,7 @@ function openEditProductModal(product: Product) {
 		} else {
 			app_modals.product.hide()
 			initProducts()
+			$("#editForm").off("submit")
 		}
 	})
 }

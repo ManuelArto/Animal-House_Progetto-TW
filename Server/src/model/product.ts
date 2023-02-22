@@ -15,7 +15,6 @@ const productSchema = new Schema<IProduct>({
 	name: {
 		type: String,
 		required: true,
-		unique: true
 	},
 	description: {
 		type: String,
@@ -39,6 +38,7 @@ const productSchema = new Schema<IProduct>({
 	},
 	rating: {
 		type: Number,
+		default: 0
 	}
 }, { timestamps: true })
 
