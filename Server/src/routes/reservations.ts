@@ -10,6 +10,10 @@ export const router: Router = express.Router()
 router.get('/list', authJwt, async (req: Request, res: Response, next: NextFunction) => {
 	try{
 		const reservations = await ReservationModel.find()
+		.populate("headQuarter")
+		.populate("user")
+		.populate("animal")
+		.exec()
 
 		res.json(reservations)
 	} catch(error: any) {

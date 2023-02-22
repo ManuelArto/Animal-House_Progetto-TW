@@ -2,9 +2,9 @@ import { Document, Schema, model, ObjectId } from 'mongoose'
 
 
 interface IReservation extends Document {
-	idHeadQuarter: ObjectId
-	idUser: ObjectId
-	idAnimal: ObjectId
+	headQuarter: ObjectId
+	user: ObjectId
+	animal: ObjectId
 	serviceName: string
 	number: number
 	date: Date
@@ -12,17 +12,17 @@ interface IReservation extends Document {
 }
 
 const reservationSchema = new Schema<IReservation>({
-	idHeadQuarter: {
+	headQuarter: {
 		type: Schema.Types.ObjectId,
 		required: true,
 		ref: 'HeadQuarter'
 	},
-	idUser: {
+	user: {
 		type: Schema.Types.ObjectId,
 		required: true,
 		ref: 'User'
 	},
-	idAnimal: {
+	animal: {
 		type: Schema.Types.ObjectId,
 		required: true,
 		ref: 'Animal'
@@ -46,7 +46,7 @@ const reservationSchema = new Schema<IReservation>({
 	},
 }, { timestamps: true })
 
-reservationSchema.index({ idHeadQuarter: 1, serviceName: 1, number: 1, date: 1, fascia_oraria: 1 }, { unique: true });
+reservationSchema.index({ headQuarter: 1, serviceName: 1, number: 1, date: 1, fascia_oraria: 1 }, { unique: true });
 
 export const ReservationModel = model<IReservation>('Reservation', reservationSchema)
 
