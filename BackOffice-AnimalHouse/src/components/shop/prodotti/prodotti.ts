@@ -62,15 +62,14 @@ function initNewProductModal() {
 		$("#productModalTitle").text("Aggiungi un prodotto")
 		$("#productModalSubmitButton").text("Aggiungi")
 		
-		$("#editForm #name").attr("value", " ")
-		$("#editForm #price").attr("value", " ")
-		$("#editForm #quantity").attr("value", " ")
-		$("#editForm #imageURI").attr("value", " ")
-		$("#editForm #description").text("")
+		$("#editForm #name").val("")
+		$("#editForm #price").val("")
+		$("#editForm #quantity").val("")
+		$("#editForm #imageURI").val("")
+		$("#editForm #description").val("")
 		$(`#editForm option[value='Accessoristica']`).attr('selected','selected')
 	
 		$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-			console.log("ciao")
 			const data = await handleFormSubmit(event, ENDPOINT.PRODUCTS_NEW, "POST", localStorage.getItem("token"))
 	
 			if (data.error) {
@@ -89,11 +88,11 @@ function openEditProductModal(product: Product) {
 	$("#productModalTitle").text("Edit Product")
 	$("#productModalSubmitButton").text("Salva")
 	
-	$("#editForm #name").attr("value", product.name)
-	$("#editForm #price").attr("value", product.price)
-	$("#editForm #quantity").attr("value", product.quantity)
-	$("#editForm #imageURI").attr("value", product.imageURI)
-	$("#editForm #description").text(product.description)
+	$("#editForm #name").val(product.name)
+	$("#editForm #price").val(product.price)
+	$("#editForm #quantity").val(product.quantity)
+	$("#editForm #imageURI").val(product.imageURI)
+	$("#editForm #description").val(product.description)
 	$(`#editForm option[value='${product.category}']`).attr('selected','selected')
 	
 	$("#editForm").attr("action", "PATCH")
