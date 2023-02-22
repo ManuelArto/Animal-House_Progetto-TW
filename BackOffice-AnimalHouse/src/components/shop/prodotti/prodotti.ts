@@ -3,7 +3,7 @@ import { Modal, Dropdown } from "flowbite";
 import { Product } from "../../../model";
 import { ENDPOINT } from "../../../utils/const";
 import products_html from "./prodotti.html?raw"
-import { handleFormSubmit } from "../../../utils/requestHandler";
+import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
 
 type IAppModals = { 
 	delete: Modal; 
@@ -52,7 +52,7 @@ function initProducts() {
 
 			// $(`#${product._id}`).data("id", product._id)
 			$(`#edit_${product._id}`).on("click", () => openEditProductModal(product))
-			$(`#delete_${product._id}`).on("click", () => app_modals.delete.toggle())
+			$(`#delete_${product._id}`).on("click", () => openDeleteProductModal(product, localStorage.getItem("token")))
 		}))
 }
 
@@ -105,6 +105,24 @@ function openEditProductModal(product: Product) {
 			app_modals.product.hide()
 			initProducts()
 			$("#editForm").off("submit")
+		}
+	})
+}
+
+function openDeleteProductModal(product: Product, token?: string | null) {
+	app_modals.delete.toggle()
+	$("#deleteProductButton").on("click", async (event: JQuery.ClickEvent) => {
+		const data = await handleRequest(ENDPOINT.PRODUCT(product._id), {
+			method: "DELETE",
+			headers: token ? { 'Authorization': `Bearer ${token}` } : {},
+		})
+
+		if (data.error) {
+			alert(data.error.message)
+		} else {
+			app_modals.delete.hide()
+			initProducts()
+			$("#deleteProductButton").off("click")
 		}
 	})
 }

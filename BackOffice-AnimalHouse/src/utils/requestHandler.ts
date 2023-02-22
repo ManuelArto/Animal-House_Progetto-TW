@@ -1,9 +1,11 @@
 
 export async function handleRequest(endpoint: string, options?: {}) {
-	return await fetch(endpoint, options)
-		.catch(error => {
-			alert(error)
-		}).then(response => response)
+	try {
+		const response = await fetch(endpoint, options);
+		return response.json();
+	} catch (error) {
+		return { error: "Network error" };
+	}
 }
 
 export async function handleFormSubmit(event: JQuery.SubmitEvent, ENDPOINT: string, method: string, token?: string | null) {
@@ -34,5 +36,5 @@ export async function handleFormSubmit(event: JQuery.SubmitEvent, ENDPOINT: stri
 		})
 	}
 
-	return response ? await (response as Response).json() : { error: "Network error" }
+	return response
 }
