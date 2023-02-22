@@ -27,9 +27,8 @@ function initScores(deleteModal: Modal) {
 			product_tmpl.find("#name").text(score.name)
 			product_tmpl.find("#game").text(score.game)
 			product_tmpl.find("#score").text(score.punteggio)
-			console.log(score.punteggio)
-			
-			
+			product_tmpl.find("#day").text(score.date)
+			product_tmpl.find("#hour").text(score.time)
 			$("tbody").append(product_tmpl[0].outerHTML);
 
 			// $(`#${product._id}`).data("id", product._id)
