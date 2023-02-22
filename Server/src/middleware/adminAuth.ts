@@ -21,7 +21,7 @@ export const adminAuthJwt = async(req: Request, res: Response, next: NextFunctio
         
         const user = await AdminUserModel.findOne({ _id: decoded.id.toString() })
         if(!user)
-            throw new ErrorWrapper({ statusCode: 400, errorType: "NoUserFoundError", errorMsg: "No user with that id" });
+            throw new ErrorWrapper({ statusCode: 400, errorType: "NoUserFoundError", errorMsg: "No admin user with that id" });
 
         (req as AdminAuthRequest).token = token;
         (req as AdminAuthRequest).user = user;
