@@ -128,11 +128,17 @@ function openDeleteProductModal(product: Product, token?: string | null) {
 }
 
 function initCloseDeleteModal() {
-	$(".closeDeleteProductModal").on("click", () => app_modals.delete.hide() )
+	$(".closeDeleteProductModal").on("click", () => {
+		app_modals.delete.hide()
+		$("#deleteProductButton").off("click")
+	} )
 }
 
 function initCloseProductModal() {
-	$(".closeProductModal").on("click", () => app_modals.product.hide() )
+	$(".closeProductModal").on("click", () => {
+		app_modals.product.hide()
+		$("#editForm").off("submit")
+	})
 }
 
 function initFilterDropdown() {
