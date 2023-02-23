@@ -5,11 +5,11 @@ import { ENDPOINT } from "../../../utils/const";
 import products_html from "./prodotti.html?raw"
 import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
 
-type IAppModals = { 
+type IProductAppModals = { 
 	delete: Modal; 
-	product: Modal
+	product: Modal;
 }
-let app_modals = {} as IAppModals
+let app_modals = {} as IProductAppModals
 
 export function renderProducts(element: JQuery<HTMLDivElement>) {
 	element.html(products_html)
@@ -27,6 +27,7 @@ export function renderProducts(element: JQuery<HTMLDivElement>) {
 }
 
 function initProducts() {
+	// Clear products table
 	$("tbody").html("")
 
 	fetch(ENDPOINT.PRODUCTS_LIST)
@@ -50,7 +51,6 @@ function initProducts() {
 			
 			$("tbody").append(product_tmpl[0].outerHTML);
 
-			// $(`#${product._id}`).data("id", product._id)
 			$(`#edit_${product._id}`).on("click", () => openEditProductModal(product))
 			$(`#delete_${product._id}`).on("click", () => openDeleteProductModal(product, localStorage.getItem("token")))
 		}))
