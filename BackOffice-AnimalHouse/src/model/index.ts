@@ -1,15 +1,4 @@
 
-interface Product {
-	_id: string
-	name: string
-	description: string
-	category: string
-	imageURI: string
-	price: number
-	quantity: number
-	rating: number
-}
-
 interface User {
 	_id: string
 	name: string
@@ -21,6 +10,17 @@ interface User {
 	phone: number
 	birth: Date
 	preferenze: string
+}
+
+interface Product {
+	_id: string
+	name: string
+	description: string
+	category: string
+	imageURI: string
+	price: number
+	quantity: number
+	rating: number
 }
 
 interface Score {
@@ -52,4 +52,41 @@ interface Message {
 	time: string
 }
 
-export type { Product, User, Score, Thread, Message }
+interface Reservation {
+	_id: string;
+	headQuarter: HeadQuarter
+	user: User
+	animal: Animal
+	serviceName: string
+	number: number
+	date: Date
+	fascia_oraria: string
+}
+
+interface HeadQuarter {
+	address: Address
+	services: Service[]
+}
+
+interface Address {
+	street: string
+	city: string
+	zipCode: string
+}
+
+interface Service {
+	type: string
+	peso: string
+	room: number
+}
+interface Animal {
+	name: string
+	imageURI: string
+	species: string
+	breed: string
+	birthDate: string
+	gender: string
+	weight: number
+}
+
+export type { Product, User, Score, Thread, Message, Reservation, HeadQuarter, Animal, Address, Service} 
