@@ -4,6 +4,8 @@ import { Modal } from "flowbite";
 import { ENDPOINT } from "../../../utils/const";
 import { User } from "../../../model";
 
+let searchTerm = "";
+
 export function renderUsers(element: JQuery<HTMLDivElement>) {
 	element.html(users_html)
 
@@ -16,6 +18,7 @@ export function renderUsers(element: JQuery<HTMLDivElement>) {
 		initupdateUser(updateUser)
 		initDeleteModal(deleteModal)
 		initchangePassword(changePassword)
+		initSearchBar()
 	});
 }
 
@@ -61,4 +64,22 @@ function initchangePassword(changePassword: Modal) {
 
 function initDeleteModal(deleteModal: Modal) {
 	$(".closeDeleteProductModal").on("click", () => deleteModal.hide() )
+}
+
+function initSearchBar(){
+	$('#simple-search').on("input", function () {
+		searchTerm = $(this).val() as string;
+
+		if (searchTerm == "") {
+			$('tbody tr').show();
+		} else {
+			// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
+			$('tbody tr').hide();
+			$('tbody tr').each(function () {
+				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+					$(this).show();
+				}
+			});
+		}
+	});
 }

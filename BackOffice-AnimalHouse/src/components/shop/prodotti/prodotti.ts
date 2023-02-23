@@ -181,7 +181,6 @@ function initSearchBar(){
 				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
 					$(this).show();
 				}
-				console.log(searchTerm)
 			});
 		}
 	});
