@@ -6,6 +6,7 @@ import bacheca_html from "./bacheca.html?raw"
 
 const table = $('#thread');
 const mex = $('#messages');
+let searchTerm = "";
 
 export function renderBacheca(element: JQuery<HTMLDivElement>) {
 	element.html( bacheca_html )
@@ -16,6 +17,7 @@ export function renderBacheca(element: JQuery<HTMLDivElement>) {
 		// selezioniamo il bottone e il pulsante "back" tramite l'ID
 		initThreads(deleteModal)
 		initDeleteModal(deleteModal)
+		initSearchBar()
 	});
 }
 
@@ -67,6 +69,23 @@ function initMessages(deleteModal: Modal, messages: Message[]){
 
 		// $(`#${product._id}`).data("id", product._id)
 		$(`#delete_${message._id}`).on("click", () => deleteModal.toggle())
-	})
-			
+	})		
+}
+
+function initSearchBar(){
+	$('#simple-search').on("input", function () {
+		searchTerm = $(this).val() as string;
+
+		if (searchTerm == "") {
+			$('tbody tr').show();
+		} else {
+			// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
+			$('tbody tr').hide();
+			$('tbody tr').each(function () {
+				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+					$(this).show();
+				}
+			});
+		}
+	});
 }

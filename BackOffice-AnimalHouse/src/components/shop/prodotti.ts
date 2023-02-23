@@ -1,15 +1,16 @@
 import $ from "jquery"
 import { Modal, Dropdown } from "flowbite";
-import { Product } from "../../../model";
-import { ENDPOINT } from "../../../utils/const";
+import { Product } from "../../model";
+import { ENDPOINT } from "../../utils/const";
 import products_html from "./prodotti.html?raw"
-import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
+import { handleFormSubmit, handleRequest } from "../../utils/requestHandler";
 
 type IProductAppModals = { 
 	delete: Modal; 
 	product: Modal;
 }
 let app_modals = {} as IProductAppModals
+let searchTerm = "";
 
 export function renderProducts(element: JQuery<HTMLDivElement>) {
 	element.html(products_html)
@@ -23,6 +24,7 @@ export function renderProducts(element: JQuery<HTMLDivElement>) {
 		initCloseDeleteModal()
 		initCloseProductModal()
 		initFilterDropdown()
+		initSearchBar()
 	})
 }
 
@@ -165,6 +167,24 @@ function initFilterDropdown() {
 			$('tbody tr').hide();
 			$('tbody tr').each(function () {
 				if ($.inArray($(this).find('td:nth-child(2)').text(), selectedCategories) !== -1) {
+					$(this).show();
+				}
+			});
+		}
+	});
+}
+
+function initSearchBar(){
+	$('#simple-search').on("input", function () {
+		searchTerm = $(this).val() as string;
+
+		if (searchTerm == "") {
+			$('tbody tr').show();
+		} else {
+			// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
+			$('tbody tr').hide();
+			$('tbody tr').each(function () {
+				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
 					$(this).show();
 				}
 			});

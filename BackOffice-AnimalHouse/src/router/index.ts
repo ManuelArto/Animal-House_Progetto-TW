@@ -1,6 +1,6 @@
 import $ from "jquery"
 import { isUserAuthenticated } from "../auth/auth"
-import { renderProducts } from '../components/shop/prodotti/prodotti'
+import { renderProducts } from '../components/shop/prodotti'
 import { renderUsers } from '../components/anagrafica/user/user'
 import { renderScore } from '../components/anagrafica/score/score'
 import { renderBacheca } from "../components/comunita/bacheca"

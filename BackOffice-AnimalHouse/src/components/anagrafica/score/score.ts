@@ -4,6 +4,8 @@ import { Score } from "../../../model";
 import { ENDPOINT } from "../../../utils/const";
 import score_html from "./score.html?raw"
 
+let searchTerm = "";
+
 export function renderScore(element: JQuery<HTMLDivElement>) {
 	element.html(score_html)
 
@@ -13,6 +15,7 @@ export function renderScore(element: JQuery<HTMLDivElement>) {
 		initScores(deleteModal)
 		initDeleteModal(deleteModal)
 		initFilterDropdown()
+		initSearchBar()
 	});
 }
 
@@ -69,5 +72,23 @@ function initFilterDropdown() {
 			});
 		}
 		console.log(selectedCategories);
+	});
+}
+
+function initSearchBar(){
+	$('#simple-search').on("input", function () {
+		searchTerm = $(this).val() as string;
+
+		if (searchTerm == "") {
+			$('tbody tr').show();
+		} else {
+			// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
+			$('tbody tr').hide();
+			$('tbody tr').each(function () {
+				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+					$(this).show();
+				}
+			});
+		}
 	});
 }
