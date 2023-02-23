@@ -18,4 +18,6 @@ export const ENDPOINT = {
 	RESERVATIONS_LIST: SERVER_URL + "/reservations/list",
 	RESERVATION_NEW: (idSede: string, serviceName: string, serviceNumber: number) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}`,
 	RESERVATION_ORARI: (idSede: string, serviceName: string, serviceNumber: number, date: string) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}/fasceOrarie?date=${date}`,
+	RESERVATION_EDIT: (idSede: string, serviceName: string, serviceNumber: number) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}`,
+
 }
