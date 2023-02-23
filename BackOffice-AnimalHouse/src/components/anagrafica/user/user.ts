@@ -11,8 +11,6 @@ type IUserAppModals = {
 }
 let app_modals = {} as IUserAppModals
 
-let searchTerm = "";
-
 export function renderUsers(element: JQuery<HTMLDivElement>) {
 	element.html(users_html)
 
@@ -111,7 +109,7 @@ function initCloseDeleteModal() {
 
 function initSearchBar(){
 	$('#simple-search').on("input", function () {
-		searchTerm = $(this).val() as string;
+		const searchTerm = $(this).val() as string;
 
 		if (searchTerm == "") {
 			$('tbody tr').show();
@@ -119,7 +117,7 @@ function initSearchBar(){
 			// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
 			$('tbody tr').hide();
 			$('tbody tr').each(function () {
-				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+				if ($(this).find('th:nth-child(2)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
 					$(this).show();
 				}
 			});
