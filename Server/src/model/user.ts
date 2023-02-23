@@ -74,6 +74,7 @@ const userSchema = new Schema<IUser>({
 	toJSON: { 
 		transform(doc, ret) {
 			ret = {
+				"_id": doc._id,
 				"name": doc.name,
 				"surname": doc.surname,
 				"username": doc.username,

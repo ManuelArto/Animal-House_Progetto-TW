@@ -2,6 +2,7 @@ import express, { Router, Request, Response, NextFunction } from "express"
 import { IUser, UserModel } from '../model/user'
 import { ErrorWrapper } from "../middleware/error"
 import { authJwt, AuthRequest } from "../middleware/auth"
+import { adminAuthJwt, AdminAuthRequest } from "../middleware/adminAuth"
 
 export const router: Router = express.Router()
 
@@ -60,5 +61,43 @@ router.patch('/update', authJwt, async (req: Request | AuthRequest, res: Respons
         next(new ErrorWrapper({statusCode: 400, error: error}))
     }
 })
+
+
+// ADMIN ROUTES
+
+router.get('/list', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	try{
+		const users = await UserModel.find()
+
+		res.json(users)
+	} catch(error: any) {
+		next(new ErrorWrapper({ statusCode: 500, error: error }))
+	}
+})
+
+router.patch('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	UserModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
+		.then((user) => {
+			if (!user)
+				throw new ErrorWrapper({ statusCode: 404, errorType: "NoUserFound", errorMsg: "No user with that id" })
+        	
+			res.json({ user, message: "Dati utente modificati con successo" })
+    	}).catch((error: any) => {
+        	next(new ErrorWrapper({statusCode: 400, error: error}))
+    	})
+})
+
+router.delete('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	UserModel.findByIdAndDelete(req.params.id, )
+	.then((user) => {
+        if (!user)
+            throw new ErrorWrapper({ statusCode: 404, errorType: "NoUserFound", errorMsg: "No user with that id" })
+
+        res.json({ message: `${user.username} successfully deleted` })
+	}).catch((error: any) => {
+		next(new ErrorWrapper({statusCode: 400, error: error}))
+	})
+})
+
 
 export default router
