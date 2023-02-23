@@ -31,7 +31,6 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
     } catch (error: any) {
         next(new ErrorWrapper({statusCode: 400, error: error}))
     }
-
 })
 
 // login
@@ -89,14 +88,14 @@ router.patch('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: 
 
 router.delete('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	UserModel.findByIdAndDelete(req.params.id, )
-	.then((user) => {
-        if (!user)
-            throw new ErrorWrapper({ statusCode: 404, errorType: "NoUserFound", errorMsg: "No user with that id" })
+        .then((user) => {
+            if (!user)
+                throw new ErrorWrapper({ statusCode: 404, errorType: "NoUserFound", errorMsg: "No user with that id" })
 
-        res.json({ message: `${user.username} successfully deleted` })
-	}).catch((error: any) => {
-		next(new ErrorWrapper({statusCode: 400, error: error}))
-	})
+            res.json({ message: `${user.username} successfully deleted` })
+        }).catch((error: any) => {
+            next(new ErrorWrapper({statusCode: 400, error: error}))
+        })
 })
 
 

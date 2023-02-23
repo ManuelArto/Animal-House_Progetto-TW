@@ -16,11 +16,10 @@ interface User {
 	surname: string
 	email:string
 	username: string
-	best_score: string
 	imageURI: string
-	phone: number
-	birth: Date
-	preferenze: string
+	phoneNumber: number
+	birthDate: Date
+	preference: string
 }
 
 interface Score {
