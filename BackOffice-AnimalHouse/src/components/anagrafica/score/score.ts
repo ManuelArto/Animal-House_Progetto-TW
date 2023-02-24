@@ -4,8 +4,6 @@ import { Score } from "../../../model";
 import { ENDPOINT } from "../../../utils/const";
 import score_html from "./score.html?raw"
 
-let searchTerm = "";
-
 export function renderScore(element: JQuery<HTMLDivElement>) {
 	element.html(score_html)
 
@@ -71,13 +69,12 @@ function initFilterDropdown() {
 				}
 			});
 		}
-		console.log(selectedCategories);
 	});
 }
 
 function initSearchBar(){
 	$('#simple-search').on("input", function () {
-		searchTerm = $(this).val() as string;
+		const searchTerm = $(this).val() as string;
 
 		if (searchTerm == "") {
 			$('tbody tr').show();
