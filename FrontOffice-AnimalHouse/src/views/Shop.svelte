@@ -75,11 +75,13 @@
 			product.quantity = 1
 			cartProducts.push(product)
 		}
+		addToast({message: "Articolo aggiunto al carrello", type: "success"})
 		localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
 		cartProducts = cartProducts
 	}
 	function removeFromCart(event) {
 		cartProducts = cartProducts.filter((product) => product._id != event.detail._id)
+		addToast({message: "Articolo rimosso al carrello"})
 		localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
 	}
 

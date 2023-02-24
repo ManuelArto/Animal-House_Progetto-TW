@@ -39,7 +39,7 @@
     )
 
 	// FILTRI
-	let services = ["Dogsitter", "Veterinario"];	// TODO: capire se lasciare statico
+	let services = ["Dogsitter", "Veterinario"];
 	let selected_sedi = [];
 	let selected_services = [];
 	let selected_date;

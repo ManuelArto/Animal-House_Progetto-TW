@@ -69,8 +69,11 @@
 		}
 	}
 
+	#shadow-carousel {
+		box-shadow: 0px 10px 50px -10px rgba(0, 0, 0, 0.5);
+	}
 </style>
-<div class="">
+<div id="shadow-carousel">
 	<Carousel divClass="overflow-hidden rounded-lg"{images} showCaptions={false} showThumbs={false}/>
 </div>
 

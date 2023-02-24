@@ -62,7 +62,18 @@ function initNewProductModal() {
 		app_modals.product.toggle()
 		$("#productModalTitle").text("Aggiungi un prodotto")
 		$("#productModalSubmitButton").text("Aggiungi")
-		
+
+		$("#imageURI").on("input", function() {
+			let URL = $(this).val() as string;
+			if(URL == ""){
+				$("#imageContainer").hide()
+			}else{
+				$("#imageContainer").show()
+				$("#title_img").text("Immagine del prodotto")
+				$(`#productImage`).attr("src", URL)
+			}
+		})
+
 		$("#editForm #name").val("")
 		$("#editForm #price").val("")
 		$("#editForm #quantity").val("")
@@ -89,13 +100,22 @@ function openEditProductModal(product: Product) {
 	$("#productModalTitle").text("Edit Product")
 	$("#productModalSubmitButton").text("Salva")
 	
+	$("#title_img").text("Immagine del prodotto")
+	$("#imageContainer").show()
+
+	$("#imageURI").on("input", function() {
+		let URL = $(this).val() as string;
+		$(`#productImage`).attr("src", URL)
+	})
+
 	$("#editForm #name").val(product.name)
 	$("#editForm #price").val(product.price)
 	$("#editForm #quantity").val(product.quantity)
 	$("#editForm #imageURI").val(product.imageURI)
 	$("#editForm #description").val(product.description)
 	$(`#editForm option[value='${product.category}']`).attr('selected','selected')
-	
+	$(`#productImage`).attr("src", product.imageURI)
+
 	$("#editForm").attr("action", "PATCH")
 	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
 		const data = await handleFormSubmit(event, ENDPOINT.PRODUCT(product._id), "PATCH", localStorage.getItem("token"))
@@ -139,6 +159,8 @@ function initCloseProductModal() {
 	$(".closeProductModal").on("click", () => {
 		app_modals.product.hide()
 		$("#editForm").off("submit")
+		$("#imageURI").off("input")
+		$("#imageContainer").hide()
 	})
 }
 

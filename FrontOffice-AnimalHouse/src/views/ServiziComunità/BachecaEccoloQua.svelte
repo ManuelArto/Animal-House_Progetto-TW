@@ -142,7 +142,8 @@
                                 {message.authorUsername}
                             </div>
                             <div class="text-gray-700 text-xs ml-3">
-                                {message.createdAt}
+                                {message.date} 
+                                {message.time}
                             </div>
                         </div>
                     </div>

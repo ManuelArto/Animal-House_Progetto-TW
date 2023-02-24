@@ -20,9 +20,5 @@ export function removeAnimal(id: string) {
 // Private methods
 
 function _loadAnimals(): Animal[] {
-	// TODO: remove in PROD
-	// if (!localStorage.getItem('animals'))
-		localStorage.setItem('animals', JSON.stringify(animals))
-
 	return JSON.parse(localStorage.getItem('animals') || '[]')
 }
