@@ -7,13 +7,13 @@ import { FASCE_ORARIE } from "../utils/const"
 
 export const router: Router = express.Router()
 
-router.get('/list', authJwt, async (req: Request, res: Response, next: NextFunction) => {
+router.get('/list', authJwt(), async (req: Request, res: Response, next: NextFunction) => {
 	try{
 		const reservations = await ReservationModel.find()
-		.populate("headQuarter")
-		.populate("user")
-		.populate("animal")
-		.exec()
+			.populate("headQuarter")
+			.populate("user")
+			.populate("animal")
+			.exec()
 
 		res.json(reservations)
 	} catch(error: any) {
@@ -21,7 +21,7 @@ router.get('/list', authJwt, async (req: Request, res: Response, next: NextFunct
 	}
 })
 
-router.post('/:idSede/:serviceName/:number', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.post('/:idSede/:serviceName/:number', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     const user: IUser = (req as AuthRequest).user
     try {
         const newReservation = new ReservationModel({ 
@@ -39,7 +39,7 @@ router.post('/:idSede/:serviceName/:number', authJwt, async (req: Request | Auth
     }
 })
 
-router.get('/:idSede/:serviceName/:number/fasceOrarie', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.get('/:idSede/:serviceName/:number/fasceOrarie', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     try {
 		const { idSede, serviceName, number } = req.params;
 		const date = req.query.date ? new Date(req.query.date as string) : new Date();
@@ -64,7 +64,11 @@ router.get('/:idSede/:serviceName/:number/fasceOrarie', authJwt, async (req: Req
     } catch (error: any) {
         next(new ErrorWrapper({ statusCode: 500, error: error }));
     }
-});
+})
+
+// ADMIN ROUTES
+
+
 
 
 export default router

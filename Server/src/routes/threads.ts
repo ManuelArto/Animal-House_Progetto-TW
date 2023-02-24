@@ -19,7 +19,7 @@ router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
     }
 })
 
-router.post('', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.post('', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     const user: IUser = (req as AuthRequest).user
     try {
         const newThread = new ThreadModel({ ...req.body, creator: user._id })
@@ -34,7 +34,7 @@ router.post('', authJwt, async (req: Request | AuthRequest, res: Response, next:
     }
 })
 
-router.post('/:threadId/newMessage', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.post('/:threadId/newMessage', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     const user: IUser = (req as AuthRequest).user
 
     try {

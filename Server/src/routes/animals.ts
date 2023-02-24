@@ -6,7 +6,7 @@ import { IUser } from '../model/user'
 
 export const router: Router = express.Router()
 
-router.get('/list', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.get('/list', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     const user: IUser = (req as AuthRequest).user
     try {
         const animals = await AnimalModel.find({ ownerId: user._id })
@@ -17,7 +17,7 @@ router.get('/list', authJwt, async (req: Request | AuthRequest, res: Response, n
 
 })
 
-router.get('/:animalId', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.get('/:animalId', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     const user: IUser = (req as AuthRequest).user
 
     try {
@@ -35,7 +35,7 @@ router.get('/:animalId', authJwt, async (req: Request | AuthRequest, res: Respon
     }
 })
 
-router.delete('/:animalId', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.delete('/:animalId', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     const user: IUser = (req as AuthRequest).user
 
     try {
@@ -52,7 +52,7 @@ router.delete('/:animalId', authJwt, async (req: Request | AuthRequest, res: Res
     }
 })
 
-router.post('', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.post('', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     const user: IUser = (req as AuthRequest).user
 
     try {
