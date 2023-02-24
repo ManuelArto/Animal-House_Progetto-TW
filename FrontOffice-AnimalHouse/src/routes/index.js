@@ -31,19 +31,6 @@ export const routes = {
 	"/servizi/bachecaEccoloQua": wrap({
 		asyncComponent: () => import('../views/ServiziComunità/BachecaEccoloQua.svelte')
 	}),
-	"/servizi/bachecaCercoPartner": wrap({
-		asyncComponent: () => import('../views/ServiziComunità/BachecaCercoPartner.svelte')
-	}),
-	"/servizi/bachecaAiutami": wrap({
-		asyncComponent: () => import('../views/ServiziComunità/BachecaAiutami.svelte')
-	}),
-	// Servizi Online
-	"/serviziOnline/videoConfEsperto": wrap({
-		asyncComponent: () => import('../views/ServiziOnline/VideoConfEsperto.svelte')
-	}),
-	"/serviziOnline/videoConfVeterinaio": wrap({
-		asyncComponent: () => import('../views/ServiziOnline/VideoConfVeterinaio.svelte')
-	}),
 	"*": NotFound,
 }
 
