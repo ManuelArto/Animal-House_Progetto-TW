@@ -114,7 +114,6 @@ function initSearchBar(){
 		if (searchTerm == "") {
 			$('tbody tr').show();
 		} else {
-			// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
 			$('tbody tr').hide();
 			$('tbody tr').each(function () {
 				if ($(this).find('th:nth-child(2)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
