@@ -4,67 +4,9 @@ import type { Product } from '@/model/';
 import { ENDPOINT } from '@/utils/const';
 
 let products = ref<Product[]>([
-    {
-      id: '1',
-      imageURI: 'https://static.naturaltrainer.com/catalog/8015699006990/3d-Pack/mediumImage',
-      name: 'Natural Trainer',
-      description: 'Cibo per cani natural trainer. Ai gusti carne e riso bianco per puppy',
-      category: "",
-      price: 10,
-      quantity: 10,
-      rating: 4
-    },
-    {
-      id: '2',
-      imageURI: 'https://www.canibo.it/wp-content/uploads/2018/10/pallina-retata-per-cani.jpg',
-      name: 'Special title treatment 2',
-      description: 'With supporting text below as a natural lead-in to additional content.',
-      category: "",
-      price: 10,
-      quantity: 10,
-      rating: 4
-    },
-    {
-      id: '3',
-      imageURI: 'https://croci.net/wp-content/uploads/2020/06/Lettiera_gatti_agglomerante.jpg',
-      name: 'Special title treatment 3',
-      description: 'With supporting text below as a natural lead-in to additional content.',
-      category: "",
-      price: 10,
-      quantity: 10,
-      rating: 4
-    },
-    {
-      id: '4',
-      imageURI: 'https://m.media-amazon.com/images/I/71-tsDiw8iL._AC_SY355_.jpg',
-      name: 'Special title treatment 4',
-      description: 'With supporting text below as a natural lead-in to additional content.',
-      category: "",
-      price: 10,
-      quantity: 10,
-      rating: 4
-    },
-    {
-      id: '5',
-      imageURI: 'https://m.media-amazon.com/images/I/81BGCfKSPHL._AC_SX425_.jpg',
-      name: 'Special title treatment 5',
-      description: 'With supporting text below as a natural lead-in to additional content.',
-      category: "",
-      price: 10,
-      quantity: 10,
-      rating: 4
-    },
-    {
-      id: '6',
-      imageURI: 'https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d',
-      name: 'Special title treatment 6',
-      description: 'With supporting text below as a natural lead-in to additional content.',
-      category: "",
-      price: 10,
-      quantity: 10,
-      rating: 4
-    }
+  
 ])
+
 async function fetchProducts(number: number) {
   let res
   if (res = await fetch(ENDPOINT.PRODUCTS_RAND_LIST(number)).catch(error => alert(`Error<br>${error}`))) {

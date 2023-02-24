@@ -2,10 +2,10 @@
 let changedLike = false;
 let changedDisLike = false;
 const videos = [
-    { src: "https://www.youtube.com/embed/8LR6FbWD4MM", title: "Prova a non ridere", description: "Serie di video in cui i nostri animaletti ci fanno morire dal ridere durante le loro azioni quotidiane"},
+    { src: "https://www.youtube.com/embed/miGwFNCeS3E", title: "Prova a non ridere", description: "Serie di video in cui i nostri animaletti ci fanno morire dal ridere durante le loro azioni quotidiane"},
     { src: "https://www.youtube.com/embed/a4P61RKrkJc", title: "Animali o supereroi?", description: "Possiamo ammirare il coraggio che hanno questi animali nel salvare delle persone."},
     { src: "https://www.youtube.com/embed/B6tGDtwh85U", title: "Cani e bimbi", description: "Possiamo osservare 10 razze di cane che vanno molto d'accordo con i nostri bimbi."},
-    { src: "https://www.youtube.com/embed/uDzFpp715_0", title: "Cucciolotti", description: "Ecco una compilation di cuccioli meravigliosi"},
+    { src: "https://www.youtube.com/embed/CoPrut4SI9o", title: "Cucciolotti", description: "Ecco una compilation di cuccioli meravigliosi"},
     { src: "https://www.youtube.com/embed/d4j8ibsjpBM", title: "Cani o nani", description: "In questo video osserveremo le 10 razze di cane più piccole."},
     { src: "https://www.youtube.com/embed/OYQllOzeT3s", title: "Animali vs Specchio", description: "Possiamo osservare la reazione dei nostri amici davanti ad uno specchio"},
     { src: "https://www.youtube.com/embed/OaQePr10CuA", title: "Compilation", description: "Serie di video in cui i nostri animaletti ci fanno morire dal ridere durante le loro azioni quotidiane"},
