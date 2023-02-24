@@ -1,5 +1,5 @@
 import { Document, Schema, model, ObjectId } from 'mongoose'
-
+import date from 'date-and-time'
 
 interface IReservation extends Document {
 	headQuarter: ObjectId
@@ -44,7 +44,25 @@ const reservationSchema = new Schema<IReservation>({
 		required: true,
 		unique: true
 	},
-}, { timestamps: true })
+}, { 
+	timestamps: true ,
+	toJSON: {
+		transform(doc, ret) {
+			ret = {
+				"_id": doc._id,
+				"headQuarter": doc.headQuarter,
+				"user": doc.user,
+				"animal": doc.animal,
+				"serviceName": doc.serviceName,
+				"number": doc.number,
+				"date": date.format(doc.date, "DD-MM-YYYY"),
+				"time": date.format(doc.date, "HH:mm"),
+				"fascia_oraria": doc.fascia_oraria
+			}
+			return ret
+		}
+	}
+})
 
 reservationSchema.index({ headQuarter: 1, serviceName: 1, number: 1, date: 1, fascia_oraria: 1 }, { unique: true });
 

@@ -58,7 +58,8 @@ interface Reservation {
 	animal: Animal
 	serviceName: string
 	number: number
-	date: Date
+	date: string
+	time: string
 	fascia_oraria: string
 }
 

@@ -1,6 +1,6 @@
 import express, { Router, Request, Response, NextFunction } from "express"
 import { ErrorWrapper } from "../middleware/error"
-import { authJwt, AuthRequest } from "../middleware/auth"
+import { AdminAuthRequest, authJwt, AuthRequest } from "../middleware/auth"
 import { IUser } from "../model/user"
 import { ReservationModel } from "../model/reservation"
 import { FASCE_ORARIE } from "../utils/const"
@@ -68,7 +68,40 @@ router.get('/:idSede/:serviceName/:number/fasceOrarie', authJwt(), async (req: R
 
 // ADMIN ROUTES
 
+router.post('', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	try {
+        const newReservation = new ReservationModel({ ...req.body })
 
+        await newReservation.save()
+        res.status(201).json(newReservation)
+	} catch (error: any) {
+		next(new ErrorWrapper({statusCode: 400, error: error}))
+	}
+})
+
+router.patch('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	ReservationModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
+		.then((reservation) => {
+			if (!reservation)
+				throw new ErrorWrapper({ statusCode: 404, errorType: "NoReservationFound", errorMsg: "No reservation with that id" })
+        	
+			res.json({ reservation, message: "Prodotto modificato con successo" })
+    	}).catch((error: any) => {
+        	next(new ErrorWrapper({statusCode: 400, error: error}))
+    	})
+})
+
+router.delete('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	ReservationModel.findByIdAndDelete(req.params.id, )
+		.then((reservation) => {
+			if (!reservation)
+				throw new ErrorWrapper({ statusCode: 404, errorType: "NoReservationFound", errorMsg: "No reservation with that id" })
+
+			res.json({ message: "Reservation successfully deleted" })
+		}).catch((error: any) => {
+			next(new ErrorWrapper({statusCode: 400, error: error}))
+		})
+})
 
 
 export default router
