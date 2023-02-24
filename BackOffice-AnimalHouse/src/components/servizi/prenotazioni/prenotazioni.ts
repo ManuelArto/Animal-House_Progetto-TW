@@ -1,10 +1,10 @@
 
 import $ from "jquery"
 import { Modal, Dropdown } from "flowbite";
-import { HeadQuarter, Reservation } from "../../model";
-import { ENDPOINT } from "../../utils/const";
+import { HeadQuarter, Reservation } from "../../../model";
+import { ENDPOINT } from "../../../utils/const";
 import prenotazioni_html from "./prenotazioni.html?raw"
-import { handleFormSubmit, handleRequest } from "../../utils/requestHandler";
+import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
 
 type IAppModals = { 
 	delete: Modal; 

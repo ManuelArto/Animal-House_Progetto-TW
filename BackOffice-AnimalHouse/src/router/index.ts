@@ -3,10 +3,10 @@ import { isUserAuthenticated } from "../auth/auth"
 import { renderProducts } from '../components/shop/prodotti'
 import { renderUsers } from '../components/anagrafica/user/user'
 import { renderScore } from '../components/anagrafica/score/score'
-import { renderBacheca } from "../components/comunita/bacheca"
+import { renderBacheca } from "../components/comunita/bacheca/bacheca"
 import { renderNotFound } from "../components/NotFound/notfound"
 import { renderDashboard } from "../components/dashboard/dashboard"
-import { renderPrenotazioni } from "../components/prenotazioni/prenotazioni"
+import { renderPrenotazioni } from "../components/servizi/prenotazioni/prenotazioni"
 import { renderLogin } from "../components/login/login"
 import { renderNavbar } from "../components/navbar/navbar"
 import { renderSidebar } from "../components/sidebar/sidebar"
