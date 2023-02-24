@@ -63,8 +63,17 @@ function initNewProductModal() {
 		app_modals.product.toggle()
 		$("#productModalTitle").text("Aggiungi un prodotto")
 		$("#productModalSubmitButton").text("Aggiungi")
-		
-		$("#imageContainer").hide()
+
+		$("#imageURI").on("input", function() {
+			let URL = $(this).val() as string;
+			if(URL == ""){
+				$("#imageContainer").hide()
+			}else{
+				$("#imageContainer").show()
+				$("#title_img").text("Immagine del prodotto")
+				$(`#productImage`).attr("src", URL)
+			}
+		})
 
 		$("#editForm #name").val("")
 		$("#editForm #price").val("")
@@ -151,6 +160,8 @@ function initCloseProductModal() {
 	$(".closeProductModal").on("click", () => {
 		app_modals.product.hide()
 		$("#editForm").off("submit")
+		$("#imageURI").off("input")
+		$("#imageContainer").hide()
 	})
 }
 
