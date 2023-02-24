@@ -9,6 +9,7 @@ export const ENDPOINT = {
 	USER: (id: string) => SERVER_URL + `/user/${id}`,
 	// SCORES
 	SCORES_LIST: SERVER_URL + "/scores/list",
+	SCORE: (id: string) => SERVER_URL + `/scores/${id}`,
 	// THREADS
 	THREADS_LIST: SERVER_URL + "/threads/list",
 	// PRODUCTS

@@ -1,4 +1,5 @@
 import express, { Router, Request, Response, NextFunction } from "express"
+import { adminAuthJwt, AdminAuthRequest } from "../middleware/adminAuth"
 import { authJwt, AuthRequest } from "../middleware/auth"
 import { ErrorWrapper } from "../middleware/error"
 import { ScoreModel } from "../model/score"
@@ -30,6 +31,20 @@ router.post('', authJwt, async(req: Request | AuthRequest, res: Response, next: 
     } catch (error: any) {
         next(new ErrorWrapper({ statusCode: 500, error: error }))
     }
+})
+
+// ADMIN ROUTES
+
+router.delete('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	ScoreModel.findByIdAndDelete(req.params.id, )
+	.then((score) => {
+        if (!score)
+            throw new ErrorWrapper({ statusCode: 404, errorType: "NoScoreFound", errorMsg: "No score with that id" })
+
+        res.json({ message: `Score successfully deleted` })
+	}).catch((error: any) => {
+		next(new ErrorWrapper({statusCode: 400, error: error}))
+	})
 })
 
 export default router
