@@ -39,20 +39,13 @@
 						{/if}
 					</div>
 				</div>
-				<div class="w-3/5 sm:w-2/5 lg:w-1/4 xl:order-2 xl:mb-0 mb-5 sm:text-center mt-16 sm:mt-14">
+				<div class="w-3/5 sm:w-2/5 lg:w-1/4 xl:order-2 xl:mb-0 mb-5 text-center mt-16 sm:mt-14">
 					<div class="rounded break-words border bg-white border-1 border-gray-300 card-profile shadow">
 						<div class="flex justify-center">
-							<div class="lg:w-1/4 lg:order-2">
-								<div class="card-profile-image relative">
-									<img
-										src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg"
-										class="absolute rounded-full left-1/2"
-										alt = "user profile icon"
-									/>
-								</div>
-							</div>
+								<button class="mt-3 mb-5 w-32 h-32 rounded-full bg-gray-100 text-5xl text-gray-600 font-bold shadow-md">
+									{ $user.name.charAt(0).toUpperCase() +  $user.surname.charAt(0).toUpperCase()}
+								</button>
 						</div>
-						<div class="px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900 text-center border-0 pt-8 pb-0"/>
 						<div class="flex-auto">
 							<div class="text-center">
 								<h3 class="mb-2 font-bold text-md">
@@ -98,13 +91,4 @@
   background-color: #fff !important;
 }
 
-.pt-8 {
-  padding-top: 8rem !important;
-}
-
-.card-profile-image img {
-  max-width: 180px;
-  transform: translate(-50%, -30%);
-  border-radius: .375rem;
-}
 </style>
