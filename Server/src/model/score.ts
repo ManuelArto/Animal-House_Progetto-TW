@@ -27,6 +27,7 @@ const scoreSchema = new Schema<IScore>({
 	toJSON: { 
 		transform(doc, ret) {
 			ret = {
+				"_id": doc._id,
 				"game": doc.game,
 				"name": doc.user?.username || "[utente eliminato]",
 				"punteggio": doc.punteggio,

@@ -10,7 +10,6 @@ type IProductAppModals = {
 	product: Modal;
 }
 let app_modals = {} as IProductAppModals
-let searchTerm = "";
 
 export function renderProducts(element: JQuery<HTMLDivElement>) {
 	element.html(products_html)
@@ -198,7 +197,7 @@ function initFilterDropdown() {
 
 function initSearchBar(){
 	$('#simple-search').on("input", function () {
-		searchTerm = $(this).val() as string;
+		const searchTerm = $(this).val() as string;
 
 		if (searchTerm == "") {
 			$('tbody tr').show();

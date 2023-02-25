@@ -1,13 +1,12 @@
 import express, { Router, Request, Response, NextFunction } from "express"
 import { IUser, UserModel } from '../model/user'
 import { ErrorWrapper } from "../middleware/error"
-import { authJwt, AuthRequest } from "../middleware/auth"
-import { adminAuthJwt, AdminAuthRequest } from "../middleware/adminAuth"
+import { authJwt, AuthRequest, AdminAuthRequest } from "../middleware/auth"
 
 export const router: Router = express.Router()
 
 // verify and refresh token
-router.get('/refreshToken', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.get('/refreshToken', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     try {
         const user: IUser = (req as AuthRequest).user
         const token = await user.generateAuthToken()
@@ -46,7 +45,7 @@ router.post('/login', async (req, res: Response, next: NextFunction) => {
 })
 
 // update
-router.patch('/update', authJwt, async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.patch('/update', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     try {
         const user: IUser = (req as AuthRequest).user
         const updates = Object.keys(req.body)
@@ -64,7 +63,7 @@ router.patch('/update', authJwt, async (req: Request | AuthRequest, res: Respons
 
 // ADMIN ROUTES
 
-router.get('/list', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+router.get('/list', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	try{
 		const users = await UserModel.find()
 
@@ -74,7 +73,7 @@ router.get('/list', adminAuthJwt, async (req: Request | AdminAuthRequest, res: R
 	}
 })
 
-router.patch('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+router.patch('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	UserModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
 		.then((user) => {
 			if (!user)
@@ -86,7 +85,7 @@ router.patch('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: 
     	})
 })
 
-router.delete('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+router.delete('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	UserModel.findByIdAndDelete(req.params.id, )
         .then((user) => {
             if (!user)

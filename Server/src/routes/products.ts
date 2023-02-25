@@ -1,5 +1,5 @@
 import express, { Router, Request, Response, NextFunction } from "express"
-import { adminAuthJwt, AdminAuthRequest } from "../middleware/adminAuth"
+import { AdminAuthRequest, authJwt } from "../middleware/auth"
 import { ErrorWrapper } from "../middleware/error"
 import { ProductModel } from "../model/product"
 
@@ -13,7 +13,6 @@ router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
 	} catch(error: any) {
 		next(new ErrorWrapper({ statusCode: 500, error: error }))
 	}
-
 })
 
 router.get('/categories/list', async (req: Request, res: Response, next: NextFunction) => {
@@ -34,7 +33,6 @@ router.get('/list/rand/:number', async (req: Request, res: Response, next: NextF
 	} catch(error: any) {
 		next(new ErrorWrapper({ statusCode: 500, error: error }))
 	}
-
 })
 
 router.get('/:productId', async (req: Request, res: Response, next: NextFunction) => {
@@ -70,7 +68,7 @@ router.get('/:category/list', async (req: Request, res: Response, next: NextFunc
 
 // ADMIN ROUTES
 
-router.post('', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+router.post('', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	try {
         const newProduct = new ProductModel({ ...req.body })
 
@@ -81,7 +79,7 @@ router.post('', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Respo
 	}
 })
 
-router.patch('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+router.patch('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	ProductModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
 		.then((product) => {
 			if (!product)
@@ -93,16 +91,16 @@ router.patch('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: 
     	})
 })
 
-router.delete('/:id', adminAuthJwt, async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+router.delete('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	ProductModel.findByIdAndDelete(req.params.id, )
-	.then((product) => {
-        if (!product)
-            throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })
+		.then((product) => {
+			if (!product)
+				throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })
 
-        res.json({ message: `${product.name} successfully deleted` })
-	}).catch((error: any) => {
-		next(new ErrorWrapper({statusCode: 400, error: error}))
-	})
+			res.json({ message: `${product.name} successfully deleted` })
+		}).catch((error: any) => {
+			next(new ErrorWrapper({statusCode: 400, error: error}))
+		})
 })
 
 

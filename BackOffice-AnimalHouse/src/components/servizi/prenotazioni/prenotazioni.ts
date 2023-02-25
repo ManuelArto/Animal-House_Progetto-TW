@@ -1,10 +1,10 @@
 
 import $ from "jquery"
-import { Modal, Dropdown } from "flowbite";
-import { HeadQuarter, Reservation } from "../../model";
-import { ENDPOINT } from "../../utils/const";
+import { Modal } from "flowbite";
+import { HeadQuarter, Reservation } from "../../../model";
+import { ENDPOINT } from "../../../utils/const";
 import prenotazioni_html from "./prenotazioni.html?raw"
-import { handleFormSubmit, handleRequest } from "../../utils/requestHandler";
+import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
 
 type IAppModals = { 
 	delete: Modal; 
@@ -15,6 +15,7 @@ let app_modals = {} as IAppModals
 
 export function renderPrenotazioni(element: JQuery<HTMLDivElement>) {
 	element.html( prenotazioni_html )
+	
     app_modals.reservation = new Modal($('#ReservationModal')[0])
 	app_modals.delete = new Modal($('#deleteModal')[0])
 	app_modals.filter = new Modal($('#FilterModal')[0])
@@ -28,23 +29,26 @@ export function renderPrenotazioni(element: JQuery<HTMLDivElement>) {
 	});
 }
 
-function initReservations(){
+function initReservations() {
+	// Clear reservations table
 	$("tbody").html("")
 
-	fetch(ENDPOINT.RESERVATIONS_LIST)
+	fetch(ENDPOINT.RESERVATIONS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
 		.then((res) => res.json())
 		.then((reservations) => reservations.forEach((reservation: Reservation) => {
 			var product_tmpl = $($("#reservation_template").html());
 			
 			product_tmpl.find(".updateReservationButton").attr("id", `edit_${reservation._id}`)
 			product_tmpl.find(".deleteReservationButton").attr("id", `delete_${reservation._id}`)
-			product_tmpl.find("#initial").text(reservation.user.name.charAt(0).toUpperCase + "" + reservation.user.surname.charAt(0).toUpperCase)
+			product_tmpl.find("#initial").text(reservation.user.name.charAt(0).toUpperCase() + "" + reservation.user.surname.charAt(0).toUpperCase())
 			product_tmpl.find("#fullName").text(reservation.user.name + " " + reservation.user.surname)
 			product_tmpl.find("#email").text(reservation.user.email)
 			product_tmpl.find("#pet").text(reservation.animal.name)
 			product_tmpl.find("#street").text(reservation.headQuarter.address.street)
 			product_tmpl.find("#room").text(reservation.number)
 			product_tmpl.find("#service").text(reservation.serviceName)
+			product_tmpl.find("#date").text(reservation.date)
+			product_tmpl.find("#time").text(reservation.fascia_oraria)
 			
 			$("tbody").append(product_tmpl[0].outerHTML);
 
@@ -59,20 +63,25 @@ function initNewReservationModal(){
 		$("#ReservationModalTitle").text("Aggiungi una prenotazione")
 		$("#ReservationSubmitButton").text("Aggiungi")
 
-		$("#sedi").append("<option value=' '>" + "</option>"); //primo valore della select vuoto
 		fetch(ENDPOINT.SEDI_LIST)
 			.then((res) => res.json())
 			.then((sedi) => sedi.forEach((sede: HeadQuarter) => {
-				$("#sedi").append("<option value='" + sede.address.street + "'>" + sede.address.street + ", " + sede.address.city + ", " + sede.address.zipCode + "</option>");
+				$("#sede").append(`<option value='${sede.address.street}'> ${sede.address.street}, ${sede.address.city} ${sede.address.zipCode}</option>`);
 		}))
 
-		$("#editForm #room") //TODO: menu a tendina delle stanze da creare quando si seleziona una sede
-		$("#editForm #service") //TODO: menu a tendina dei servizi da creare quando si seleziona una sede
+		// TODO: eventListener su sede per modificare #room, #service
+		$("#editForm #room")
+		$("#editForm #service")
+
+		// TODO: eventListener su utente per modificare #pet
 		$("#editForm #name").val("")
 		$("#editForm #pet").val("")
-	
+
+		// TODO: eventListener su date per modificare #fascia_oraria
+		$("#editForm #fascia_oraria").val("")
+
 		$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-			const data = await handleFormSubmit(event, ENDPOINT.RESERVATION_NEW, "POST", localStorage.getItem("token"))  //TODO: ENDPOINT da errore
+			const data = await handleFormSubmit(event, ENDPOINT.RESERVATION_NEW, "POST", localStorage.getItem("token"))
 	
 			if (data.error) {
 				alert(data.error.message)
@@ -87,10 +96,10 @@ function initNewReservationModal(){
 
 function openEditReservationtModal(reservation: Reservation) {
 	app_modals.reservation.toggle()
-	$("#ReservationModalTitle").text("Edit Reservation")
+	$("#ReservationModalTitle").text("Edit prenotazione")
 	$("#ReservationSubmitButton").text("Salva")
 	
-	// TODO: settare campi del form
+	// TODO: settare campi del form (guarda initNew)
 	$("#editForm #name").val(reservation.user.name + " " + reservation.user.surname)
 	$("#editForm #pet").val(reservation.animal.name)
 	$(`#editForm #service option[value='${reservation.serviceName}']`).attr('checked','checked')
@@ -99,7 +108,7 @@ function openEditReservationtModal(reservation: Reservation) {
 	
 	$("#editForm").attr("action", "PATCH")
 	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-		const data = await handleFormSubmit(event, ENDPOINT.RESERVATION_EDIT(), "PATCH", localStorage.getItem("token")) //TODO: ENDPOINT da cambiare 
+		const data = await handleFormSubmit(event, ENDPOINT.RESERVATION(reservation._id), "PATCH", localStorage.getItem("token"))
 
 		if (data.error) {
 			alert(data.error.message)
@@ -114,7 +123,7 @@ function openEditReservationtModal(reservation: Reservation) {
 function openDeleteReservationModal(reservation: Reservation, token?: string | null) {
 	app_modals.delete.toggle()
 	$("#deleteReservationButton").on("click", async (event: JQuery.ClickEvent) => {
-		const data = await handleRequest(ENDPOINT.PRODUCT(reservation._id), {
+		const data = await handleRequest(ENDPOINT.RESERVATION(reservation._id), {
 			method: "DELETE",
 			headers: token ? { 'Authorization': `Bearer ${token}` } : {},
 		})
@@ -130,11 +139,17 @@ function openDeleteReservationModal(reservation: Reservation, token?: string | n
 }
 
 function initCloseDeleteModal(){
-	$(".closeDeleteReservationModal").on("click", () => app_modals.delete.hide() )
+	$(".closeDeleteReservationModal").on("click", () => {
+		app_modals.delete.hide()
+		$("#deleteReservationButton").off("click")
+	})
 }
 
 function initCloseReservationModal(){
-	$(".closeReservationModal").on("click", () => app_modals.reservation.hide() )
+	$(".closeReservationModal").on("click", () => {
+		app_modals.reservation.hide()
+		$("#editForm").off("submit")
+	})
 }
 
 function initFilterModal(){

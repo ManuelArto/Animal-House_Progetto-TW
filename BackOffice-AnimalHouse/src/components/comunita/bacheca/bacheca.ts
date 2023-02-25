@@ -1,7 +1,7 @@
 import $ from "jquery"
 import { Modal } from "flowbite";
-import { Thread, Message } from "../../model";
-import { ENDPOINT } from "../../utils/const";
+import { Thread, Message } from "../../../model";
+import { ENDPOINT } from "../../../utils/const";
 import bacheca_html from "./bacheca.html?raw"
 
 const table = $('#thread');

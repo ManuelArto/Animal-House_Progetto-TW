@@ -9,6 +9,7 @@ export const ENDPOINT = {
 	USER: (id: string) => SERVER_URL + `/user/${id}`,
 	// SCORES
 	SCORES_LIST: SERVER_URL + "/scores/list",
+	SCORE: (id: string) => SERVER_URL + `/scores/${id}`,
 	// THREADS
 	THREADS_LIST: SERVER_URL + "/threads/list",
 	// PRODUCTS
@@ -19,8 +20,7 @@ export const ENDPOINT = {
 	SEDI_LIST: SERVER_URL + "/sedi/list",
 	// RESERVATIONS
 	RESERVATIONS_LIST: SERVER_URL + "/reservations/list",
-	RESERVATION_NEW: (idSede: string, serviceName: string, serviceNumber: number) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}`,
-	RESERVATION_ORARI: (idSede: string, serviceName: string, serviceNumber: number, date: string) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}/fasceOrarie?date=${date}`,
-	RESERVATION_EDIT: (idSede: string, serviceName: string, serviceNumber: number) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}`,
+	RESERVATION_NEW: SERVER_URL + "/reservations/",
+	RESERVATION: (id: string) => SERVER_URL + `/reservations/${id}`
 
 }
