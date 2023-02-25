@@ -17,7 +17,6 @@
 
 </script>
 
-<!-- TODO: verifica form validation -->
 
 <div class="flex-auto p-6">
     <form id={ formId }  on:submit|preventDefault={submitData}>
