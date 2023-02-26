@@ -53,7 +53,7 @@ function initProducts() {
 			$("tbody").append(product_tmpl[0].outerHTML);
 
 			$(`#edit_${product._id}`).on("click", () => openEditProductModal(product))
-			$(`#delete_${product._id}`).on("click", () => openDeleteProductModal(product, localStorage.getItem("token")))
+			$(`#delete_${product._id}`).on("click", () => openDeleteProductModal(product, localStorage.getItem("bo_token")))
 		}))
 }
 
@@ -82,7 +82,7 @@ function initNewProductModal() {
 		$(`#editForm option[value='Accessoristica']`).attr('selected','selected')
 	
 		$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-			const data = await handleFormSubmit(event, ENDPOINT.PRODUCTS_NEW, "POST", localStorage.getItem("token"))
+			const data = await handleFormSubmit(event, ENDPOINT.PRODUCTS_NEW, "POST", localStorage.getItem("bo_token"))
 	
 			if (data.error) {
 				alert(data.error.message)
@@ -118,7 +118,7 @@ function openEditProductModal(product: Product) {
 
 	$("#editForm").attr("action", "PATCH")
 	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-		const data = await handleFormSubmit(event, ENDPOINT.PRODUCT(product._id), "PATCH", localStorage.getItem("token"))
+		const data = await handleFormSubmit(event, ENDPOINT.PRODUCT(product._id), "PATCH", localStorage.getItem("bo_token"))
 
 		if (data.error) {
 			alert(data.error.message)

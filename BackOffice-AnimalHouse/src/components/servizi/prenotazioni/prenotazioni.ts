@@ -33,7 +33,7 @@ function initReservations() {
 	// Clear reservations table
 	$("tbody").html("")
 
-	fetch(ENDPOINT.RESERVATIONS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
+	fetch(ENDPOINT.RESERVATIONS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("bo_token")}` }})
 		.then((res) => res.json())
 		.then((reservations) => reservations.forEach((reservation: Reservation) => {
 			var product_tmpl = $($("#reservation_template").html());
@@ -53,7 +53,7 @@ function initReservations() {
 			$("tbody").append(product_tmpl[0].outerHTML);
 
 			$(`#edit_${reservation._id}`).on("click", async () => await openEditReservationtModal(reservation))
-			$(`#delete_${reservation._id}`).on("click", () => openDeleteReservationModal(reservation, localStorage.getItem("token")))
+			$(`#delete_${reservation._id}`).on("click", () => openDeleteReservationModal(reservation, localStorage.getItem("bo_token")))
 		}))
 }
 
@@ -67,7 +67,7 @@ function initNewReservationModal() {
 		await setupReservationForm()
 
 		$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-			const data = await handleFormSubmit(event, ENDPOINT.RESERVATION_NEW, "POST", localStorage.getItem("token"))
+			const data = await handleFormSubmit(event, ENDPOINT.RESERVATION_NEW, "POST", localStorage.getItem("bo_token"))
 	
 			if (data.error) {
 				alert(data.error.message)
@@ -101,7 +101,7 @@ async function openEditReservationtModal(reservation: Reservation) {
 	$("#editForm #date").val(new Date(reservation.rawDate).toISOString().split('T')[0]).trigger("change")
 
 	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-		const data = await handleFormSubmit(event, ENDPOINT.RESERVATION(reservation._id), "PATCH", localStorage.getItem("token"))
+		const data = await handleFormSubmit(event, ENDPOINT.RESERVATION(reservation._id), "PATCH", localStorage.getItem("bo_token"))
 
 		if (data.error) {
 			alert(data.error.message)
@@ -294,7 +294,7 @@ async function setupReservationForm() {
 
 	let users: User[] = [];
 	$("#editForm #user").html("<option value=' '></option>")
-	await fetch(ENDPOINT.USERS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
+	await fetch(ENDPOINT.USERS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("bo_token")}` }})
 		.then((res) => res.json())
 		.then((data) => users.push(...data))
 	
@@ -303,7 +303,7 @@ async function setupReservationForm() {
 	})
 
 	let pets: Animal[] = [];
-	await fetch(ENDPOINT.ANIMALS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
+	await fetch(ENDPOINT.ANIMALS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("bo_token")}` }})
 		.then((res) => res.json())
 		.then((data) => pets.push(...data))
 
@@ -331,7 +331,7 @@ async function setupReservationForm() {
 			$(this).val("")
 		} else if (date) {
 			$("#errorParagraph").text("")
-			await fetch(ENDPOINT.RESERVATION_ORARI(sede._id, serviceName, room, date), {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
+			await fetch(ENDPOINT.RESERVATION_ORARI(sede._id, serviceName, room, date), {headers: { 'Authorization': `Bearer ${localStorage.getItem("bo_token")}` }})
 				.then((res) => res.json())
 				.then((data) => fasce_orarie.push(...data))
 

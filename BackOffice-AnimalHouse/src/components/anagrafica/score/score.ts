@@ -38,7 +38,7 @@ function initScores() {
 			product_tmpl.find("#hour").text(score.time)
 			$("tbody").append(product_tmpl[0].outerHTML);
 
-			$(`#delete_${score._id}`).on("click", () => openDeleteScoreModal(score, localStorage.getItem("token")))
+			$(`#delete_${score._id}`).on("click", () => openDeleteScoreModal(score, localStorage.getItem("bo_token")))
 		}))
 }
 

@@ -12,8 +12,8 @@ export function renderLogin(element: JQuery<HTMLDivElement>) {
 		if (data.error) {
 			alert(data.error.message)
 		} else {
-			localStorage.setItem("token", data.token)
-			localStorage.setItem("user", JSON.stringify(data.user))
+			localStorage.setItem("bo_token", data.token)
+			localStorage.setItem("bo_user", JSON.stringify(data.user))
 			window.location.href = "/"
 		}
 	});

@@ -2,7 +2,7 @@ import { ENDPOINT } from "../utils/const";
 
 export function isUserAuthenticated() {
 	let token: string | null
-	if (token = localStorage.getItem("token")) {
+	if (token = localStorage.getItem("bo_token")) {
 		if (isTokenExpired(token)) {
 			localStorage.clear()
 			return false
@@ -38,5 +38,5 @@ async function refreshToken (token: string) {
 
 	const data = await response.json()
 	if (!data.error)
-		localStorage.setItem("token", data.token)
+		localStorage.setItem("bo_token", data.token)
 }

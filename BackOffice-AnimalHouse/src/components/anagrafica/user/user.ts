@@ -29,7 +29,7 @@ function initUsers() {
 	// Clear users table
 	$("tbody").html("")
 
-	fetch(ENDPOINT.USERS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
+	fetch(ENDPOINT.USERS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("bo_token")}` }})
 		.then((res) => res.json())
 		.then((users) => users.forEach((user: User) => {
 			var product_tmpl = $($("#user_template").html());
@@ -46,7 +46,7 @@ function initUsers() {
 			$("tbody").append(product_tmpl[0].outerHTML);
 
 			$(`#edit_${user._id}`).on("click", () => openEditUserModal(user))
-			$(`#delete_${user._id}`).on("click", () => openDeleteUserModal(user, localStorage.getItem("token")))
+			$(`#delete_${user._id}`).on("click", () => openDeleteUserModal(user, localStorage.getItem("bo_token")))
 		}))
 }
 
@@ -63,7 +63,7 @@ function openEditUserModal(user: User) {
 	
 	$("#editForm").attr("action", "PATCH")
 	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-		const data = await handleFormSubmit(event, ENDPOINT.USER(user._id), "PATCH", localStorage.getItem("token"))
+		const data = await handleFormSubmit(event, ENDPOINT.USER(user._id), "PATCH", localStorage.getItem("bo_token"))
 
 		if (data.error) {
 			alert(data.error.message)

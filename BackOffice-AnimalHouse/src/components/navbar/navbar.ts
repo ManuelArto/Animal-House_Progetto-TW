@@ -4,7 +4,7 @@ import navbar_html from "./navbar.html?raw"
 export function renderNavbar(element: JQuery<HTMLDivElement>) {
 	element.html( navbar_html )
 
-	const user = JSON.parse(localStorage.getItem("user") || "{}")
+	const user = JSON.parse(localStorage.getItem("bo_user") || "{}")
 
 	$("#email").text(user.email)
 	$("#initial").text(user.username[0].toUpperCase())
