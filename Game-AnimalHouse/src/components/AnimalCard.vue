@@ -65,8 +65,8 @@ function getCustomText(animal: RandAnimal) {
                 </b-row>
             </b-col>
             <div class="col-2 d-flex align-items-center d-md-none d-block ps-0">
-            <b-button class="button_bottom_pet" data-bs-toggle="modal" :data-bs-target="'#myAnimal' + animal._id">
-                    <i class="bi bi-arrow-right"></i>
+                <b-button class="button_bottom_pet" data-bs-toggle="modal" :data-bs-target="'#myAnimal' + animal._id">
+                        <i class="bi bi-arrow-right"></i>
                 </b-button>
             </div>
         </b-row>
@@ -108,7 +108,6 @@ function getCustomText(animal: RandAnimal) {
 .animal-card-title {
     margin-right: 10px;
     margin-bottom: 21px;
-    font-size: 18px;
     color: #2140D8;
     font-weight: bold;
     font-size: 22px;

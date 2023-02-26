@@ -8,7 +8,7 @@
                 <div class=" col-md-8 order-last create-a-menu">
                     <div id="regola_default">
                         <!-- inizio paragrafo -->
-                        <div class="regolaInfo108_el105727_pos61 paragrafo11 " style="position:relative;">
+                        <div style="position:relative;">
                             <div id="text">
                                 <p><img alt="Cane a computer" class="img-fluid w-100"
                                         src="https://us.123rf.com/450wm/christinaholovach/christinaholovach2004/christinaholovach200400006/146340199-punto-interrogativo-risolvere-il-problema-del-cane-che-trova-le-risposte-facendo-i-compiti-con-i-lib.jpg?ver=6">
@@ -233,7 +233,7 @@
                 <div class=" col-md-4 order-first">
                     <div class=" d-inline">
                         <div class=" sticky-top sticky-offset">
-                            <div class="sidemenu-paginterna sidemenu-hidemobile">
+                            <div class="sidemenu-paginterna">
                                 <nav id="navbar-indice" class="navbar">
                                     <span id="indice"> Indice </span>
                                     <ul id="menuAncore" class="nav nav-pills flex-column mx-auto">

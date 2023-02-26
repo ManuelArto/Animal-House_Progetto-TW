@@ -107,7 +107,7 @@ function initSearchBar(){
 		} else {
 			$('tbody tr').hide();
 			$('tbody tr').each(function () {
-				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+				if ($(this).find('th:nth-child(1)').text().toLowerCase().includes(searchTerm.toLowerCase())) {
 					$(this).show();
 				}
 			});

@@ -54,7 +54,7 @@ let services = [{
             <div class="common_heading">
               <h4>{{ service.name }}</h4>
             </div>
-            <p class="text_18">
+            <p class="text_16">
               {{ service.description }}
             </p>
             <router-link tag="button" class="btn btn-primary btn-lg boxes_shadow mt-auto mx-auto" :to="service.path">
@@ -125,14 +125,14 @@ let services = [{
 }
 
 @media screen and (max-width: 992px) {
-	.text_18 {
+	.text_16 {
 		display: -webkit-box;
 		line-clamp: 5;
 		font-size: 14px !important;
 		font-weight: normal !important;
 	}
 }
-.text_18 {
+.text_16 {
     font-size: 16px;
 }
 </style>

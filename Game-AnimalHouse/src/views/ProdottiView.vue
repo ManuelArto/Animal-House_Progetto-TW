@@ -22,7 +22,7 @@ async function fetchProducts(number: number) {
 }
 
 function* getNProducts(n: number) {
-	for (let i = 0; i < products.value.length; i += 3) {
+	for (let i = 0; i < products.value.length; i += n) {
     let buffer: Product[] = []
     for (let j = i; j < i+n && j < products.value.length; j++)
       buffer.push(products.value[j])
