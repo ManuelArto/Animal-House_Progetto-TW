@@ -14,8 +14,8 @@ let app_modals = {} as IUserAppModals
 export function renderUsers(element: JQuery<HTMLDivElement>) {
 	element.html(users_html)
 
-	app_modals.user = new Modal($('#updateUser')[0])
-	app_modals.delete = new Modal($('#deleteModal')[0])
+	app_modals.user = new Modal($('#updateUser')[0], {backdrop: "static"})
+	app_modals.delete = new Modal($('#deleteModal')[0], {backdrop: "static"})
 	
 	$(function () {
 		initUsers()

@@ -10,7 +10,7 @@ let deleteModal: Modal;
 export function renderScore(element: JQuery<HTMLDivElement>) {
 	element.html(score_html)
 
-	deleteModal = new Modal($('#deleteModal')[0])
+	deleteModal = new Modal($('#deleteModal')[0], {backdrop: "static"})
 
 	$(function () {
 		initScores()

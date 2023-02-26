@@ -14,8 +14,8 @@ let app_modals = {} as IProductAppModals
 export function renderProducts(element: JQuery<HTMLDivElement>) {
 	element.html(products_html)
 
-	app_modals.product = new Modal($('#productModal')[0])
-	app_modals.delete = new Modal($('#deleteModal')[0])
+	app_modals.product = new Modal($('#productModal')[0], {backdrop: "static"})
+	app_modals.delete = new Modal($('#deleteModal')[0], {backdrop: "static"})
 
 	$(function () {
 		initProducts()

@@ -12,7 +12,7 @@ export function renderBacheca(element: JQuery<HTMLDivElement>) {
 	element.html( bacheca_html )
 	
 	
-	const deleteModal = new Modal($('#deleteModal')[0])
+	const deleteModal = new Modal($('#deleteModal')[0], {backdrop: "static"})
 	$(function() {
 		// selezioniamo il bottone e il pulsante "back" tramite l'ID
 		initThreads(deleteModal)
