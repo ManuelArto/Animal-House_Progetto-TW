@@ -14,6 +14,8 @@ export const ENDPOINT = {
 	SCORE: (id: string) => SERVER_URL + `/scores/${id}`,
 	// THREADS
 	THREADS_LIST: SERVER_URL + "/threads/list",
+	THREAD: (id: string) => SERVER_URL + `/threads/${id}`,
+	MESSAGE: (threadId: string, messageId: string) => SERVER_URL + `/threads/${threadId}/${messageId}`,
 	// PRODUCTS
 	PRODUCTS_LIST: SERVER_URL + "/products/list",
 	PRODUCTS_NEW: SERVER_URL + "/products/",

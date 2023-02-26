@@ -38,8 +38,6 @@ interface Thread {
 	creatorUsername: string
 	createdAt: string
 	messages: Message[]
-	date:string
-	time: string
 }
 
 interface Message {

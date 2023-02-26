@@ -1,63 +1,65 @@
 import $ from "jquery"
-import { Modal } from "flowbite";
+import { Modal, Popover } from "flowbite";
 import { Thread, Message } from "../../../model";
 import { ENDPOINT } from "../../../utils/const";
 import bacheca_html from "./bacheca.html?raw"
+import { handleRequest } from "../../../utils/requestHandler";
 
-const table = $('#thread');
-const mex = $('#messages');
-let searchTerm = "";
+let deleteModal: Modal;
 
 export function renderBacheca(element: JQuery<HTMLDivElement>) {
 	element.html( bacheca_html )
 	
-	
-	const deleteModal = new Modal($('#deleteModal')[0], {backdrop: "static"})
+	deleteModal = new Modal($('#deleteModal')[0], {backdrop: "static"})
+
+	$("#back").on("click", function() {
+		$('#messages').hide();
+		$('#thread').show();
+	})
+
 	$(function() {
-		// selezioniamo il bottone e il pulsante "back" tramite l'ID
-		initThreads(deleteModal)
-		initDeleteModal(deleteModal)
+		initThreads()
+		initCloseDeleteModal()
 		initSearchBar()
 	});
 }
 
-function initThreads(deleteModal: Modal) {
+function initThreads() {
+	$('#thread').show();
+	$('#messages').hide();
+
+	// Clear threads table
+	$("#threads_table").html("")
+
 	fetch(ENDPOINT.THREADS_LIST)
 		.then((res) => res.json())
 		.then((threads) => threads.forEach((thread: Thread) => {
 			var product_tmpl = $($("#thread_template").html());
 			
 			product_tmpl.find(".deleteThreadButton").attr("id", `delete_${thread._id}`)
-			product_tmpl.find("#title").text(thread.title)
-			product_tmpl.find("#title").attr("onClick", function() {
-				table.hide();
-				mex.show();
-				$("#back").on("click", function() {
-					mex.hide();
-					table.show();
-				})
-				$("#title_thread").text(thread.title)
-				initMessages(deleteModal, thread.messages);
-			})
 			product_tmpl.find("#creatorUsername").text(thread.creatorUsername)
-			product_tmpl.find("#createDate").text(thread.createdAt.substring(0,10))
-			product_tmpl.find("#createHour").text(thread.createdAt.substring(11,19))
-			
-			$("threads_table").append(product_tmpl[0].outerHTML);
+			product_tmpl.find("#date").text(thread.createdAt)
 
-			// $(`#${product._id}`).data("id", product._id)
-			$(`#delete_${thread._id}`).on("click", () => deleteModal.toggle())
+			product_tmpl.find(".threadTitle").attr("id", `title_${thread._id}`)
+			product_tmpl.find(`#title_${thread._id}`).text(thread.title)
+			$("#threads_table").append(product_tmpl[0].outerHTML);
+			
+			$(`#title_${thread._id}`).on("click", () => initMessages(thread, thread.messages))
+			$(`#delete_${thread._id}`).on("click", () => openDeleteModal(thread._id, null, localStorage.getItem("bo_token")))
 		}))
 }
 
-function initDeleteModal(deleteModal: Modal) {
-	$(".closeDeleteProductModal").on("click", () => deleteModal.hide() )
-}
-
-function initMessages(deleteModal: Modal, messages: Message[]){
-	var product_tmpl = $($("#message_template").html());
+function initMessages(thread: Thread, messages: Message[]) {
+	$('#thread').hide();
+	$('#messages').show();
+	
+	$("#breadcrumbThreadTitle").text(thread.title)
+	
+	// Clear messages table
+	$("#messages_table").html("")
 
 	messages.forEach((message:Message) => {
+		var product_tmpl = $($("#message_template").html());
 		product_tmpl.find(".deleteMessageButton").attr("id", `delete_${message._id}`)
 		
 		product_tmpl.find("#content").text(message.content)
@@ -67,22 +69,45 @@ function initMessages(deleteModal: Modal, messages: Message[]){
 		
 		$("#messages_table").append(product_tmpl[0].outerHTML);
 
-		// $(`#${product._id}`).data("id", product._id)
-		$(`#delete_${message._id}`).on("click", () => deleteModal.toggle())
-	})		
+		$(`#delete_${message._id}`).on("click", () => openDeleteModal(thread._id, message._id, localStorage.getItem("bo_token")))
+	})
 }
 
-function initSearchBar(){
-	$('#simple-search').on("input", function () {
-		searchTerm = $(this).val() as string;
+function openDeleteModal(threadId: string, messageId: string | null, token?: string | null) {
+	deleteModal.toggle()
+	$("#deleteButton").on("click", async (event: JQuery.ClickEvent) => {
+		const data = await handleRequest(messageId ? ENDPOINT.MESSAGE(threadId, messageId) : ENDPOINT.THREAD(threadId), {
+			method: "DELETE",
+			headers: token ? { 'Authorization': `Bearer ${token}` } : {},
+		})
+
+		if (data.error) {
+			alert(data.error.message)
+		} else {
+			deleteModal.hide()
+			initThreads()
+			$("#deleteButton").off("click")
+		}
+	})
+}
+
+function initCloseDeleteModal() {
+	$(".closeDeleteModal").on("click", () => {
+		deleteModal.hide()
+		$("#deleteButton").off("click")
+	})
+}
+
+function initSearchBar() {
+	$('.searchbar').on("input", function () {
+		const searchTerm = $(this).val() as string;
 
 		if (searchTerm == "") {
 			$('tbody tr').show();
 		} else {
-			// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
 			$('tbody tr').hide();
 			$('tbody tr').each(function () {
-				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+				if ($(this).find('td:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
 					$(this).show();
 				}
 			});
