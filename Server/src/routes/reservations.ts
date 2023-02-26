@@ -46,7 +46,7 @@ router.get('/:idSede/:serviceName/:number/fasceOrarie', authJwt(), async (req: R
 
 		// Cerca tutte le prenotazioni per la sede, il servizio, il numero di prenotazione e la data specificati
 		const reservations = await ReservationModel.find({
-			idHeadQuarter: idSede,
+			headQuarter: idSede,
 			serviceName: serviceName,
 			number: number,
 			date: {

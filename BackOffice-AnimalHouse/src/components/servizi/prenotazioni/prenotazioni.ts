@@ -1,7 +1,6 @@
-
 import $ from "jquery"
 import { Modal } from "flowbite";
-import { HeadQuarter, Reservation } from "../../../model";
+import { Animal, HeadQuarter, Reservation, Service, User } from "../../../model";
 import { ENDPOINT } from "../../../utils/const";
 import prenotazioni_html from "./prenotazioni.html?raw"
 import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
@@ -16,15 +15,16 @@ let app_modals = {} as IAppModals
 export function renderPrenotazioni(element: JQuery<HTMLDivElement>) {
 	element.html( prenotazioni_html )
 	
-    app_modals.reservation = new Modal($('#ReservationModal')[0])
-	app_modals.delete = new Modal($('#deleteModal')[0])
-	app_modals.filter = new Modal($('#FilterModal')[0])
+    app_modals.reservation = new Modal($('#ReservationModal')[0], {backdrop: "static"})
+	app_modals.delete = new Modal($('#deleteModal')[0], {backdrop: "static"})
+	app_modals.filter = new Modal($('#FilterModal')[0], {backdrop: "static"})
 
 	$(function() {
 		initReservations()
 		initNewReservationModal()
 		initCloseDeleteModal()
 		initCloseReservationModal()
+		initCloseFilterModal()
 		initFilterModal()
 	});
 }
@@ -52,33 +52,19 @@ function initReservations() {
 			
 			$("tbody").append(product_tmpl[0].outerHTML);
 
-			$(`#edit_${reservation._id}`).on("click", () => openEditReservationtModal(reservation))
+			$(`#edit_${reservation._id}`).on("click", async () => await openEditReservationtModal(reservation))
 			$(`#delete_${reservation._id}`).on("click", () => openDeleteReservationModal(reservation, localStorage.getItem("token")))
 		}))
 }
 
-function initNewReservationModal(){
-	$(".newReservationButton").on("click", () => {
+function initNewReservationModal() {
+	$(".newReservationButton").on("click", async () => {
 		app_modals.reservation.toggle()
 		$("#ReservationModalTitle").text("Aggiungi una prenotazione")
 		$("#ReservationSubmitButton").text("Aggiungi")
+		$("#labelFasceOrarie").text("Fasce orarie disponibili")
 
-		fetch(ENDPOINT.SEDI_LIST)
-			.then((res) => res.json())
-			.then((sedi) => sedi.forEach((sede: HeadQuarter) => {
-				$("#sede").append(`<option value='${sede.address.street}'> ${sede.address.street}, ${sede.address.city} ${sede.address.zipCode}</option>`);
-		}))
-
-		// TODO: eventListener su sede per modificare #room, #service
-		$("#editForm #room")
-		$("#editForm #service")
-
-		// TODO: eventListener su utente per modificare #pet
-		$("#editForm #name").val("")
-		$("#editForm #pet").val("")
-
-		// TODO: eventListener su date per modificare #fascia_oraria
-		$("#editForm #fascia_oraria").val("")
+		await setupReservationForm()
 
 		$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
 			const data = await handleFormSubmit(event, ENDPOINT.RESERVATION_NEW, "POST", localStorage.getItem("token"))
@@ -88,25 +74,32 @@ function initNewReservationModal(){
 			} else {
 				app_modals.reservation.hide()
 				initReservations()
+				$("#editForm #sede").off("change")
+				$("#editForm #service").off("change")
+				$("#editForm #room").off("change")
+				$("#editForm #user").off("change")
+				$("#editForm #date").off("change")
 				$("#editForm").off("submit")
 			}
 		})
 	})
 }
 
-function openEditReservationtModal(reservation: Reservation) {
+async function openEditReservationtModal(reservation: Reservation) {
 	app_modals.reservation.toggle()
 	$("#ReservationModalTitle").text("Edit prenotazione")
 	$("#ReservationSubmitButton").text("Salva")
-	
-	// TODO: settare campi del form (guarda initNew)
-	$("#editForm #name").val(reservation.user.name + " " + reservation.user.surname)
-	$("#editForm #pet").val(reservation.animal.name)
-	$(`#editForm #service option[value='${reservation.serviceName}']`).attr('checked','checked')
-	$(`#editForm #room option[value='${reservation.number}']`).attr('selected','selected')
-	$(`#editForm #sede option[value='${reservation.headQuarter.address.street}']`).attr('selected','selected')
-	
-	$("#editForm").attr("action", "PATCH")
+	$("#labelFasceOrarie").text("Altre fasce orarie disponibili")
+
+	await setupReservationForm()
+	// Edit and trigger change
+	$("#editForm #sede").val(reservation.headQuarter._id).trigger("change")
+	$("#editForm #service").val(reservation.serviceName).trigger("change")
+	$("#editForm #room").val(reservation.number).trigger("change")
+	$("#editForm #user").val(reservation.user._id).trigger("change")
+	$("#editForm #pet").val(reservation.animal._id).trigger("change")
+	$("#editForm #date").val(new Date(reservation.rawDate).toISOString().split('T')[0]).trigger("change")
+
 	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
 		const data = await handleFormSubmit(event, ENDPOINT.RESERVATION(reservation._id), "PATCH", localStorage.getItem("token"))
 
@@ -115,6 +108,11 @@ function openEditReservationtModal(reservation: Reservation) {
 		} else {
 			app_modals.reservation.hide()
 			initReservations()
+			$("#editForm #sede").off("change")
+			$("#editForm #service").off("change")
+			$("#editForm #room").off("change")
+			$("#editForm #user").off("change")
+			$("#editForm #date").off("change")
 			$("#editForm").off("submit")
 		}
 	})
@@ -138,21 +136,34 @@ function openDeleteReservationModal(reservation: Reservation, token?: string | n
 	})
 }
 
-function initCloseDeleteModal(){
+function initCloseDeleteModal() {
 	$(".closeDeleteReservationModal").on("click", () => {
 		app_modals.delete.hide()
 		$("#deleteReservationButton").off("click")
 	})
 }
 
-function initCloseReservationModal(){
+function initCloseReservationModal() {
 	$(".closeReservationModal").on("click", () => {
 		app_modals.reservation.hide()
+		$("#editForm #sede").off("change")
+		$("#editForm #service").off("change")
+		$("#editForm #room").off("change")
+		$("#editForm #user").off("change")
+		$("#editForm #date").off("change")
 		$("#editForm").off("submit")
 	})
 }
 
-function initFilterModal(){
+function initCloseFilterModal() {
+	$(".closeFilterModal").on("click", () => {
+		app_modals.filter.hide()
+		$("#pulisci").off("click")
+		$("#FilterSubmitButton").off("click")
+	})
+}
+
+function initFilterModal() {
 	$(".filterModal").on("click", () => {
 		app_modals.filter.toggle()
 		$("#FilterModalTitle").text("Filtra le prenotazioni")
@@ -168,6 +179,7 @@ function initFilterModal(){
 		});
 		
 		$('#FilterSubmitButton').on("click", function () {
+			// FILRO SEDI
 			let selectedSede = $('#filterSede').val();
 			if (selectedSede == " ") {
 				$('tbody tr').show();
@@ -179,9 +191,8 @@ function initFilterModal(){
 					}
 				});
 			}
-		});
 
-		$('#FilterSubmitButton').on("click", function () {
+			// FILRO SERVIZI
 			let selectedServices: string[] = [];
 	
 			// Selezioniamo tutti gli elementi checkbox all'interno
@@ -204,9 +215,8 @@ function initFilterModal(){
 					}
 				});
 			}
-		});
 
-		$('#FilterSubmitButton').on("click", function () {
+			// FILRO DATA
 			let selectedDate = $('#filterDate').val();
 			if (selectedDate == " ") {
 				$('tbody tr').show();
@@ -218,7 +228,119 @@ function initFilterModal(){
 					}
 				});
 			}
+
 		});
 	})
 }
 
+
+async function setupReservationForm() {
+	// DETTAGLI DELLA SEDE
+	
+	let sedi: HeadQuarter[] = [];
+	await fetch(ENDPOINT.SEDI_LIST)
+		.then((res) => res.json())
+		.then((data) => sedi.push(...data))
+	
+	$("#editForm #sede").html("<option value=' '></option>")
+	sedi.forEach((sede: HeadQuarter) => {
+		$("#editForm #sede").append(`<option value='${sede._id}'> ${sede.address.street}, ${sede.address.city} ${sede.address.zipCode}</option>`);
+	})
+
+	// La select dei servizi dipende dalla sede scelta
+	let sede: HeadQuarter;
+	$("#editForm #service").html("<option value=' '></option>")
+	$("#editForm #sede").on("change", function() {
+		sede = sedi.find((sede) => sede._id == $(this).val())!
+		const services = Object.keys(sede.services)
+
+		$("#editForm #service").html("<option value=' '></option>")
+		services.forEach((service) => {
+			$("#editForm #service").append(`<option value='${service}'> ${service} </option>`);
+		})
+
+		// resetto la data e le fasce orarie
+		$("#editForm #date").val("")
+		$("#editForm #fascia_oraria").html("")
+	})
+
+	// La select delle room dipende dal servizio scelto
+	let serviceName: string;
+	$("#editForm #room").html("<option value=' '></option>")
+	$("#editForm #service").on("change", function() {
+		serviceName = $(this).val() as string
+		const service = sede.services[serviceName]
+
+		$("#editForm #room").html("<option value=' '></option>")
+		service.forEach((room) => {
+			$("#editForm #room").append(`<option value='${room.number}'> ${room.number} </option>`);
+		})
+
+		// resetto la data e le fasce orarie
+		$("#editForm #date").val("")
+		$("#editForm #fascia_oraria").html("")
+	})
+
+	let room: number;
+	$("#editForm #room").on("change", function () {
+		room = $(this).val() as number
+
+		// resetto la data e le fasce orarie
+		$("#editForm #date").val("")
+		$("#editForm #fascia_oraria").html("")
+	})
+
+	// DATI DELL'UTENTE
+
+	let users: User[] = [];
+	$("#editForm #user").html("<option value=' '></option>")
+	await fetch(ENDPOINT.USERS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
+		.then((res) => res.json())
+		.then((data) => users.push(...data))
+	
+	users.forEach((user: User) => {
+		$("#editForm #user").append(`<option value='${user._id}'> ${user.username} </option>`);
+	})
+
+	let pets: Animal[] = [];
+	await fetch(ENDPOINT.ANIMALS_LIST, {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
+		.then((res) => res.json())
+		.then((data) => pets.push(...data))
+
+	// La select dei pets dipende dall'utente scelto
+	$("#editForm #pet").html("<option value=' '></option>")
+	$("#editForm #user").on("change", function() {
+		const selected_pets = pets.filter((pet) => pet.ownerId == $(this).val())
+
+		$("#editForm #pet").html("<option value=' '></option>")
+		selected_pets.forEach((pet) => {
+			$("#editForm #pet").append(`<option value='${pet._id}'> ${pet.name} </option>`);
+		})
+	})
+
+	// DETTAGLI SULLA GIORNATA
+	
+	$("#editForm #date").val("")
+	$("#editForm #fascia_oraria").html("")
+	$("#editForm #date").on("change", async function() {
+		const date = $(this).val() as string
+		let fasce_orarie: string[] = [];
+
+		if (!sede || !serviceName || !room) {
+			$("#errorParagraph").text("Devi selezionare almeno una sede, un servizio e una stanza")
+			$(this).val("")
+		} else if (date) {
+			$("#errorParagraph").text("")
+			await fetch(ENDPOINT.RESERVATION_ORARI(sede._id, serviceName, room, date), {headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }})
+				.then((res) => res.json())
+				.then((data) => fasce_orarie.push(...data))
+
+			$("#editForm #fascia_oraria").html("")
+			fasce_orarie.forEach((fascia_oraria) => {
+				$("#editForm #fascia_oraria").append(`<option value='${fascia_oraria}'> ${fascia_oraria} </option>`);
+			})
+		}
+
+	})
+
+}

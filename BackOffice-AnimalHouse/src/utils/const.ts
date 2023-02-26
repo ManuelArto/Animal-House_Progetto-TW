@@ -7,6 +7,8 @@ export const ENDPOINT = {
 	// USERS
 	USERS_LIST: SERVER_URL + "/user/list",
 	USER: (id: string) => SERVER_URL + `/user/${id}`,
+	// ANIMALS,
+	ANIMALS_LIST: SERVER_URL + "/animals/list/all",
 	// SCORES
 	SCORES_LIST: SERVER_URL + "/scores/list",
 	SCORE: (id: string) => SERVER_URL + `/scores/${id}`,
@@ -21,6 +23,7 @@ export const ENDPOINT = {
 	// RESERVATIONS
 	RESERVATIONS_LIST: SERVER_URL + "/reservations/list",
 	RESERVATION_NEW: SERVER_URL + "/reservations/",
-	RESERVATION: (id: string) => SERVER_URL + `/reservations/${id}`
-
+	RESERVATION: (id: string) => SERVER_URL + `/reservations/${id}`,
+	RESERVATION_ORARI: (idSede: string, serviceName: string, serviceNumber: number, date: string) =>
+		SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}/fasceOrarie?date=${date}`,
 }

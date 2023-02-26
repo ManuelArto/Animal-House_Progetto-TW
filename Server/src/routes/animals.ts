@@ -1,5 +1,5 @@
 import express, { Router, Request, Response, NextFunction } from "express"
-import { authJwt, AuthRequest } from "../middleware/auth"
+import { AdminAuthRequest, authJwt, AuthRequest } from "../middleware/auth"
 import { ErrorWrapper } from "../middleware/error"
 import { AnimalModel } from "../model/animal"
 import { IUser } from '../model/user'
@@ -65,6 +65,18 @@ router.post('', authJwt(), async (req: Request | AuthRequest, res: Response, nex
     }
 })
 
-// router.patch('/:id', authJwt, async (req, res, next: NextFunction) => {})
+
+// ADMIN ROUTES
+
+router.get('/list/all', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+	try{
+		const animals = await AnimalModel.find()
+
+		res.json(animals)
+	} catch(error: any) {
+		next(new ErrorWrapper({ statusCode: 500, error: error }))
+	}
+})
+
 
 export default router

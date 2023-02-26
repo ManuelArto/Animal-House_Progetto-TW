@@ -1,4 +1,15 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWE4YWJjZGEwNWYwOThhMWFjOTg1OCIsImlhdCI6MTY3NjU3MDUxOCwiZXhwIjoxNjc2NTg0OTE4fQ.zPOeUiW3wBq1mDhzGMVTCnjYPRspm6N2TfhVZmwQwWM
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmI2ZTdlOWIwZWRlNzVhN2E3MjMxZCIsImlhdCI6MTY3NzQyNTYyMiwiZXhwIjoxNjc3NDQwMDIyfQ.kRlnnZIJ3RS-ORgyUHpfHxGZ6fQQtTgu8lqQvxsNnvw
+
+// ADMIN USER
+###
+POST http://localhost:5000/adminUser/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "123456"
+} 
+
 
 // USER
 ###
@@ -23,6 +34,9 @@ content-type: application/json
     "email": "manuel@test.com",
     "password": "ciaociao"
 } 
+###
+GET http://localhost:5000/user/list HTTP/1.1
+Authorization: Bearer {{token}}
 
 // ANIMALS
 ###
@@ -49,6 +63,9 @@ content-type: application/json
     "name" : "Pinuzzo"
 }
 
+###
+GET http://localhost:5000/animals/list/all HTTP/1.1
+Authorization: Bearer {{token}}
 
 // PRODUCTS
 ###
@@ -117,10 +134,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/reservations/63ecedbb184bfb61868415ee/Dogsitter/1/fasceOrarie?date=2023-03-01 HTTP/1.1
+GET http://localhost:5000/reservations/63f905f07a5639782c1aabc9/Veterinario/0/fasceOrarie?date=2023-03-02 HTTP/1.1
 Authorization: Bearer {{token}}
-
+# GET /reservations/63f905f07a5639782c1aabc9/Veterinario/0/fasceOrarie?date=2023-03-02 
 
 /// GAME ANIMALS
 ###
-GET http://localhost:5000/gameAnimals/rand/3 HTTP/1.1
+GET http://localhost:5000/gameAnimals/rand/1 HTTP/1.1

@@ -58,14 +58,16 @@ interface Reservation {
 	animal: Animal
 	serviceName: string
 	number: number
+	rawDate: Date
 	date: string
 	time: string
 	fascia_oraria: string
 }
 
 interface HeadQuarter {
+	_id: string
 	address: Address
-	services: Service[]
+	services: Services
 }
 
 interface Address {
@@ -74,12 +76,18 @@ interface Address {
 	zipCode: string
 }
 
+interface Services {
+	[serviceName: string]: Service[];
+  }
+
 interface Service {
-	type: string
+	tipo: string
 	peso: string
-	room: number
+	number: number
 }
+
 interface Animal {
+	_id: string
 	name: string
 	imageURI: string
 	species: string
@@ -87,6 +95,7 @@ interface Animal {
 	birthDate: string
 	gender: string
 	weight: number
+	ownerId: string
 }
 
-export type { Product, User, Score, Thread, Message, Reservation, HeadQuarter, Animal, Address, Service} 
+export type { Product, User, Score, Thread, Message, Reservation, HeadQuarter, Animal, Address, Service, Services} 

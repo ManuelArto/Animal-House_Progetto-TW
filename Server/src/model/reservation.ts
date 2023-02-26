@@ -55,6 +55,7 @@ const reservationSchema = new Schema<IReservation>({
 				"animal": doc.animal,
 				"serviceName": doc.serviceName,
 				"number": doc.number,
+				"rawDate": doc.date,
 				"date": date.format(doc.date, "DD-MM-YYYY"),
 				"time": date.format(doc.date, "HH:mm"),
 				"fascia_oraria": doc.fascia_oraria

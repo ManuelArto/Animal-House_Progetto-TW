@@ -28,9 +28,10 @@ export const errorLogger = () => (errorWrapper: any, req: Request, res: Response
 	const error = errorWrapper.error
 	const errorType = errorWrapper.errorType || error.constructor.name
 
-	console.error(`⚡️[ERROR] Type: ${errorType}, Message: ${error.message}`)
-	if (process.env.NODE_ENV !== 'production')
+	if (process.env.NODE_ENV !== 'production') {
+		console.error(`⚡️[ERROR] Type: ${errorType}, Message: ${error.message}`)
 		console.error(error.stack)
+	}
 
 	next(errorWrapper)
 }

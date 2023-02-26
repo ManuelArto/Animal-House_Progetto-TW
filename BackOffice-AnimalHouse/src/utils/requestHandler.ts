@@ -4,7 +4,7 @@ export async function handleRequest(endpoint: string, options?: {}) {
 		const response = await fetch(endpoint, options);
 		return response.json();
 	} catch (error) {
-		return { error: "Network error" };
+		return { error:  { message: "Network error" } };
 	}
 }
 
