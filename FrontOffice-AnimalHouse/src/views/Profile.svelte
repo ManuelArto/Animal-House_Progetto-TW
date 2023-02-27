@@ -48,13 +48,12 @@
 						</div>
 						<div class="flex-auto">
 							<div class="text-center">
-								<h3 class="mb-2 font-bold text-md">
+								<h2 class="mb-3 font-bold text-2xl">
 									{ $user.username }
-								</h3>
-								<div>
-									<!-- TODO: make delete button effective -->
-									<Button class="mb-3 sm:ml-2 sm:mr-2" color="red">Delete Account</Button>
-								</div>
+								</h2>
+								<p class="mb-5 text-gray-600 text-lg">
+									{ $user.name + " " + $user.surname }
+								</p>
 							</div>
 						</div>
 					</div>
