@@ -39,9 +39,9 @@ app.use('/gameAnimals/', gameAnimalsRouter)
 app.use('/adminUser/', adminUserRouter)
 
 // Static routes
-app.use("/game", express.static(constants.game))
-app.use("/frontoffice", express.static(constants.frontoffice))
-app.use("/backoffice", express.static(constants.backoffice))
+app.use("/game/*", express.static(constants.game))
+app.use("/frontoffice/*", express.static(constants.frontoffice))
+app.use("/backoffice/*", express.static(constants.backoffice))
 
 
 // Middlewares
