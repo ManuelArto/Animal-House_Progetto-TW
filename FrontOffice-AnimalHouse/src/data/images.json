@@ -1,18 +1,18 @@
 [
   {
     "id": 0,
-    "imgurl": "/images/banner_home2.jpg"
+    "imgurl": "images/banner_home2.jpg"
   },
   {
     "id": 1,
-    "imgurl": "/images/banner_home1.jpg"
+    "imgurl": "images/banner_home1.jpg"
   },
   {
     "id": 2,
-    "imgurl": "/images/banner_home3.jpg"
+    "imgurl": "images/banner_home3.jpg"
   },
   {
     "id": 3,
-    "imgurl": "/images/banner_home4.jpg"
+    "imgurl": "images/banner_home4.jpg"
   }
 ]
