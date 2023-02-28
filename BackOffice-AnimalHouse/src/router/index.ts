@@ -24,7 +24,7 @@ const routes: { [key: string]: Function } = {
 
 function render(path: string) {
 	if (!isUserAuthenticated()) {
-		window.location.href = "/login"
+		window.location.hash = "#/login"
 		return
 	}
 
@@ -39,19 +39,21 @@ function isRoute(path: string) {
 }
 
 function start(path: string, hashpath: string) {
-	if (path == "/login")
-		renderLogin($("#app"))
-	else if (path != '/')
+	if (path != '/')
 		renderNotFound($("#app"))
+	else if (hashpath == '#/login')
+		renderLogin($("#app"))
 	else if (isUserAuthenticated()) {
 		// STATIC RENDERING
 		renderNavbar($('#navbar'))
 		renderSidebar($('#sidebar'))
 		render(hashpath)
-	} else
-		window.location.href = "/login"
+	} else {
+		window.location.hash = "#/login"
+		window.location.reload()
+	}
 }
-	
+
 window.onhashchange = (evt: HashChangeEvent) => render(window.location.hash)
 
 export default {

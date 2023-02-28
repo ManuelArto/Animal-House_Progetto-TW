@@ -14,5 +14,5 @@ $('#app').html(`
 
 // DYNAMIC ROUTING
 import router from "./router"
-router.start(window.location.pathname, window.location.hash)
+router.start(window.location.pathname.replace("backoffice/", ""), window.location.hash)
 

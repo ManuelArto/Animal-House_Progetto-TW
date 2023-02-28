@@ -11,6 +11,7 @@ export function renderNavbar(element: JQuery<HTMLDivElement>) {
 
 	$("#logout").on("click", (e) => {
 		localStorage.clear()
-		window.location.href = "/login"
+		window.location.href = "#/login"
+		window.location.reload()
 	})
 }
