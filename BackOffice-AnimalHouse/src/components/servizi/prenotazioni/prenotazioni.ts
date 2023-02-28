@@ -164,18 +164,16 @@ function initCloseFilterModal() {
 }
 
 function initFilterModal() {
+	// Init select sedi
+	$("#filterSede").html("<option value=' '></option>")
+	fetch(ENDPOINT.SEDI_LIST)
+		.then((res) => res.json())
+		.then((sedi) =>  sedi.forEach((sede: HeadQuarter) => {
+			$("#filterSede").append(`<option value='${sede.address.street}'> ${sede.address.street}, ${sede.address.city} </option>`);
+		}))
+
 	$(".filterModal").on("click", async () => {
 		app_modals.filter.toggle()
-
-		let sedi: HeadQuarter[] = [];
-		await fetch(ENDPOINT.SEDI_LIST)
-			.then((res) => res.json())
-			.then((data) => sedi.push(...data))
-		
-		$("#filterSede").html("<option value=' '></option>")
-		sedi.forEach((sede: HeadQuarter) => {
-			$("#filterSede").append(`<option value='${sede.address.street}'> ${sede.address.street}, ${sede.address.city} </option>`);
-		})
 
 		$("#filterResetButton").on("click", function() {
 			// Svuota tutti i campi di input
@@ -216,6 +214,10 @@ function initFilterModal() {
 					$(this).show();
 				}
 			})
+
+			app_modals.filter.hide()
+			$("#filterResetButton").off("click")
+			$("#filterButton").off("click")
 		});
 	})
 }
