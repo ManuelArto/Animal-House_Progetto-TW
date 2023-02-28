@@ -23,6 +23,7 @@ class User {
 		localStorage.clear()
 		this.isUserLogged.set(false)
 		this.user.set({})
+		window.location.reload()
 	}
 
 	async setUserData (data) {
