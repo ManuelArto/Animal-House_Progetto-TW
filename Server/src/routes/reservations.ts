@@ -26,8 +26,8 @@ router.post('/:idSede/:serviceName/:number', authJwt(), async (req: Request | Au
     try {
         const newReservation = new ReservationModel({ 
 			...req.body, 
-			idUser: user.id, 
-			idHeadQuarter: req.params.idSede,
+			user: user.id, 
+			headQuarter: req.params.idSede,
 			serviceName: req.params.serviceName,
 			number: req.params.number,
 		})
