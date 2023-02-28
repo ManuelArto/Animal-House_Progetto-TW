@@ -107,6 +107,6 @@
     </div>
     <div class="flex flex-row-reverse">
         <Button type="submit" color="green">Confirm</Button>
-        <Button color="red" class="mr-2">Cancel</Button>
+        <Button on:click={() => dispatch("close_modal")} color="red" class="mr-2">Cancel</Button>
     </div>
 </form>
