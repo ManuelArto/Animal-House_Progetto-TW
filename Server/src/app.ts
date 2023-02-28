@@ -1,12 +1,15 @@
 import express, { Express } from "express"
+import path from "path"
 import cors from 'cors'
 import morgan from 'morgan'
 import helmet from "helmet"
 import dotenv from 'dotenv'
-dotenv.config()
+dotenv.config({ path: path.join(__dirname, "../", ".env") })
+
 import { constants } from "./utils/const"
 import { errorLogger, errorResponder } from './middleware/error'
 import connectMongo from './db/mongo'
+
 
 const app: Express = express()
 const PORT = process.env.PORT || 5000
@@ -39,6 +42,7 @@ app.use('/api/gameAnimals/', gameAnimalsRouter)
 app.use('/api/adminUser/', adminUserRouter)
 
 // Static routes
+app.use("/", express.static(constants.home))
 app.use("/game", express.static(constants.game))
 app.use("/frontoffice", express.static(constants.frontoffice))
 app.use("/backoffice", express.static(constants.backoffice))
