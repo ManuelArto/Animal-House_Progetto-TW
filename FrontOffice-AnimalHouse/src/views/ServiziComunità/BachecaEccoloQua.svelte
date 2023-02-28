@@ -49,12 +49,12 @@
         isNewThreadModalOpen = false
     }
     async function newMessageSubmit(event) {
-        event.target.action = ENDPOINT.THREADS_NEW_MESSAGE(currentThread.id)
+        event.target.action = ENDPOINT.THREADS_NEW_MESSAGE(currentThread._id)
         const newThread = await formSubmit(event)
         if (newThread.error)
             addToast({ message: `${newThread.error.type}<br>${newThread.error.message}`})
         else {
-            threads = threads.map((thread) => thread.id == newThread.id ? newThread : thread)
+            threads = threads.map((thread) => thread._id == newThread._id ? newThread : thread)
             currentThread = newThread
         }
         
