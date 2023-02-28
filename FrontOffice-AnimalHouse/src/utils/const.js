@@ -28,5 +28,5 @@ export const ENDPOINT = {
 	RESERVATION_NEW: (idSede, serviceName, serviceNumber) => SERVER_API + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}`,
 	RESERVATION_ORARI: (idSede, serviceName, serviceNumber, date) => SERVER_API + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}/fasceOrarie?date=${date}`,
 	// GAME
-	GAME_QUIZ: GAME_URL + "/games/quiz"
+	GAME_QUIZ: GAME_URL + "/#/games/quiz"
 }
