@@ -51,7 +51,7 @@ interface Question {
 }
 
 interface Product {
-	id: string
+	_id: string
 	name: string
 	description: string
 	category: string
