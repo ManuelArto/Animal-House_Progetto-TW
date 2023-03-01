@@ -54,8 +54,8 @@ const threadSchema = new Schema({
 					authorId: message.author._id,
 					authorUsername: message.author?.username || "[utente eliminato]",
 					content: message.content,
-					date: date.format(doc.createdAt, "DD-MM-YYYY"),
-					time: date.format(doc.createdAt, "HH:mm"),
+					date: date.format(message.createdAt, "DD-MM-YYYY"),
+					time: date.format(message.createdAt, "HH:mm"),
 				})),
 			}
 
