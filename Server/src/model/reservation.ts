@@ -42,7 +42,6 @@ const reservationSchema = new Schema<IReservation>({
 	fascia_oraria: {
 		type: String,
 		required: true,
-		unique: true
 	},
 }, { 
 	timestamps: true ,
