@@ -2,6 +2,7 @@ import express, { Router, Request, Response, NextFunction } from "express"
 import { AdminAuthRequest, authJwt, AuthRequest } from "../middleware/auth"
 import { ErrorWrapper } from "../middleware/error"
 import { AnimalModel } from "../model/animal"
+import { ReservationModel } from "../model/reservation"
 import { IUser } from '../model/user'
 
 export const router: Router = express.Router()
@@ -42,6 +43,9 @@ router.delete('/:animalId', authJwt(), async (req: Request | AuthRequest, res: R
         const animal = await AnimalModel.findOneAndDelete({ ownerId: user._id, _id: req.params.animalId })
         if (!animal)
             throw new ErrorWrapper({ statusCode: 404, errorType: "NoAnimalFound", errorMsg: "No animal with that id" })
+
+        // Elimino le prenotazioni per questo animale
+        await ReservationModel.deleteMany({ animal: req.params.animalId })
 
         res.json({ message: `${animal.name} successfully deleted` })
     } catch (error: any) {
