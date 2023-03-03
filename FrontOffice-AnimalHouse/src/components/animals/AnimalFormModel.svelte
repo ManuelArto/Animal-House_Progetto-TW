@@ -41,11 +41,10 @@
                             Upload photo (URL)
                         </label>
                         <input
-                            type="url"
+                            type="file"
                             name="imageURI"
                             id="input-photo"
                             class="block appearance-none w-full py-1 px-2 mb-1 text-black border border-stone-300 rounded"
-                            placeholder="Photo"
                             required
                         />
                     </div>
