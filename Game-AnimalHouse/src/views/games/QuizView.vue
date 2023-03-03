@@ -40,10 +40,10 @@ async function getNewQuestion(key: string) {
 		var answerLabel: string
 		while (true) {
 			switch (key) {
-				case "weight":
+				case "il_peso":
 					answerLabel = `${animal.weight_min}-${animal.weight_max} kg`
 					break;
-				case "length":
+				case "la_lunghezza":
 					answerLabel = `${animal.length_min}-${animal.length_max} m`
 					break;
 				default:
@@ -113,13 +113,13 @@ function startGame() {
 }
 
 let keys = reactive([
-	"animal_type",
-	"latin_name",
-	"length",
-	"weight",
-	"lifespan",
+	"tipo_di_animale_è",
+	"il_nome_latino",
+	"la_lunghezza",
+	"il_peso",
+	"la_vita_media",
 	"habitat",
-	"diet",
+	"il_cibo",
 ])
 keys.push(...keys.sort(() => Math.random() - 0.5).slice(0, 10-keys.length))
 
