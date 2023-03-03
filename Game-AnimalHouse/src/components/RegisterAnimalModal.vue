@@ -116,10 +116,8 @@ function onFileChange(event: Event) {
 	if (fileInput && fileInput.files && fileInput.files[0]) {
 		const file = fileInput.files[0];
 		animal.value.image_link = file.name;
-		console.log(animal.value.image_link);
 	}else{
 		animal.value.image_link = "";
-		console.log(animal.value.image_link);
 	}
 }
 
