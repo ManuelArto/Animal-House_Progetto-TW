@@ -1,3 +1,5 @@
+
+
 <template>
 	<div ref="modal" class="modal fade" :id="modalId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog modal-lg" role="document">
@@ -20,7 +22,7 @@
 									</b-col>
 									<b-col>
 										<label for='pets-upload'><i class="bi bi-camera"></i> Profile photo </label><br>
-										<input v-model.trim="animal.image_link" id='pets-upload' placeholder="Photo URL" type='url' class="form-control form-control-sm" required>
+										<input @change="onFileChange" class="form-control form-control-sm" type="file" id="pets-upload" required>
 									</b-col>
 									<b-col>
 										<label for='pets-breed'>Breed</label><br>
@@ -88,6 +90,7 @@
 	</div>
 </template>
 
+
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
@@ -106,6 +109,19 @@ onMounted(() => {
 })
 
 var animal = ref(emptyData())
+
+
+function onFileChange(event: Event) {
+	const fileInput = event.target as HTMLInputElement;
+	if (fileInput && fileInput.files && fileInput.files[0]) {
+		const file = fileInput.files[0];
+		animal.value.image_link = file.name;
+		console.log(animal.value.image_link);
+	}else{
+		animal.value.image_link = "";
+		console.log(animal.value.image_link);
+	}
+}
 
 function submitForm(event: Event) {
 	animal.value.condizioni = animal.value.condizioni || "Condizioni non specificate"
@@ -131,6 +147,7 @@ function emptyData(): Animal {
 		_id: uuidv4(),
 	}
 }
+
 
 </script>
 
