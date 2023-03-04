@@ -15,6 +15,7 @@
         newAnimalSubmit(event).then(() => isAnimalFormOpen = false  )
     }
 
+    
 </script>
 <Modal class="h-min my-auto" title="Add your animal" bind:open={isAnimalFormOpen} size="md" autoclose={false}>
     <form action={ENDPOINT.ANIMALS_NEW} on:submit|preventDefault={submitForm} method="POST">
@@ -38,13 +39,13 @@
                 <div class="lg:w-1/2 w-full pr-4 pl-4">
                     <div class="mb-4">
                         <label class="form-control-label" for="input-photo" >
-                            Upload photo (URL)
+                            Upload photo
                         </label>
                         <input
                             type="file"
                             name="imageURI"
                             id="input-photo"
-                            class="block appearance-none w-full py-1 px-2 mb-1 text-black border border-stone-300 rounded"
+                            class="fb-input-file"
                             required
                         />
                     </div>
@@ -126,3 +127,31 @@
         </Button>
     </form>
 </Modal>
+
+<style>
+    .fb-input-file {
+        background-color: white;
+        border: 1px solid;
+        border-color: rgb(202, 199, 199);
+        border-radius: 5px;
+        padding: 1px;
+        font-size: 16px;
+        width: 250px;
+    }
+
+    .fb-input-file:focus, .fb-input-file:active{
+        border: 2px solid;
+        border-color: blue;
+    }
+
+    input[type="file"]::-webkit-file-upload-button {
+        color:white;
+        margin-left:1px;
+        text-align: center;
+        border-radius:10px;
+        background-color: #4587f1;
+    }
+    input[type="file"]::-webkit-file-upload-button:focus, input[type="file"]::-webkit-file-upload-button:hover {
+        background-color: rgb(0, 85, 255);
+    }
+</style>
