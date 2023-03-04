@@ -5,7 +5,7 @@ import { ENDPOINT } from '@/utils/const';
 import { reactive, ref } from 'vue';
 
 function getQuestionText(animal: RandAnimal, key: string): string {
-	return `Qual è <b>${key.replace("_", " ")}</b> del <i>${animal?.name}</i>?`
+	return `Qual è <b>${key.replace(/_/g, " ")}</b> del <i>${animal?.name}</i>?`
 }
 
 let animals: RandAnimal[] = []
