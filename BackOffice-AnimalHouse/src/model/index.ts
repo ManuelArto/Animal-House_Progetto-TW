@@ -20,6 +20,7 @@ interface Product {
 	price: number
 	quantity: number
 	rating: number
+	giorni: number
 }
 
 interface Score {
