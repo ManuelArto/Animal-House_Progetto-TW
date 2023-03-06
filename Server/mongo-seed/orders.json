@@ -1,0 +1,42 @@
+[
+	{
+		"_idUser": {
+			"$oid": "5fea8abcda05f098a1ac9857"
+		},
+        "products": 
+            [
+                {"name": "Distributore di acqua per animali domestici", "quantity": 1},
+                {"name": "Latte in polvere per gattini", "quantity": 2},
+                {"name": "Pelle di pollo essiccata", "quantity": 2}
+            ],
+        "price": 30.95,
+        "createdAt": "2023-03-05T16:37:48.244Z"
+	},
+    {
+		"_idUser": {
+			"$oid": "5fea8abcda05f098a1ac9858"
+		},
+        "products": 
+            [
+                {"name": "Gabbia per uccelli", "quantity": 1},
+                {"name": "Cuccia per gatti", "quantity": 2},
+                {"name": "Cintura per cani da passeggio", "quantity": 2}
+            ],
+        "price": 45.70,
+        "createdAt": "2023-03-01T16:37:48.244Z"
+	},
+    {
+		"_idUser": {
+			"$oid": "5fea8abcda05f098a1ac9859"
+		},
+        "products": 
+            [
+                {"name": "Alimento per roditori", "quantity": 1},
+                {"name": "Cestino per cani", "quantity": 2},
+                {"name": "Alimento per pesci d'acquario", "quantity": 2}
+            ],
+        "price": 32.50,
+        "createdAt": "2023-03-04T16:37:48.244Z"
+	}
+
+]
