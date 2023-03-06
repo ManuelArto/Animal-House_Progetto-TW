@@ -2,11 +2,15 @@
 	import { Dropdown, DropdownItem, Button, Input, Badge, Modal, Label } from "flowbite-svelte"
 	import { createEventDispatcher } from 'svelte'
     import { addToast } from "../../store/toasts";
+	import { user } from "../../store/user"
 	import { prod } from '../../store/products'
 	const dispatch = createEventDispatcher();
 	
 	export let divClass
 	export let products = []
+
+	let isUserLogged;
+	user.isUserLogged.subscribe(value => isUserLogged = value );
 
 	function changeQuantity(event, product) {
 		if (product.quantity < 1)
@@ -37,16 +41,16 @@
 		products.forEach(async (product) => {
 			await prod.editQuantity(product._id, product.maxQuantity, product.quantity)
 		});
-		// Ricarica la pagina in background
 		localStorage.removeItem("cartProducts");
 		setTimeout(function() {
 			window.location.reload(true);
 		}, 1000); 
+	}
 
-		// Rimuovi l'array da localStorage
-		
-		
+	function showUnauthorizedAlert(message) {
+        addToast({ message: `Devi essere loggato per poter ${message}`})
     }
+
 </script>
 
 <div id="bell" class={divClass + " inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none dark:hover:text-white dark:text-gray-400"}>
@@ -98,7 +102,7 @@
 			<p>{totalPrice}€</p>
 		</div>
 		<div class="mt-6">
-			<button class="flex mx-auto items-center justify-center rounded-md border border-transparent bg-blue-700 px-6 hover:bg-blue-800 py-3 text-base font-medium text-white shadow-sm" on:click={checkout}>
+			<button on:click={() => !isUserLogged ? showUnauthorizedAlert("per andare al checkout") : checkout() } class="flex mx-auto items-center justify-center rounded-md border border-transparent bg-blue-700 px-6 hover:bg-blue-800 py-3 text-base font-medium text-white shadow-sm">
 				Vai al checkout
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="ml-2 bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
 					<path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
@@ -110,43 +114,6 @@
 
 
 <Modal bind:open={CheckoutModalOpen} size="md" autoclose>
-	<p class="text-2xl">Inserisci i dati per la consegna</p>
-	<form id="newOrder" class="flex flex-col space-y-6" on:submit|preventDefault={acquista} method="POST">
-		<div class="grid grid-rows-1 grid-flow-col gap-3">
-			<Label class="space-y-1">
-				<span>Nome</span>
-				<Input name="name" type="text" placeholder="es: Mario" required />
-			</Label>
-			<Label class="space-y-1">
-				<span>Cognome</span>
-				<Input name="surname" type="text" placeholder="es: Rossi" required />
-			</Label>
-		</div>
-		<Label class="space-y-1">
-			<span>Indirizzo</span>
-			<Input name="indirizzo" type="text" placeholder="via Zavattaro 16" required />
-		</Label>
-		<div class="grid grid-rows-1 grid-flow-col gap-2">
-			<Label class="space-y-1">
-				<span>Paese</span>
-				<Input name="paese" type="text" placeholder="Anzola dell'Emilia" required />
-			</Label>
-		</div>
-		<div class="grid grid-rows-1 grid-flow-col gap-1">
-			<Label class="space-y-1">
-				<span>Provincia</span>
-				<Input name="provincia" type="text" placeholder="Bologna" required />
-			</Label>
-			<Label class="space-y-1">
-				<span>Telefono</span>
-				<Input name="phoneNumber" type="tel" pattern={"[0-9]{10}"}  placeholder="es: 3334567890" required />
-			</Label>
-		</div>
-		<Label class="space-y-1">
-			<span>Indicazioni per il corriere*</span>
-			<Input name="preference" type="text" placeholder="es: Non entrare nella stradina" />
-		</Label>
-	</form>
 	<p class="text-2xl">Riepilogo ordine</p>
 	{#each products as product}
 	<p class="text-xl font-medium text-gray-900">Il tuo ordine arriverà: <b>{new Date(oggi.getTime() + product.giorni*24*60*60*1000).toLocaleDateString('it-IT', options)}</b></p>
