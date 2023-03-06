@@ -1,4 +1,4 @@
-const SERVER_API = "/api"
+const SERVER_API = "http://localhost:5000/api"
 
 export const ENDPOINT = {
 	// ADMIN USERS
@@ -20,6 +20,8 @@ export const ENDPOINT = {
 	PRODUCTS_LIST: SERVER_API + "/products/list",
 	PRODUCTS_NEW: SERVER_API + "/products/",
 	PRODUCT: (id: string) => SERVER_API + `/products/${id}`,
+	// ORDERS
+	ORDERS_LIST: SERVER_API + "/orders/list",
 	// SEDI
 	SEDI_LIST: SERVER_API + "/sedi/list",
 	// RESERVATIONS

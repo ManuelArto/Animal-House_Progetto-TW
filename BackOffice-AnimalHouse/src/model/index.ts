@@ -97,4 +97,16 @@ interface Animal {
 	ownerId: string
 }
 
-export type { Product, User, Score, Thread, Message, Reservation, HeadQuarter, Animal, Address, Service, Services} 
+interface Order {
+	user: User
+	_id: string
+	price: number
+	date: string
+	products: SingleOrder[]
+}
+
+interface SingleOrder{
+	name: string
+	quantity: number
+}
+export type { Product, User, Score, Thread, Message, Reservation, HeadQuarter, Animal, Address, Service, Services, Order, SingleOrder} 
