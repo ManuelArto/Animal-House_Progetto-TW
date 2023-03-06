@@ -1,9 +1,9 @@
 import $ from "jquery"
 import { Modal, Dropdown } from "flowbite";
-import { Product } from "../../model";
-import { ENDPOINT } from "../../utils/const";
+import { Product } from "../../../model";
+import { ENDPOINT } from "../../../utils/const";
 import products_html from "./prodotti.html?raw"
-import { handleFormSubmit, handleRequest } from "../../utils/requestHandler";
+import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
 
 type IProductAppModals = { 
 	delete: Modal; 
