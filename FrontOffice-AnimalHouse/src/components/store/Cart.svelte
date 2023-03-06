@@ -2,7 +2,7 @@
 	import { Dropdown, DropdownItem, Button, Input, Badge, Modal, Label } from "flowbite-svelte"
 	import { createEventDispatcher } from 'svelte'
     import { addToast } from "../../store/toasts";
-	
+	import { prod } from '../../store/products'
 	const dispatch = createEventDispatcher();
 	
 	export let divClass
@@ -32,11 +32,21 @@
 
 	let oggi = new Date();
 	let options = { year: 'numeric', month: 'long', day: 'numeric' };
-	
-	function svuota(){
-		products.length = 0;
-		addToast({message: "Ordine ricevuto", type:"success"})
-	}
+
+	async function acquista(formEvent) {
+		products.forEach(async (product) => {
+			await prod.editQuantity(product._id, product.maxQuantity, product.quantity)
+		});
+		// Ricarica la pagina in background
+		localStorage.removeItem("cartProducts");
+		setTimeout(function() {
+			window.location.reload(true);
+		}, 1000); 
+
+		// Rimuovi l'array da localStorage
+		
+		
+    }
 </script>
 
 <div id="bell" class={divClass + " inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none dark:hover:text-white dark:text-gray-400"}>
@@ -101,7 +111,7 @@
 
 <Modal bind:open={CheckoutModalOpen} size="md" autoclose>
 	<p class="text-2xl">Inserisci i dati per la consegna</p>
-	<form id="newOrder" class="flex flex-col space-y-6" method="POST">
+	<form id="newOrder" class="flex flex-col space-y-6" on:submit|preventDefault={acquista} method="POST">
 		<div class="grid grid-rows-1 grid-flow-col gap-3">
 			<Label class="space-y-1">
 				<span>Nome</span>
@@ -175,6 +185,6 @@
 			<p class="ml-1">{totalPrice}€</p>
 		</div>
 	</div>
-	<Button type="submit" form="newOrder" color="green" on:click={svuota}>Conferma</Button>
+	<Button type="submit" form="newOrder" color="green" on:click={acquista}>Conferma</Button>
     <Button color="red" on:click={() => CheckoutModalOpen = false}>Cancella</Button>
 </Modal>

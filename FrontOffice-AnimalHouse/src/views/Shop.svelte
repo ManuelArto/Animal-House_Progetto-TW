@@ -130,7 +130,9 @@
 	{#if currentPageProducts.length}
 	<div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
 		{#each currentPageProducts as product}
-			<ProductCard product={product} on:addToCart={addToCart}/>
+			{#if product.quantity > 0}
+				<ProductCard product={product} on:addToCart={addToCart}/>
+			{/if}
 		{/each}
 	</div>
 
