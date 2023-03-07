@@ -30,6 +30,7 @@ import threadsRouter from './routes/threads'
 import reservationsRouter from './routes/reservations'
 import gameAnimalsRouter from './routes/gameAnimals'
 import adminUserRouter from './routes/adminUsers'
+import ordersRouter from './routes/orders'
 
 app.use('/api/user/', userRouter)
 app.use('/api/animals/', animalsRouter)
@@ -40,6 +41,7 @@ app.use('/api/threads/', threadsRouter)
 app.use('/api/reservations/', reservationsRouter)
 app.use('/api/gameAnimals/', gameAnimalsRouter)
 app.use('/api/adminUser/', adminUserRouter)
+app.use('/api/orders/', ordersRouter)
 
 // Static routes
 app.use("/", express.static(constants.home))
