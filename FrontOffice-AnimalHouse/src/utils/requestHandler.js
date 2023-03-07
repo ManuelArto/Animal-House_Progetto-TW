@@ -19,7 +19,7 @@ export async function userInfoSubmit(event) {
 
 export async function newAnimalSubmit(event) {
 	let data 
-	if (data =  await handleFormSubmit(event)) {
+	if (data =  await handleFormSubmit(event, true)) {
 		if (data.error)
 			addToast({ message: `${data.error.type}<br>${data.error.message}`})
 		else
@@ -32,7 +32,7 @@ export async function formSubmit(event) {
 	return (data = await handleFormSubmit(event)) ? data : null
 }
 
-async function handleFormSubmit(event) {
+async function handleFormSubmit(event, hasImage = false) {
 	// getting the action url
 	const ACTION_URL = event.target.action
 
@@ -48,13 +48,13 @@ async function handleFormSubmit(event) {
 	// check the form's method and send the fetch accordingly
 	if (event.target.method.toLowerCase() == 'get') {
 		response = await handleRequest(`${ACTION_URL}?${data}`, {
-			headers: { 'Authorization': `Bearer ${user.getToken()}` }
+			headers: { 'Authorization': `Bearer ${user.getToken()}` },
 		})
 	}else {
 		response = await handleRequest(ACTION_URL, {
 			method: 'POST',
-			headers: { 'Authorization': `Bearer ${user.getToken()}` },
-			body: data
+			headers: { 'Authorization': `Bearer ${user.getToken()}`},
+			body: hasImage ? formData : data,
 		})
 	}
 	return response ? await response.json() : null

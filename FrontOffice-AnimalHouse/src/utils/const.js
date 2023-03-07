@@ -1,5 +1,5 @@
-const GAME_URL = ""
-const SERVER_URL = "http://localhost:5000"
+const GAME_URL = "/game"
+const SERVER_API = "http://localhost:5000/api"
 
 export const ENDPOINT = {
 	// SERVER
@@ -28,5 +28,7 @@ export const ENDPOINT = {
 	RESERVATION_NEW: (idSede, serviceName, serviceNumber) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}`,
 	RESERVATION_ORARI: (idSede, serviceName, serviceNumber, date) => SERVER_URL + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}/fasceOrarie?date=${date}`,
 	// GAME
-	GAME_QUIZ: GAME_URL + "/games/quiz"
+	GAME_QUIZ: GAME_URL + "/#/games/quiz",
+	// IMAGES
+	IMAGEURI: (uri) => SERVER_API.replace("/api", "") + uri
 }

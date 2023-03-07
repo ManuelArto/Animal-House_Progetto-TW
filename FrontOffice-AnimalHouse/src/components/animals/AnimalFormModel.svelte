@@ -1,5 +1,5 @@
 <script>
-	import {  Modal, Button } from "flowbite-svelte"
+	import {  Modal, Button, Fileupload } from "flowbite-svelte"
 	import { createEventDispatcher } from 'svelte'
     import { ENDPOINT } from "../../utils/const"
     import { newAnimalSubmit } from '../../utils/requestHandler'
@@ -12,7 +12,7 @@
     }
 
     async function submitForm(event) {
-        newAnimalSubmit(event).then(() => isAnimalFormOpen = false  )
+        await newAnimalSubmit(event).then(() => isAnimalFormOpen = false  )
     }
 
 </script>
@@ -40,12 +40,11 @@
                         <label class="form-control-label" for="input-photo" >
                             Upload photo (URL)
                         </label>
-                        <input
-                            type="url"
-                            name="imageURI"
-                            id="input-photo"
-                            class="block appearance-none w-full py-1 px-2 mb-1 text-black border border-stone-300 rounded"
-                            placeholder="Photo"
+                        <input 
+                            id="input-photo" 
+                            name="pet-image-file"
+                            type="file" 
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             required
                         />
                     </div>
@@ -127,3 +126,14 @@
         </Button>
     </form>
 </Modal>
+
+<style>
+    input[type="file"]::-webkit-file-upload-button {
+        color:white;
+        text-align: center;
+        background-color: #4587f1;
+    }
+    input[type="file"]::-webkit-file-upload-button:focus, input[type="file"]::-webkit-file-upload-button:hover {
+        background-color: rgb(0, 85, 255);
+    }
+</style>

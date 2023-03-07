@@ -69,7 +69,7 @@ Authorization: Bearer {{token}}
 
 // PRODUCTS
 ###
-GET http://localhost:5000/products/list HTTP/1.1
+GET http://localhost:5000/api/products/list HTTP/1.1
 ###
 GET http://localhost:5000/products/list/rand/3 HTTP/1.1
 ###

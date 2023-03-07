@@ -1,6 +1,7 @@
 <script>
     import { Card, Badge, Modal, Button } from "flowbite-svelte"
     import { animals } from '../../store/animals'
+    import { ENDPOINT } from "../../utils/const";
 
     export let animal
 
@@ -12,7 +13,7 @@
 
 </script>
 
-<Card class="relative rounded my-5 mx-auto md:mx-4 h-full" img={animal.imageURI} horizontal>
+<Card class="relative rounded my-5 mx-auto md:mx-4 h-full" img={ENDPOINT.IMAGEURI(animal.imageURI)} horizontal>
     <h5 class="mt-0 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {animal.name} </h5>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
         <b>Specie: </b> {animal.species} <br>

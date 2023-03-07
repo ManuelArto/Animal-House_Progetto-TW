@@ -4,8 +4,11 @@ import morgan from 'morgan'
 import helmet from "helmet"
 import dotenv from 'dotenv'
 dotenv.config()
+
+import { constants } from "./utils/const"
 import { errorLogger, errorResponder } from './middleware/error'
 import connectMongo from './db/mongo'
+
 
 const app: Express = express()
 const PORT = process.env.PORT || 5000
@@ -27,15 +30,23 @@ import reservationsRouter from './routes/reservations'
 import gameAnimalsRouter from './routes/gameAnimals'
 import adminUserRouter from './routes/adminUsers'
 
-app.use('/user/', userRouter)
-app.use('/animals/', animalsRouter)
-app.use('/products/', productsRouter)
-app.use('/scores/', scoresRouter)
-app.use('/sedi/', headquartersRouter)
-app.use('/threads/', threadsRouter)
-app.use('/reservations/', reservationsRouter)
-app.use('/gameAnimals/', gameAnimalsRouter)
-app.use('/adminUser/', adminUserRouter)
+app.use('/api/user/', userRouter)
+app.use('/api/animals/', animalsRouter)
+app.use('/api/products/', productsRouter)
+app.use('/api/scores/', scoresRouter)
+app.use('/api/sedi/', headquartersRouter)
+app.use('/api/threads/', threadsRouter)
+app.use('/api/reservations/', reservationsRouter)
+app.use('/api/gameAnimals/', gameAnimalsRouter)
+app.use('/api/adminUser/', adminUserRouter)
+
+// Static routes
+app.use("/", express.static(constants.home))
+app.use("/images", express.static(constants.images))
+app.use("/game", express.static(constants.game))
+app.use("/frontoffice", express.static(constants.frontoffice))
+app.use("/backoffice", express.static(constants.backoffice))
+
 
 // Middlewares
 app.use(helmet())

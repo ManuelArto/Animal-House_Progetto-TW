@@ -2,6 +2,8 @@ import express, { Router, Request, Response, NextFunction } from "express"
 import { AdminAuthRequest, authJwt, AuthRequest } from "../middleware/auth"
 import { ErrorWrapper } from "../middleware/error"
 import { AnimalModel } from "../model/animal"
+import { upload } from "../utils/upload"
+import { ReservationModel } from "../model/reservation"
 import { IUser } from '../model/user'
 
 export const router: Router = express.Router()
@@ -52,11 +54,12 @@ router.delete('/:animalId', authJwt(), async (req: Request | AuthRequest, res: R
     }
 })
 
-router.post('', authJwt(), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
+router.post('', authJwt(), upload.single('pet-image-file'), async (req: Request | AuthRequest, res: Response, next: NextFunction) => {
     const user: IUser = (req as AuthRequest).user
 
     try {
-        const newAnimal = new AnimalModel({ ...req.body, ownerId: user.id })
+        const file = req.file!
+        const newAnimal = new AnimalModel({ ...req.body, ownerId: user.id, imageURI: `/${file.path}` })
 
         await newAnimal.save()
         res.status(201).json(newAnimal)
