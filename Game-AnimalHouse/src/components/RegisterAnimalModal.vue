@@ -22,8 +22,7 @@
 									</b-col>
 									<b-col>
 										<label for='pets-upload'><i class="bi bi-camera"></i> Profile photo </label><br>
-										<input @change="onFileChange" class="form-control form-control-sm" type="file" id="pets-upload" required>
-									</b-col>
+										<input v-model.trim="animal.image_link" id='pets-upload' placeholder="Photo URL" type='url' class="form-control form-control-sm" required>									</b-col>
 									<b-col>
 										<label for='pets-breed'>Breed</label><br>
 										<input v-model.trim="animal.razza" id='pets-breed' placeholder="Pet's breed" type='text' class="form-control form-control-sm" required>
@@ -109,17 +108,6 @@ onMounted(() => {
 })
 
 var animal = ref(emptyData())
-
-
-function onFileChange(event: Event) {
-	const fileInput = event.target as HTMLInputElement;
-	if (fileInput && fileInput.files && fileInput.files[0]) {
-		const file = fileInput.files[0];
-		animal.value.image_link = file.name;
-	}else{
-		animal.value.image_link = "";
-	}
-}
 
 function submitForm(event: Event) {
 	animal.value.condizioni = animal.value.condizioni || "Condizioni non specificate"

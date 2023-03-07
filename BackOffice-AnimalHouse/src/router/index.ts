@@ -1,6 +1,6 @@
 import $ from "jquery"
 import { isUserAuthenticated } from "../auth/auth"
-import { renderProducts } from '../components/shop/prodotti'
+import { renderProducts } from '../components/shop/prodotti/prodotti'
 import { renderUsers } from '../components/anagrafica/user/user'
 import { renderScore } from '../components/anagrafica/score/score'
 import { renderBacheca } from "../components/comunita/bacheca/bacheca"
@@ -10,11 +10,13 @@ import { renderPrenotazioni } from "../components/servizi/prenotazioni/prenotazi
 import { renderLogin } from "../components/login/login"
 import { renderNavbar } from "../components/navbar/navbar"
 import { renderSidebar } from "../components/sidebar/sidebar"
+import { renderFatturazione } from "../components/shop/fatturazione/fatturazione"
 
 const routes: { [key: string]: Function } = {
 	"": renderDashboard,
 	"#/": renderDashboard,
 	"#/shop/prodotti": renderProducts,
+	"#/shop/fatturazione": renderFatturazione,
 	"#/anagrafica/utenti": renderUsers,
 	"#/anagrafica/punteggi": renderScore,
 	"#/comunita/bacheca": renderBacheca,

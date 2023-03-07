@@ -24,7 +24,7 @@
 		} else
 			throw Error()
 	}
-	$: filteredProducts = products.filter( (product) => product.name.toLowerCase().indexOf(searchTitle.toLowerCase()) !== -1)
+	$: filteredProducts = products.filter( (product) => product.name.toLowerCase().indexOf(searchTitle.toLowerCase()) !== -1 && product.quantity > 0)
 
 	// CATEGORIES
 	let categoriesDropDownOpen = false

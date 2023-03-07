@@ -32,7 +32,7 @@
 			<Badge slot="text" class="ml-3">{product.rating}</Badge>
 		</div>
 		<Badge slot="text">{product.category}</Badge>
-		<Badge color="red" slot="text">Rimangono {product.quantity} {product.quantity == 1 ? "prodotto" : "prodotti"} </Badge>
+		<Badge color="red" slot="text">{product.quantity == 1 ? "Rimane" : "Rimangono"} {product.quantity} {product.quantity == 1 ? "prodotto" : "prodotti"} </Badge>
 		<div class="flex justify-between items-center -m-1 mt-4">
 			<span class="text-xl sm:text-3xl font-bold text-gray-900 dark:text-white">{product.price}€</span>
 			<Button on:click={() => dispatch('addToCart', product)}>

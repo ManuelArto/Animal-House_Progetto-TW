@@ -1,5 +1,5 @@
 const GAME_URL = "/game"
-const SERVER_API = "/api"
+const SERVER_API = "http://localhost:5000/api"
 
 export const ENDPOINT = {
 	// SERVER
@@ -22,6 +22,7 @@ export const ENDPOINT = {
 	PRODUCTS_CATEGORIES_LIST: SERVER_API + "/products/categories/list",
 	PRODUCTS_CATEGORY_LIST: (category) => SERVER_API + `/products/${category}/list`,
 	PRODUCTS_RAND_LIST: (number) => SERVER_API + `/products/list/rand/${number}`,
+	EDIT_QUANTITY: (id) => SERVER_API + `/products/${id}/updateQuantity`,
 	// SEDI
 	SEDI_LIST: SERVER_API + "/sedi/list",
 	// RESERVATIONS
