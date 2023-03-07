@@ -55,7 +55,7 @@ onMounted(async () => products.value = await fetchProducts(12) )
               <div class="carousel-inner">
                 <div v-for="(n_products, index) in getNProducts(3)" :class="{'carousel-item':true, 'active': index === 0 }">
                   <div class="row">
-                    <div v-for="product in n_products" class="col-md-4 mb-3" :key="product.id">
+                    <div v-for="product in n_products" class="col-md-4 mb-3" :key="product._id">
                       <div class="card h-100" style="width:100%;">
                         <img :src="product.imageURI" class="rounded" :alt="product.name" >
                         <div class="card-body d-flex align-content-between flex-wrap">

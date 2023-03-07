@@ -1,4 +1,5 @@
 import express, { Express } from "express"
+import path from "path"
 import cors from 'cors'
 import morgan from 'morgan'
 import helmet from "helmet"

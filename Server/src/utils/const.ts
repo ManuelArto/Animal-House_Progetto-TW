@@ -4,7 +4,7 @@ export const constants = {
 	expiresInToken: '4h',
 	pwdMinLenght: 6,
 	home: 		 resolve(__dirname + "/../../../"),
-	images: 	 resolve(__dirname + "/../../images"),
+	images: 	 resolve(__dirname + "/../../../images"),
 	game: 		 resolve(__dirname + "/../../../game"),
 	frontoffice: resolve(__dirname + "/../../../frontoffice"),
 	backoffice:  resolve(__dirname + "/../../../backoffice"),

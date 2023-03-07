@@ -3,16 +3,16 @@ import { Document, Schema, model, ObjectId } from 'mongoose'
 
 interface IGameAnimal extends Document {
 	name: string,
-	latin_name: string,
-	animal_type: string,
+	il_nome_latino: string,
+	tipo_di_animale_è: string,
 	active_time: string,
 	length_min: string,
 	length_max: string,
 	weight_min: string,
 	weight_max: string,
-	lifespan: string,
+	la_vita_media: string,
 	habitat: string,
-	diet: string,
+	il_cibo: string,
 	geo_range: string,
 	image_link: string,
 }
@@ -22,11 +22,11 @@ const gameAnimalSchema = new Schema<IGameAnimal>({
 		type: String,
 		required: true
 	},
-	latin_name: {
+	il_nome_latino: {
 		type: String,
 		required: true
 	},
-	animal_type: {
+	tipo_di_animale_è: {
 		type: String,
 		required: true
 	},
@@ -50,7 +50,7 @@ const gameAnimalSchema = new Schema<IGameAnimal>({
 		type: String,
 		required: true
 	},
-	lifespan: {
+	la_vita_media: {
 		type: String,
 		required: true
 	},
@@ -58,7 +58,7 @@ const gameAnimalSchema = new Schema<IGameAnimal>({
 		type: String,
 		required: true
 	},
-	diet: {
+	il_cibo: {
 		type: String,
 		required: true
 	},

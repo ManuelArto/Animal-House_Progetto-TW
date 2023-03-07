@@ -15,6 +15,7 @@
         await newAnimalSubmit(event).then(() => isAnimalFormOpen = false  )
     }
 
+    
 </script>
 <Modal class="h-min my-auto" title="Add your animal" bind:open={isAnimalFormOpen} size="md" autoclose={false}>
     <form action={ENDPOINT.ANIMALS_NEW} on:submit|preventDefault={submitForm} method="POST">
@@ -38,7 +39,7 @@
                 <div class="lg:w-1/2 w-full pr-4 pl-4">
                     <div class="mb-4">
                         <label class="form-control-label" for="input-photo" >
-                            Upload photo (URL)
+                            Upload photo
                         </label>
                         <input 
                             id="input-photo" 

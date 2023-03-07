@@ -26,10 +26,10 @@ export const routes = {
 	}),
 	// Servizi di Comunità
 	"/servizi/leaderboard": wrap({
-		asyncComponent: () => import('../views/ServiziComunità/Leaderboard.svelte')
+		asyncComponent: () => import('../views/ServiziComunita/Leaderboard.svelte')
 	}),
 	"/servizi/bachecaEccoloQua": wrap({
-		asyncComponent: () => import('../views/ServiziComunità/BachecaEccoloQua.svelte')
+		asyncComponent: () => import('../views/ServiziComunita/BachecaEccoloQua.svelte')
 	}),
 	"*": NotFound,
 }

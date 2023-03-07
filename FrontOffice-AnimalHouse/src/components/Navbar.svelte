@@ -24,7 +24,9 @@
   
 
 <Navbar let:hidden let:toggle>
-    <a class="flex" href="/#" on:click={() => changePage("#/", hidden, toggle)}>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <a class="flex cursor-pointer" on:click={() => changePage("#/", hidden, toggle)}>
         <img src="favicon.ico" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
         <span class="self-center whitespace-nowrap text-lg sm:text-xl font-semibold dark:text-white">AnimalHouse</span>
     </a>

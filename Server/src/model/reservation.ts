@@ -42,7 +42,6 @@ const reservationSchema = new Schema<IReservation>({
 	fascia_oraria: {
 		type: String,
 		required: true,
-		unique: true
 	},
 }, { 
 	timestamps: true ,
@@ -64,8 +63,6 @@ const reservationSchema = new Schema<IReservation>({
 		}
 	}
 })
-
-reservationSchema.index({ headQuarter: 1, serviceName: 1, number: 1, date: 1, fascia_oraria: 1 }, { unique: true });
 
 export const ReservationModel = model<IReservation>('Reservation', reservationSchema)
 

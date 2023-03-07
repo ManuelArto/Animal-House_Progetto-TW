@@ -45,6 +45,9 @@ router.delete('/:animalId', authJwt(), async (req: Request | AuthRequest, res: R
         if (!animal)
             throw new ErrorWrapper({ statusCode: 404, errorType: "NoAnimalFound", errorMsg: "No animal with that id" })
 
+        // Elimino le prenotazioni per questo animale
+        await ReservationModel.deleteMany({ animal: req.params.animalId })
+
         res.json({ message: `${animal.name} successfully deleted` })
     } catch (error: any) {
         if (error instanceof ErrorWrapper)

@@ -158,77 +158,66 @@ function initCloseReservationModal() {
 function initCloseFilterModal() {
 	$(".closeFilterModal").on("click", () => {
 		app_modals.filter.hide()
-		$("#pulisci").off("click")
-		$("#FilterSubmitButton").off("click")
+		$("#filterResetButton").off("click")
+		$("#filterButton").off("click")
 	})
 }
 
 function initFilterModal() {
-	$(".filterModal").on("click", () => {
+	// Init select sedi
+	$("#filterSede").html("<option value=' '></option>")
+	fetch(ENDPOINT.SEDI_LIST)
+		.then((res) => res.json())
+		.then((sedi) =>  sedi.forEach((sede: HeadQuarter) => {
+			$("#filterSede").append(`<option value='${sede.address.street}'> ${sede.address.street}, ${sede.address.city} </option>`);
+		}))
+
+	$(".filterModal").on("click", async () => {
 		app_modals.filter.toggle()
-		$("#FilterModalTitle").text("Filtra le prenotazioni")
-		$("#FilterSubmitButton").text("Filtra")
-		$("#pulisci").text("Pulisci")
-		$("#pulisci").on("click", function() {
+
+		$("#filterResetButton").on("click", function() {
 			// Svuota tutti i campi di input
-			$('input[type="date"]').val('');
+			$('input[type="text"]').val('');
 			// Deseleziona tutte le checkbox
 			$('input[type="checkbox"]').prop('checked', false);
 			// Imposta il menu a tendina sul primo valore vuoto
 			$('select option:first-child').prop('selected', true);
+			// Mostra tutte le prenotazioni
+			$('tbody tr').show();
 		});
 		
-		$('#FilterSubmitButton').on("click", function () {
+		$('#filterButton').on("click", function () {
 			// FILRO SEDI
 			let selectedSede = $('#filterSede').val();
-			if (selectedSede == " ") {
-				$('tbody tr').show();
-			} else {
-				$('tbody tr').hide();
-				$('tbody tr').each(function () {
-					if ($(this).find('td:nth-child(2)').text() == selectedSede) {
-						$(this).show();
-					}
-				});
-			}
 
 			// FILRO SERVIZI
 			let selectedServices: string[] = [];
-	
 			// Selezioniamo tutti gli elementi checkbox all'interno
 			$('#filterService input[type=checkbox]').each(function () {
 				// Se l'elemento è selezionato, aggiungiamo il valore dell'attributo id all'array selectedCategories
 				if ($(this).is(':checked')) {
-					selectedServices.push($(this).attr('id')!);
+					selectedServices.push($(this).val() as string);
 				}
 			});
-	
-			// Se non è stata selezionata nessuna categoria, mostriamo tutti i prodotti
-			if (selectedServices.length == 0) {
-				$('tbody tr').show();
-			} else {
-				// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
-				$('tbody tr').hide();
-				$('tbody tr').each(function () {
-					if ($.inArray($(this).find('td:nth-child(4)').text(), selectedServices) !== -1) {
-						$(this).show();
-					}
-				});
-			}
-
+			
 			// FILRO DATA
 			let selectedDate = $('#filterDate').val();
-			if (selectedDate == " ") {
-				$('tbody tr').show();
-			} else {
-				$('tbody tr').hide();
-				$('tbody tr').each(function () {
-					if ($(this).find('td:nth-child(2)').text() == selectedDate) {
-						$(this).show();
-					}
-				});
-			}
 
+			// Nascondi tutte le prenotazioni
+			$('tbody tr').hide();
+			$('tbody tr').each(function () {
+				if (
+					(selectedSede == " " 			|| $(this).find('td:nth-child(3)').text() == selectedSede) &&
+					(selectedServices.length == 0   || $.inArray($(this).find('td:nth-child(4)').text(), selectedServices) !== -1) &&
+					(selectedDate == "" 			|| $(this).find('td:nth-child(6)').text() == selectedDate)
+				) {
+					$(this).show();
+				}
+			})
+
+			app_modals.filter.hide()
+			$("#filterResetButton").off("click")
+			$("#filterButton").off("click")
 		});
 	})
 }

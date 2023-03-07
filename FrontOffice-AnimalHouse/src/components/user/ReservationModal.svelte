@@ -51,7 +51,7 @@
 <form class="flex flex-col space-y-6" on:submit|preventDefault={newReservationSubmit} method="POST">
     <h3 class="text-xl font-medium p-0">Riepilogo della tua prenotazione</h3>
     <span>Dati utente</span>
-    <Input type="hidden" name="idAnimal" value={selected_animal._id} />
+    <Input type="hidden" name="animal" value={selected_animal._id} />
     <div class="grid grid-rows-1 grid-flow-col gap-2">
         <Label class="space-y-1">
             <span>Nome</span>
@@ -107,6 +107,6 @@
     </div>
     <div class="flex flex-row-reverse">
         <Button type="submit" color="green">Confirm</Button>
-        <Button color="red" class="mr-2">Cancel</Button>
+        <Button on:click={() => dispatch("close_modal")} color="red" class="mr-2">Cancel</Button>
     </div>
 </form>
