@@ -63,22 +63,12 @@ function initNewProductModal() {
 		app_modals.product.toggle()
 		$("#productModalTitle").text("Aggiungi un prodotto")
 		$("#productModalSubmitButton").text("Aggiungi")
-
-		$("#imageURI").on("input", function() {
-			let URL = $(this).val() as string;
-			if(URL == ""){
-				$("#imageContainer").hide()
-			}else{
-				$("#imageContainer").show()
-				$("#title_img").text("Immagine del prodotto")
-				$(`#productImage`).attr("src", URL)
-			}
-		})
+		$("#imageContainer").hide()
 
 		$("#editForm #name").val("")
 		$("#editForm #price").val("")
 		$("#editForm #quantity").val("")
-		$("#editForm #imageURI").val("")
+		$("#editForm #product-image-file").val("")
 		$("#editForm #giorni").val("")
 		$("#editForm #description").val("")
 		$(`#editForm option[value='Accessoristica']`).attr('selected','selected')
@@ -105,15 +95,11 @@ function openEditProductModal(product: Product) {
 	$("#title_img").text("Immagine del prodotto")
 	$("#imageContainer").show()
 
-	$("#imageURI").on("input", function() {
-		let URL = $(this).val() as string;
-		$(`#productImage`).attr("src", URL)
-	})
-
 	$("#editForm #name").val(product.name)
 	$("#editForm #price").val(product.price)
 	$("#editForm #quantity").val(product.quantity)
-	$("#editForm #imageURI").val(product.imageURI)
+	$("#editForm #product-image-file").val("")
+	$("#editForm #product-image-file").on("change", () => $("#imageContainer").hide())
 	$("#editForm #giorni").val(product.giorni)
 	$("#editForm #description").val(product.description)
 	$(`#editForm option[value='${product.category}']`).attr('selected','selected')
@@ -162,7 +148,7 @@ function initCloseProductModal() {
 	$(".closeProductModal").on("click", () => {
 		app_modals.product.hide()
 		$("#editForm").off("submit")
-		$("#imageURI").off("input")
+		$("#editForm #product-image-file").off("change")
 		$("#imageContainer").hide()
 	})
 }

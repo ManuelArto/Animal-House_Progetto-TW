@@ -6,11 +6,12 @@
     }
     input[type="file"]::-webkit-file-upload-button {
         color:white;
-        margin-left:1px;
         text-align: center;
-        border-radius:10px;
+        background-color: #4587f1;
     }
-
+    input[type="file"]::-webkit-file-upload-button:focus, input[type="file"]::-webkit-file-upload-button:hover {
+        background-color: rgb(0, 85, 255);
+    }
 </style>
 <div class="m-4">
     <!-- Breadcrumb -->
@@ -213,8 +214,8 @@
                         <input type="number" name="quantity" id="quantity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Es:300" required="">
                     </div>
                     <div>
-                        <label for="imageURI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">URL Image</label>
-                        <input type="file" name="imageURI" id="imageURI" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+                        <label for="product-image-file" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">URL Image</label>
+                        <input id="product-image-file" name="product-image-file" type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"required/>
                     </div>
                     <div>
                         <label for="giorni" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Giorni necessari:</label>
