@@ -1,5 +1,5 @@
 const GAME_URL = "/game"
-const SERVER_API = "http://localhost:5000/api"
+const SERVER_API = "/api"
 
 export const ENDPOINT = {
 	// SERVER
