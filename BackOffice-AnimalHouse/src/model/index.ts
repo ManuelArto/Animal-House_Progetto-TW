@@ -102,6 +102,7 @@ interface Order {
 	_id: string
 	price: number
 	date: string
+	time: string
 	products: SingleOrder[]
 }
 

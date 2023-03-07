@@ -42,7 +42,6 @@ const orderSchema = new Schema<IOrder>({
 	timestamps: true ,
 	toJSON: {
 		transform(doc, ret) {
-			console.log(doc)
 			ret = {
 				"_id": doc._id,
 				"user": doc.user,

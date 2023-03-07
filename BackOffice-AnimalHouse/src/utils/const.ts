@@ -1,4 +1,4 @@
-const SERVER_API = "/api"
+const SERVER_API = "http://localhost:5000/api"
 
 export const ENDPOINT = {
 	// ADMIN USERS
