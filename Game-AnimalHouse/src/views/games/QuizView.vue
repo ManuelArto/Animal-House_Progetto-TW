@@ -113,7 +113,7 @@ function startGame() {
 }
 
 let keys = reactive([
-	"tipo_di_animale_è",
+	"il_tipo_di_animale",
 	"il_nome_latino",
 	"la_lunghezza",
 	"il_peso",
