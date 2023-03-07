@@ -1,4 +1,4 @@
-import { Document, Schema, model } from 'mongoose'
+import { Document, Schema, model, ObjectId } from 'mongoose'
 import date from 'date-and-time'
 
 interface IProduct extends Document {
@@ -7,9 +7,9 @@ interface IProduct extends Document {
 }
 
 interface IOrder extends Document {
-	_idUser: string
-	products: IProduct[]
+	user: ObjectId
     price: number
+	products: IProduct[]
 }
 
 const productSchema = new Schema<IProduct>({
@@ -24,8 +24,10 @@ const productSchema = new Schema<IProduct>({
 })
 
 const orderSchema = new Schema<IOrder>({
-	_idUser: {
-        type: String,
+	user: {
+		type: Schema.Types.ObjectId,
+		required: true,
+		ref: 'User'
     },
     products: {
 		type: [productSchema],
@@ -40,8 +42,18 @@ const orderSchema = new Schema<IOrder>({
 	timestamps: true ,
 	toJSON: {
 		transform(doc, ret) {
+			console.log(doc)
 			ret = {
-				"createdAt": date.format(doc.createdAt, "DD-MM-YYYY"),
+				"_id": doc._id,
+				"user": doc.user,
+				"price": doc.price,
+				"date": date.format(doc.createdAt, "DD-MM-YYYY"),
+				"time": date.format(doc.createdAt, "HH:mm"),
+				"products": doc.products.map((product: any) => ({
+					_id: product._id,
+					name: product.name,
+					quantity: product.quantity,
+				})),
 			}
 			return ret
 		}

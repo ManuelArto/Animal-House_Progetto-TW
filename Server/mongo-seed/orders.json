@@ -1,8 +1,6 @@
 [
 	{
-		"_idUser": {
-			"$oid": "5fea8abcda05f098a1ac9857"
-		},
+		"user": ObjectId("5fea8abcda05f098a1ac9857"),
         "products": 
             [
                 {"name": "Distributore di acqua per animali domestici", "quantity": 1},
@@ -13,9 +11,7 @@
         "createdAt": "2023-03-05T16:37:48.244Z"
 	},
     {
-		"_idUser": {
-			"$oid": "5fea8abcda05f098a1ac9858"
-		},
+		"user": ObjectId("5fea8abcda05f098a1ac9858"),
         "products": 
             [
                 {"name": "Gabbia per uccelli", "quantity": 1},
@@ -26,9 +22,7 @@
         "createdAt": "2023-03-01T16:37:48.244Z"
 	},
     {
-		"_idUser": {
-			"$oid": "5fea8abcda05f098a1ac9859"
-		},
+		"user": ObjectId("5fea8abcda05f098a1ac9859"),
         "products": 
             [
                 {"name": "Alimento per roditori", "quantity": 1},
