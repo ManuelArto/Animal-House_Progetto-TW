@@ -4,7 +4,7 @@ import cors from 'cors'
 import morgan from 'morgan'
 import helmet from "helmet"
 import dotenv from 'dotenv'
-dotenv.config()
+dotenv.config({ path: path.join(__dirname, "../", ".env") });
 
 import { constants } from "./utils/const"
 import { errorLogger, errorResponder } from './middleware/error'

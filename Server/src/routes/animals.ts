@@ -62,7 +62,7 @@ router.post('', authJwt(), upload.single('pet-image-file'), async (req: Request 
 
     try {
         const file = req.file!
-        const newAnimal = new AnimalModel({ ...req.body, ownerId: user.id, imageURI: `/images/${file.path}` })
+        const newAnimal = new AnimalModel({ ...req.body, ownerId: user.id, imageURI: `/images/${file.filename}` })
 
         await newAnimal.save()
         res.status(201).json(newAnimal)

@@ -73,7 +73,7 @@ router.get('/:category/list', async (req: Request, res: Response, next: NextFunc
 router.post('', authJwt(true), upload.single('product-image-file'), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	try {
 		const file = req.file!
-        const newProduct = new ProductModel({ ...req.body, imageURI: `/${file.path}` })
+        const newProduct = new ProductModel({ ...req.body, imageURI: `/images/${file.filename}` })
 
         await newProduct.save()
         res.status(201).json(newProduct)
@@ -84,7 +84,7 @@ router.post('', authJwt(true), upload.single('product-image-file'), async (req: 
 
 router.patch('/:id', authJwt(true), upload.single('product-image-file'), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => { 
 	const file = req.file
-	const updates = (file) ? { ...req.body, imageURI: `/${file.path}` } : req.body
+	const updates = (file) ? { ...req.body, imageURI: `/images/${file.filename}` } : req.body
 
 	ProductModel.findByIdAndUpdate(req.params.id, updates, {new: true})
 		.then((product) => {
