@@ -3,6 +3,7 @@ import { ErrorWrapper } from "../middleware/error"
 import { AdminAuthRequest, authJwt, AuthRequest } from "../middleware/auth"
 import { OrderModel } from "../model/order"
 import { IUser } from "../model/user"
+import { ProductModel } from "../model/product"
 
 export const router: Router = express.Router()
 
@@ -11,8 +12,6 @@ router.get('/list', authJwt(true), async (req: Request, res: Response, next: Nex
 		const orders = await OrderModel.find()
 			.populate("user")
 			.exec()
-
-		console.log(orders)
 
 		res.json(orders)
 	} catch(error: any) {
@@ -25,6 +24,14 @@ router.delete('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res
         .then((order) => {
             if (!order)
                 throw new ErrorWrapper({ statusCode: 404, errorType: "NoOrderFound", errorMsg: "No order with that id" })
+
+            // Aumenta le quantità dei prodotti relativi all'ordine rimosso
+            order.products.forEach(async (product) => {
+                const updateProduct = await ProductModel.findOne({ name: product.name })
+                updateProduct!.quantity += product.quantity
+
+                await updateProduct!.save()
+            })
 
             res.json({ message: `Order successfully deleted` })
         }).catch((error: any) => {

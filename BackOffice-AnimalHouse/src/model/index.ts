@@ -110,4 +110,5 @@ interface SingleOrder{
 	name: string
 	quantity: number
 }
-export type { Product, User, Score, Thread, Message, Reservation, HeadQuarter, Animal, Address, Service, Services, Order, SingleOrder} 
+
+export type { Product, User, Score, Thread, Message, Reservation, HeadQuarter, Animal, Address, Service, Services, Order, SingleOrder } 

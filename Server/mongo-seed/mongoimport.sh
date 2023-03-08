@@ -9,3 +9,4 @@ mongoimport --host mongodb --db animalhouse --collection headquarters --type jso
 mongoimport --host mongodb --db animalhouse --collection reservations --type json --file /mongo-seed/reservations.json 	--jsonArray
 mongoimport --host mongodb --db animalhouse --collection threads 	  --type json --file /mongo-seed/threads.json 		--jsonArray
 mongoimport --host mongodb --db animalhouse --collection gameanimals  --type json --file /mongo-seed/gameAnimals.json 	--jsonArray
+mongoimport --host mongodb --db animalhouse --collection orders  	  --type json --file /mongo-seed/orders.json 	--jsonArray

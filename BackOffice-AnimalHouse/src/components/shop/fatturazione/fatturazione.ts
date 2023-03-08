@@ -1,9 +1,9 @@
 import $ from "jquery"
 import { Modal } from "flowbite";
-import { Order, Product } from "../../../model";
+import { Order, SingleOrder } from "../../../model";
 import { ENDPOINT } from "../../../utils/const";
 import fatturazione_html from "./fatturazione.html?raw"
-import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
+import { handleRequest } from "../../../utils/requestHandler";
 
 type IProductAppModals = { 
 	delete: Modal; 
@@ -52,7 +52,6 @@ function openShoworderModal(order: Order){
 	app_modals.show_order.toggle()
 	
 	$("#editOrderModalTitle").text("Visualizza Ordine")
-	$("#editOrderModalSubmitButton").text("Salva")
 	
 	$("#editForm #name").val(order.user.name)
 	$("#editForm #surname").val(order.user.surname)
@@ -62,7 +61,7 @@ function openShoworderModal(order: Order){
 
 	prod.html("")
 	quant.html("")
-	order.products.forEach((product: Product) => {
+	order.products.forEach((product: SingleOrder) => {
 		let labelproductName = $('<label>').addClass('block mt-2 mb-2 text-sm font-medium text-gray-900 dark:text-white')
 									.attr('for', 'productName')
 									.text('Nome del prodotto');	
@@ -123,5 +122,19 @@ function initCloseShowOrderModal(){
 
 
 function initSearchBar(){
+	$('#simple-search').on("input", function () {
+		const searchTerm = $(this).val() as string;
 
+		if (searchTerm == "") {
+			$('tbody tr').show();
+		} else {
+			// Altrimenti nascondiamo tutti i prodotti e mostriamo solo quelli della categoria selezionata
+			$('tbody tr').hide();
+			$('tbody tr').each(function () {
+				if ($(this).find('th:nth-child(1)').text().toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+					$(this).show();
+				}
+			});
+		}
+	});
 }
