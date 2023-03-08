@@ -1,6 +1,7 @@
 <script>
 	import { Button, Rating, Badge } from "flowbite-svelte";
 	import { createEventDispatcher } from 'svelte'
+    import { ENDPOINT } from "../../utils/const";
 	
 	export let product
 	
@@ -10,7 +11,7 @@
 <div class="w-full h-full">
 	<div class="grid items-start grid-cols-1 md:grid-cols-12 gap-12 h-full">
 		<div class="rounded-lg md:col-span-5 pt-48 md:pb-24 mx-auto">
-			<img class="-mt-48 h-72 md:h-96" src={product.imageURI} alt={product.name} >
+			<img class="-mt-48 h-72 md:h-96" src={ENDPOINT.IMAGEURI(product.imageURI)} alt={product.name} >
 		</div>
 		<div class="md:col-span-7 h-full flex flex-col content-between">
 			<div class="mb-auto">

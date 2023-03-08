@@ -1,6 +1,7 @@
 <script>
 	import { Button, Card, Badge, Modal } from "flowbite-svelte";
 	import { createEventDispatcher } from 'svelte'
+    import { ENDPOINT } from "../../utils/const";
     import ProductModal from "./ProductModal.svelte";
 	
 	export let product
@@ -11,7 +12,7 @@
 
 <Card class="mx-auto w-full flex">
 	<button class="cursor-pointer" id="modalDiv" on:click={() => isProductModalOpen = !isProductModalOpen}>
-		<img class="p-1 h-36 sm:h-64 mx-auto rounded-t-lg" src={product.imageURI} alt="product 1"/>
+		<img class="p-1 h-36 sm:h-64 mx-auto rounded-t-lg" src={ENDPOINT.IMAGEURI(product.imageURI)} alt="product 1"/>
 		<h5 class="mb-4 text-sm sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
 			{product.name}
 		</h5>

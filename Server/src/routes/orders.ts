@@ -33,7 +33,7 @@ router.delete('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res
                 await updateProduct!.save()
             })
 
-            res.json({ message: `Order successfully deleted` })
+            res.json({ message: "Order successfully deleted" })
         }).catch((error: any) => {
             next(new ErrorWrapper({statusCode: 400, error: error}))
         })
@@ -43,11 +43,17 @@ router.post('', authJwt(), async (req: Request | AuthRequest, res: Response, nex
     const user: IUser = (req as AuthRequest).user
     try {
         const newOrder = new OrderModel({ ...req.body, user: user._id })
-        await newOrder.save()
-		
-		await OrderModel.populate(newOrder, "user")
 
-        res.status(201).json(newOrder)
+        // Diminuisci le quantità dei prodotti relativi all'ordine creato
+        newOrder.products.forEach(async (product) => {
+            const updateProduct = await ProductModel.findOne({ name: product.name })
+            updateProduct!.quantity -= product.quantity
+
+            await updateProduct!.save()
+        })
+		
+        await newOrder.save()
+        res.status(201).json({ message: "Order successfully created" })
     } catch (error: any) {
         next(new ErrorWrapper({ statusCode: 500, error: error }))
     }

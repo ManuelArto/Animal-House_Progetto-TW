@@ -128,7 +128,7 @@
 
 	<!-- PRODUCTS -->
 	{#if currentPageProducts.length}
-	<div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
+	<div class="grid grid-cols-2 xl:grid-cols-3 gap-4">
 		{#each currentPageProducts as product}
 			<ProductCard product={product} on:addToCart={addToCart}/>
 		{/each}
