@@ -8,7 +8,7 @@ export async function handleRequest(endpoint: string, options?: {}) {
 	}
 }
 
-export async function handleFormSubmit(event: JQuery.SubmitEvent, ENDPOINT: string, method: string, token?: string | null) {
+export async function handleFormSubmit(event: JQuery.SubmitEvent, ENDPOINT: string, method: string, token?: string | null, hasImage = false) {
 	event.preventDefault();
 	  
 	const form = event.target as HTMLFormElement
@@ -28,7 +28,7 @@ export async function handleFormSubmit(event: JQuery.SubmitEvent, ENDPOINT: stri
 		response = await handleRequest(ENDPOINT, {
 			method: method,
 			headers: token ? { 'Authorization': `Bearer ${token}` } : {},
-			body: data
+			body: hasImage ? formData : data,
 		})
 	} else {
 		response = await handleRequest(ENDPOINT, {

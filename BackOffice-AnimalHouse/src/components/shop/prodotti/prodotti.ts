@@ -71,10 +71,12 @@ function initNewProductModal() {
 		$("#editForm #product-image-file").val("")
 		$("#editForm #giorni").val("")
 		$("#editForm #description").val("")
-		$(`#editForm option[value='Accessoristica']`).attr('selected','selected')
+		$("#editForm option[value='Accessoristica']").attr('selected','selected')
+		$("#productImage").prop("required", true)
+
 	
 		$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-			const data = await handleFormSubmit(event, ENDPOINT.PRODUCTS_NEW, "POST", localStorage.getItem("bo_token"))
+			const data = await handleFormSubmit(event, ENDPOINT.PRODUCTS_NEW, "POST", localStorage.getItem("bo_token"), true)
 	
 			if (data.error) {
 				alert(data.error.message)
@@ -103,11 +105,12 @@ function openEditProductModal(product: Product) {
 	$("#editForm #giorni").val(product.giorni)
 	$("#editForm #description").val(product.description)
 	$(`#editForm option[value='${product.category}']`).attr('selected','selected')
-	$(`#productImage`).attr("src", product.imageURI)
+	$(`#productImage`).attr("src", ENDPOINT.IMAGEURI(product.imageURI))
+	$(`#productImage`).removeAttr("required")
 
 	$("#editForm").attr("action", "PATCH")
 	$("#editForm").on("submit", async (event: JQuery.SubmitEvent) => {
-		const data = await handleFormSubmit(event, ENDPOINT.PRODUCT(product._id), "PATCH", localStorage.getItem("bo_token"))
+		const data = await handleFormSubmit(event, ENDPOINT.PRODUCT(product._id), "PATCH", localStorage.getItem("bo_token"), true)
 
 		if (data.error) {
 			alert(data.error.message)

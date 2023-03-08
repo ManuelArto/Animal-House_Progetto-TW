@@ -30,4 +30,6 @@ export const ENDPOINT = {
 	RESERVATION: (id: string) => SERVER_API + `/reservations/${id}`,
 	RESERVATION_ORARI: (idSede: string, serviceName: string, serviceNumber: number, date: string) =>
 		SERVER_API + "/reservations/" + `${idSede}/${serviceName}/${serviceNumber}/fasceOrarie?date=${date}`,
+	// IMAGES
+	IMAGEURI: (uri: string) => SERVER_API.replace("/api", "") + uri
 }

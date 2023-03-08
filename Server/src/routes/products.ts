@@ -2,6 +2,7 @@ import express, { Router, Request, Response, NextFunction } from "express"
 import { AdminAuthRequest, authJwt } from "../middleware/auth"
 import { ErrorWrapper } from "../middleware/error"
 import { ProductModel } from "../model/product"
+import { upload } from "../utils/upload"
 
 export const router: Router = express.Router()
 
@@ -87,9 +88,10 @@ router.get('/:category/list', async (req: Request, res: Response, next: NextFunc
 
 // ADMIN ROUTES
 
-router.post('', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
+router.post('', authJwt(true), upload.single('product-image-file'), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	try {
-        const newProduct = new ProductModel({ ...req.body })
+		const file = req.file!
+        const newProduct = new ProductModel({ ...req.body, imageURI: `/${file.path}` })
 
         await newProduct.save()
         res.status(201).json(newProduct)
@@ -98,8 +100,11 @@ router.post('', authJwt(true), async (req: Request | AdminAuthRequest, res: Resp
 	}
 })
 
-router.patch('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
-	ProductModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
+router.patch('/:id', authJwt(true), upload.single('product-image-file'), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => { 
+	const file = req.file
+	const updates = (file) ? { ...req.body, imageURI: `/${file.path}` } : req.body
+
+	ProductModel.findByIdAndUpdate(req.params.id, updates, {new: true})
 		.then((product) => {
 			if (!product)
 				throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })

@@ -9,6 +9,7 @@ interface IProduct extends Document {
 	price: number
 	quantity: number
 	rating: number
+	giorni: number
 }
 
 const productSchema = new Schema<IProduct>({
@@ -33,6 +34,10 @@ const productSchema = new Schema<IProduct>({
 		required: true
 	},
 	quantity: {
+		type: Number,
+		required: true
+	},
+	giorni: {
 		type: Number,
 		required: true
 	},
