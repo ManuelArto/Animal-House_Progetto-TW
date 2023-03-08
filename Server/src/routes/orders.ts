@@ -22,8 +22,8 @@ router.get('/list', authJwt(true), async (req: Request, res: Response, next: Nex
 
 router.delete('/:id', authJwt(true), async (req: Request | AdminAuthRequest, res: Response, next: NextFunction) => {
 	OrderModel.findByIdAndDelete(req.params.id)
-        .then((score) => {
-            if (!score)
+        .then((order) => {
+            if (!order)
                 throw new ErrorWrapper({ statusCode: 404, errorType: "NoOrderFound", errorMsg: "No order with that id" })
 
             res.json({ message: `Order successfully deleted` })
