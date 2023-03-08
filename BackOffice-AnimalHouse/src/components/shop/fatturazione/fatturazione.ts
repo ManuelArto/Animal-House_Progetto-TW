@@ -1,33 +1,27 @@
 import $ from "jquery"
 import { Modal } from "flowbite";
-import { Order } from "../../../model";
+import { Order, Product } from "../../../model";
 import { ENDPOINT } from "../../../utils/const";
 import fatturazione_html from "./fatturazione.html?raw"
 import { handleFormSubmit, handleRequest } from "../../../utils/requestHandler";
 
 type IProductAppModals = { 
 	delete: Modal; 
-	order: Modal;
-	edit_order: Modal;
+	show_order: Modal;
 }
 let app_modals = {} as IProductAppModals
 
 export function renderFatturazione(element: JQuery<HTMLDivElement>) {
 	element.html(fatturazione_html)
 
-    app_modals.order = new Modal($('#newOrderModel')[0], {backdrop: "static"})
-	app_modals.edit_order = new Modal($('#editOrderModel')[0], {backdrop: "static"})
+	app_modals.show_order = new Modal($('#showOrderModel')[0], {backdrop: "static"})
 	app_modals.delete = new Modal($('#deleteOrderModal')[0], {backdrop: "static"})
 
-    $(function () {
+    $(async function () {
 		initOrders()
-		initNewOrderModal()
+		initCloseShowOrderModal()
 		initCloseDeleteModal()
-		initCloseNewOrderModal()
-		initCloseEditOrderModal()
-		initFilterDropdown()
 		initSearchBar()
-		addRemoveProduct()
 	})
 }
 
@@ -40,134 +34,94 @@ function initOrders(){
 		.then((orders) => orders.forEach((order: Order) => {
 			var order_tmpl = $($("#order_template").html());
 			
-			order_tmpl.find(".updateOrderButton").attr("id", `edit_${order._id}`)
+			order_tmpl.find(".showOrderButton").attr("id", `show_${order._id}`)
 			order_tmpl.find(".deleteOrderButton").attr("id", `delete_${order._id}`)
-			console.log(order)
 			order_tmpl.find("#name").text(order.user.name + " " + order.user.surname)
-			order_tmpl.find("#price").text(order.price)
+			order_tmpl.find("#price").text(order.price + " €")
 			order_tmpl.find("#date").text(order.date)
-			
+			order_tmpl.find("#time").text(order.time)
 			$("tbody").append(order_tmpl[0].outerHTML);
 
-			$(`#edit_${order._id}`).on("click", () => openEditProductModal(order))
-			$(`#delete_${order._id}`).on("click", () => openDeleteProductModal(order))
+			$(`#show_${order._id}`).on("click", () => openShoworderModal(order))
+			$(`#delete_${order._id}`).on("click", () => openDeleteOrderModal(order, localStorage.getItem("bo_token")))
 		}))
 }
 
-function initNewOrderModal(){
-	$(".newOrderButton").on("click", () => {
-		app_modals.order.toggle()
-		$("#orderModalTitle").text("Aggiungi un ordine")
-		$("#orderModalSubmitButton").text("Aggiungi")
 
-		$("#newOrderForm #name").val("")
-		$("#newOrderForm #surname").val("")
-		$("#newOrderForm #quantity").val("")
-		$("#newOrderForm #nameProduct").val("")
+function openShoworderModal(order: Order){
+	app_modals.show_order.toggle()
 	
-		/*$("#newOrderForm").on("submit", async (event: JQuery.SubmitEvent) => {
-			const data = await handleFormSubmit(event, ENDPOINT.ORDER_NEW, "POST", localStorage.getItem("bo_token"))
-	
-			if (data.error) {
-				alert(data.error.message)
-			} else {
-				app_modals.order.hide()
-				initOrders()
-				$("#newOrderForm").off("submit")
-			}
-		})*/
-	})
-}
-
-function openEditProductModal(order: Order){
-	app_modals.edit_order.toggle()
-
-	$("#editOrderModalTitle").text("Modifica Ordine")
+	$("#editOrderModalTitle").text("Visualizza Ordine")
 	$("#editOrderModalSubmitButton").text("Salva")
 	
-
 	$("#editForm #name").val(order.user.name)
 	$("#editForm #surname").val(order.user.surname)
-	$("#editForm #price").val(product.price)
-	$("#editForm #quantity").val(product.quantity)
-	$("#editForm #imageURI").val(product.imageURI)
-	$("#editForm #giorni").val(product.giorni)
-	$("#editForm #description").val(product.description)
-	$(`#editForm option[value='${product.category}']`).attr('selected','selected')
-	$(`#productImage`).attr("src", product.imageURI)
-}
 
-function initCloseDeleteModal(){
+	let prod = $("#nameProduct");
+	let quant = $("#quantityProduct"); 
 
-}
+	prod.html("")
+	quant.html("")
+	order.products.forEach((product: Product) => {
+		let labelproductName = $('<label>').addClass('block mt-2 mb-2 text-sm font-medium text-gray-900 dark:text-white')
+									.attr('for', 'productName')
+									.text('Nome del prodotto');	
 
-function initCloseEditOrderModal(){
+		let productName = $('<input>').attr('type', 'text')
+									.attr('name', 'productName')
+									.attr('id', 'productName')
+									.addClass('bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500')
+									.val(product.name)
+									.prop("disabled", true);
 
-}
+		let labelQuantity = $('<label>').addClass('block mt-2 mb-2 text-sm font-medium text-gray-900 dark:text-white')
+									.attr('for', 'quantity')
+									.text('Quantita');	
 
-function initCloseNewOrderModal(){
-	$(".closeOrderModal").on("click", () => {
-		app_modals.order.hide()
-		$("#editForm").off("submit")
-		$(".buttonInputProduct").off("click")
-		$(".removeButton").off("click")
+		let quantity = $('<input>').attr('type', 'text')
+									.attr('name', 'quantity')
+									.attr('id', 'quantity')
+									.addClass('bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500')
+									.val(product.quantity)
+									.prop("disabled", true);
+		prod.append(labelproductName, productName)
+		quant.append(labelQuantity, quantity)			
 	})
 }
 
-function initFilterDropdown(){
-
+function openDeleteOrderModal(order: Order, token?: string | null){
+	app_modals.delete.toggle()
+	$("#deleteOrderButton").on("click", async (event: JQuery.ClickEvent) => {
+		
+		const data = await handleRequest(ENDPOINT.ORDER(order._id), {
+			method: "DELETE",
+			headers: token ? { 'Authorization': `Bearer ${token}` } : {},
+		})
+		if (data.error) {
+			alert(data.error.message)
+		} else {
+			app_modals.delete.hide()
+			initOrders()
+			$("#deleteOrderButton").off("click")
+		}
+	})
 }
+
+
+function initCloseDeleteModal(){
+	$(".closeDeleteOrderModal").on("click", () => {
+		app_modals.delete.hide()
+		$("#deleteOrderButton").off("click")
+	})
+}
+
+function initCloseShowOrderModal(){
+	$(".closeOrderModal").on("click", () => {
+		app_modals.show_order.hide()
+	})
+}
+
 
 function initSearchBar(){
 
-}
-
-
-function openDeleteProductModal(order: Order){
-
-}
-
-function addRemoveProduct(){
-	let nameProduct = $(".addNameProduct")
-	let quantityProduct = $(".addQuantity")
-	let i = 0;
-
-	$(".buttonInputProduct").on("click", () => {
-		i++;
-		let labelNome = $('<label>').addClass('block mb-2 text-sm font-medium text-gray-900 dark:text-white')
-								.attr('for', 'addNameProduct')
-								.attr('id', 'addLabelNameProduct'+i)
-								.text('Nome del prodotto');
-
-		let inputNome = $('<input>').attr('type', 'text')
-									.attr('name', 'addNameProduct'+i)
-									.attr('id', 'addNameProduct'+i)
-									.addClass('bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500')
-									.attr('placeholder', 'Croccantini')
-									.prop('required', true);
-
-		let labelQuantity = $('<label>').addClass('block mb-2 text-sm font-medium text-gray-900 dark:text-white')
-									.attr('for', 'addQuantity')
-									.attr('id', 'addLabelQuantity'+i)
-									.text('Quantita');
-
-		let inputQuantity = $('<input>').attr('type', 'text')
-									.attr('name', 'addQuantity'+i)
-									.attr('id', 'addQuantity'+i)
-									.addClass('bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500')
-									.attr('placeholder', 'Es: 2')
-									.prop('required', true);	
-		nameProduct.append(labelNome, inputNome)
-		quantityProduct.append(labelQuantity, inputQuantity)
-		nameProduct.show()
-		quantityProduct.show()
-	})
-
-	$(".removeButton").on("click", () => {
-		$("#addNameProduct"+i).remove()
-		$("#addQuantity"+i).remove()
-		$("#addLabelNameProduct"+i).remove()
-		$("#addLabelQuantity"+i).remove()
-		i--;
-	})
 }

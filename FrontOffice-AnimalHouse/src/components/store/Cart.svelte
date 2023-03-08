@@ -4,6 +4,7 @@
     import { addToast } from "../../store/toasts";
 	import { user } from "../../store/user"
 	import { prod } from '../../store/products'
+	import { ENDPOINT } from "../../utils/const"
 	const dispatch = createEventDispatcher();
 	
 	export let divClass
@@ -37,7 +38,7 @@
 	let oggi = new Date();
 	let options = { year: 'numeric', month: 'long', day: 'numeric' };
 
-	async function acquista(formEvent) {
+	async function newOrderSubmit(formEvent) {
 		products.forEach(async (product) => {
 			await prod.editQuantity(product._id, product.maxQuantity, product.quantity)
 		});
@@ -115,43 +116,45 @@
 
 <Modal bind:open={CheckoutModalOpen} size="md" autoclose>
 	<p class="text-2xl">Riepilogo ordine</p>
-	{#each products as product}
-	<p class="text-xl font-medium text-gray-900">Il tuo ordine arriverà: <b>{new Date(oggi.getTime() + product.giorni*24*60*60*1000).toLocaleDateString('it-IT', options)}</b></p>
-	<div class="flex mt-4">
-		<div id="p1" class="mr-4 h-20 w-20 overflow-hidden rounded-md border border-gray-200">
-			<img src={product.imageURI} alt={product.name}>
-		</div>
-		<div id="p2" class="w-full">
-			<div class="flex justify-between gap-4 text-base font-medium text-gray-900">
-				<p class="flex text-sm sm:text-base">{product.name}</p>
-				<p class="flex">{product.price * product.quantity}€</p>
+	<form id="newOrder" action={ENDPOINT.ORDERS_NEW} on:submit|preventDefault={newOrderSubmit} method="POST">
+		{#each products as product}
+		<p class="text-xl font-medium text-gray-900">Il tuo ordine arriverà: <b>{new Date(oggi.getTime() + product.giorni*24*60*60*1000).toLocaleDateString('it-IT', options)}</b></p>
+		<div class="flex mt-4">
+			<div id="p1" class="mr-4 h-20 w-20 overflow-hidden rounded-md border border-gray-200">
+				<img src={product.imageURI} alt={product.name}>
 			</div>
-			<Badge class="mt-2 mb-0"  slot="text">{product.category}</Badge>
-			<div class="flex justify-between text-sm mt-2">
-				<p class="text-gray-500"> 
-					Quantity:
-					<Input defaultClass="inline-flex w-16 h-4 disabled:cursor-not-allowed" let:props>
-						<input type="number" {...props} on:change={(event) => changeQuantity(event, product)} bind:value={product.quantity} max={product.maxQuantity} min="1" />
-					</Input>
-				</p>
-				<div class="flex">
-					<button on:click={() => dispatch('remove', product)} class="font-medium text-indigo-600 hover:text-indigo-500">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-							<path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-						</svg>
-					</button>
+			<div id="p2" class="w-full">
+				<div class="flex justify-between gap-4 text-base font-medium text-gray-900">
+					<p class="flex text-sm sm:text-base">{product.name}</p>
+					<p class="flex">{product.price * product.quantity}€</p>
+				</div>
+				<Badge class="mt-2 mb-0"  slot="text">{product.category}</Badge>
+				<div class="flex justify-between text-sm mt-2">
+					<p class="text-gray-500"> 
+						Quantity:
+						<Input defaultClass="inline-flex w-16 h-4 disabled:cursor-not-allowed" let:props>
+							<input type="number" {...props} on:change={(event) => changeQuantity(event, product)} bind:value={product.quantity} max={product.maxQuantity} min="1" />
+						</Input>
+					</p>
+					<div class="flex">
+						<button on:click={() => dispatch('remove', product)} class="font-medium text-indigo-600 hover:text-indigo-500">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+								<path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+							</svg>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="border-t border-gray-200"></div>
-	{/each}
+		<div class="mt-3 border-t border-gray-200"></div>
+		{/each}
+	</form>
 	<div class="sm:px-6">
 		<div class="flex justify-between text-xl font-bold text-gray-900">
 			<p>Totale:</p>
 			<p class="ml-1">{totalPrice}€</p>
 		</div>
 	</div>
-	<Button type="submit" form="newOrder" color="green" on:click={acquista}>Conferma</Button>
+	<Button type="submit" form="newOrder" color="green"> Conferma </Button>
     <Button color="red" on:click={() => CheckoutModalOpen = false}>Cancella</Button>
 </Modal>

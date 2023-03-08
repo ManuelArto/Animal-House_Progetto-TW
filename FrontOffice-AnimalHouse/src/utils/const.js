@@ -23,6 +23,8 @@ export const ENDPOINT = {
 	PRODUCTS_CATEGORY_LIST: (category) => SERVER_API + `/products/${category}/list`,
 	PRODUCTS_RAND_LIST: (number) => SERVER_API + `/products/list/rand/${number}`,
 	EDIT_QUANTITY: (id) => SERVER_API + `/products/${id}/updateQuantity`,
+	//ORDERS
+	ORDERS_NEW: SERVER_API + "/orders",
 	// SEDI
 	SEDI_LIST: SERVER_API + "/sedi/list",
 	// RESERVATIONS

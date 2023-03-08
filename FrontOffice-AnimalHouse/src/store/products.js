@@ -4,7 +4,6 @@ import { addToast } from './toasts'
 class Prod {
     async editQuantity(id, maxQuantity, quantity){
 		const ProdQuantity = maxQuantity - quantity;
-        console.log(ProdQuantity)
 		const response = await fetch(ENDPOINT.EDIT_QUANTITY(id), {
 			method: 'PATCH',
 			headers: {
