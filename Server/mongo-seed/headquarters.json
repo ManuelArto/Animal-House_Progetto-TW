@@ -43,12 +43,12 @@
 			"Veterinario": [
 				{
 					"tipo": ["cane, pappagallo"],
-					"peso": "10-20kg",
+					"peso": "20-30kg",
 					"number": 0
 				},
 				{
 					"tipo": ["gatto, criceto"],
-					"peso": "10-20kg",
+					"peso": "30-40kg",
 					"number": 0
 				}
 			]
@@ -103,7 +103,7 @@
 			"Veterinario": [
 				{
 					"tipo": ["cane", "roditore", "coniglio"],
-					"peso": "10-20kg",
+					"peso": "30-50kg",
 					"number": 0
 				}
 			]
@@ -122,7 +122,7 @@
 			"Dogsitter": [
 				{
 					"tipo": ["cane", "gatto"],
-					"peso": "10-30kg",
+					"peso": "0-10kg",
 					"number": 0
 				},
 				{
@@ -146,7 +146,7 @@
 			"Veterinario": [
 				{
 					"tipo": ["cane"],
-					"peso": "10-20kg",
+					"peso": "50-60kg",
 					"number": 0
 				}
 			]
@@ -177,7 +177,7 @@
 			"Veterinario": [
 				{
 					"tipo": ["cane", "pappagallo"],
-					"peso": "10-20kg",
+					"peso": "0-50kg",
 					"number": 0
 				}
 			]
@@ -208,7 +208,7 @@
 			"Veterinario": [
 				{
 					"tipo": ["cane", "coniglio", "gatto"],
-					"peso": "10-20kg",
+					"peso": "10-30kg",
 					"number": 0
 				}
 			]
@@ -251,7 +251,7 @@
 			"Veterinario": [
 				{
 					"tipo": ["cane"],
-					"peso": "10-20kg",
+					"peso": "20-40kg",
 					"number": 0
 				}
 			]
