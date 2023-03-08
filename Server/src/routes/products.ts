@@ -16,24 +16,6 @@ router.get('/list', async (req: Request, res: Response, next: NextFunction) => {
 	}
 })
 
-router.patch('/:productId/updateQuantity', async (req: Request, res: Response, next: NextFunction) => {
-	try {
-		const product = await ProductModel.findOne({ _id: req.params.productId })
-		const newQuantity = req.body.ProdQuantity;
-		if (!product)
-			throw new ErrorWrapper({ statusCode: 404, errorType: "NoProductFound", errorMsg: "No product with that id" })
-		
-		product.quantity = newQuantity;
-		await product.save();
-		res.json(product)
-	} catch (error: any) {
-        if (error instanceof ErrorWrapper)
-            next(error)
-        else
-            next(new ErrorWrapper({statusCode: 500, error: error}))
-	}
-})
-
 
 router.get('/categories/list', async (req: Request, res: Response, next: NextFunction) => {
 	try{
