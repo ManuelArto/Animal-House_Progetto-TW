@@ -79,7 +79,7 @@
 		<div class="w-full">
 			<div class="flex justify-between gap-4 text-base font-medium text-gray-900">
 				<p class="flex text-sm sm:text-base">{product.name}</p>
-				<p class="flex">{product.price * product.quantity}€</p>
+				<p class="flex">{(product.price * product.quantity).toFixed(2)}€</p>
 			</div>
 			<Badge class="mt-2 mb-0"  slot="text">{product.category}</Badge>
 			<div class="flex justify-between text-sm mt-2">
@@ -107,7 +107,7 @@
 	<div slot="footer" class="border-t border-gray-200 py-6 px-4 sm:px-6">
 		<div class="flex justify-between text-base font-medium text-gray-900">
 			<p>Totale</p>
-			<p>{totalPrice}€</p>
+			<p>{totalPrice.toFixed(2)}€</p>
 		</div>
 		<div class="mt-6">
 			<button on:click={() => !isUserLogged ? showUnauthorizedAlert("per andare al checkout") : showCheckout() } class="flex mx-auto items-center justify-center rounded-md border border-transparent bg-blue-700 px-6 hover:bg-blue-800 py-3 text-base font-medium text-white shadow-sm">
@@ -132,7 +132,7 @@
 		<div id="p2" class="w-full">
 			<div class="flex justify-between gap-4 text-base font-medium text-gray-900">
 				<p class="flex text-sm sm:text-base">{product.name}</p>
-				<p class="flex">{product.price * product.quantity}€</p>
+				<p class="flex">{(product.price * product.quantity).toFixed(2)}€</p>
 			</div>
 			<Badge class="mt-2 mb-0"  slot="text">{product.category}</Badge>
 			<div class="flex justify-between text-sm mt-2">
@@ -157,7 +157,7 @@
 	<div class="sm:px-6">
 		<div class="flex justify-between text-xl font-bold text-gray-900">
 			<p>Totale:</p>
-			<p class="ml-1">{totalPrice}€</p>
+			<p class="ml-1">{totalPrice.toFixed(2)}€</p>
 		</div>
 	</div>
 	<Button color="green" class="rounded" on:click={newOrderSubmit}> Conferma </Button>

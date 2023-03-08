@@ -37,7 +37,7 @@ function initOrders(){
 			order_tmpl.find(".showOrderButton").attr("id", `show_${order._id}`)
 			order_tmpl.find(".deleteOrderButton").attr("id", `delete_${order._id}`)
 			order_tmpl.find("#name").text(order.user.name + " " + order.user.surname)
-			order_tmpl.find("#price").text(order.price + " €")
+			order_tmpl.find("#price").text(order.price.toFixed(2) + " €")
 			order_tmpl.find("#date").text(order.date)
 			order_tmpl.find("#time").text(order.time)
 			$("tbody").append(order_tmpl[0].outerHTML);
