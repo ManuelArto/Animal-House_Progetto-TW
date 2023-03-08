@@ -24,16 +24,16 @@ interface Route {
 
 interface RandAnimal {
 	name: string,
-	latin_name: string,
-	animal_type: string,
+	il_nome_latino: string,
+	il_tipo_di_animale: string,
 	active_time: string,
 	length_min: string,
 	length_max: string,
 	weight_min: string,
 	weight_max: string,
-	lifespan: string,
+	la_vita_media: string,
 	habitat: string,
-	diet: string,
+	il_cibo: string,
 	geo_range: string,
 	image_link: string,
 	_id: string

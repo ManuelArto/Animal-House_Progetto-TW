@@ -4,7 +4,7 @@ import { Document, Schema, model, ObjectId } from 'mongoose'
 interface IGameAnimal extends Document {
 	name: string,
 	il_nome_latino: string,
-	tipo_di_animale_è: string,
+	il_tipo_di_animale: string,
 	active_time: string,
 	length_min: string,
 	length_max: string,
@@ -26,7 +26,7 @@ const gameAnimalSchema = new Schema<IGameAnimal>({
 		type: String,
 		required: true
 	},
-	tipo_di_animale_è: {
+	il_tipo_di_animale: {
 		type: String,
 		required: true
 	},

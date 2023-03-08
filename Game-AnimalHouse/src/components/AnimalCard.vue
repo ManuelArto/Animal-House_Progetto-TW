@@ -23,9 +23,9 @@ function confirmRemove(id: string) {
 }
 
 function getCustomText(animal: RandAnimal) {
-	return `${animal.name} (in latino ${animal.latin_name}) è un ${animal.active_time} ${animal.animal_type} 
+	return `${animal.name} (in latino ${animal.il_nome_latino}) è un ${animal.active_time} ${animal.il_tipo_di_animale} 
 	che si può trovare in ${animal.geo_range} nell'habitat ${animal.habitat}.
-	Ha una aspettativa di vita di ${animal.lifespan}, 
+	Ha una aspettativa di vita di ${animal.la_vita_media}, 
 	un peso che varia da ${animal.weight_min}-${animal.weight_max}kg
 	e un'altezza che varia da ${animal.length_min}-${animal.length_max}m.
 	`
