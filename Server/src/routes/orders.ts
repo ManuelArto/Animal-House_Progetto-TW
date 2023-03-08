@@ -19,5 +19,19 @@ router.get('/list', authJwt(true), async (req: Request, res: Response, next: Nex
 	}
 })
 
+router.get('/:orderId', async (req: Request, res: Response, next: NextFunction) => {
+	try {
+		const order = await OrderModel.findOne({ _id: req.params.orderId })
+		if (!order)
+			throw new ErrorWrapper({ statusCode: 404, errorType: "NoOrderFound", errorMsg: "No order with that id" })
+	
+		res.json(order)
+	} catch (error: any) {
+        if (error instanceof ErrorWrapper)
+            next(error)
+        else
+            next(new ErrorWrapper({statusCode: 500, error: error}))
+	}
+})
 
 export default router

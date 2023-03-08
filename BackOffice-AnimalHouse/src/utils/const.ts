@@ -22,6 +22,7 @@ export const ENDPOINT = {
 	PRODUCT: (id: string) => SERVER_API + `/products/${id}`,
 	// ORDERS
 	ORDERS_LIST: SERVER_API + "/orders/list",
+	ORDER: (id: string) => SERVER_API + `/orders/${id}`,
 	// SEDI
 	SEDI_LIST: SERVER_API + "/sedi/list",
 	// RESERVATIONS

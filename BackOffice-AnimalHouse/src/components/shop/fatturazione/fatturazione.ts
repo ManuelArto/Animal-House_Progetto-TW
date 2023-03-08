@@ -43,7 +43,7 @@ function initOrders(){
 			$("tbody").append(order_tmpl[0].outerHTML);
 
 			$(`#show_${order._id}`).on("click", () => openShoworderModal(order))
-			$(`#delete_${order._id}`).on("click", () => openDeleteOrderModal(order))
+			$(`#delete_${order._id}`).on("click", () => openDeleteOrderModal(order, localStorage.getItem("bo_token")))
 		}))
 }
 
@@ -89,13 +89,30 @@ function openShoworderModal(order: Order){
 	})
 }
 
-function openDeleteOrderModal(order: Order){
-
+function openDeleteOrderModal(order: Order, token?: string | null){
+	app_modals.delete.toggle()
+	$("#deleteOrderButton").on("click", async (event: JQuery.ClickEvent) => {
+		
+		const data = await handleRequest(ENDPOINT.ORDER(order._id), {
+			method: "DELETE",
+			headers: token ? { 'Authorization': `Bearer ${token}` } : {},
+		})
+		if (data.error) {
+			alert(data.error.message)
+		} else {
+			app_modals.delete.hide()
+			initOrders()
+			$("#deleteOrderButton").off("click")
+		}
+	})
 }
 
 
 function initCloseDeleteModal(){
-
+	$(".closeDeleteOrderModal").on("click", () => {
+		app_modals.delete.hide()
+		$("#deleteOrderButton").off("click")
+	})
 }
 
 function initCloseShowOrderModal(){
