@@ -107,7 +107,7 @@
 							<Rating size="18" class="mt-2.5 mb-5" rating={product.rating}>
 								<Badge slot="text" class="ml-3">{product.rating}</Badge> 
 							</Rating>
-							<span class="font-bold text-2xl">{product.price}€</span>
+							<span class="font-bold text-2xl">{product.price.toFixed(2)}€</span>
 						</div>
 					</div>
 				{/each}

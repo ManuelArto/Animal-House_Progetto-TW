@@ -16,7 +16,7 @@
 		<div class="md:col-span-7 h-full flex flex-col content-between">
 			<div class="mb-auto">
 				<h2 class="text-2xl font-bold text-gray-900 mb-1">{product.name}</h2>
-				<p class="text-2xl text-gray-900 mb-2 ">{product.price}€</p>
+				<p class="text-2xl text-gray-900 mb-2 ">{product.price.toFixed(2)}€</p>
 				<Rating rating={product.rating} size="18" class="mb-4">
 					<Badge slot="text" class="ml-3">{product.rating}</Badge>
 				</Rating>
