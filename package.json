@@ -1,0 +1,28 @@
+{
+	"name": "animal-house",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"front": "npm run dev --prefix Clients/FrontOffice",
+		"game": "npm run dev --prefix Clients/Game",
+		"back": "npm run dev --prefix Clients/BackOffice",
+		"server": "npm run dev --prefix Api",
+		"dev": "npm run game & npm run front & npm run back & npm run server",
+		"prod": "docker-compose up -d",
+		"db": "docker-compose up -d mongodb mongo_seed",
+		"db:down": "docker-compose down mongodb",
+		"install": "npm i --prefix Clients/Game && npm i --prefix Clients/FrontOffice && npm i --prefix Clients/FrontOffice && npm i --prefix Clients/BackOffice && npm i --prefix Api"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ManuelArto/Animal-House_Progetto-TW"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ManuelArto/Animal-House_Progetto-TW/issues"
+	},
+	"homepage": "https://github.com/ManuelArto/Animal-House_Progetto-TW#readme",
+	"dependencies": {},
+	"devDependencies": {}
+}

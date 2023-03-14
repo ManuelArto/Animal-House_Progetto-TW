@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  mongodb:
+    restart: always
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
+  mongo_seed:
+    image: mongo:latest
+    links:
+      - mongodb
+    volumes:
+      - ./data/mongo-seed:/mongo-seed/
+    command: /mongo-seed/mongoimport.sh

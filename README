@@ -1,0 +1,24 @@
+# Animal House - Progetto TW 2022/2023
+
+Animal House is an ecosystem of web applications for pet owners. It features:
+
+- the Animal House Game (an entertainment light-weight application);
+- the Animal House Frontoffice (for customers);
+- the Animal House Backoffice (for managers);
+- the Animal House API.
+
+## How to run
+
+### DEV
+Run:
+```bash
+npm run db
+npm run install
+npm run dev
+```
+
+### PROD
+Run:
+```bash
+docker compose up -d
+```
