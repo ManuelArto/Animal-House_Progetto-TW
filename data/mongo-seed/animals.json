@@ -4,7 +4,7 @@
 			"$oid": "5fea8abcda05f098a1ac9124"
 		},
 		"name": "Fido",
-		"imageURI": "https://petadvisor.it/wp-content/uploads/2019/12/labrador-retriever-cop.jpg",
+		"imageURI": "/images/pet-image-file-1678905095367-labrador-retriever-cop.jpg",
 		"species": "Cane",
 		"breed": "Labrador Retriever",
 		"birthDate": "01/01/2010",
@@ -20,7 +20,7 @@
 			"$oid": "5fea8abcda05f098a1ac9122"
 		},
 		"name": "Mittens",
-		"imageURI": "https://www.tuttogreen.it/wp-content/uploads/2016/08/shutterstock_169231703.jpg",
+		"imageURI": "/images/shutterstock_169231703.jpg",
 		"species": "Gatto",
 		"breed": "Siamese",
 		"birthDate": "02/02/2011",
@@ -36,7 +36,7 @@
 			"$oid": "5fea8abcda05f098a1ac9121"
 		},
 		"name": "Buddy",
-		"imageURI": "https://img2.storyblok.com/filters:format(webp)/f/83829/1200x628/9a2981fd1e/esperance-vie-cavalier-king-charles.jpg",
+		"imageURI": "/images/esperance-vie-cavalier-king-charles.jpg",
 		"species": "Cane",
 		"breed": "Cavalier King",
 		"birthDate": "03/03/2012",
