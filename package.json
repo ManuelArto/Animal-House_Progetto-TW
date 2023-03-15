@@ -7,22 +7,27 @@
 		"game": "npm run dev --prefix Clients/Game",
 		"back": "npm run dev --prefix Clients/BackOffice",
 		"server": "npm run dev --prefix Api",
-		"dev": "npm run game & npm run front & npm run back & npm run server",
+		"dev": "npm-run-all --parallel game front back server",
 		"prod": "docker-compose up -d",
 		"db": "docker-compose up -d mongodb mongo_seed",
 		"db:down": "docker-compose down mongodb",
-		"install": "npm i --prefix Clients/Game && npm i --prefix Clients/FrontOffice && npm i --prefix Clients/FrontOffice && npm i --prefix Clients/BackOffice && npm i --prefix Api"
+		"preinstall": "npm i --prefix Clients/Game && npm i --prefix Clients/FrontOffice && npm i --prefix Clients/FrontOffice && npm i --prefix Clients/BackOffice && npm i --prefix Api"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/ManuelArto/Animal-House_Progetto-TW"
 	},
-	"author": "",
+	"author": "manuel.arto, andrea.napoli",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/ManuelArto/Animal-House_Progetto-TW/issues"
 	},
 	"homepage": "https://github.com/ManuelArto/Animal-House_Progetto-TW#readme",
-	"dependencies": {},
-	"devDependencies": {}
+	"dependencies": {
+		"backoffice-animalhouse": "file:Clients/BackOffice",
+		"frontoffice-animalhouse": "file:Clients/FrontOffice",
+		"game-animalhouse": "file:Clients/Game",
+		"npm-run-all": "^4.1.5",
+		"server-animalhouse": "file:Api"
+	}
 }
