@@ -1,6 +1,4 @@
-import endpoint from "../../../endpoint.json"
-
-const SERVER_API = endpoint.SERVER_API
+const SERVER_API = "http://localhost:5000/api"
 
 export const ENDPOINT = {
 	// ADMIN USERS
