@@ -9,6 +9,7 @@
 		"server": "npm run dev --prefix Api",
 		"dev": "npm-run-all --parallel game front back server",
 		"prod": "docker-compose up -d",
+		"prod:down": "docker-compose down",
 		"db": "docker-compose up -d mongodb mongo_seed",
 		"db:down": "docker-compose down mongodb",
 		"preinstall": "npm i --prefix Clients/Game && npm i --prefix Clients/FrontOffice && npm i --prefix Clients/FrontOffice && npm i --prefix Clients/BackOffice && npm i --prefix Api"
