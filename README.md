@@ -18,7 +18,7 @@ SinglePageApplication, no autenticazione
 ### Tech Stack
 - Framework: [Vue3](https://vuejs.org/)
 - UI Component Library: [Bootstrap](https://getbootstrap.com/), [BootstrapVueNext](https://bootstrap-vue.github.io/bootstrap-vue-next/)
-- Scaffolding Tool: [Vite](https://vitejs.dev/)
+- Build Tool: [Vite](https://vitejs.dev/)
 
 ## FrontOffice
 Applicazione per i clienti, mobile first, orientata a fornire accesso ai prodotti e ai servizi offerti dall'azienda.
@@ -28,7 +28,7 @@ SinglePageApplication, autenticazione
 ### Tech Stack
 - Framework: [Svelte](https://svelte.dev/)
 - UI Component Library: [Tailwind](https://tailwindcss.com/), [Flowbite-Svelte](https://flowbite-svelte.com/)
-- Scaffolding Tool: [Vite](https://vitejs.dev/)
+- Build Tool: [Vite](https://vitejs.dev/)
 
 ## BackOffice
 Parte dell'applicazione che permette agli amministratori di gestire i dati dei clienti e abiliatare e configurare i servizi e i prodotti
@@ -36,7 +36,7 @@ Parte dell'applicazione che permette agli amministratori di gestire i dati dei c
 ### Tech Stack
 - Framework: [JQuery](https://jquery.com/)
 - UI Component Library: [Tailwind](https://tailwindcss.com/), [Flowbite](https://flowbite.com/)
-- Scaffolding Tool: [Vite](https://vitejs.dev/)
+- Build Tool: [Vite](https://vitejs.dev/)
 
 ## API
 Fornisce le api per l'accesso e la manipolazione dei prodotti e servizi dell'azienda. Gestione dell'autenticazione tramite **jwt**.
